@@ -65,6 +65,10 @@
         [toobaritem_login setLabel:@"登录"];
         self.hash = nil;
         [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_HASH];
+        self.cookie = nil;
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_COOKIE];
+        [tasks_view clear_task_list];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

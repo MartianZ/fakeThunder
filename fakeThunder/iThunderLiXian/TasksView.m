@@ -462,4 +462,13 @@
     [mutable_array removeAllObjects];
 
 }
+
+//--------------------------------------------------------------
+//      清空列表
+//--------------------------------------------------------------
+-(void)clear_task_list
+{
+    [array_controller removeObjects:[array_controller arrangedObjects]];
+    [mutable_array removeAllObjects];
+}
 @end

@@ -27,7 +27,6 @@
     IBOutlet NSToolbarItem *toobaritem_login;
     IBOutlet NSToolbarItem *toobaritem_loadmore;
     IBOutlet NSToolbarItem *toobaritem_add_task;
-    
     NSString *hash;
     NSString *cookie;
     

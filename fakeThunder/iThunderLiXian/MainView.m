@@ -87,7 +87,7 @@
     if ([username length] < 3 || [password length] < 6) return;
     
     [login_progress startAnimation:self];
-    [(NSButton *)sender setEnabled:NO];
+    [login_ok_button setEnabled:NO];
     
     [toobaritem_login setEnabled:NO];
     [toobaritem_login setLabel:@"正在登录"];

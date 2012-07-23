@@ -405,6 +405,9 @@
         NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@",play_url,play_url_2];
         NSLog(@"%@",play_url_3);
         
+        NSString *user_id = [play_url_3 substringFromIndex:[play_url_3 rangeOfString:@"&ui="].location + 4];
+        user_id = [user_id substringToIndex:[user_id rangeOfString:@"&"].location];
+        NSLog(@"%@",user_id);
         
         /*
          open -a "MPlayerX.app" --args '-ExtraOptions' '"-cookies -cookies-file /cookies.txt"' '-url' 'http://gdl.lixian.vip.xunlei.com/download?dt=16&g=A05AD1F697495D81B9D147D647B69351D2654C03&t=2&ui=32767&s=143722770&v_type=-1&scn=c8&n=0E485299C7896A0B00&p=1&xplaybackid=ecb339a0-cb6d-11e1-8b97-782bcb3dd24d&start=0&end=143722770'
@@ -412,9 +415,29 @@
          open -a "MPlayerX.app" --args '-ExtraOptions' '"-cookies -cookies-file cookies.txt"' '-url' 'http://gdl.lixian.vip.xunlei.com/download?dt=16&2&g=84FE933D4B8F1F5825357A2ADC8D11E61613560C&ui=32767&v_type=-1&n=0&start=0&end=152321397'
          
          */
+        
+        //killall MPlayerX
+        //为了设置额外的启动参数，这里必须重启一下MPlayerX，然后调用Open打开
+        //感谢开发MPlayerX的朋友，竟然有提供额外的启动参数！OS X上最完美的播放器，没有之一
+        
+        NSString *cookie_path = [@"~/Desktop/.xunlei_cookie.txt" stringByExpandingTildeInPath];
+        NSString *cookie_content = [NSString stringWithFormat:@".xunlei.com	TRUE	/	FALSE	16572792388	userid	%@", user_id];
+        [cookie_content writeToFile:cookie_path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        
+        NSTask *task_kill = [[NSTask alloc] init];
+        [task_kill setLaunchPath:@"/usr/bin/killall"];
+        NSArray *args_kill = [NSArray arrayWithObjects:@"MPlayerX", nil];
+        [task_kill setArguments:args_kill];
+        [task_kill launch];
+        [task_kill waitUntilExit];
+        
+        
+        
+        
+        
         NSTask *task = [[NSTask alloc] init];
         [task setLaunchPath:@"/usr/bin/open"];
-        NSArray *args = [NSArray arrayWithObjects:@"-a",@"MPlayerX.app",@"--args",@"-ExtraOptions",@"\"-cookies -cookies-file cookies.txt\"",@"-url",play_url_3,nil];
+        NSArray *args = [NSArray arrayWithObjects:@"-a",@"MPlayerX.app",@"--args",@"-ExtraOptions",[NSString stringWithFormat:@"\"-cookies -cookies-file %@\"", cookie_path],@"-url",play_url_3,nil];
         [task setArguments:args];
         [task launch];
         [task waitUntilExit];
@@ -430,8 +453,9 @@
 -(IBAction)menu_cloud_play:(id)sender
 {
     @autoreleasepool {
+        /*
         [[NSAlert alertWithMessageText:@"Under Development!" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"由于迅雷官方的调整，云点播功能暂时不可用。后续版本会提供支持。"] runModal];
-        return;
+        return;*/
         
         NSMenuItem *menu_item = (NSMenuItem *)sender;
         
@@ -446,7 +470,7 @@
 }
 
 //--------------------------------------------------------------
-//      菜单单击：云点播
+//      菜单单击：分享
 //--------------------------------------------------------------
 -(IBAction)menu_share:(id)sender
 {

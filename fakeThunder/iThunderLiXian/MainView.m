@@ -180,6 +180,7 @@
                 
             });
         }
+        [add_task_progress stopAnimation:self];
     });
 }
 

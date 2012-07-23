@@ -33,5 +33,6 @@
     [task setLaunchPath:@"/usr/bin/killall"];
     [task setArguments:[NSArray arrayWithObject:@"aria2c"]];
     [task launch];
+    [task waitUntilExit];
 }
 @end

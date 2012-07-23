@@ -430,12 +430,34 @@
 -(IBAction)menu_cloud_play:(id)sender
 {
     @autoreleasepool {
+        [[NSAlert alertWithMessageText:@"Under Development!" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"由于迅雷官方的调整，云点播功能暂时不可用。后续版本会提供支持。"] runModal];
+        return;
+        
         NSMenuItem *menu_item = (NSMenuItem *)sender;
         
         for (TaskModel *t in [array_controller arrangedObjects]) {
             if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
                 
                 [NSThread detachNewThreadSelector:@selector(thread_cloud_play:) toTarget:self withObject:t];
+                break;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+//      菜单单击：云点播
+//--------------------------------------------------------------
+-(IBAction)menu_share:(id)sender
+{
+    @autoreleasepool {
+        [[NSAlert alertWithMessageText:@"Under Development!" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"由于迅雷官方的调整，分享功能暂时不可用。后续版本会提供支持。"] runModal];
+        return;
+        
+        NSMenuItem *menu_item = (NSMenuItem *)sender;
+        
+        for (TaskModel *t in [array_controller arrangedObjects]) {
+            if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
                 break;
             }
         }

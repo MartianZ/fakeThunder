@@ -1,0 +1,465 @@
+//
+//  TasksView.m
+//  fakeThunder
+//
+//  Created by Martian on 12-7-23.
+//  Copyright (c) 2012年 Martian. All rights reserved.
+//
+
+#import "TasksView.h"
+
+@interface TasksView ()
+
+@end
+
+@implementation TasksView
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Initialization code here.
+        
+        hash = [[NSString alloc] init];
+        
+        //--------------------------------------------------------------
+        //      mutable_array：用来保存任务列表，查看BT任务文件内容后快速返回
+        //--------------------------------------------------------------
+        mutable_array = [[NSMutableArray alloc] init];
+        bt_file_list_mutable_dict = [[NSMutableDictionary alloc] init];
+        
+        operation_download_queue = [[NSOperationQueue alloc] init];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults integerForKey:@UD_MAX_TASKS] < 1) {
+            [defaults setInteger:1 forKey:@UD_MAX_TASKS];
+        }
+        [operation_download_queue setMaxConcurrentOperationCount:[defaults integerForKey:@UD_MAX_TASKS]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(set_max_tasks) name:@UD_MAX_TASKS object:nil];
+    }
+    return self;
+}
+
+//--------------------------------------------------------------
+//      监视软件偏好设置中的最大下载任务数的更改
+//--------------------------------------------------------------
+-(void)set_max_tasks
+{
+    NSLog(@"CHANGE MAX TASKS");
+    [operation_download_queue setMaxConcurrentOperationCount:[[NSUserDefaults standardUserDefaults] integerForKey:@UD_MAX_TASKS]];
+    
+}
+
+//--------------------------------------------------------------
+//      线程：添加任务
+//--------------------------------------------------------------
+-(BOOL)thread_add_task:(NSString *)task_url
+{
+    
+    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    
+    NSString *request_url = @"http://thunder.4321.la/add_task";
+    
+    NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
+    
+    NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
+    
+    
+    if ([requestResult isEqualToString:@"Success"]) {
+        //添加任务成功
+        [array_controller removeObjects:[array_controller arrangedObjects]];
+        [self thread_get_task_list:0];
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+//--------------------------------------------------------------
+//      线程：获取任务列表
+//--------------------------------------------------------------
+- (void)thread_get_task_list:(NSInteger)page_num
+{
+    NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/%@/get_task_list/%lu/0",self.hash, (page_num+1) * 20]];
+        
+    if ([requestResult isEqualToString:@"Fail"])
+    {
+        return;
+    }
+    
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+    
+    NSLog(@"%@",[jsonArray objectAtIndex:0]);
+    
+    for (unsigned long i = page_num * 20; (i < (page_num + 1) * 20) && (i < [jsonArray count]); i++) {
+        [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:[jsonArray objectAtIndex:i] waitUntilDone:NO];
+    }
+    
+}
+
+//--------------------------------------------------------------
+//      主线程：添加任务列表到ArrayController
+//--------------------------------------------------------------
+- (void)mainthread_add_task_to_list:(NSDictionary *)dict
+{
+    /*
+     {
+     cid = 4324E224D5A4A797363660885936A7D8D1BB328F;
+     format = other;
+     "lixian_url" = "";
+     process = 100;
+     size = 106950840;
+     status = finished;
+     "task_id" = 116965968392;
+     "task_type" = bt;
+     taskname = "[HSsub][\U671d\U304b\U3089\U305a\U3063\U3057\U308a\U00b7\U30df\U30eb\U30af\U30dd\U30c3\U30c8][01][704x396][H264_AAC].mkv";
+     url = "bt://4324E224D5A4A797363660885936A7D8D1BB328F";
+     }
+     */
+    TaskModel *task = [[TaskModel alloc] init];
+    if ([dict objectForKey:@"dirtitle"]) {
+        //BT子任务
+        task.TaskTitle = [dict objectForKey:@"dirtitle"];
+        task.FatherTitle = [dict objectForKey:@"fathertitle"];
+        task.FatherTaskModel = [mutable_array objectAtIndex:[[dict objectForKey:@"fathertaskmodel"] unsignedLongValue]];
+    } else {
+        task.TaskTitle = [dict objectForKey:@"taskname"];
+        task.FatherTitle = nil;
+        task.FatherTaskModel = nil;
+    }
+        
+    float task_size = [[dict objectForKey:@"size"] floatValue];
+    float task_process = [[dict objectForKey:@"process"] floatValue];
+    task.TaskSize = task_size; task.TaskDownloadedSize = 0;
+    
+    int i = 0;
+    NSArray *size_scale = [NSArray arrayWithObjects:@"Bytes",@"KiB",@"MiB",@"GiB",@"TiB",@"PiB",@"EiB", nil];
+    while (task_size > 1024) {
+        i++;
+        task_size = task_size / 1024;
+    }
+    
+    task.TaskSizeDescription = [NSString stringWithFormat:@"%.2f%@",task_size,size_scale[i]];
+    task.TaskLiXianProcess = [NSString stringWithFormat:@"离线下载进度：%.2f%%",task_process];
+    
+    
+    
+    if ([dict objectForKey:@"task_type"] && [[dict objectForKey:@"task_type"] isEqualToString:@"bt"]) {
+        task.TaskType = [NSImage imageNamed:@"tpimg_bt.png"];
+        task.TaskTypeString = @"bt";
+    } else {
+        if ([[dict objectForKey:@"format"] isEqualToString:@"movie"]) {
+            task.TaskType = [NSImage imageNamed:@"tpimg_video.png"];
+            task.TaskTypeString = @"movie";
+        } else {
+            task.TaskType = [NSImage imageNamed:@"tpimg_other.png"];
+            task.TaskTypeString = @"other";
+        }
+        if ([[dict objectForKey:@"format"] isEqualToString:@"rar"])
+        {
+            task.TaskType = [NSImage imageNamed:@"tpimg_rar.png"];
+        }
+        
+    }
+        
+    task.TaskID = [NSString stringWithFormat:@"%lu",[[dict objectForKey:@"task_id"] unsignedLongValue]];
+    task.Indeterminate = YES;
+    task.ProgressValue = 0;
+    task.Cookie = [NSString stringWithFormat:@"Cookie:%@", self.cookie];
+    task.LiXianURL = [dict objectForKey:@"lixian_url"];
+    
+    task.CID = [NSString stringWithString:[dict objectForKey:@"cid"]];
+    task.ButtonTitle = @"开始本地下载";
+    task.ButtonEnabled = YES;
+    [array_controller addObject:task];
+    
+    if (task.FatherTaskModel && task.FatherTaskModel.StartAllDownloadNow) {
+        
+        if ([task.TaskLiXianProcess hasSuffix:@"100.00%"])
+        {
+            task->NeedToStopNow = NO;
+            task.ButtonTitle = @"队列中...";
+            DownloadOperation *download_operation = [[DownloadOperation alloc] initWithTaskModel:task];
+            [operation_download_queue addOperation:download_operation];
+            task.download_operation = download_operation;
+        }
+        
+    }
+    
+}
+
+//--------------------------------------------------------------
+//      线程：加载BT任务内容
+//--------------------------------------------------------------
+-(void)thread_load_bt_file_list:(TaskModel *)t
+{
+    @autoreleasepool {
+        
+        
+        [mutable_array removeAllObjects];
+        
+        for (TaskModel *tt in [array_controller arrangedObjects]) {
+            [mutable_array addObject:tt];
+        }
+        
+        [array_controller removeObjects:[array_controller arrangedObjects]];
+        [nav_label setStringValue:@"加载中..."];
+        [nav_label setToolTip:t.TaskID];
+        [nav_image setImage:[NSImage imageNamed:@"nav-bt.png"]];
+        
+        
+        if ([bt_file_list_mutable_dict objectForKey:t.TaskID]) {
+            for (TaskModel *tt in [bt_file_list_mutable_dict objectForKey:t.TaskID]) {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [array_controller addObject:tt];
+                });
+            }
+            [nav_label setStringValue:t.TaskTitle];
+        }
+        else {
+            
+            NSString *file_list = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/%@/get_bt_list/%@/%@",self.hash,t.TaskID,t.CID]];
+            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[file_list dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+            sleep(1); //等待渐变动画结束，然后再继续
+            [nav_label setStringValue:t.TaskTitle];
+            for (NSDictionary *dict in jsonArray) {
+                NSMutableDictionary *mutable_dict = [NSMutableDictionary dictionaryWithDictionary:dict];
+                NSString *dirtitle = [NSString stringWithString:[dict objectForKey:@"dirtitle"]];
+                dirtitle = [dirtitle stringByReplacingOccurrencesOfString:@"\\*" withString:@"/"];
+                [mutable_dict setObject:dirtitle forKey:@"dirtitle"];
+                [mutable_dict setObject:t.TaskTitle forKey:@"fathertitle"];
+                [mutable_dict setObject:[NSNumber numberWithInteger:[mutable_array indexOfObject:t]] forKey:@"fathertaskmodel"];
+                [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:mutable_dict waitUntilDone:NO];                
+                
+            }
+        }
+        [nav_button setHidden:NO];
+        
+    }
+    
+    
+}
+
+//--------------------------------------------------------------
+//      按钮单击：开始下载
+//--------------------------------------------------------------
+- (IBAction)button_start_download:(id)sender
+{
+    if (![sender isKindOfClass:[NSButton class]])
+    {
+        return;
+    }
+    NSButton *button = (NSButton *)sender;
+    
+    TaskModel *t;
+    for (TaskModel *tt in [array_controller arrangedObjects]) {
+        if ([tt.TaskID isEqualToString:[button toolTip]]) {
+            t = tt;
+            break;
+        }
+    }
+    
+    
+    if ([t.ButtonTitle isEqualToString:@"开始本地下载"] || [t.ButtonTitle isEqualToString:@"继续下载"])
+    {
+        //下载文件
+        if ([t.TaskTypeString isEqualToString:@"bt"]) { //BT任务，下载全部文件
+            t.StartAllDownloadNow = YES;
+            [NSThread detachNewThreadSelector:@selector(thread_load_bt_file_list:) toTarget:self withObject:t];
+            return;
+        }
+        
+        if (![t.TaskLiXianProcess hasSuffix:@"100.00%"])
+        {
+            [[NSAlert alertWithMessageText:@"无法下载任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"远端离线任务尚未下载完成，无法下载到本地，请等待完成后重试。"] runModal];
+        }
+        t->NeedToStopNow = NO;
+        //[t start_download:button]; 采用线程池
+        //operation_download_queue
+        t.ButtonTitle = @"队列中...";
+        
+        DownloadOperation *download_operation = [[DownloadOperation alloc] initWithTaskModel:t];
+        [operation_download_queue addOperation:download_operation];
+        t.download_operation = download_operation;
+        
+        return;
+    }
+    if ([t.ButtonTitle hasSuffix:@"Bs"]) {
+        //暂停下载
+        t->NeedToStopNow = YES;
+        return;
+    }
+    
+    if ([t.ButtonTitle hasPrefix:@"队列中"]) {
+        //取消队列
+        [t.download_operation cancel];
+        t.ButtonTitle = @"开始本地下载";
+    }
+    
+    if ([t.ButtonTitle isEqualToString:@"完成下载"]) {
+        [[NSWorkspace sharedWorkspace] selectFile:t.TaskTitle inFileViewerRootedAtPath:@""];
+    }
+    
+}
+
+//--------------------------------------------------------------
+//      按钮单击：获取更多功能
+//--------------------------------------------------------------
+-(IBAction)task_button_more_click:(id)sender
+{
+    if (![sender isKindOfClass:[NSButton class]])
+    {
+        return;
+    }
+    
+    NSButton *button = (NSButton *)sender;
+    
+    for (TaskModel *t in [array_controller arrangedObjects]) {
+        if ([t.TaskID isEqualToString:[button toolTip]]) {
+            
+            for (NSMenuItem *menu_item in [task_menu itemArray]) {
+                [menu_item setToolTip:[button toolTip]];
+            }
+            
+            [[[task_menu itemArray] objectAtIndex:0] setHidden:YES];
+            [[[task_menu itemArray] objectAtIndex:1] setHidden:YES];
+            if ([t.TaskTypeString isEqualToString:@"bt"]) {
+                //BT任务
+                [[[task_menu itemArray] objectAtIndex:0] setHidden:NO];
+            } else if ([t.TaskTypeString isEqualToString:@"movie"]) {
+                [[[task_menu itemArray] objectAtIndex:1] setHidden:NO];
+            }
+            break;
+        }
+    }
+    
+    
+    NSRect frame = [(NSButton *)sender frame];
+    NSPoint menuOrigin = [[(NSButton *)sender superview] convertPoint:NSMakePoint(frame.origin.x, frame.origin.y) toView:nil];
+    
+    NSEvent *event =  [NSEvent mouseEventWithType:NSLeftMouseDown
+                                         location:menuOrigin
+                                    modifierFlags:NSLeftMouseDownMask
+                                        timestamp:0
+                                     windowNumber:[[(NSButton *)sender window] windowNumber]
+                                          context:[[(NSButton *)sender window] graphicsContext]
+                                      eventNumber:0
+                                       clickCount:1
+                                         pressure:1];
+    [NSMenu popUpContextMenu:task_menu withEvent:event forView:(NSButton *)sender];
+}
+
+//--------------------------------------------------------------
+//      菜单单击：获取BT文件列表
+//--------------------------------------------------------------
+-(IBAction)menu_bt_show_file_list:(id)sender
+{
+    @autoreleasepool {
+        NSMenuItem *menu_item = (NSMenuItem *)sender;
+        
+        for (TaskModel *t in [array_controller arrangedObjects]) {
+            if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
+                
+                [NSThread detachNewThreadSelector:@selector(thread_load_bt_file_list:) toTarget:self withObject:t];
+                break;
+            }
+        }
+    }
+}
+
+-(void)thread_cloud_play:(TaskModel *)t
+{
+    
+    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    
+    NSString *request_url = @"http://thunder.4321.la/vod_get_play_url";
+    
+    NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
+    
+    NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
+    
+    
+    NSLog(@"%@",requestResult);
+    
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+    
+    
+    NSArray *jsonArray;
+    if ((jsonArray = [[jsonDict objectForKey:@"resp"] objectForKey:@"vodinfo_list"])) {
+        if ([jsonArray count] < 1) {
+            return;
+        }
+        /*
+         
+         {
+         "has_subtitle" = "-1";
+         "spec_id" = 357120;
+         "vod_url" = "http://gdl.lixian.vip.xunlei.com/download?dt=16&g=46909C4152B16E34240CA2FAA3AACB603E7BC805&t=2&ui=32767&s=350443827&v_type=-1&scn=c4&n=08586C0FD0F6390000&p=1&xplaybackid=23833448-cb42-11e1-9add-782bcb3dd24d";
+         }
+         
+         */
+        NSString *play_url = [[jsonArray objectAtIndex:[jsonArray count] -1/*0*/] objectForKey:@"vod_url"];
+        play_url = [play_url stringByReplacingOccurrencesOfString:@"&p=" withString:@"&"];
+        NSString *play_url_2 = [play_url substringFromIndex:[play_url rangeOfString:@"&s"].location + 3];
+        play_url_2 = [play_url_2 substringToIndex:[play_url_2 rangeOfString:@"&"].location];
+        NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@",play_url,play_url_2];
+        NSLog(@"%@",play_url_3);
+        
+        
+        /*
+         open -a "MPlayerX.app" --args '-ExtraOptions' '"-cookies -cookies-file /cookies.txt"' '-url' 'http://gdl.lixian.vip.xunlei.com/download?dt=16&g=A05AD1F697495D81B9D147D647B69351D2654C03&t=2&ui=32767&s=143722770&v_type=-1&scn=c8&n=0E485299C7896A0B00&p=1&xplaybackid=ecb339a0-cb6d-11e1-8b97-782bcb3dd24d&start=0&end=143722770'
+         
+         open -a "MPlayerX.app" --args '-ExtraOptions' '"-cookies -cookies-file cookies.txt"' '-url' 'http://gdl.lixian.vip.xunlei.com/download?dt=16&2&g=84FE933D4B8F1F5825357A2ADC8D11E61613560C&ui=32767&v_type=-1&n=0&start=0&end=152321397'
+         
+         */
+        NSTask *task = [[NSTask alloc] init];
+        [task setLaunchPath:@"/usr/bin/open"];
+        NSArray *args = [NSArray arrayWithObjects:@"-a",@"MPlayerX.app",@"--args",@"-ExtraOptions",@"\"-cookies -cookies-file cookies.txt\"",@"-url",play_url_3,nil];
+        [task setArguments:args];
+        [task launch];
+        [task waitUntilExit];
+        
+    } else {
+        return;
+    }
+}
+
+//--------------------------------------------------------------
+//      菜单单击：云点播
+//--------------------------------------------------------------
+-(IBAction)menu_cloud_play:(id)sender
+{
+    @autoreleasepool {
+        NSMenuItem *menu_item = (NSMenuItem *)sender;
+        
+        for (TaskModel *t in [array_controller arrangedObjects]) {
+            if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
+                
+                [NSThread detachNewThreadSelector:@selector(thread_cloud_play:) toTarget:self withObject:t];
+                break;
+            }
+        }
+    }
+}
+
+//--------------------------------------------------------------
+//      按钮单击：返回起始任务列表
+//--------------------------------------------------------------
+-(IBAction)button_back_to_file_list:(id)sender
+{
+    [nav_button setHidden:YES];
+    [nav_image setImage:nil];
+    [nav_label setStringValue:@""];
+    //备份BT文件列表
+    if (![bt_file_list_mutable_dict objectForKey:[nav_label toolTip]]) {
+        NSArray *bt_files = [[NSArray alloc] initWithArray:[array_controller arrangedObjects]];
+        [bt_file_list_mutable_dict setObject:bt_files forKey:[nav_label toolTip]];
+    }
+    
+    
+    [array_controller removeObjects:[array_controller arrangedObjects]];
+    [array_controller addObjects:mutable_array];
+    [mutable_array removeAllObjects];
+
+}
+@end

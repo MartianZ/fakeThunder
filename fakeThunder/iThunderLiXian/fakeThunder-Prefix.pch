@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'iThunderLiXian' target in the 'iThunderLiXian' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#import "Constants.h"
+
+#ifndef __OPTIMIZE__
+#    define NSLog(s, ...) NSLog( @"<%s : (%d)> %@",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#    define NSLog(...) {}
+#endif
+

@@ -429,9 +429,7 @@
         NSArray *args_kill = [NSArray arrayWithObjects:@"MPlayerX", nil];
         [task_kill setArguments:args_kill];
         [task_kill launch];
-        [task_kill waitUntilExit];
-        
-        
+        [task_kill waitUntilExit];        
         
         
         

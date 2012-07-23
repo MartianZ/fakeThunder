@@ -18,10 +18,13 @@ fakeThunder
 
 	![img](http://ww2.sinaimg.cn/large/a6131aedjw1dv75tmsxe5j.jpg)
 
-	
+4. 使用MPlayerX播放迅雷云点播
+
+	![img](http://ww2.sinaimg.cn/large/a6131aedjw1dv7anjhyqvj.jpg)
+
 ##TODOs：
 
-1. 迅雷云点播功能
+1. **[DONE]** ~~迅雷云点播功能~~
 2. 分享任务功能
 3. 删除任务功能
 

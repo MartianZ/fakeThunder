@@ -18,7 +18,7 @@ fakeThunder
 
 	![img](http://ww2.sinaimg.cn/large/a6131aedjw1dv75tmsxe5j.jpg)
 
-4. 使用MPlayerX播放迅雷云点播
+4. 使用MPlayerX播放迅雷云点播  **TIP**:需要在MPlayerX设置中**取消**使用ffmpeg处理流！否则无法播放视频
 
 	![img](http://ww2.sinaimg.cn/large/a6131aedjw1dv7anjhyqvj.jpg)
 

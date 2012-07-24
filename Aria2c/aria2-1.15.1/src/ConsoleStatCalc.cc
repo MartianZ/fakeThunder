@@ -358,6 +358,8 @@ ConsoleStatCalc::calculateStat(const DownloadEngine* e)
       }
       o << "%)"
         << "]";
+	global::cout()->flush();
+	//我们需要flush来解决缓存问题，不然管道读不到，这个问题困扰了好久
       if(e->getCheckIntegrityMan()->hasNext()) {
         o << "("
           << e->getCheckIntegrityMan()->countEntryInQueue()

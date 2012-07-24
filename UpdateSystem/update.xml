@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+   <channel>
+      <title>fakeThunder 更新日志</title>
+      <link>http://blog.4321.la</link>
+      <description>fakeThunder 更新日志 - 4321.La</description>
+      <language>zh-Hans</language>
+         <item>
+            <title>Version 1.0</title>
+						<sparkle:releaseNotesLink>
+							http://martianlaboratory.com/fakethunder/
+						</sparkle:releaseNotesLink>
+            <pubDate>2012-07-24</pubDate>
+            <enclosure url="http://martianlaboratory.com/fakethunder/fakethunder101.zip" sparkle:shortVersionString="1.0" sparkle:version="1" length="1228652" type="application/octet-stream" sparkle:dsaSignature="" />
+         </item>
+   </channel>
+</rss>

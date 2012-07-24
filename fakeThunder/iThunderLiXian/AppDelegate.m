@@ -13,6 +13,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    python_task = [[NSTask alloc] init];
+    [python_task setLaunchPath:@"/usr/bin/python"];
+    
+    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];    
+    [python_task setArguments:[NSArray arrayWithObject:[NSString stringWithFormat:@"%@/XunleiAPI/api_mini.py", resourcesPath]]];
+    [python_task launch];
+    
     main_view = [[MainView alloc] initWithWindowNibName:@"MainView"];
     [main_view showWindow:self];
     
@@ -37,6 +44,8 @@
 
 -(void)applicationWillTerminate:(NSNotification *)notification
 {
+    [python_task terminate];
+    
     //KILLALL ARIA2C
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:@"/usr/bin/killall"];

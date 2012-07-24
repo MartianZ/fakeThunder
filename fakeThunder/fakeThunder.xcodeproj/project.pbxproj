@@ -25,6 +25,8 @@
 		020FBA3415BE38C2002BF43E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020FBA3315BE38C2002BF43E /* Sparkle.framework */; };
 		020FBA3615BE38EB002BF43E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 020FBA3315BE38C2002BF43E /* Sparkle.framework */; };
 		020FBA3815BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem in Resources */ = {isa = PBXBuildFile; fileRef = 020FBA3715BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem */; };
+		020FBD4F15BED226002BF43E /* XunleiAPI in Resources */ = {isa = PBXBuildFile; fileRef = 020FBD4E15BED226002BF43E /* XunleiAPI */; };
+		020FBD5115BED23F002BF43E /* XunleiAPI in CopyFiles */ = {isa = PBXBuildFile; fileRef = 020FBD4E15BED226002BF43E /* XunleiAPI */; };
 		0224495915A714CA002499B4 /* newToolbarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 0224495815A714CA002499B4 /* newToolbarItem.png */; };
 		0224496015A71730002499B4 /* tpimg_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = 0224495F15A71730002499B4 /* tpimg_bt.png */; };
 		0224498315A72330002499B4 /* logo_lx.png in Resources */ = {isa = PBXBuildFile; fileRef = 0224498215A72330002499B4 /* logo_lx.png */; };
@@ -60,6 +62,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		020FBD5015BED23C002BF43E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				020FBD5115BED23F002BF43E /* XunleiAPI in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +100,7 @@
 		020E4A5915A712F5001A6231 /* loginToolbarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginToolbarItem.png; sourceTree = "<group>"; };
 		020FBA3315BE38C2002BF43E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		020FBA3715BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamiclyrics2_dsa_pub_new.pem; sourceTree = "<group>"; };
+		020FBD4E15BED226002BF43E /* XunleiAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = XunleiAPI; sourceTree = "<group>"; };
 		0224495815A714CA002499B4 /* newToolbarItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newToolbarItem.png; sourceTree = "<group>"; };
 		0224495F15A71730002499B4 /* tpimg_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tpimg_bt.png; sourceTree = "<group>"; };
 		0224496E15A71DA1002499B4 /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskModel.h; sourceTree = "<group>"; };
@@ -206,6 +219,7 @@
 		020E4A5815A712E3001A6231 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				020FBD4E15BED226002BF43E /* XunleiAPI */,
 				020FBA3715BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem */,
 				02CDEC9E15BC10580069C955 /* 高级.png */,
 				02CDEC9A15BC0E3F0069C955 /* 常规.png */,
@@ -287,6 +301,7 @@
 				020E4A1D15A7105E001A6231 /* Frameworks */,
 				020E4A1E15A7105E001A6231 /* Resources */,
 				020FBA3515BE38D1002BF43E /* CopyFiles */,
+				020FBD5015BED23C002BF43E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -355,6 +370,7 @@
 				029270B715BD1AB300CCAAC3 /* MainView.xib in Resources */,
 				024789D215BD25E1003E7E73 /* TasksView.xib in Resources */,
 				020FBA3815BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem in Resources */,
+				020FBD4F15BED226002BF43E /* XunleiAPI in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,8 +17,8 @@
 #define UD_MAX_TASKS "UserDefaultMaxTasks"
 #define UD_MAX_THREADS "UserDefaultMaxThreads"
 
-#define UD_LAST_LOGIN_HASH "UserLastLoginHash"
-#define UD_LAST_LOGIN_COOKIE "UserLastLoginCookie"
+#define UD_LAST_LOGIN_HASH "UserLastLoginHashX"
+#define UD_LAST_LOGIN_COOKIE "UserLastLoginCookieX"
 
 
 #endif

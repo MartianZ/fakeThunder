@@ -58,7 +58,7 @@
     
     NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
-    NSString *request_url = @"http://thunder.4321.la/add_task";
+    NSString *request_url = @"http://127.0.0.1:9999/add_task";
     
     NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
     
@@ -80,7 +80,7 @@
 //--------------------------------------------------------------
 - (void)thread_get_task_list:(NSInteger)page_num
 {
-    NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/%@/get_task_list/%lu/0",self.hash, (page_num+1) * 20]];
+    NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_task_list/%lu/0",self.hash, (page_num+1) * 20]];
         
     if ([requestResult isEqualToString:@"Fail"])
     {
@@ -218,7 +218,7 @@
         }
         else {
             
-            NSString *file_list = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/%@/get_bt_list/%@/%@",self.hash,t.TaskID,t.CID]];
+            NSString *file_list = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_bt_list/%@/%@",self.hash,t.TaskID,t.CID]];
             NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[file_list dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
             sleep(1); //等待渐变动画结束，然后再继续
             [nav_label setStringValue:t.TaskTitle];
@@ -372,7 +372,7 @@
     
     NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
-    NSString *request_url = @"http://thunder.4321.la/vod_get_play_url";
+    NSString *request_url = @"http://127.0.0.1:9999/vod_get_play_url";
     
     NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
     

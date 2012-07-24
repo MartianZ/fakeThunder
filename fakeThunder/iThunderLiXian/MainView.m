@@ -97,12 +97,12 @@
     [toobaritem_login setLabel:@"正在登录"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/initial/%@/%@",username, password]];
+        NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/initial/%@/%@",username, password]];
         if (![login_window isVisible]) { [toobaritem_login setEnabled:YES]; return; }
         if ([requestResult length] == 32) {
             //LOGIN SUCCESS
             self.hash = requestResult;
-            self.cookie = [RequestSender sendRequest:[NSString stringWithFormat:@"http://thunder.4321.la/%@/get_cookie",self.hash]];
+            self.cookie = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_cookie",self.hash]];
             tasks_view.hash = self.hash;
             tasks_view.cookie = self.cookie;
             

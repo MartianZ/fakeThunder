@@ -54,6 +54,7 @@
 						<string key="NSFrame">{{254, 15}, {19, 27}}</string>
 						<reference key="NSSuperview" ref="1038061644"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1099</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSStepperCell" key="NSCell" id="586540802">
@@ -485,6 +486,7 @@
 										<string key="NSFrame">{{247, 13}, {199, 17}}</string>
 										<reference key="NSSuperview" ref="181350269"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="611290804">
@@ -814,15 +816,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.UserLastLoginHash</string>
+						<string key="label">value: values.UserLastLoginHashX</string>
 						<reference key="source" ref="643913832"/>
 						<reference key="destination" ref="195694191"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="643913832"/>
 							<reference key="NSDestination" ref="195694191"/>
-							<string key="NSLabel">value: values.UserLastLoginHash</string>
+							<string key="NSLabel">value: values.UserLastLoginHashX</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.UserLastLoginHash</string>
+							<string key="NSKeyPath">values.UserLastLoginHashX</string>
 							<dictionary key="NSOptions">
 								<string key="NSMultipleValuesPlaceholder">未登录</string>
 								<string key="NSNoSelectionPlaceholder">未登录</string>
@@ -832,19 +834,19 @@
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">293</int>
+					<int key="connectionID">469</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.UserLastLoginCookie</string>
+						<string key="label">value: values.UserLastLoginCookieX</string>
 						<reference key="source" ref="553970538"/>
 						<reference key="destination" ref="195694191"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="553970538"/>
 							<reference key="NSDestination" ref="195694191"/>
-							<string key="NSLabel">value: values.UserLastLoginCookie</string>
+							<string key="NSLabel">value: values.UserLastLoginCookieX</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.UserLastLoginCookie</string>
+							<string key="NSKeyPath">values.UserLastLoginCookieX</string>
 							<dictionary key="NSOptions">
 								<string key="NSMultipleValuesPlaceholder">未知</string>
 								<string key="NSNoSelectionPlaceholder">未知</string>
@@ -854,7 +856,7 @@
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">457</int>
+					<int key="connectionID">470</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2525,7 +2527,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">468</int>
+			<int key="maxID">470</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

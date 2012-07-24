@@ -19,17 +19,6 @@
     self.TaskTitle = nil;
 }
 
-static NSString *osver()
-{
-    SInt32 versionMajor = 0;
-    SInt32 versionMinor = 0;
-    SInt32 versionBugFix = 0;
-    Gestalt( gestaltSystemVersionMajor, &versionMajor );
-    Gestalt( gestaltSystemVersionMinor, &versionMinor );
-    Gestalt( gestaltSystemVersionBugFix, &versionBugFix );
-    return [NSString stringWithFormat:@"%d.%d.%d", versionMajor, versionMinor, versionBugFix];
-}
-
 
 -(void)start_download
 {

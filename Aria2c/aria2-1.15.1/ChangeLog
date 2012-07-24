@@ -1,0 +1,335 @@
+commit f3a5aa3bef17a0d8f86460f034ced4e318699e54
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-27
+
+    Renamed clean as doclean in Makefile for manuals.
+    
+    This will prevent `make clean` in unpacked archive from removing
+    aria2c.1. We don't want to remove them by `make clean` because to
+    generate aria2c.1, user has to install Sphinx. That is why we
+    distribute aria2c.1 in the archive.
+
+commit 6b3aa97cdbd337d7217071c2a489c61b722e836a
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-27
+
+    Updated Brazilian Portuguese translation. Thanks to all translators.
+
+commit d917f40c6dea44857fefe221703d04c02574fd2b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-27
+
+    Updated po templates
+
+commit 3027a8a2f5ca916e2d20bb4c539d406f6e0e7958
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-27
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-27
+
+    Updated NEWS for 1.15.1 release
+
+commit 0ba12fdc32c1435ea778bca0beb23bf44d079fc3
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-19
+
+    Removed outdated README.txt
+
+commit b05959ec9241a13a802e03eb2cc5b5bb25fcfca9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-19
+
+    Updated README.rst.
+    
+    Added section which describes building documentation using Sphinx.
+    Several documentaiton updates.
+
+commit afcd95dec7667b2566f37648ffb6c709a337ea86
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-19
+
+    Return appropriate HTTP status code on RPC failure.
+    
+    In this change, we return 404 if the request path is neither /json-rpc
+    nor /rpc. If XML feature is not enabled and /rpc is requested, return
+    404.  If XML parser failed, return 400. JSON parser failure has been
+    handled well in the existing code.
+
+commit 8ebba32fd9e417f9adb6511255216971b0591a72
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-19
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-19
+
+    Change manual build dir to doc/manual-src/*/_build. Drop html install.
+    
+    Sphinx HTML markups are beautiful, but it uses many asset files, such
+    as stylesheets, javascripts and images.  While it is no problem to
+    upload them in web site, but distributing and installing them in
+    individual user have some problems.  For example, Sphinx uses same
+    assets for generated sites, so if many applications uses Sphinx
+    generated docs and they are installed in the PC, it is huge waste of
+    the disk space. I'm also not comfortable to copy HTML trees to the
+    install directory using 'cp -r' command.  I seeked other format like
+    pdf and texi which Sphinx can generate but annoyingly they all convert
+    '--' into en-dash and there is no workaround to disable it. So I
+    decided to drop HTML manual from distribution and installation.  For
+    users who want to HTML version manual, see it online:
+    http://aria2.sourceforge.net/manual/en/html/
+
+commit 68eb1b6737bf10d00360cab9b85c1ee090acd272
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-17
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-17
+
+    Ignore unacceptable options in RPC request instead of throwing error.
+    
+    This change allows RPC client to send same options for the different
+    type of downloads.
+
+commit 7785ea8c4bea18e911d7ae26d707140b12ca91b7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-16
+
+    Code cleanup
+
+commit 0e5ae22f7323e30d1b266e4266cad554517c2bd0
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-16
+
+    Fixed memory leak
+
+commit 0d507bba004cf6f78bc29effd04ebffe7e7bdb79
+Merge: 92c518a 8019ad6
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-16
+
+    Merge branch 'master' of https://github.com/ITriskTI/aria2 into itriskti
+
+commit 92c518a2ba214fe605b213830fc2ec3fd5d0fe14
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-16
+
+    Moved parseAsyncDNSServers() to AsyncNameResolver.cc and refactored.
+    
+    The parseAsyncDNSServers() now uses net::getBinAddr() internally,
+    which makes the function simpler. Also added unit test.
+
+commit 36051cca5e03c6268c62a5eca1f756b14435a29d
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-16
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-16
+
+    Handle sockaddr_in.sin_len and sockaddr_in6.sin6_len
+    
+    Check sockaddr_in.sin_len and sockaddr_in6.sin6_len are available and
+    assign values to them properly.  This change fixes unit test error and
+    most error related to getnameinfo() on netbsd.
+
+commit 8019ad602a7d2536aa8eca0fc25edf4dd7e6fb2c
+Author:     ITriskTI <ITriskTI@gmail.com>
+AuthorDate: 2012-05-15
+Commit:     ITriskTI <ITriskTI@gmail.com>
+CommitDate: 2012-05-15
+
+    Fixed typo
+
+commit 448f03fa7e9f66b17b259f07f5bef84b8664c714
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-14
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-14
+
+    Moved doc before test in SUBDIRS
+    
+    With this change we can see the test results more easily.
+
+commit ca60020fa4230b27c0c3ded1ddac375061a027a9
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-14
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-14
+
+    Removed dependency on inet_aton
+    
+    Implemented inetPton as a replacement of inet_aton. inetPton is
+    implemented using net::getBinAddr.
+    
+    This change fixes bug#3525424.
+
+commit 06405ce97b3da52241adb3f6732846f824823951
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-13
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-13
+
+    Removed aria2c.rst from the prerequisites of $(HTML)
+    
+    $(HTML) is the root directory of html documents and since we don't
+    remove $(HTML) when re-building htmls, it is useless to use aria2c.rst
+    as a prerequisites.
+
+commit 19798f09aea1eb6463d32531733c60e50fa26168
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-12
+
+    Fixed typo
+
+commit 3640374f66f0222c0a17b1426dcb6755a38c5c67
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-12
+
+    Bump up version number to 1.15.1
+
+commit 57519611ffe2cf8394159b262d6dfd2d2055a4ad
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-12
+
+    Added --with-bashcompletiondir configure option.
+    
+    By default, bash_completion file named aria2c is installed to the
+    directory $prefix/share/doc/aria2/bash_completion.  To change the
+    install directory of the file, use --with-bashcompletiondir option.
+
+commit b4f3f414644312e6578437675d4483414174b22f
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-12
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-12
+
+    Fixed `make distcheck` error
+
+commit a1d5d5ef9d40a8f0656932188acb190652940ca0
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-10
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-10
+
+    Added aria2c.rst to EXTRA_DIST
+
+commit 5323fa1029b754a07145a20cffa1d103470d26f8
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-08
+
+    Honor DESTDIR when installing HTML version manual.
+    Generate HTML version manual on `make install`.
+
+commit a998e32f95bce4b5ef9952771553a62c956a4e3b
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-05-08
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-05-08
+
+    Call ERR_clear_error() before OpenSSL I/O functions.
+    Use ERR_get_error() with ERR_error_string().
+
+commit c046573ab8a5555aad5fe7c1db9c99c1a3b1370c
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-23
+
+    Fixed typo and nits
+
+commit 927499d98f126ac543102b703b24f4ef9ad23e50
+Merge: 003aaf4 4d17715
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-23
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-23
+
+    Merge pull request #16 from ITriskTI/master
+    
+    Fixed some bugs
+
+commit 4d17715b66eb0e3e9d133d6a32ac916538c1aef1
+Author:     ITriskTI <ITriskTI@gmail.com>
+AuthorDate: 2012-04-23
+Commit:     ITriskTI <ITriskTI@gmail.com>
+CommitDate: 2012-04-23
+
+    Update doc/manual-src/ru/index.rst
+
+commit 3c5753baf2435421d0328253ef351b8327999bb8
+Author:     ITriskTI <ITriskTI@gmail.com>
+AuthorDate: 2012-04-23
+Commit:     ITriskTI <ITriskTI@gmail.com>
+CommitDate: 2012-04-23
+
+    fixed some bugs
+
+commit 003aaf4a09c998572e50043885be25f3b4c20bf7
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-22
+
+    Converted README.asciidoc into README.rst
+
+commit eec761ec4381fcd7176c783a136be316df074084
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-22
+
+    Removed old manual page sources.
+
+commit 4a5f2b6f9f189ed67e51054e40b5073a2abeb509
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-22
+
+    Use Sphinx for aria2 manual page documentation.
+    
+    The source files for manual pages are placed under doc/manual-src.
+    The built manual pages are placed under doc/manual.
+    When installed, manual pages are placed under $(docdir)/manual/.
+
+commit d16071d1088e2501273c412d7990f4017546d863
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-22
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-22
+
+    Fixed the bug which prevents --bt-lpd-interface from working.
+    
+    Fixes bug#3520125
+
+commit a0912d9e4aa69eb1d5432f532686e1e996c470dc
+Author:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+AuthorDate: 2012-04-09
+Commit:     Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+CommitDate: 2012-04-09
+
+    Use noinst_HEADERS instead of EXTRA_DIST for wslay public headers.

@@ -23,6 +23,11 @@
     [tile setBadgeLabel:@"Loading..."];
     usleep(1500000); //等待Python服务开启完全
     [tile setBadgeLabel:@""];
+    
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+
+    
+    
     main_view = [[MainView alloc] initWithWindowNibName:@"MainView"];
     [main_view showWindow:self];
     
@@ -34,6 +39,13 @@
             }
         });
     });
+}
+
+- (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
+{
+    NSString* url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+    url = [url stringByReplacingOccurrencesOfString:@"fakethunder://" withString:@""];
+    NSLog(@"%@", url);
 }
 
 - (BOOL) applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag

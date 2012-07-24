@@ -123,7 +123,7 @@
             dispatch_async( dispatch_get_main_queue(), ^{
                 [login_progress stopAnimation:self];
                 [toobaritem_login setLabel:@"登录"];
-                [[NSAlert alertWithMessageText:@"登录失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"登录失败，请检查您的用户名和密码！"] runModal];
+                [[NSAlert alertWithMessageText:@"登录失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"登录失败，请检查您的用户名和密码！并确保当前的fakeThunder为最新版本。如果仍然无法正常登录，请到官方网站发送反馈。"] runModal];
                 [login_ok_button setEnabled:YES];
             });
         }

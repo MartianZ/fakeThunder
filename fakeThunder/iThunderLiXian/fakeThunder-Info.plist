@@ -7,10 +7,10 @@
 		<dict>
 			<key>CFBundleURLName</key>
 			<string>fakethunder</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fakethunder</string>
-            </array>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fakethunder</string>
+			</array>
 		</dict>
 	</array>
 	<key>SUEnableSystemProfiling</key>
@@ -38,7 +38,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>

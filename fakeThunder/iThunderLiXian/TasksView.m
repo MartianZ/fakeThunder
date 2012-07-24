@@ -262,6 +262,8 @@
     
     if ([t.ButtonTitle isEqualToString:@"开始本地下载"] || [t.ButtonTitle isEqualToString:@"继续下载"])
     {
+        
+        
         //下载文件
         if ([t.TaskTypeString isEqualToString:@"bt"]) { //BT任务，下载全部文件
             t.StartAllDownloadNow = YES;
@@ -272,7 +274,10 @@
         if (![t.TaskLiXianProcess hasSuffix:@"100.00%"])
         {
             [[NSAlert alertWithMessageText:@"无法下载任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"远端离线任务尚未下载完成，无法下载到本地，请等待完成后重试。"] runModal];
+            
+            return;
         }
+        
         t->NeedToStopNow = NO;
         //[t start_download:button]; 采用线程池
         //operation_download_queue

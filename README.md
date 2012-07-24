@@ -1,8 +1,6 @@
 fakeThunder
 ===========
 
-###由于服务器的IP被迅雷官方限制登录，所以客户端已经不可用。目前项目在重构中，实在是抱歉
-
 ####fakeThunder是一款OS X下的非官方迅雷离线客户端。
 
 
@@ -33,6 +31,7 @@ fakeThunder
 
 ##TODOs：
 
+0. **[DONE]** ~~完全Native，不再依赖Thunder.4321.La~~
 0. 支持从本地添加BT种子任务
 1. **[DONE]** ~~迅雷云点播功能~~
 2. 分享任务功能
@@ -41,6 +40,7 @@ fakeThunder
 5. 浏览器支持：Chrome
 6. 浏览器支持：Firefox
 7. 浏览器支持：Opera
+8. 添加fakeThunder://类似的自定义协议支持
 
 ##要求：
 

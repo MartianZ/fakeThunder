@@ -19,7 +19,10 @@
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];    
     [python_task setArguments:[NSArray arrayWithObject:[NSString stringWithFormat:@"%@/XunleiAPI/api_mini.py", resourcesPath]]];
     [python_task launch];
-    
+    NSDockTile *tile = [[NSApplication sharedApplication] dockTile];
+    [tile setBadgeLabel:@"Loading..."];
+    usleep(1500000); //等待Python服务开启完全
+    [tile setBadgeLabel:@""];
     main_view = [[MainView alloc] initWithWindowNibName:@"MainView"];
     [main_view showWindow:self];
     

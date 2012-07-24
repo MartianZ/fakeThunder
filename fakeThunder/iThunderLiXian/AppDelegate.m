@@ -41,6 +41,10 @@
     });
 }
 
+
+
+
+
 - (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
 {
     NSString* url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];

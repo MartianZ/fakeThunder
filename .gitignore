@@ -14,3 +14,8 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+*.pyc
+*.pyo
+*.egg-info
+__pycache__

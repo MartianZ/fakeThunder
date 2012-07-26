@@ -39,6 +39,18 @@
             }
         });
     });
+    
+    /*广告～*/
+    
+    NSUserDefaults *user_default = [NSUserDefaults standardUserDefaults];
+    NSInteger s = [user_default integerForKey:@UD_FIRST_STARTUP];
+    if (s < 5) {
+        [user_default setInteger:s+1 forKey:@UD_FIRST_STARTUP];
+    } else if (s == 5)
+    {
+        [user_default setInteger:6 forKey:@UD_FIRST_STARTUP];
+        [[NSAlert alertWithMessageText:@"捐赠作者" defaultButton:@"我知道了" alternateButton:nil otherButton:nil informativeTextWithFormat:@"fakeThunder是一款开源、免费软件，仍有很大的开发空间。非常高兴能够看到fakeThunder能够帮助到您，如果您喜欢这款软件，请考虑捐赠作者以支持后续的开发和维护费用。具体捐赠方式可查看软件偏好设置 - 高级。\n\n感谢您的支持，本对话框不会再次出现。"] runModal];
+    }
 }
 
 

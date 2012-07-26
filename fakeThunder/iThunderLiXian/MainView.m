@@ -20,7 +20,7 @@
     if (self) {
         // Initialization code here.
         current_page = 0;
-        
+        NSLog(@"%lu", [[NSUserDefaults standardUserDefaults] integerForKey:@UD_TASK_SPEED_LIMIT]);
         
     }
     

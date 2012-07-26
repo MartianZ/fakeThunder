@@ -51,20 +51,25 @@
         
         NSString *save_path = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_SAVE_PATH];
         NSInteger max_thread = [[NSUserDefaults standardUserDefaults] integerForKey:@UD_MAX_THREADS];
+        NSInteger max_speed = [[NSUserDefaults standardUserDefaults] integerForKey:@UD_TASK_SPEED_LIMIT];
         if (!save_path || [save_path length] == 0) {
             save_path = @"~/Desktop";
         }
-        if (!max_thread || max_thread <= 0 || max_thread > 10) {
+        if (max_thread <= 0 || max_thread > 10) {
             max_thread = 10;
         }
-        
+        if (max_speed <0) {
+            max_speed = 0;
+        }
         save_path = [save_path stringByExpandingTildeInPath];
         NSString *max_thread_str = [NSString stringWithFormat:@"%ld", max_thread];
+        NSString *max_speed_str = [NSString stringWithFormat:@"%ldK", max_speed];
+        
         
         if (!self.FatherTitle) {
-            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",max_thread_str,@"-x",max_thread_str,@"-d",save_path,@"--out",self.TaskTitle, @"--header", self.Cookie, self.LiXianURL, nil];
+            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",max_thread_str,@"-x",max_thread_str,@"-d",save_path,@"--out",self.TaskTitle, @"--max-download-limit", max_speed_str,@"--header", self.Cookie, self.LiXianURL, nil];
         } else {
-            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s", max_thread_str,@"-x", max_thread_str, @"-d",save_path,@"--out",[NSString stringWithFormat:@"%@/%@",self.FatherTitle,self.TaskTitle], @"--header", self.Cookie, self.LiXianURL, nil];
+            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s", max_thread_str,@"-x", max_thread_str, @"-d",save_path,@"--out",[NSString stringWithFormat:@"%@/%@",self.FatherTitle,self.TaskTitle], @"--max-download-limit", max_speed_str, @"--header", self.Cookie, self.LiXianURL, nil];
         }
         
         

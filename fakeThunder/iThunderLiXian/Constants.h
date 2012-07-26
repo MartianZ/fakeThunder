@@ -17,8 +17,9 @@
 #define UD_MAX_TASKS "UserDefaultMaxTasks"
 #define UD_MAX_THREADS "UserDefaultMaxThreads"
 
-#define UD_LAST_LOGIN_HASH "UserLastLoginHashX"
-#define UD_LAST_LOGIN_COOKIE "UserLastLoginCookieX"
+#define UD_LAST_LOGIN_HASH "UserLastLoginHash0727"
+#define UD_LAST_LOGIN_COOKIE "UserLastLoginCookie0727"
 
+#define UD_TASK_SPEED_LIMIT "UserDefailtTaskLimit"
 
 #endif

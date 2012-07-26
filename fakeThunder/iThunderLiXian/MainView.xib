@@ -821,7 +821,7 @@
 									<reference key="NSOnImage" ref="318235358"/>
 									<reference key="NSMixedImage" ref="977395056"/>
 								</object>
-								<object class="NSMenuItem" id="359920095">
+								<object class="NSMenuItem" id="21025902">
 									<reference key="NSMenu" ref="299466673"/>
 									<string key="NSTitle">全屏</string>
 									<string key="NSKeyEquiv">f</string>
@@ -1163,7 +1163,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleFullScreen:</string>
 						<reference key="source" ref="1003"/>
-						<reference key="destination" ref="359920095"/>
+						<reference key="destination" ref="21025902"/>
 					</object>
 					<int key="connectionID">290</int>
 				</object>
@@ -1521,7 +1521,7 @@
 							<reference ref="633061576"/>
 							<reference ref="163623569"/>
 							<reference ref="783173752"/>
-							<reference ref="359920095"/>
+							<reference ref="21025902"/>
 						</array>
 						<reference key="parent" ref="654961964"/>
 					</object>
@@ -1667,7 +1667,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">289</int>
-						<reference key="object" ref="359920095"/>
+						<reference key="object" ref="21025902"/>
 						<reference key="parent" ref="299466673"/>
 					</object>
 				</array>

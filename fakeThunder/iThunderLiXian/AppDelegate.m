@@ -13,6 +13,13 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath:@"/usr/bin/killall"];
+    [task setArguments:[NSArray arrayWithObject:@"python"]];
+    [task launch];
+    [task waitUntilExit];
+    
+    
     python_task = [[NSTask alloc] init];
     [python_task setLaunchPath:@"/usr/bin/python"];
     

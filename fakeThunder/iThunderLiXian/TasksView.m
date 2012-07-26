@@ -67,16 +67,27 @@
     
     if ([requestResult isEqualToString:@"Success"]) {
         //添加任务成功
-        [array_controller removeObjects:[array_controller arrangedObjects]];
-        [self thread_get_task_list:0];
+        /*[array_controller removeObjects:[array_controller arrangedObjects]];
+        [self thread_get_task_list:0]; */ //这样会导致前面的下载进度丢失
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [self mainthread_add_task_to_list:[self thread_get_first_task]];
+            
+            TaskModel *t = [[array_controller arrangedObjects] lastObject];
+            //[t retain];
+            [array_controller removeObject:t];
+            [array_controller insertObject:t atArrangedObjectIndex:0];
+        });
+        
         return YES;
     } else {
         return NO;
     }
 }
 
+
+
 //--------------------------------------------------------------
-//      线程：获取任务列表
+//      线程：获取任务列表，并自动添加到主界面
 //--------------------------------------------------------------
 - (void)thread_get_task_list:(NSInteger)page_num
 {
@@ -92,8 +103,26 @@
     NSLog(@"%@",[jsonArray objectAtIndex:0]);
     
     for (unsigned long i = page_num * 20; (i < (page_num + 1) * 20) && (i < [jsonArray count]); i++) {
-        [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:[jsonArray objectAtIndex:i] waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:[jsonArray objectAtIndex:i] waitUntilDone:YES];
     }
+    
+}
+
+//--------------------------------------------------------------
+//      线程：获取第一个任务
+//--------------------------------------------------------------
+- (NSDictionary *)thread_get_first_task
+{
+    NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_task_list/1/0",self.hash]];
+    
+    if ([requestResult isEqualToString:@"Fail"])
+    {
+        return nil;
+    }
+    
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+        
+    return [jsonArray objectAtIndex:0];
     
 }
 
@@ -172,7 +201,7 @@
     task.ButtonTitle = @"开始本地下载";
     task.ButtonEnabled = YES;
     [array_controller addObject:task];
-    
+
     if (task.FatherTaskModel && task.FatherTaskModel.StartAllDownloadNow) {
         
         if ([task.TaskLiXianProcess hasSuffix:@"100.00%"])
@@ -229,7 +258,7 @@
                 [mutable_dict setObject:dirtitle forKey:@"dirtitle"];
                 [mutable_dict setObject:t.TaskTitle forKey:@"fathertitle"];
                 [mutable_dict setObject:[NSNumber numberWithInteger:[mutable_array indexOfObject:t]] forKey:@"fathertaskmodel"];
-                [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:mutable_dict waitUntilDone:NO];                
+                [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:mutable_dict waitUntilDone:NO];
                 
             }
         }

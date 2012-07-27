@@ -45,8 +45,10 @@
 		0278832E15A9E3A300D4C3A5 /* loadToolbarItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 0278832D15A9E3A200D4C3A5 /* loadToolbarItem.png */; };
 		029270B615BD1AB300CCAAC3 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 029270B415BD1AB300CCAAC3 /* MainView.m */; };
 		029270B715BD1AB300CCAAC3 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 029270B515BD1AB300CCAAC3 /* MainView.xib */; };
-		02B22F1115C17308005D0A0B /* add_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B22F0F15C17308005D0A0B /* add_1.png */; };
-		02B22F1215C17308005D0A0B /* add_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B22F1015C17308005D0A0B /* add_2.png */; };
+		02B3215F15C2C4590047AE49 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3215B15C2C4590047AE49 /* 1.png */; };
+		02B3216015C2C4590047AE49 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3215C15C2C4590047AE49 /* 2.png */; };
+		02B3216115C2C4590047AE49 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3215D15C2C4590047AE49 /* 3.png */; };
+		02B3216515C2C52B0047AE49 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B3216415C2C52B0047AE49 /* 4.png */; };
 		02CDEC9B15BC0E3F0069C955 /* 常规.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CDEC9A15BC0E3F0069C955 /* 常规.png */; };
 		02CDEC9F15BC10580069C955 /* 高级.png in Resources */ = {isa = PBXBuildFile; fileRef = 02CDEC9E15BC10580069C955 /* 高级.png */; };
 		02D4C9E715BC054800E4F9E9 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D4C9E615BC053100E4F9E9 /* DBPrefsWindowController.m */; };
@@ -127,8 +129,10 @@
 		029270B315BD1AB300CCAAC3 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		029270B415BD1AB300CCAAC3 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		029270B515BD1AB300CCAAC3 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		02B22F0F15C17308005D0A0B /* add_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_1.png; sourceTree = "<group>"; };
-		02B22F1015C17308005D0A0B /* add_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_2.png; sourceTree = "<group>"; };
+		02B3215B15C2C4590047AE49 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		02B3215C15C2C4590047AE49 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		02B3215D15C2C4590047AE49 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		02B3216415C2C52B0047AE49 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		02CDEC9A15BC0E3F0069C955 /* 常规.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "常规.png"; sourceTree = "<group>"; };
 		02CDEC9E15BC10580069C955 /* 高级.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "高级.png"; sourceTree = "<group>"; };
 		02CDECA015BC131C0069C955 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -286,8 +290,10 @@
 		02B22F0D15C17300005D0A0B /* NewStyle */ = {
 			isa = PBXGroup;
 			children = (
-				02B22F0F15C17308005D0A0B /* add_1.png */,
-				02B22F1015C17308005D0A0B /* add_2.png */,
+				02B3215B15C2C4590047AE49 /* 1.png */,
+				02B3215C15C2C4590047AE49 /* 2.png */,
+				02B3215D15C2C4590047AE49 /* 3.png */,
+				02B3216415C2C52B0047AE49 /* 4.png */,
 			);
 			name = NewStyle;
 			sourceTree = "<group>";
@@ -385,8 +391,10 @@
 				020FBA3815BE399C002BF43E /* dynamiclyrics2_dsa_pub_new.pem in Resources */,
 				020FBD4F15BED226002BF43E /* XunleiAPI in Resources */,
 				020FBD6815BF1B88002BF43E /* aria2c in Resources */,
-				02B22F1115C17308005D0A0B /* add_1.png in Resources */,
-				02B22F1215C17308005D0A0B /* add_2.png in Resources */,
+				02B3215F15C2C4590047AE49 /* 1.png in Resources */,
+				02B3216015C2C4590047AE49 /* 2.png in Resources */,
+				02B3216115C2C4590047AE49 /* 3.png in Resources */,
+				02B3216515C2C52B0047AE49 /* 4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

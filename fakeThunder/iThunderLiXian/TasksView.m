@@ -172,9 +172,8 @@
     task.TaskLiXianProcess = [NSString stringWithFormat:@"离线下载进度：%.2f%%",task_process];
     
     
-    
     if ([dict objectForKey:@"task_type"] && [[dict objectForKey:@"task_type"] isEqualToString:@"bt"]) {
-        task.TaskType = [NSImage imageNamed:@"tpimg_bt.png"];
+        task.TaskType = [NSImage imageNamed:@"4.png"];
         task.TaskTypeString = @"bt";
     } else {
         if ([[dict objectForKey:@"format"] isEqualToString:@"movie"]) {

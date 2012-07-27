@@ -330,7 +330,26 @@
     }
     
     if ([t.ButtonTitle isEqualToString:@"完成下载"]) {
-        [[NSWorkspace sharedWorkspace] selectFile:t.TaskTitle inFileViewerRootedAtPath:@""];
+        NSString *save_path = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_SAVE_PATH];
+        if (!save_path || [save_path length] == 0) {
+            save_path = @"~/Desktop";
+        }
+        
+        save_path = [save_path stringByExpandingTildeInPath];
+        /*
+         if (!self.FatherTitle) {
+         args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",max_thread_str,@"-x",max_thread_str,@"-d",save_path,@"--out",self.TaskTitle, @"--max-download-limit", max_speed_str,@"--header", self.Cookie, self.LiXianURL, nil];
+         } else {
+         args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s", max_thread_str,@"-x", max_thread_str, @"-d",save_path,@"--out",[NSString stringWithFormat:@"%@/%@",self.FatherTitle,self.TaskTitle], @"--max-download-limit", max_speed_str, @"--header", self.Cookie, self.LiXianURL, nil];
+         }
+         */
+        if (!t.FatherTitle) {
+
+            [[NSWorkspace sharedWorkspace] selectFile:[NSString stringWithFormat:@"%@/%@",save_path, t.TaskTitle] inFileViewerRootedAtPath:@""];
+        } else {
+            [[NSWorkspace sharedWorkspace] selectFile:[NSString stringWithFormat:@"%@/%@/%@",save_path, t.FatherTitle,t.TaskTitle] inFileViewerRootedAtPath:@""];
+
+        }
     }
     
 }

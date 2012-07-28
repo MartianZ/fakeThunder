@@ -450,7 +450,15 @@
          }
          
          */
-        NSString *play_url = [[jsonArray objectAtIndex:[jsonArray count] -1/*0*/] objectForKey:@"vod_url"];
+        
+        NSString *play_url;
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@UD_VOD_PLAY_SHARPNESS] == 1) {
+            play_url = [[jsonArray objectAtIndex:0] objectForKey:@"vod_url"]; //标清
+        } else {
+            play_url = [[jsonArray objectAtIndex:[jsonArray count] -1] objectForKey:@"vod_url"]; //高清
+        }
+        
+        
         play_url = [play_url stringByReplacingOccurrencesOfString:@"&p=" withString:@"&"];
         NSString *play_url_2 = [play_url substringFromIndex:[play_url rangeOfString:@"&s"].location + 3];
         play_url_2 = [play_url_2 substringToIndex:[play_url_2 rangeOfString:@"&"].location];

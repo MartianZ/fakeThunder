@@ -87,7 +87,6 @@
 {
     NSString *username = [login_username stringValue];
     NSString *password = [login_password stringValue];
-    
     if ([username length] < 3 || [password length] < 6) return;
     
     [login_progress startAnimation:self];
@@ -96,8 +95,12 @@
     [toobaritem_login setEnabled:NO];
     [toobaritem_login setLabel:@"正在登录"];
     
+    NSString *encodedPassword = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)password, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/initial/%@/%@",username, password]];
+        NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/initial/%@/%@",username, encodedPassword]];
+        
         if (![login_window isVisible]) { [toobaritem_login setEnabled:YES]; return; }
         if ([requestResult length] == 32) {
             //LOGIN SUCCESS

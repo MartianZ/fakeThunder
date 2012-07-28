@@ -173,7 +173,7 @@
     
     
     if ([dict objectForKey:@"task_type"] && [[dict objectForKey:@"task_type"] isEqualToString:@"bt"]) {
-        task.TaskType = [NSImage imageNamed:@"4.png"];
+        task.TaskType = [NSImage imageNamed:@"tpimg_bt.png"];
         task.TaskTypeString = @"bt";
     } else {
         if ([[dict objectForKey:@"format"] isEqualToString:@"movie"]) {

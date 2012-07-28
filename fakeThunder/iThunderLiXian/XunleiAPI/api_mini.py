@@ -38,7 +38,7 @@ def thunder_login(username, password, secure, hashstr):
 				#save user info
 				print pyfile_dir
 				
-				f = open(pyfile_dir + '/' + hash +'.txt', 'w')
+				f = open(pyfile_dir + '/.fakeThunder_' + hash +'.txt', 'w')
 				f.truncate(0)
 				f.write(username + '\n' + hex_md5(hex_md5(password)))
 				f.close()
@@ -69,7 +69,7 @@ def check_login(hash):
 			lixianAPIs_last_update_time[hash] = time()
 			
 	if not isLogin:
-		f = open(pyfile_dir + '/' + hash + '.txt', 'r')
+		f = open(pyfile_dir + '/.fakeThunder_' + hash + '.txt', 'r')
 		username = f.readline()[0:-1]
 		password = f.readline()
 		f.close()
@@ -186,8 +186,8 @@ application = tornado.web.Application([
 
 if __name__ == "__main__":
 	
-	pyfile_dir = os.path.split(os.path.realpath(__file__))[0]
-	print pyfile_dir
+	#pyfile_dir = os.path.split(os.path.realpath(__file__))[0]
+	pyfile_dir = os.path.expanduser("~")
 	lixianAPIs = {}
 	lixianAPIs_login_status = {}
 	lixianAPIs_last_update_time = {}

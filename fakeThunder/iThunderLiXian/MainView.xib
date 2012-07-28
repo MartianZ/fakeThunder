@@ -76,7 +76,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">1</string>
+								<string key="NSResourceName">newToolbarItem</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -98,7 +98,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">3</string>
+								<string key="NSResourceName">loginToolbarItem</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -120,7 +120,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">2</string>
+								<string key="NSResourceName">loadToolbarItem</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -1878,12 +1878,12 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="1">{7.6802562585502931, 7.6802562585502931}</string>
-			<string key="2">{7.6802562585502931, 7.6802562585502931}</string>
-			<string key="3">{7.6802562585502931, 7.6802562585502931}</string>
 			<string key="NSMenuCheckmark">{11, 11}</string>
 			<string key="NSMenuMixedState">{10, 3}</string>
+			<string key="loadToolbarItem">{32, 32}</string>
 			<string key="login">{311, 63}</string>
+			<string key="loginToolbarItem">{32, 32}</string>
+			<string key="newToolbarItem">{32, 32}</string>
 		</dictionary>
 	</data>
 </archive>

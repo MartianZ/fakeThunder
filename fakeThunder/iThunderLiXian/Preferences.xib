@@ -926,15 +926,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.UserLastLoginHash0727</string>
+						<string key="label">value: values.UserLastLoginHashNEW</string>
 						<reference key="source" ref="643913832"/>
 						<reference key="destination" ref="195694191"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="643913832"/>
 							<reference key="NSDestination" ref="195694191"/>
-							<string key="NSLabel">value: values.UserLastLoginHash0727</string>
+							<string key="NSLabel">value: values.UserLastLoginHashNEW</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.UserLastLoginHash0727</string>
+							<string key="NSKeyPath">values.UserLastLoginHashNEW</string>
 							<dictionary key="NSOptions">
 								<string key="NSMultipleValuesPlaceholder">未登录</string>
 								<string key="NSNoSelectionPlaceholder">未登录</string>
@@ -944,19 +944,19 @@
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">471</int>
+					<int key="connectionID">588</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.UserLastLoginCookie0727</string>
+						<string key="label">value: values.UserLastLoginCookieNEW</string>
 						<reference key="source" ref="553970538"/>
 						<reference key="destination" ref="195694191"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="553970538"/>
 							<reference key="NSDestination" ref="195694191"/>
-							<string key="NSLabel">value: values.UserLastLoginCookie0727</string>
+							<string key="NSLabel">value: values.UserLastLoginCookieNEW</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.UserLastLoginCookie0727</string>
+							<string key="NSKeyPath">values.UserLastLoginCookieNEW</string>
 							<dictionary key="NSOptions">
 								<string key="NSMultipleValuesPlaceholder">未知</string>
 								<string key="NSNoSelectionPlaceholder">未知</string>
@@ -966,7 +966,7 @@
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
-					<int key="connectionID">472</int>
+					<int key="connectionID">589</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2884,7 +2884,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">587</int>
+			<int key="maxID">589</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

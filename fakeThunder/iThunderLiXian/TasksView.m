@@ -91,6 +91,11 @@
 //--------------------------------------------------------------
 - (void)thread_get_task_list:(NSInteger)page_num
 {
+    
+    if (page_num == 0 && [[array_controller arrangedObjects] count] > 0) {
+        return;
+    }
+    
     NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_task_list/%lu/0",self.hash, (page_num+1) * 20]];
         
     if ([requestResult isEqualToString:@"Fail"])

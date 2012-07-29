@@ -216,4 +216,22 @@
     });
     
 }
+
+//----------------------------------------
+//   标题栏 - 刷新
+//----------------------------------------
+-(IBAction)toolbar_refresh:(id)sender
+{
+    if (!self.hash || self.hash.length != 32) {
+        [[NSAlert alertWithMessageText:@"无法加载任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"请先登录您的迅雷VIP账户！"] runModal];
+        return;
+    }
+    
+    
+    current_page = 0;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        [tasks_view thread_get_task_list:current_page];
+    });
+}
+
 @end

@@ -76,7 +76,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">newToolbarItem</string>
+								<string key="NSResourceName">1</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -98,7 +98,7 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">loginToolbarItem</string>
+								<string key="NSResourceName">3</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -120,7 +120,29 @@
 							<nil key="NSToolbarItemView"/>
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">loadToolbarItem</string>
+								<string key="NSResourceName">2</string>
+							</object>
+							<nil key="NSToolbarItemTarget"/>
+							<nil key="NSToolbarItemAction"/>
+							<string key="NSToolbarItemMinSize">{0, 0}</string>
+							<string key="NSToolbarItemMaxSize">{0, 0}</string>
+							<bool key="NSToolbarItemEnabled">YES</bool>
+							<bool key="NSToolbarItemAutovalidates">YES</bool>
+							<int key="NSToolbarItemTag">-1</int>
+							<bool key="NSToolbarIsUserRemovable">YES</bool>
+							<int key="NSToolbarItemVisibilityPriority">0</int>
+						</object>
+						<object class="NSToolbarItem" key="A612A4A5-7944-47C4-A422-A0FE9CB94FF0" id="750916494">
+							<object class="NSMutableString" key="NSToolbarItemIdentifier">
+								<characters key="NS.bytes">A612A4A5-7944-47C4-A422-A0FE9CB94FF0</characters>
+							</object>
+							<string key="NSToolbarItemLabel">刷新</string>
+							<string key="NSToolbarItemPaletteLabel">刷新</string>
+							<string key="NSToolbarItemToolTip"/>
+							<nil key="NSToolbarItemView"/>
+							<object class="NSCustomResource" key="NSToolbarItemImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">10</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -193,16 +215,18 @@
 							</object>
 						</object>
 					</dictionary>
-					<array key="NSToolbarIBAllowedItems">
+					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
 						<reference ref="800070868"/>
 						<reference ref="783187109"/>
 						<reference ref="659447691"/>
 						<reference ref="893121150"/>
+						<reference ref="750916494"/>
 						<reference ref="1046358911"/>
 					</array>
 					<array key="NSToolbarIBDefaultItems">
 						<reference ref="659447691"/>
 						<reference ref="893121150"/>
+						<reference ref="750916494"/>
 						<reference ref="783187109"/>
 						<reference ref="1046358911"/>
 					</array>
@@ -216,7 +240,6 @@
 					<string key="NSFrameSize">{750, 397}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
@@ -518,7 +541,6 @@
 							<string key="NSFrame">{{494, 9}, {89, 32}}</string>
 							<reference key="NSSuperview" ref="59753985"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="937433283">
@@ -1237,6 +1259,7 @@
 							<reference ref="1046358911"/>
 							<reference ref="783187109"/>
 							<reference ref="800070868"/>
+							<reference ref="750916494"/>
 						</array>
 						<reference key="parent" ref="509611074"/>
 					</object>
@@ -1679,6 +1702,11 @@
 						<reference key="object" ref="21025902"/>
 						<reference key="parent" ref="299466673"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">293</int>
+						<reference key="object" ref="750916494"/>
+						<reference key="parent" ref="209173599"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1753,6 +1781,7 @@
 				<string key="286.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="287.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="289.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="293.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="5.IBNSWindowAutoPositionCentersHorizontal"/>
 				<boolean value="YES" key="5.IBNSWindowAutoPositionCentersVertical"/>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1765,7 +1794,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">292</int>
+			<int key="maxID">293</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1878,12 +1907,13 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="1">{32, 32}</string>
+			<string key="10">{32, 32}</string>
+			<string key="2">{32, 32}</string>
+			<string key="3">{32, 32}</string>
 			<string key="NSMenuCheckmark">{11, 11}</string>
 			<string key="NSMenuMixedState">{10, 3}</string>
-			<string key="loadToolbarItem">{32, 32}</string>
 			<string key="login">{311, 63}</string>
-			<string key="loginToolbarItem">{32, 32}</string>
-			<string key="newToolbarItem">{32, 32}</string>
 		</dictionary>
 	</data>
 </archive>

@@ -173,19 +173,19 @@
     
     
     if ([dict objectForKey:@"task_type"] && [[dict objectForKey:@"task_type"] isEqualToString:@"bt"]) {
-        task.TaskType = [NSImage imageNamed:@"tpimg_bt.png"];
+        task.TaskType = [NSImage imageNamed:@"4"];
         task.TaskTypeString = @"bt";
     } else {
         if ([[dict objectForKey:@"format"] isEqualToString:@"movie"]) {
-            task.TaskType = [NSImage imageNamed:@"tpimg_video.png"];
+            task.TaskType = [NSImage imageNamed:@"6"];
             task.TaskTypeString = @"movie";
         } else {
-            task.TaskType = [NSImage imageNamed:@"tpimg_other.png"];
+            task.TaskType = [NSImage imageNamed:@"5"];
             task.TaskTypeString = @"other";
         }
         if ([[dict objectForKey:@"format"] isEqualToString:@"rar"])
         {
-            task.TaskType = [NSImage imageNamed:@"tpimg_rar.png"];
+            task.TaskType = [NSImage imageNamed:@"9"];
         }
         
     }

@@ -179,6 +179,7 @@
 //----------------------------------------
 -(IBAction)add_task_ok_button_click:(id)sender
 {
+    
     if ([[add_task_url stringValue] length]<5) {
         return;
     }
@@ -197,6 +198,7 @@
                 
             });
         }
+        [add_task_url setStringValue:@""];
         [add_task_progress stopAnimation:self];
     });
 }

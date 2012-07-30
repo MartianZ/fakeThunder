@@ -36,6 +36,11 @@
         }
         [operation_download_queue setMaxConcurrentOperationCount:[defaults integerForKey:@UD_MAX_TASKS]];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(set_max_tasks) name:@UD_MAX_TASKS object:nil];
+        
+        message_view = [[MessageView alloc] initWithNibName:@"MessageView" bundle:[NSBundle bundleForClass:[self class]] TasksView:self];
+        
+        [collection setValue:@(0) forKey:@"_animationDuration"];
+
     }
     return self;
 }
@@ -110,6 +115,7 @@
     for (unsigned long i = page_num * 20; (i < (page_num + 1) * 20) && (i < [jsonArray count]); i++) {
         [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:[jsonArray objectAtIndex:i] waitUntilDone:YES];
     }
+    
     
 }
 
@@ -227,10 +233,9 @@
 -(void)thread_load_bt_file_list:(TaskModel *)t
 {
     @autoreleasepool {
-        
-        
+        [collection setHidden:YES];
         [mutable_array removeAllObjects];
-        
+        [collection setValue:@(0) forKey:@"_animationDuration"];
         for (TaskModel *tt in [array_controller arrangedObjects]) {
             [mutable_array addObject:tt];
         }
@@ -253,7 +258,7 @@
             
             NSString *file_list = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_bt_list/%@/%@",self.hash,t.TaskID,t.CID]];
             NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[file_list dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
-            sleep(1); //等待渐变动画结束，然后再继续
+            //sleep(1); //等待渐变动画结束，然后再继续
             [nav_label setStringValue:t.TaskTitle];
             for (NSDictionary *dict in jsonArray) {
                 NSMutableDictionary *mutable_dict = [NSMutableDictionary dictionaryWithDictionary:dict];
@@ -262,12 +267,13 @@
                 [mutable_dict setObject:dirtitle forKey:@"dirtitle"];
                 [mutable_dict setObject:t.TaskTitle forKey:@"fathertitle"];
                 [mutable_dict setObject:[NSNumber numberWithInteger:[mutable_array indexOfObject:t]] forKey:@"fathertaskmodel"];
-                [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:mutable_dict waitUntilDone:NO];
+                [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:mutable_dict waitUntilDone:YES];
                 
             }
         }
         [nav_button setHidden:NO];
-        
+        [collection setHidden:NO];
+
     }
     
     

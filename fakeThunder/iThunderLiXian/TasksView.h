@@ -9,7 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "RequestSender.h"
 #import "TaskModel.h"
+#import "MessageView.h"
 
+@class MessageView;
 @interface TasksView : NSViewController {
     IBOutlet NSArrayController *array_controller;
 
@@ -30,6 +32,8 @@
     
     NSString *hash;
     NSString *cookie;
+    
+    MessageView *message_view;
 }
 
 @property (atomic, retain) NSString *hash;

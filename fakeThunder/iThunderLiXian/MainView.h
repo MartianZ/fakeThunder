@@ -10,11 +10,12 @@
 #import "TasksView.h"
 #import "RequestSender.h"
 #import "AppPrefsWindowsController.h"
+#import "MessageView.h"
 @interface MainView : NSWindowController
 {
     
     TasksView *tasks_view;
-    
+    MessageView *message_view;
     IBOutlet NSWindow *login_window;
     IBOutlet NSTextField *login_username;
     IBOutlet NSTextField *login_password;

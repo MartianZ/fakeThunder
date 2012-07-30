@@ -32,7 +32,10 @@
     [super windowDidLoad];
 
     tasks_view = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
+    message_view = [[MessageView alloc] initWithNibName:@"MessageView" bundle:[NSBundle bundleForClass:[self class]] TasksView:tasks_view];
+    
     [self.window.contentView addSubview:tasks_view.view];
+    [self.window.contentView addSubview:message_view.view];
     
     self.hash = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_LAST_LOGIN_HASH];
     self.cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_LAST_LOGIN_COOKIE];
@@ -41,13 +44,20 @@
         //自动登录
         [toobaritem_login setEnabled:NO];
         [toobaritem_login setLabel:@"正在登录"];
+
+        [toobaritem_login setLabel:@"注销"];
+        
+        [message_view showMessage:@"正在加载任务列表……"];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
             tasks_view.hash = self.hash;
             tasks_view.cookie = self.cookie;
             current_page = 0;
             [tasks_view thread_get_task_list:0];
+            
+            [message_view hideMessage];
         });
-        [toobaritem_login setLabel:@"注销"];
+        
+        
     }
 }
 
@@ -227,11 +237,16 @@
         return;
     }
     
+    if (message_view.view.isHidden) {
+        [message_view showMessage:@"正在刷新任务……"];
+        current_page = 0;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+            [tasks_view thread_get_task_list:current_page];
+            [message_view hideMessage];
+        });
+    }
     
-    current_page = 0;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        [tasks_view thread_get_task_list:current_page];
-    });
+    
 }
 
 @end

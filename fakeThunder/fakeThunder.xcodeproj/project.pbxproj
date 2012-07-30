@@ -38,6 +38,8 @@
 		02134EDD15C57450000D5479 /* 9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02134ECB15C57450000D5479 /* 9@2x.png */; };
 		02134EDF15C59A28000D5479 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 02134EDE15C59A28000D5479 /* 10.png */; };
 		02134EE115C59A3F000D5479 /* 10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02134EE015C59A3F000D5479 /* 10@2x.png */; };
+		0222916515C664C700EB5630 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0222916315C664C700EB5630 /* MessageView.m */; };
+		0222916615C664C700EB5630 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0222916415C664C700EB5630 /* MessageView.xib */; };
 		0224498E15A73011002499B4 /* RequestSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 0224498D15A72E6C002499B4 /* RequestSender.m */; };
 		024616DD15BC07E5009542B5 /* AppPrefsWindowsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 024616DC15BC07E5009542B5 /* AppPrefsWindowsController.m */; };
 		024616E215BC0948009542B5 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024616E115BC0948009542B5 /* Preferences.xib */; };
@@ -118,6 +120,9 @@
 		02134ECB15C57450000D5479 /* 9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9@2x.png"; sourceTree = "<group>"; };
 		02134EDE15C59A28000D5479 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		02134EE015C59A3F000D5479 /* 10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10@2x.png"; sourceTree = "<group>"; };
+		0222916215C664C700EB5630 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
+		0222916315C664C700EB5630 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		0222916415C664C700EB5630 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		0224496E15A71DA1002499B4 /* TaskModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskModel.h; sourceTree = "<group>"; };
 		0224498C15A72E6C002499B4 /* RequestSender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestSender.h; sourceTree = "<group>"; };
 		0224498D15A72E6C002499B4 /* RequestSender.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestSender.m; sourceTree = "<group>"; };
@@ -272,6 +277,9 @@
 				024789CE15BD25E1003E7E73 /* TasksView.h */,
 				024789CF15BD25E1003E7E73 /* TasksView.m */,
 				024789D015BD25E1003E7E73 /* TasksView.xib */,
+				0222916215C664C700EB5630 /* MessageView.h */,
+				0222916315C664C700EB5630 /* MessageView.m */,
+				0222916415C664C700EB5630 /* MessageView.xib */,
 				02D4C9E415BC051F00E4F9E9 /* PrefsWindow */,
 			);
 			name = View;
@@ -403,6 +411,7 @@
 				02134EDD15C57450000D5479 /* 9@2x.png in Resources */,
 				02134EDF15C59A28000D5479 /* 10.png in Resources */,
 				02134EE115C59A3F000D5479 /* 10@2x.png in Resources */,
+				0222916615C664C700EB5630 /* MessageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +431,7 @@
 				024616DD15BC07E5009542B5 /* AppPrefsWindowsController.m in Sources */,
 				029270B615BD1AB300CCAAC3 /* MainView.m in Sources */,
 				024789D115BD25E1003E7E73 /* TasksView.m in Sources */,
+				0222916515C664C700EB5630 /* MessageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

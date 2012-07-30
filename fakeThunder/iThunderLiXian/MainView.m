@@ -208,6 +208,7 @@
 //----------------------------------------
 -(IBAction)add_task_cancel_button_click:(id)sender
 {
+    [add_task_url setStringValue:@""];
     [NSApp endSheet:add_task_window returnCode:NSCancelButton];
 }
 

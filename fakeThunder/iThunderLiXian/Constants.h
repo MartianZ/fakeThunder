@@ -25,4 +25,6 @@
 
 #define UD_VOD_PLAY_SHARPNESS "UserDefaultVodSharpness"
 
+#define UD_NOTIFICATION "UserDefaultSendNortification"
+
 #endif

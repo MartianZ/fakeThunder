@@ -290,6 +290,7 @@
         switch ([task terminationStatus]) {
 
             case 0:
+            {
                 //下载完成
                 if (self.FatherTaskModel) {
                     //处理BT主任务的进度
@@ -307,12 +308,24 @@
                 self.ButtonTitle = @"完成下载";
                 self.ProgressValue = 100;
                 
+                if ([[NSUserDefaults standardUserDefaults] boolForKey:@UD_NOTIFICATION]) {
+                    NSUserNotification *un = [[NSUserNotification alloc] init];
+                    [un setTitle:@"fakeThunder - 下载完成"];
+                    [un setInformativeText:self.TaskTitle];
+                    [un setHasActionButton:NO];
+                    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:un];
+                }
+                
+                
+            }
                 break;
+            
             case 7:
+            {
                 //暂停下载
                 self.ButtonEnabled = YES;
                 self.ButtonTitle = @"继续下载";
-
+            }
                 break;
                 
             default:

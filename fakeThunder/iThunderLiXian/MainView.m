@@ -59,6 +59,8 @@
         
         
     }
+
+    
 }
 
 //----------------------------------------
@@ -235,6 +237,9 @@
 //----------------------------------------
 -(IBAction)toolbar_refresh:(id)sender
 {
+
+
+
     if (!self.hash || self.hash.length != 32) {
         [[NSAlert alertWithMessageText:@"无法加载任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"请先登录您的迅雷VIP账户！"] runModal];
         return;

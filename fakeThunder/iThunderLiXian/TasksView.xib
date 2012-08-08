@@ -115,7 +115,6 @@
 						<string key="NSFrame">{{96, 381}, {649, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="265811359">
@@ -295,7 +294,7 @@
 											<string key="NSCellIdentifier">_NS:1535</string>
 											<reference key="NSControlView" ref="659463006"/>
 											<reference key="NSBackgroundColor" ref="629119408"/>
-											<object class="NSColor" key="NSTextColor" id="341228080">
+											<object class="NSColor" key="NSTextColor" id="1062763434">
 												<int key="NSColorSpace">6</int>
 												<string key="NSCatalogName">System</string>
 												<string key="NSColorName">controlTextColor</string>
@@ -341,7 +340,7 @@
 										<string key="NSFrame">{{407, 36}, {136, 20}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="275259901"/>
+										<reference key="NSNextKeyView" ref="337176650"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<string key="NSHuggingPriority">{250, 250}</string>
 										<int key="NSpiFlags">16399</int>
@@ -365,7 +364,11 @@
 											<reference key="NSControlView" ref="479259141"/>
 											<int key="NSButtonFlags">-2038022144</int>
 											<int key="NSButtonFlags2">162</int>
-											<reference key="NSAlternateImage" ref="596077232"/>
+											<object class="NSFont" key="NSAlternateImage">
+												<string key="NSName">LucidaGrande</string>
+												<double key="NSSize">13</double>
+												<int key="NSfFlags">16</int>
+											</object>
 											<string key="NSAlternateContents"/>
 											<string key="NSKeyEquivalent"/>
 											<int key="NSPeriodicDelay">400</int>
@@ -403,7 +406,6 @@
 										<string key="NSFrame">{{662, 34}, {26, 23}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:22</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="724526070">
@@ -426,7 +428,7 @@
 										</object>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									</object>
-									<object class="NSTextField" id="275259901">
+									<object class="NSTextField" id="337176650">
 										<reference key="NSNextResponder" ref="594286072"/>
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{476, 35}, {67, 17}}</string>
@@ -435,7 +437,7 @@
 										<reference key="NSNextKeyView" ref="479259141"/>
 										<string key="NSReuseIdentifierKey">_NS:1535</string>
 										<bool key="NSEnabled">YES</bool>
-										<object class="NSTextFieldCell" key="NSCell" id="401831145">
+										<object class="NSTextFieldCell" key="NSCell" id="798837523">
 											<int key="NSCellFlags">68157504</int>
 											<int key="NSCellFlags2">272647168</int>
 											<string key="NSContents">aaaaaaa</string>
@@ -445,9 +447,9 @@
 												<int key="NSfFlags">3100</int>
 											</object>
 											<string key="NSCellIdentifier">_NS:1535</string>
-											<reference key="NSControlView" ref="275259901"/>
+											<reference key="NSControlView" ref="337176650"/>
 											<reference key="NSBackgroundColor" ref="629119408"/>
-											<reference key="NSTextColor" ref="341228080"/>
+											<reference key="NSTextColor" ref="1062763434"/>
 										</object>
 										<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 									</object>
@@ -895,10 +897,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: representedObject.TimeLeft</string>
-						<reference key="source" ref="275259901"/>
+						<reference key="source" ref="337176650"/>
 						<reference key="destination" ref="210360610"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="275259901"/>
+							<reference key="NSSource" ref="337176650"/>
 							<reference key="NSDestination" ref="210360610"/>
 							<string key="NSLabel">value: representedObject.TimeLeft</string>
 							<string key="NSBinding">value</string>
@@ -1034,7 +1036,7 @@
 							<reference ref="460208382"/>
 							<reference ref="659463006"/>
 							<reference ref="668372605"/>
-							<reference ref="275259901"/>
+							<reference ref="337176650"/>
 						</array>
 						<reference key="parent" ref="413301639"/>
 					</object>
@@ -1154,16 +1156,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">176</int>
-						<reference key="object" ref="275259901"/>
+						<reference key="object" ref="337176650"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="401831145"/>
+							<reference ref="798837523"/>
 						</array>
 						<reference key="parent" ref="548530321"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">177</int>
-						<reference key="object" ref="401831145"/>
-						<reference key="parent" ref="275259901"/>
+						<reference key="object" ref="798837523"/>
+						<reference key="parent" ref="337176650"/>
 					</object>
 				</array>
 			</object>

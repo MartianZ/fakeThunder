@@ -33,6 +33,8 @@
     
     DownloadOperation *download_operation;
     BOOL StartAllDownloadNow;
+    
+    NSString *TimeLeft;
     @public
     BOOL NeedToStopNow;
 }
@@ -53,6 +55,7 @@
 @property (atomic, retain) NSString *LiXianURL;
 @property (atomic, retain) NSString *TaskTypeString;
 @property (atomic, retain) NSString *CID;
+@property (atomic, retain) NSString *TimeLeft;
 @property (atomic, retain) TaskModel *FatherTaskModel;
 @property (atomic, retain) DownloadOperation *download_operation;
 @property (atomic) BOOL StartAllDownloadNow;

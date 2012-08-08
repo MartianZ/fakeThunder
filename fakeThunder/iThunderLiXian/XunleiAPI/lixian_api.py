@@ -243,6 +243,7 @@ class LiXianAPI(object):
                 class_id = 0)
         data["from"] = 0
         r = self.session.post(self.BT_TASK_COMMIT_URL, data)
+        print r.content
         if r.error:
             r.raise_for_status()
         DEBUG(pformat(r.content))

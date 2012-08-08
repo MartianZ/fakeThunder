@@ -115,6 +115,7 @@
 						<string key="NSFrame">{{96, 381}, {649, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="265811359">
@@ -265,10 +266,6 @@
 										<object class="NSImageCell" key="NSCell" id="1007037766">
 											<int key="NSCellFlags">134217728</int>
 											<int key="NSCellFlags2">33554432</int>
-											<object class="NSCustomResource" key="NSContents">
-												<string key="NSClassName">NSImage</string>
-												<string key="NSResourceName">tpimg_bt</string>
-											</object>
 											<string key="NSCellIdentifier">_NS:9</string>
 											<int key="NSAlign">0</int>
 											<int key="NSScale">0</int>
@@ -410,6 +407,7 @@
 										<string key="NSFrame">{{662, 34}, {26, 23}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:22</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="724526070">
@@ -1240,7 +1238,6 @@
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NSMenuCheckmark">{11, 11}</string>
 			<string key="NSMenuMixedState">{10, 3}</string>
-			<string key="tpimg_bt">{32.395949255088134, 32.395949255088134}</string>
 		</dictionary>
 	</data>
 </archive>

@@ -242,9 +242,10 @@
     
     if (message_view.view.isHidden) {
         [message_view showMessage:@"正在刷新任务……"];
+        
         current_page = 0;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-            [tasks_view thread_get_task_list:current_page];
+            [tasks_view thread_refresh];
             [message_view hideMessage];
         });
     }

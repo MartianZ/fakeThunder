@@ -42,5 +42,6 @@
 - (void)thread_get_task_list:(NSInteger)page_num;
 - (BOOL)thread_add_task:(NSString *)task_url;
 - (void)clear_task_list;
+- (void)thread_refresh;
 
 @end

@@ -76,11 +76,6 @@
         [self thread_get_task_list:0]; */ //这样会导致前面的下载进度丢失
         dispatch_async( dispatch_get_main_queue(), ^{
             [self mainthread_add_task_to_list:[self thread_get_first_task]];
-            
-            TaskModel *t = [[array_controller arrangedObjects] lastObject];
-            //[t retain];
-            [array_controller removeObject:t];
-            [array_controller insertObject:t atArrangedObjectIndex:0];
         });
         
         return YES;
@@ -89,6 +84,29 @@
     }
 }
 
+
+//--------------------------------------------------------------
+//      线程：刷新任务列表
+//--------------------------------------------------------------
+- (void)thread_refresh
+{
+    NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_task_list/20/0",self.hash]];
+    
+    if ([requestResult isEqualToString:@"Fail"])
+    {
+        return;
+    }
+    
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+    
+    NSLog(@"%@",[jsonArray objectAtIndex:0]);
+    
+    for (unsigned long i = 0; (i <  20) && (i < [jsonArray count]); i++) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[jsonArray objectAtIndex:i]];
+        [dict setObject:@"1" forKey:@"AddToTop"];
+        [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:dict waitUntilDone:YES];
+    }
+}
 
 
 //--------------------------------------------------------------
@@ -133,7 +151,9 @@
     
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
         
-    return [jsonArray objectAtIndex:0];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[jsonArray objectAtIndex:0]];
+    [dict setObject:@"1" forKey:@"AddToTop"];
+    return dict;
     
 }
 
@@ -202,6 +222,15 @@
     }
         
     task.TaskID = [NSString stringWithFormat:@"%lu",[[dict objectForKey:@"task_id"] unsignedLongValue]];
+    
+    
+    /*如果任务重复则不添加*/
+    for (TaskModel* t in [array_controller arrangedObjects]) {
+        if ([t.TaskID isEqualToString:task.TaskID]) {
+            return;
+        }
+    }
+    
     task.Indeterminate = YES;
     task.ProgressValue = 0;
     task.Cookie = [NSString stringWithFormat:@"Cookie:%@", self.cookie];
@@ -210,7 +239,14 @@
     task.CID = [NSString stringWithString:[dict objectForKey:@"cid"]];
     task.ButtonTitle = @"开始本地下载";
     task.ButtonEnabled = YES;
-    [array_controller addObject:task];
+    
+    /*添加到顶部*/
+    if ([dict objectForKey:@"AddToTop"]) {
+        [array_controller insertObject:task atArrangedObjectIndex:0];
+    } else {
+        [array_controller addObject:task];
+    }
+    
 
     if (task.FatherTaskModel && task.FatherTaskModel.StartAllDownloadNow) {
         

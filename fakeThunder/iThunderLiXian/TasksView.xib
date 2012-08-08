@@ -115,7 +115,6 @@
 						<string key="NSFrame">{{96, 381}, {649, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="265811359">
@@ -278,7 +277,7 @@
 									<object class="NSTextField" id="659463006">
 										<reference key="NSNextResponder" ref="594286072"/>
 										<int key="NSvFlags">266</int>
-										<string key="NSFrame">{{71, 49}, {326, 17}}</string>
+										<string key="NSFrame">{{71, 48}, {326, 17}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="150549121"/>
@@ -290,11 +289,7 @@
 											<int key="NSCellFlags">68157504</int>
 											<int key="NSCellFlags2">272630784</int>
 											<string key="NSContents">传说中的任务名称传说中的任务名称传说中的任务名称传说中的任务名称传说中的任务名称传说中的任务名称传说中的任务名称</string>
-											<object class="NSFont" key="NSSupport">
-												<string key="NSName">STHeitiSC-Light</string>
-												<double key="NSSize">13</double>
-												<int key="NSfFlags">16</int>
-											</object>
+											<reference key="NSSupport" ref="596077232"/>
 											<string key="NSPlaceholderString">AAAA</string>
 											<string key="NSCellIdentifier">_NS:1535</string>
 											<reference key="NSControlView" ref="659463006"/>
@@ -407,7 +402,6 @@
 										<string key="NSFrame">{{662, 34}, {26, 23}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:22</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="724526070">

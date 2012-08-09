@@ -90,6 +90,10 @@
 //--------------------------------------------------------------
 - (void)thread_refresh
 {
+    
+    if (!nav_button.isHidden) {
+        return;
+    }
     NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/%@/get_task_list/20/0",self.hash]];
     
     if ([requestResult isEqualToString:@"Fail"])

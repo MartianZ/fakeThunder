@@ -513,7 +513,7 @@
         play_url = [play_url stringByReplacingOccurrencesOfString:@"&p=" withString:@"&"];
         NSString *play_url_2 = [play_url substringFromIndex:[play_url rangeOfString:@"&s"].location + 3];
         play_url_2 = [play_url_2 substringToIndex:[play_url_2 rangeOfString:@"&"].location];
-        NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@",play_url,play_url_2];
+        NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@&p=1",play_url,play_url_2];
         NSLog(@"%@",play_url_3);
         
         NSString *user_id = [play_url_3 substringFromIndex:[play_url_3 rangeOfString:@"&ui="].location + 4];

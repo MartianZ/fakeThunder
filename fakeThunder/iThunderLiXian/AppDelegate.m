@@ -39,7 +39,7 @@
     [main_view showWindow:self];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        NSString *check_update = [RequestSender sendRequest:@"http://api.4321.la/analytics-thunder.php?ver=20120809"];
+        NSString *check_update = [RequestSender sendRequest:@"http://api.4321.la/analytics-thunder.php?ver=20120812"];
         dispatch_async( dispatch_get_main_queue(), ^{
             if ([check_update hasPrefix:@"Update"]) {
                 [[NSAlert alertWithMessageText:@"更新" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"软件检测到新版本的发布，请从软件中运行“自动更新”以更新软件。"] runModal];
@@ -59,7 +59,6 @@
         [[NSAlert alertWithMessageText:@"捐赠作者" defaultButton:@"我知道了" alternateButton:nil otherButton:nil informativeTextWithFormat:@"fakeThunder是一款开源、免费软件，仍有很大的开发空间。非常高兴能够看到fakeThunder能够帮助到您，如果您喜欢这款软件，请考虑捐赠作者以支持后续的开发和维护费用。具体捐赠方式可查看软件偏好设置 - 高级。\n\n感谢您的支持，本对话框不会再次出现。"] runModal];
     }
     
-
 }
 
 

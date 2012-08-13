@@ -91,7 +91,7 @@ jsonObject.setParseAction( convertDict )
 jsonArray.setParseAction( convertList )
 
 def parser_js_function_call(string):
-    return jsFunctionCall.parseString(string).asList()
+    return jsFunctionCall.parseString(string.lstrip('\xef\xbf\xbb')).asList()
     
 if __name__ == "__main__":
     testdata = """queryUrl(1,'3BC3BEC436094736BF19350711D4A5556F4B7536','123806924','[Dymy][Nurarihyon_no_Mago_Sennen_Makyou][18v2][BIG5][RV10][848x480].rmvb','0',new Array('[Dymy][Nurarihyon_no_Mago_Sennen_Makyou][18v2][BIG5][RV10][848x480].rmvb'),new Array('118M'),new Array('123806924'),new Array('1'),new Array('RMVB'),new Array('0'),'13206731991951250210.5123566347')"""

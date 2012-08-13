@@ -54,7 +54,7 @@ def unescape_html(html):
 	return xml.sax.saxutils.unescape(html)
 
 class LiXianAPI(object):
-    DEFAULT_USER_AGENT = 'User-Agent:Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.106 Safari/535.2'
+    DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11'
     DEFAULT_REFERER = 'http://lixian.vip.xunlei.com/'
     def __init__(self, user_agent = DEFAULT_USER_AGENT, referer = DEFAULT_REFERER):
         self.session = requests.session()
@@ -129,7 +129,12 @@ class LiXianAPI(object):
         gdriveid = re.search(r'id="cok" value="([^"]+)"', r.content).group(1)
         if not gdriveid:
             return False
+        cookie = self.get_cookie()
         self.gdriveid = gdriveid
+        self.uid = int(cookie['userid'])
+        self.isvip = cookie['isvip']
+        self.nickname = cookie['nickname']
+        self.task_url = self.TASK_URL % self.uid
         return True
 
     # from https://github.com/iambus/xunlei-lixian/
@@ -663,20 +668,7 @@ class LiXianAPI(object):
     CHECK_LOGIN_URL = "http://dynamic.cloud.vip.xunlei.com/interface/verify_login"
     TASK_URL = "http://dynamic.cloud.vip.xunlei.com/user_task?userid=%s"
     def check_login(self):
-        r = self.session.get(self.CHECK_LOGIN_URL)
-        if r.error:
-            r.raise_for_status()
-        function, args = parser_js_function_call(r.content)
-        DEBUG(pformat(args))
-        assert args
-        if args and args[0].get("result") == 1:
-            self.uid = int(args[0]["data"].get("userid"))
-            self.isvip = args[0]["data"].get("vipstate")
-            self.nickname = args[0]["data"].get("nickname")
-            self.username = args[0]["data"].get("usrname")
-            self.task_url = self.TASK_URL % self.uid
-            return True
-        return False
+        return True
 
     def get_cookie(self, attr=""):
         cookies = self.session.cookies

@@ -21,7 +21,7 @@
 #define UD_LAST_LOGIN_COOKIE "UserLastLoginCookieNEW"
 
 #define UD_TASK_SPEED_LIMIT "UserDefailtTaskLimit" 
-//卧槽我刚发现这个单词拼错了，应该是Deafult，怎么办，还是不改了，改了以后用户升级就没设置了-_,-
+//卧槽我刚发现这个单词拼错了，应该是Default，怎么办，还是不改了，改了以后用户升级就没设置了-_,-
 
 #define UD_VOD_PLAY_SHARPNESS "UserDefaultVodSharpness"
 

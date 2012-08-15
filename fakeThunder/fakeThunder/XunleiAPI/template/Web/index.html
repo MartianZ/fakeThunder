@@ -1,0 +1,317 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="https://raw.github.com/nikolka/bootstrap-contextmenu/master/js/bootstrap-contextmenu.js"></script>
+<style type="text/css"> 
+body
+{
+    background-image:url(ApplicationsCollectionViewBackgroundPattern.png);
+    background-repeat:repeat;
+    cursor:default;
+}
+
+.intro
+{
+    
+    margin-left:auto;
+    margin-right:auto;
+    width:203px;
+    margin-top:100px;
+    opacity:0.5;
+}
+.item
+{
+	background-color:rgb(242,241,242);
+	height:70px;
+	margin-top:13px;
+	margin-left:10px;
+    margin-right:10px;
+	box-shadow:0 0 4px rgb(185,187,186);
+	border-radius: 7px;
+}
+.pic
+{
+	height:57;
+	width:57;
+	margin-top:5px;
+	margin-left:10px;
+	position:absolute;
+	border-radius: 6px;
+}
+.title
+{
+	position:absolute;
+	font-family:Helvetica;
+	margin-left:80px;
+	margin-top:20px;
+	font-size:14px;
+}
+.titledown {
+    margin-left:40px;
+    margin-top:30px;
+}
+.description
+{
+	position:absolute;
+	font-family:Arial;
+	margin-left:80px;
+	margin-top:39px;
+	font-size:12px;
+	color:rgb(142,142,162);
+}
+.download
+{
+	height:22px;
+	width:120px;
+	background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(47,128,195)),
+    color-stop(0.5, rgb(36,109,171)),
+    color-stop(0.51, rgb(28,93,152)),
+    color-stop(1, rgb(30,89,142))
+	);
+	color:white;
+	font-family:Arial;
+	font-size:12px;
+	text-align:center;
+	line-height:22px;  
+	border-radius: 5px 0px 0px 5px;
+	border:1px solid rgb(35,97,147);
+	box-shadow:0 0 3px rgb(130,150,168);
+	cursor:pointer;
+}
+    
+.leftbutton {
+	margin-left:auto;
+    float:right;
+    margin-right:10px;
+
+}
+    
+.rightbutton {
+    
+    margin-left:auto;
+    float:right;
+}
+.downloadplus
+{
+	left:-13px;
+	margin-right:10px;
+	margin-left:auto;
+	height:22px;
+	width:22px;
+	background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(47,128,195)),
+    color-stop(0.5, rgb(36,109,171)),
+    color-stop(0.51, rgb(28,93,152)),
+    color-stop(1, rgb(30,89,142))
+	);
+	color:rgb(189,210,230);
+	font-family:Arial;
+	font-size:12px;
+	text-align:center;
+	line-height:22px;  
+	border-radius: 0px 5px 5px 0px;
+	border:1px solid rgb(35,97,147);
+	box-shadow:0 0 3px rgb(130,150,168);
+	cursor:pointer;
+}
+.download:hover,.downloadplus:hover
+{
+	background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(0,103,183)),
+    color-stop(0.5, rgb(0,80,154)),
+    color-stop(0.51, rgb(0,62,132)),
+    color-stop(1, rgb(0,55,120))
+	);
+}
+.download:active,.downloadplus:active
+{
+	background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgb(1,57,121)),
+    color-stop(0.5, rgb(30,95,170)),
+    color-stop(1, rgb(53,126,210))
+	);
+}
+.loadmore
+{
+    height:100px;
+    line-height:100px;
+    font-size:15px;
+    font-family:Hei;
+    text-align:center;
+    color:rgb(142,142,162);
+}
+.loadalbum
+{
+    
+    text-decoration: none;
+    color:black;
+    cursor:pointer;
+    -webkit-transition: color .25s linear;
+}
+.loadalbum:hover
+{
+    color:rgb(0,103,183);
+    -webkit-transition: color .25s linear;
+}
+.lixianprocess
+{
+	float: left;
+}
+.filesize {
+	float: left;
+	width: 80px;
+}
+.right-area {
+    position: absolute;
+    width: 350px;
+    right: 0;
+    padding: 8px;
+    text-align: center;
+    height:100px;
+    margin-top: 15px;
+}
+.progress {
+    width: 150px;
+    margin-right: 40px;
+    margin-top: 2px;
+}
+.dropdown-menu {
+    position: fixed;
+    z-index: 99;
+}
+</style>
+    
+    
+    <script>
+        
+        var hash = '4e9abc43448994b7e98094b33b2f7746';
+        var ok = true;
+        var tasks = new Array();
+
+        function get_task_list(p)
+        {
+            $.getJSON('/'+ hash +'/get_task_list/'+ p*10 +'/0', function(data) {
+                alert('Load was performed.');
+                $.each(data,function(i,item){
+                    if (p==1) tasks = [];
+
+                    var task = new Array();
+
+                    if (i< (p-1)*10) return true;
+
+                    if (item.task_type == "bt")
+                        task["type"] = "bt"
+                    else
+                        task["type"] = item.format == "" ? "other" : item.format;
+
+                    task["task_id"] = item.task_id;
+                    task["lixian_process"] = item.process;
+                    task["lixian_url"] = item.lixian_url;
+                    task["task_name"] = item.taskname;
+                    task["size"] = item.size;
+
+                    tasks[item.task_id] = task;
+
+                    var task_size = item.size;
+                    var units = ["Bytes", "KiB","MiB", "GiB", "TiB", "PiB", "EiB"];
+                    var j = 0;
+                    while (task_size >= 1024) {
+                        task_size /= 1024; j++;
+                    }
+
+                    task_size =  task_size.toFixed(2) + units[j];
+
+                    var html = '<div class="item"><div class="pic" style="background:url(\'http://cloud.vip.xunlei.com/160/img/icon_type/tpimg_'+ task["type"] +'.png\') center no-repeat;"></div>';
+                    html += '<div class="title">' + task["task_name"] +'</div><div class="description"><div class="filesize">';
+                    html += task_size;
+                    html += '</div><div class="lixianprocess">离线下载进度：' + task["lixian_process"] + '%</div></div>';
+                    html += '<div class="download" onClick="addDownload(\''+ task["task_id"] +'\');">下载</div>';
+                    html += '<div class="downloadplus">▾</div></div>';
+
+                    $("#content").append(html);
+
+
+                });
+            });
+
+        }
+        
+
+        function right(str,n) 
+        { 
+            return str.substr(str.length-n,str.length);
+        } 
+
+        $(document).ready(function () {
+            alert('a');
+            //get_task_list(1);
+
+        });
+        
+        
+
+        $(".downloadplus").live("click", function(){
+
+
+        });
+        </script>
+    
+</head>
+
+    <body>
+
+
+<div id="content">
+
+
+    <div class="item">
+
+    <div class="pic" style="background:url('http://cloud.vip.xunlei.com/160/img/icon_type/tpimg_bt.png') center no-repeat;"></div>
+    <div class="title">任务标题</div>
+    <div class="description"><div class="filesize">100.00Mib</div><div class="lixianprocess">介绍介绍介绍介绍介绍介绍介绍介绍介绍</div></div>
+
+    <div class="right-area">
+        <div class="progress progress-striped active pull-left">
+            <div class="bar" style="width: 40%;">40%</div>
+        </div>
+        <div class="download pull-left" onClick="addDownload();">下载</div>
+        <div data-context-menu="#menu1" class="downloadplus pull-right">▾</div>
+
+    </div>
+
+    </div>
+
+    <div class="loadmore">
+        <span>▼</span> 下拉载入更多内容……
+    </div>
+	
+    <!--
+    <div class="item">
+        <div class="title titledown">专辑</div>
+        <div class="download rightbutton">全部下载（无损）</div>
+
+        <div class="download leftbutton">全部下载（MP3）</div>
+
+    </div>
+     -->
+
+</div>
+
+</body>
+</html>

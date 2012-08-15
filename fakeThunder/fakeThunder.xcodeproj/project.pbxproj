@@ -13,8 +13,7 @@
 		024C875815DBA755003EF1F3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 024C875615DBA755003EF1F3 /* Credits.rtf */; };
 		024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875A15DBA755003EF1F3 /* AppDelegate.m */; };
 		024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C875C15DBA756003EF1F3 /* MainMenu.xib */; };
-		024C878215DBA799003EF1F3 /* Thunder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878115DBA799003EF1F3 /* Thunder.icns */; };
-		024C878415DBA7A6003EF1F3 /* Thunder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* Thunder.icns */; };
+		024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* Thunder512.icns */; };
 		024C878615DBA800003EF1F3 /* XunleiAPI in Resources */ = {isa = PBXBuildFile; fileRef = 024C878515DBA800003EF1F3 /* XunleiAPI */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +32,7 @@
 		024C875A15DBA755003EF1F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		024C875D15DBA756003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		024C876515DBA756003EF1F3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		024C878115DBA799003EF1F3 /* Thunder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Thunder.icns; sourceTree = "<group>"; };
-		024C878315DBA7A6003EF1F3 /* Thunder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Thunder.icns; sourceTree = "<group>"; };
+		024C878315DBA7A6003EF1F3 /* Thunder512.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Thunder512.icns; path = ../Thunder512.icns; sourceTree = "<group>"; };
 		024C878515DBA800003EF1F3 /* XunleiAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = XunleiAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,7 +51,6 @@
 		024C873815DBA755003EF1F3 = {
 			isa = PBXGroup;
 			children = (
-				024C878315DBA7A6003EF1F3 /* Thunder.icns */,
 				024C874D15DBA755003EF1F3 /* fakeThunder */,
 				024C874615DBA755003EF1F3 /* Frameworks */,
 				024C874415DBA755003EF1F3 /* Products */,
@@ -116,7 +113,7 @@
 		024C877F15DBA787003EF1F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				024C878115DBA799003EF1F3 /* Thunder.icns */,
+				024C878315DBA7A6003EF1F3 /* Thunder512.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -175,8 +172,7 @@
 				024C875215DBA755003EF1F3 /* InfoPlist.strings in Resources */,
 				024C875815DBA755003EF1F3 /* Credits.rtf in Resources */,
 				024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */,
-				024C878215DBA799003EF1F3 /* Thunder.icns in Resources */,
-				024C878415DBA7A6003EF1F3 /* Thunder.icns in Resources */,
+				024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */,
 				024C878615DBA800003EF1F3 /* XunleiAPI in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

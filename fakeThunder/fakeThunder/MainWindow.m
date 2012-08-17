@@ -1,25 +1,24 @@
 //
-//  MainView.m
+//  MainWindow.m
 //  fakeThunder
 //
 //  Created by Martian on 12-8-15.
 //  Copyright (c) 2012年 MartianZ. All rights reserved.
 //
 
-#import "MainView.h"
+#import "MainWindow.h"
 
-@interface MainView ()
+@interface MainWindow ()
 
 @end
 
-@implementation MainView
+@implementation MainWindow
 
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-        NSLog(@"MainView Init");
     }
     
     return self;
@@ -27,16 +26,9 @@
 
 - (void)windowDidLoad
 {
-    tasksView = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
-
     [super windowDidLoad];
     
-    [self.window.contentView addSubview:tasksView.view];
-    
-    
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-    
-    
 }
 
 @end

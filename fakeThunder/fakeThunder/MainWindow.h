@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  MainWindow.h
 //  fakeThunder
 //
 //  Created by Martian on 12-8-15.
@@ -7,11 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MainView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-    MainView *mainView;
-}
-
+@interface MainWindow : NSWindowController
 
 @end

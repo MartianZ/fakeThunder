@@ -7,7 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "TasksView.h"
 
-@interface MainView : NSViewController
+@interface MainView : NSWindowController {
+    TasksView *tasksView;
+
+}
 
 @end

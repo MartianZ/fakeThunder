@@ -13,8 +13,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    mainView = [[MainView alloc] init];
-    window
+    
+    mainView = [[MainView alloc] initWithWindowNibName:@"MainView"];
+    [mainView showWindow:self];
     
 }
 

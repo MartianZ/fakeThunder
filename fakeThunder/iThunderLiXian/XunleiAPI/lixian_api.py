@@ -734,6 +734,7 @@ class LiXianAPI(object):
             "platform": 1,
             "userid": self.session.cookies["userid"],
             "jsonp": "jsonp1234567890",
+            "sessionid": self.session.cookies['sessionid'],
             }
         r = self.session.get(self.CLOUD_PLAY_GET_URL, params=params)
         print r.content

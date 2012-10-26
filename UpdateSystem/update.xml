@@ -10,8 +10,8 @@
 						<sparkle:releaseNotesLink>
 							http://martianlaboratory.com/fakethunder/
 						</sparkle:releaseNotesLink>
-            <pubDate>2012-08-13</pubDate>
-            <enclosure url="http://martianlaboratory.com/fakethunder/fakeThunder110.zip" sparkle:shortVersionString="1.0" sparkle:version="10" length="2861506" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCp3Qd3/fFZeiieB90T4UbANegY4gIVAJ3fKfzH9g0PojSAaz3f9ruQ460f" />
+            <pubDate>2012-10-26</pubDate>
+            <enclosure url="http://martianlaboratory.com/fakethunder/fakeThunder111.zip" sparkle:shortVersionString="1.0" sparkle:version="11" length="2619275" type="application/octet-stream" sparkle:dsaSignature="MC0CFCzt3gfl0KVfh31pVsFdD1Juy0yMAhUAgLOJSsTDWIFx+7DB37qXoA8IM5c=" />
          </item>
    </channel>
 </rss>

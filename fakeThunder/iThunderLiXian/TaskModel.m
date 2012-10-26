@@ -119,7 +119,7 @@
             strcpy(temp,[errs cStringUsingEncoding:NSASCIIStringEncoding]);
             sscanf(temp,"%*s SIZE:%s %s %s %*s SPD:%s ETA:%s]", down, total, percentage, speed, lefttime);
             
-            NSString *time_left = [NSString stringWithFormat:@"%s", lefttime];
+            NSString *time_left = [NSString stringWithFormat:@"剩余时间：%s", lefttime];
             if ([time_left hasSuffix:@"]"]) {
                 time_left = [time_left stringByReplacingOccurrencesOfString:@"]" withString:@""];
             } else {

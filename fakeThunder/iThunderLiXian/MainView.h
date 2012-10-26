@@ -25,6 +25,8 @@
     IBOutlet NSProgressIndicator *add_task_progress;
     IBOutlet NSButton *add_task_ok_button;
     IBOutlet NSTextField *add_task_url;
+    IBOutlet NSWindow *logout_window;
+    IBOutlet NSButton *logout_ok_button;
     IBOutlet NSToolbarItem *toobaritem_login;
     IBOutlet NSToolbarItem *toobaritem_loadmore;
     IBOutlet NSToolbarItem *toobaritem_add_task;

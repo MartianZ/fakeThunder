@@ -76,13 +76,7 @@
         [NSApp beginSheet:login_window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
         
     } else {
-        [toobaritem_login setLabel:@"登录"];
-        self.hash = nil;
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_HASH];
-        self.cookie = nil;
-        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_COOKIE];
-        [tasks_view clear_task_list];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [NSApp beginSheet:logout_window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
 }
 
@@ -148,11 +142,36 @@
 }
 
 //----------------------------------------
+//   注销窗口 - 确认
+//----------------------------------------
+- (IBAction)logout_ok:(id)sender
+{
+    
+    [toobaritem_login setLabel:@"登录"];
+    self.hash = nil;
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_HASH];
+    self.cookie = nil;
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@UD_LAST_LOGIN_COOKIE];
+    [tasks_view clear_task_list];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSApp endSheet:logout_window returnCode:NSCancelButton];
+}
+
+//----------------------------------------
+//   注销窗口 - 取消
+//----------------------------------------
+- (IBAction)logout_cancel:(id)sender
+{
+    [NSApp endSheet:logout_window returnCode:NSCancelButton];
+}
+
+//----------------------------------------
 //   SHEET - 关闭
 //----------------------------------------
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 {
     [login_window close];
+    [logout_window close];
     [add_task_window close];
 }
 

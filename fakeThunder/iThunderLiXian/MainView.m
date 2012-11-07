@@ -209,17 +209,23 @@
     [add_task_ok_button setEnabled:NO];
     [add_task_progress startAnimation:self];
     
+    NSString *taskStr = [[add_task_url stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSArray *taskUrls = [taskStr componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        if (![tasks_view thread_add_task:[add_task_url stringValue]]) {
-            dispatch_async( dispatch_get_main_queue(), ^{
-                [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"添加任务失败，请确定您的地址正确无误后重试。"] runModal];
-                [add_task_ok_button setEnabled:YES];
-            });
-        } else {
-            dispatch_async( dispatch_get_main_queue(), ^{
-                [NSApp endSheet:add_task_window returnCode:NSCancelButton];
-                
-            });
+        for (NSString *taskUrl in taskUrls) {
+            if (![tasks_view thread_add_task:taskUrl]) {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"添加任务失败，请确定您的地址正确无误后重试。Url:%@", taskUrl] runModal];
+                    [add_task_ok_button setEnabled:YES];
+                });
+                break;
+            } else {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [NSApp endSheet:add_task_window returnCode:NSCancelButton];
+                    
+                });
+            }
         }
         [add_task_url setStringValue:@""];
         [add_task_progress stopAnimation:self];

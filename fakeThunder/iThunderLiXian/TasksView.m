@@ -14,6 +14,9 @@
 
 @implementation TasksView
 
+@synthesize hash;
+@synthesize cookie;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

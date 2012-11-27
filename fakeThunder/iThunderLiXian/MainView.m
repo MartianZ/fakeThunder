@@ -14,6 +14,9 @@
 
 @implementation MainView
 
+@synthesize hash;
+@synthesize cookie;
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];

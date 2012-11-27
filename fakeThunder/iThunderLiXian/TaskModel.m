@@ -9,6 +9,26 @@
 #import "TaskModel.h"
 
 @implementation TaskModel
+@synthesize ButtonEnabled;
+@synthesize ButtonTitle;
+@synthesize TaskSize;
+@synthesize TaskTitle;
+@synthesize FatherTaskModel;
+@synthesize FatherTitle;
+@synthesize TaskID;
+@synthesize TaskSizeDescription;
+@synthesize TaskLiXianProcess;
+@synthesize TaskType;
+@synthesize Indeterminate;
+@synthesize ProgressValue;
+@synthesize TaskDownloadedSize;
+@synthesize Cookie;
+@synthesize LiXianURL;
+@synthesize TaskTypeString;
+@synthesize CID;
+@synthesize TimeLeft;
+@synthesize download_operation;
+@synthesize StartAllDownloadNow;
 
 
 -(void)dealloc {
@@ -309,9 +329,15 @@
                 self.ProgressValue = 100;
                 
                 if (!self.FatherTitle) {
-                    [[NSFileManager defaultManager] movePath:[NSString stringWithFormat:@"%@/%@.!",save_path, self.TaskTitle] toPath:[NSString stringWithFormat:@"%@/%@",save_path, self.TaskTitle] handler:nil];
+                    
+                    [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@.!",save_path, self.TaskTitle] toPath:[NSString stringWithFormat:@"%@/%@",save_path, self.TaskTitle]  error:nil];
+                    
+//                    [[NSFileManager defaultManager] movePath:[NSString stringWithFormat:@"%@/%@.!",save_path, self.TaskTitle] toPath:[NSString stringWithFormat:@"%@/%@",save_path, self.TaskTitle] handler:nil];
                 } else {
-                    [[NSFileManager defaultManager] movePath:[NSString stringWithFormat:@"%@/%@/%@.!",save_path, self.FatherTitle, self.TaskTitle] toPath:[NSString stringWithFormat:@"%@/%@/%@",save_path, self.FatherTitle, self.TaskTitle] handler:nil];
+//                    [[NSFileManager defaultManager] movePath:[NSString stringWithFormat:@"%@/%@/%@.!",save_path, self.FatherTitle, self.TaskTitle] toPath:[NSString stringWithFormat:@"%@/%@/%@",save_path, self.FatherTitle, self.TaskTitle] handler:nil];
+                    
+                    [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@/%@.!",save_path, self.FatherTitle, self.TaskTitle]  toPath:[NSString stringWithFormat:@"%@/%@/%@",save_path, self.FatherTitle, self.TaskTitle] error:nil];
+                    
                 }
                 
                 

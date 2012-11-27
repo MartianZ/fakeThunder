@@ -29,6 +29,7 @@
 @synthesize TimeLeft;
 @synthesize download_operation;
 @synthesize StartAllDownloadNow;
+@synthesize Percent;
 
 
 -(void)dealloc {
@@ -153,6 +154,10 @@
             self.ButtonTitle = [NSString stringWithFormat:@"%s",speed];
             
             self.ProgressValue = [[[NSString stringWithFormat:@"%s",percentage] stringByReplacingOccurrencesOfString:@"%" withString:@""] integerValue];
+            
+            NSLog(@"Process:%ld",self.ProgressValue);
+            
+            self.Percent = [NSString stringWithFormat:@"下载进度:%ld%%",self.ProgressValue];
             
             if ([errs rangeOfString:@"%"].location == NSNotFound) {
                 self.ButtonTitle = @"0Bs";

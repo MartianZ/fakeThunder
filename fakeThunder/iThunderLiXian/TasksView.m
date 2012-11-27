@@ -335,6 +335,8 @@
     
     TaskModel *t;
     for (TaskModel *tt in [array_controller arrangedObjects]) {
+        
+        NSLog(@"%@",tt.TaskID);
         if ([tt.TaskID isEqualToString:[button toolTip]]) {
             t = tt;
             break;

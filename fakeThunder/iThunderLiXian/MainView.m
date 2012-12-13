@@ -36,9 +36,34 @@
     tasks_view = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
     message_view = [[MessageView alloc] initWithNibName:@"MessageView" bundle:[NSBundle bundleForClass:[self class]] TasksView:tasks_view];
     
+    // tab视图控制
+    
+    // 左tab (种子拖放区域)
+    NSView* leftTabView = [[torrent_tab_view tabViewItemAtIndex:0] view];
+    drop_zone_view = [[DropZoneView alloc] init];
+    drop_zone_view.delegate = self;
+    
+    [drop_zone_view setFrameOrigin:NSMakePoint(0, 0)];
+    [drop_zone_view setFrameSize:leftTabView.frame.size];
+    
+    [leftTabView addSubview:drop_zone_view positioned:NSWindowBelow relativeTo:[leftTabView.subviews objectAtIndex:0]];
+
+    
+    // 右tab (种子文件列表)
+    torrent_view = [[TorrentView alloc] initWithNibName:@"TorrentView" bundle:[NSBundle bundleForClass:[self class]]];
+    
+    // 右tab按钮
+    [torrent_view.view addSubview:torrent_ok_button];
+    [torrent_view.view addSubview:torrent_back_button];
+    [torrent_view.view addSubview:torrent_add_cancel_button];
+    torrent_add_cancel_button.frame = NSMakeRect(308, -7, 89, 32);
+    torrent_ok_button.frame = NSMakeRect(397, -7, 89, 32);
+    torrent_back_button.frame = NSMakeRect(172, -7, 89, 32);
+    [[torrent_tab_view tabViewItemAtIndex:1] setView: torrent_view.view];
+    
     [self.window.contentView addSubview:tasks_view.view];
     [self.window.contentView addSubview:message_view.view];
-    
+
     self.hash = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_LAST_LOGIN_HASH];
     self.cookie = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_LAST_LOGIN_COOKIE];
     
@@ -232,6 +257,7 @@
     });
 }
 
+
 //----------------------------------------
 //   添加任务，取消
 //----------------------------------------
@@ -284,5 +310,107 @@
     
     
 }
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 手动选择种子文件
+//--------------------------------------------------------------
+
+- (IBAction)add_torrent_file_button:(id)sender
+{
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];//123
+    
+    [openDlg setCanChooseFiles:YES]; 
+    [openDlg setAllowsMultipleSelection:NO];
+    [openDlg setCanChooseDirectories:NO];
+    [openDlg setAllowedFileTypes:[NSArray arrayWithObject:@"torrent"]];
+    
+    if ( [openDlg runModal] == NSOKButton )
+    {
+        NSArray* files = [openDlg URLs];
+        
+
+        for(int i = 0; i < [files count]; i++ )
+        {
+            NSString* filePath = [[files objectAtIndex:i] path];
+            [self upload_torrent_file:filePath];
+        }
+        
+    }
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 拖放框收到种子文件
+//--------------------------------------------------------------
+- (void)didRecivedTorrentFile: (NSString*)filePath
+{
+    [self upload_torrent_file:filePath];
+}
+
+//--------------------------------------------------------------
+//     添加任务 - BT － 上传种子文件并返回文件列表
+//--------------------------------------------------------------
+
+- (void)upload_torrent_file: (NSString*)filePath
+{
+    [add_task_progress startAnimation:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSDictionary* info = [tasks_view thread_get_torrent_file_list:filePath];
+        if (info.count != 0) {
+            torrent_view.info = info;
+            torrent_view.url = filePath;
+            [torrent_tab_view selectTabViewItemAtIndex:1];
+        } else {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请确认种子文件是否有效。"] runModal];
+            });
+        }
+        [add_task_progress stopAnimation:self];
+    });
+    [torrent_view.file_list_view reloadData];
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 文件列表选择完成，确认添加任务
+//--------------------------------------------------------------
+- (IBAction)torrent_add_confirm_button:(id)sender
+{
+    [add_task_progress startAnimation:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        if (![tasks_view thread_add_BT_task:torrent_view.info filePath:torrent_view.url])
+        {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请确认种子文件是否有效。"] runModal];                [add_task_ok_button setEnabled:YES];
+            });
+        } else {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [NSApp endSheet:add_task_window returnCode:NSCancelButton];
+                [self torrent_add_back_button:nil];
+            });
+        }
+        [add_task_progress stopAnimation:self];
+    });
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 返回拖放框
+//--------------------------------------------------------------
+- (IBAction)torrent_add_back_button:(id)sender {
+    torrent_view.info = nil;
+    torrent_view.url = nil;
+    [torrent_tab_view selectTabViewItemAtIndex:0];
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 取消
+//--------------------------------------------------------------
+- (IBAction)torrent_add_cancel_button:(id)sender {
+    [self torrent_add_back_button:nil];
+    [NSApp endSheet:add_task_window returnCode:NSCancelButton];
+}
+
+
+
+
+
 
 @end

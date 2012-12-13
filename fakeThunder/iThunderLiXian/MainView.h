@@ -52,11 +52,14 @@
 @property (atomic, retain) NSString *cookie;
 
 
-
+- (IBAction)toolbar_add_task:(id)sender;
 - (IBAction)add_torrent_file_button:(id)sender;
 - (void)didRecivedTorrentFile: (NSString*)filePath;
 - (IBAction)torrent_add_confirm_button:(id)sender;
 - (IBAction)torrent_add_back_button:(id)sender;
 - (IBAction)torrent_add_cancel_button:(id)sender;
+- (void)upload_torrent_file: (NSString*)filePath;
+- (BOOL)add_task_panel_is_open;
+
 
 @end

@@ -264,6 +264,7 @@
 -(IBAction)add_task_cancel_button_click:(id)sender
 {
     [add_task_url setStringValue:@""];
+    [self torrent_add_back_button:nil];
     [NSApp endSheet:add_task_window returnCode:NSCancelButton];
 }
 
@@ -362,6 +363,7 @@
         } else {
             dispatch_async( dispatch_get_main_queue(), ^{
                 [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请确认种子文件是否有效。"] runModal];
+                [self torrent_add_back_button:nil];
             });
         }
         [add_task_progress stopAnimation:self];
@@ -376,18 +378,37 @@
 {
     [add_task_progress startAnimation:self];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        if (![tasks_view thread_add_BT_task:torrent_view.info filePath:torrent_view.url])
-        {
-            dispatch_async( dispatch_get_main_queue(), ^{
-                [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请确认种子文件是否有效。"] runModal];                [add_task_ok_button setEnabled:YES];
-            });
-        } else {
-            dispatch_async( dispatch_get_main_queue(), ^{
-                [NSApp endSheet:add_task_window returnCode:NSCancelButton];
-                [self torrent_add_back_button:nil];
-            });
+        
+        // 判断是否没有选择任何文件
+        NSArray* fileList = [torrent_view.info objectForKey:@"filelist"];
+        BOOL none_selected = YES;
+        for (int i = 0; i < fileList.count; i++) {
+            if ([[[fileList objectAtIndex:i] objectForKey:@"valid"] boolValue])
+            {
+                none_selected = NO;
+            }
         }
-        [add_task_progress stopAnimation:self];
+        if (none_selected) {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请至少选择一个文件。"] runModal];
+            });
+            [add_task_progress stopAnimation:self];
+            
+        } else {
+            
+            if (![tasks_view thread_add_BT_task:torrent_view.info filePath:torrent_view.url])
+            {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [[NSAlert alertWithMessageText:@"添加任务失败" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"种子添加失败，请确认种子文件是否有效。"] runModal];                
+                });
+            } else {
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [NSApp endSheet:add_task_window returnCode:NSCancelButton];
+                    [self torrent_add_back_button:nil];
+                });
+            }
+            [add_task_progress stopAnimation:self];
+        }
     });
 }
 
@@ -408,9 +429,17 @@
     [NSApp endSheet:add_task_window returnCode:NSCancelButton];
 }
 
+//--------------------------------------------------------------
+//     检查添加任务面板是否已打开
+//--------------------------------------------------------------
 
-
-
+- (BOOL)add_task_panel_is_open {
+    if ([add_task_window isVisible]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
 
 
 @end

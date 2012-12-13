@@ -92,4 +92,14 @@
     [task launch];
     [task waitUntilExit];
 }
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename{
+    if (!main_view.add_task_panel_is_open) {
+        [main_view toolbar_add_task:self];
+    } else {
+        [main_view torrent_add_back_button:nil];
+    }
+    [main_view upload_torrent_file:filename];
+    return YES;
+}
 @end

@@ -236,6 +236,7 @@
 					<array key="NSToolbarIBSelectableItems" id="0"/>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMinSize">{730, 200}</string>
 				<object class="NSView" key="NSWindowView" id="110646330">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -245,6 +246,7 @@
 					<reference key="NSNextKeyView"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSMinSize">{730, 278}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<int key="NSWindowCollectionBehavior">128</int>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -545,7 +547,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{483, 304}, {89, 32}}</string>
 							<reference key="NSSuperview" ref="59753985"/>
-							<reference key="NSNextKeyView" ref="134138070"/>
+							<reference key="NSNextKeyView" ref="471377500"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="937433283">
@@ -651,7 +653,7 @@
 													<reference key="NSSupport" ref="773306348"/>
 													<string key="NSCellIdentifier">_NS:9</string>
 													<reference key="NSControlView" ref="301424518"/>
-													<int key="NSButtonFlags">-2042347520</int>
+													<int key="NSButtonFlags">138690560</int>
 													<int key="NSButtonFlags2">2</int>
 													<object class="NSCustomResource" key="NSNormalImage">
 														<string key="NSClassName">NSImage</string>
@@ -790,7 +792,7 @@
 								<reference ref="599714993"/>
 							</array>
 						</object>
-						<object class="NSBox" id="134138070">
+						<object class="NSBox" id="471377500">
 							<reference key="NSNextResponder" ref="59753985"/>
 							<int key="NSvFlags">12</int>
 							<string key="NSFrame">{{33, 290}, {537, 5}}</string>
@@ -1822,7 +1824,7 @@
 							<reference ref="869425376"/>
 							<reference ref="607538154"/>
 							<reference ref="197996619"/>
-							<reference ref="134138070"/>
+							<reference ref="471377500"/>
 						</array>
 						<reference key="parent" ref="1004824840"/>
 					</object>
@@ -2267,7 +2269,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">397</int>
-						<reference key="object" ref="134138070"/>
+						<reference key="object" ref="471377500"/>
 						<reference key="parent" ref="59753985"/>
 					</object>
 				</array>

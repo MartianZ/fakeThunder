@@ -11,11 +11,15 @@
 #import "RequestSender.h"
 #import "AppPrefsWindowsController.h"
 #import "MessageView.h"
-@interface MainView : NSWindowController
+#import "TorrentView.h"
+#import "DropZoneView.h"
+@interface MainView : NSWindowController <DropZoneDelegate>
 {
     
     TasksView *tasks_view;
     MessageView *message_view;
+    TorrentView *torrent_view;
+    DropZoneView *drop_zone_view;
     IBOutlet NSWindow *login_window;
     IBOutlet NSTextField *login_username;
     IBOutlet NSTextField *login_password;
@@ -31,6 +35,12 @@
     IBOutlet NSToolbarItem *toobaritem_loadmore;
     IBOutlet NSToolbarItem *toobaritem_add_task;
     IBOutlet NSToolbarItem *toobaritem_refresh;
+    IBOutlet NSTabView *torrent_tab_view;
+    IBOutlet NSButton *torrent_ok_button;
+    IBOutlet NSButton *torrent_back_button;
+    IBOutlet NSButton *torrent_add_cancel_button;
+    IBOutlet NSButton *torrent_select_all_button;
+    IBOutlet NSButton *torrent_negative_select_button;
     NSString *hash;
     NSString *cookie;
     
@@ -41,5 +51,16 @@
 
 @property (atomic, retain) NSString *hash;
 @property (atomic, retain) NSString *cookie;
+
+
+- (IBAction)toolbar_add_task:(id)sender;
+- (IBAction)add_torrent_file_button:(id)sender;
+- (void)didRecivedTorrentFile: (NSString*)filePath;
+- (IBAction)torrent_add_confirm_button:(id)sender;
+- (IBAction)torrent_add_back_button:(id)sender;
+- (IBAction)torrent_add_cancel_button:(id)sender;
+- (void)upload_torrent_file: (NSString*)filePath;
+- (BOOL)add_task_panel_is_open;
+
 
 @end

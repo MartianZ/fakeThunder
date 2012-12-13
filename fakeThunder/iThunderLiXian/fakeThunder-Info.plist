@@ -6,6 +6,25 @@
 	<string>zh-Hans</string>
 	<key>CFBundleDisplayName</key>
 	<string>fakeThunder</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>torrent</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>Thunder512</string>
+			<key>CFBundleTypeName</key>
+			<string>BitTorrent 种子文件</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>org.bittorrent.torrent</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>

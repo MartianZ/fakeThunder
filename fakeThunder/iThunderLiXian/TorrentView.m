@@ -87,30 +87,6 @@
 - (NSString*)url{
     return url;
 }
-- (IBAction)negative_selection_button:(id)sender
-{
-    NSArray* fileList = [info objectForKey:@"filelist"];
-    for (int i = 0; i < fileList.count; i++) {
-        NSDictionary* aFile = [fileList objectAtIndex:i];
-        if ([[aFile valueForKey:@"valid"] boolValue]) {
-            [aFile setValue: [NSNumber numberWithBool:FALSE] forKey:@"valid"];
-            [_file_list_view reloadData];
-        } else {
-            [aFile setValue: [NSNumber numberWithBool:TRUE] forKey:@"valid"];
-            [_file_list_view reloadData];
-        }
-    }
-}
-
-- (IBAction)select_all_button:(id)sender
-{
-    NSArray* fileList = [info objectForKey:@"filelist"];
-    for (int i = 0; i < fileList.count; i++) {
-        NSDictionary* aFile = [fileList objectAtIndex:i];
-        [aFile setValue: [NSNumber numberWithBool:TRUE] forKey:@"valid"];
-        [_file_list_view reloadData];
-    }
-}
 
 
 @end

@@ -19,6 +19,10 @@
     }
     return self;
 }
+//--------------------------------------------------------------
+//     Delegate
+//--------------------------------------------------------------
+
 - (void)torrentDropped : (NSString*) filePath{
     if ([[self delegate]respondsToSelector:@selector(didRecivedTorrentFile:)]) {
 		[self.delegate didRecivedTorrentFile:filePath];
@@ -30,9 +34,12 @@
 
     }
 }
+//--------------------------------------------------------------
+//     拖放相关
+//--------------------------------------------------------------
+
 - (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender{
     NSArray *draggedFilenames = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-    //    判断拖曳的文件是否为种子文件，有没有更好的方法？
     if ([draggedFilenames count] > 1) {
         highlight=NO;
         not_single=YES;
@@ -84,6 +91,9 @@
     [self torrentDropped:filePath];
 }
 
+//--------------------------------------------------------------
+//     绘图
+//--------------------------------------------------------------
 - (void)drawRect:(NSRect)rect{
     [super drawRect:rect];
     

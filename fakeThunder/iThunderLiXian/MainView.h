@@ -39,7 +39,8 @@
     IBOutlet NSButton *torrent_ok_button;
     IBOutlet NSButton *torrent_back_button;
     IBOutlet NSButton *torrent_add_cancel_button;
-
+    IBOutlet NSButton *torrent_select_all_button;
+    IBOutlet NSButton *torrent_negative_select_button;
     NSString *hash;
     NSString *cookie;
     

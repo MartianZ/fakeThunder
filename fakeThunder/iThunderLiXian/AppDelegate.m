@@ -93,6 +93,9 @@
     [task waitUntilExit];
 }
 
+//--------------------------------------------------------------
+//     文件拖放操作
+//--------------------------------------------------------------
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename{
     if (!main_view.add_task_panel_is_open) {
         [main_view toolbar_add_task:self];

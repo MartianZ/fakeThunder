@@ -36,7 +36,7 @@
     tasks_view = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
     message_view = [[MessageView alloc] initWithNibName:@"MessageView" bundle:[NSBundle bundleForClass:[self class]] TasksView:tasks_view];
     
-    // tab视图控制
+    //// tab视图控制
     
     // 左tab (种子拖放区域)
     NSView* leftTabView = [[torrent_tab_view tabViewItemAtIndex:0] view];
@@ -56,9 +56,9 @@
     [torrent_view.view addSubview:torrent_ok_button];
     [torrent_view.view addSubview:torrent_back_button];
     [torrent_view.view addSubview:torrent_add_cancel_button];
-    torrent_add_cancel_button.frame = NSMakeRect(308, -7, 89, 32);
-    torrent_ok_button.frame = NSMakeRect(397, -7, 89, 32);
-    torrent_back_button.frame = NSMakeRect(172, -7, 89, 32);
+    [torrent_view.view addSubview:torrent_select_all_button];
+    [torrent_view.view addSubview:torrent_negative_select_button];
+
     [[torrent_tab_view tabViewItemAtIndex:1] setView: torrent_view.view];
     
     [self.window.contentView addSubview:tasks_view.view];
@@ -372,7 +372,7 @@
 }
 
 //--------------------------------------------------------------
-//     添加任务 － BT － 文件列表选择完成，确认添加任务
+//     添加任务 － BT － 按钮 － 文件列表选择完成，确认添加任务
 //--------------------------------------------------------------
 - (IBAction)torrent_add_confirm_button:(id)sender
 {
@@ -413,7 +413,7 @@
 }
 
 //--------------------------------------------------------------
-//     添加任务 － BT － 返回拖放框
+//     添加任务 － BT － 按钮 － 返回拖放框
 //--------------------------------------------------------------
 - (IBAction)torrent_add_back_button:(id)sender {
     torrent_view.info = nil;
@@ -422,11 +422,44 @@
 }
 
 //--------------------------------------------------------------
-//     添加任务 － BT － 取消
+//     添加任务 － BT － 按钮 － 取消
 //--------------------------------------------------------------
 - (IBAction)torrent_add_cancel_button:(id)sender {
     [self torrent_add_back_button:nil];
     [NSApp endSheet:add_task_window returnCode:NSCancelButton];
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 按钮 － 反选按钮
+//--------------------------------------------------------------
+
+- (IBAction)negative_selection_button:(id)sender
+{
+    NSArray* fileList = [torrent_view.info objectForKey:@"filelist"];
+    for (int i = 0; i < fileList.count; i++) {
+        NSDictionary* aFile = [fileList objectAtIndex:i];
+        if ([[aFile valueForKey:@"valid"] boolValue]) {
+            [aFile setValue: [NSNumber numberWithBool:FALSE] forKey:@"valid"];
+            [torrent_view.file_list_view reloadData];
+        } else {
+            [aFile setValue: [NSNumber numberWithBool:TRUE] forKey:@"valid"];
+            [torrent_view.file_list_view reloadData];
+        }
+    }
+}
+
+//--------------------------------------------------------------
+//     添加任务 － BT － 按钮 － 全选按钮
+//--------------------------------------------------------------
+
+- (IBAction)select_all_button:(id)sender
+{
+    NSArray* fileList = [torrent_view.info objectForKey:@"filelist"];
+    for (int i = 0; i < fileList.count; i++) {
+        NSDictionary* aFile = [fileList objectAtIndex:i];
+        [aFile setValue: [NSNumber numberWithBool:TRUE] forKey:@"valid"];
+        [torrent_view.file_list_view reloadData];
+    }
 }
 
 //--------------------------------------------------------------

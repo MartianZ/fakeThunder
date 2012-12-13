@@ -26,8 +26,6 @@
 - (NSDictionary*)info;
 - (NSString*)url;
 
-- (IBAction)negative_selection_button:(id)sender;
-- (IBAction)select_all_button:(id)sender;
 
 @property (weak) IBOutlet NSTableView *file_list_view;
 @property (assign,getter=isSelected) BOOL selected;

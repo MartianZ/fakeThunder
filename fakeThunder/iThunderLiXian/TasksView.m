@@ -84,53 +84,6 @@
     }
 }
 
-//--------------------------------------------------------------
-//      线程：获取BT种子文件列表
-//--------------------------------------------------------------
--(NSDictionary*)thread_get_torrent_file_list:(NSString *)file_path
-{
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-    NSString *request_url = @"http://127.0.0.1:9999/get_torrent_file_list";
-    NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
-    NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
-
-    NSDictionary *infoDict = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
-    
-    return infoDict;
-    
-}
-
-
-//--------------------------------------------------------------
-//     线程: BT选择文件完成，确认添加文件
-//--------------------------------------------------------------
-
-- (BOOL)thread_add_BT_task:(NSDictionary *)infoDict filePath: (NSString*)url
-{
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:infoDict options:NSJSONWritingPrettyPrinted error:&error];
-    if (! jsonData) {
-        NSLog(@"转换JSON错误: %@", error);
-        return NO;
-    } else {
-        NSString* infoString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)infoString, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-        NSString *request_url = @"http://127.0.0.1:9999/add_bt_task";
-        NSString *request_data = [NSString stringWithFormat:@"hash=%@&info=%@&url=%@", self.hash, encodedValue, url];
-        NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
-        
-        if ([requestResult isEqualToString:@"Success"]) {
-            //添加任务成功
-            
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-                [self mainthread_add_task_to_list:[self thread_get_first_task]];
-            });
-            return YES;
-        } else {
-            return NO;
-        }}
-    }
-
 
 
 //--------------------------------------------------------------
@@ -500,23 +453,7 @@
     [NSMenu popUpContextMenu:task_menu withEvent:event forView:(NSButton *)sender];
 }
 
-//--------------------------------------------------------------
-//      菜单单击：获取BT文件列表
-//--------------------------------------------------------------
--(IBAction)menu_bt_show_file_list:(id)sender
-{
-    @autoreleasepool {
-        NSMenuItem *menu_item = (NSMenuItem *)sender;
-        
-        for (TaskModel *t in [array_controller arrangedObjects]) {
-            if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
-                
-                [NSThread detachNewThreadSelector:@selector(thread_load_bt_file_list:) toTarget:self withObject:t];
-                break;
-            }
-        }
-    }
-}
+
 
 -(void)thread_cloud_play:(TaskModel *)t
 {
@@ -673,5 +610,70 @@
 {
     [array_controller removeObjects:[array_controller arrangedObjects]];
     [mutable_array removeAllObjects];
+}
+
+//--------------------------------------------------------------
+//      线程：获取BT种子文件列表
+//--------------------------------------------------------------
+-(NSDictionary*)thread_get_torrent_file_list:(NSString *)file_path
+{
+    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *request_url = @"http://127.0.0.1:9999/get_torrent_file_list";
+    NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
+    NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
+    
+    NSDictionary *infoDict = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+    
+    return infoDict;
+    
+}
+
+
+//--------------------------------------------------------------
+//     线程: BT选择文件完成，确认添加文件
+//--------------------------------------------------------------
+
+- (BOOL)thread_add_BT_task:(NSDictionary *)infoDict filePath: (NSString*)url
+{
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:infoDict options:NSJSONWritingPrettyPrinted error:&error];
+    if (! jsonData) {
+        NSLog(@"转换JSON错误: %@", error);
+        return NO;
+    } else {
+        NSString* infoString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)infoString, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+        NSString *request_url = @"http://127.0.0.1:9999/add_bt_task";
+        NSString *request_data = [NSString stringWithFormat:@"hash=%@&info=%@&url=%@", self.hash, encodedValue, url];
+        NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
+        
+        if ([requestResult isEqualToString:@"Success"]) {
+            //添加任务成功
+            
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [self mainthread_add_task_to_list:[self thread_get_first_task]];
+            });
+            return YES;
+        } else {
+            return NO;
+        }}
+}
+
+//--------------------------------------------------------------
+//      菜单单击：获取BT文件列表
+//--------------------------------------------------------------
+-(IBAction)menu_bt_show_file_list:(id)sender
+{
+    @autoreleasepool {
+        NSMenuItem *menu_item = (NSMenuItem *)sender;
+        
+        for (TaskModel *t in [array_controller arrangedObjects]) {
+            if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
+                
+                [NSThread detachNewThreadSelector:@selector(thread_load_bt_file_list:) toTarget:self withObject:t];
+                break;
+            }
+        }
+    }
 }
 @end

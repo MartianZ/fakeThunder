@@ -41,6 +41,8 @@
 
 - (void)thread_get_task_list:(NSInteger)page_num;
 - (BOOL)thread_add_task:(NSString *)task_url;
+- (BOOL)thread_add_BT_task:(NSDictionary *)infoDict filePath: (NSString*)url;;
+- (NSDictionary*)thread_get_torrent_file_list:(NSString *)file_path;
 - (void)clear_task_list;
 - (void)thread_refresh;
 

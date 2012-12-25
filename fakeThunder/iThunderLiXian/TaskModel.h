@@ -24,6 +24,7 @@
     NSInteger ProgressValue;    
     NSString *LiXianURL;
 
+    NSString *Percent;
     NSString *TaskTypeString;
     NSString *CID;
     NSString *ButtonTitle;
@@ -59,6 +60,9 @@
 @property (atomic, retain) TaskModel *FatherTaskModel;
 @property (atomic, retain) DownloadOperation *download_operation;
 @property (atomic) BOOL StartAllDownloadNow;
+@property (atomic, retain) NSString *Percent;
+
+
 -(void)start_download;
 
 @end

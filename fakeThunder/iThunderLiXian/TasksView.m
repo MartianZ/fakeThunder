@@ -14,6 +14,9 @@
 
 @implementation TasksView
 
+@synthesize hash;
+@synthesize cookie;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -333,6 +336,8 @@
     
     TaskModel *t;
     for (TaskModel *tt in [array_controller arrangedObjects]) {
+        
+        NSLog(@"%@",tt.TaskID);
         if ([tt.TaskID isEqualToString:[button toolTip]]) {
             t = tt;
             break;

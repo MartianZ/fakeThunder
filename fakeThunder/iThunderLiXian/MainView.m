@@ -27,12 +27,10 @@
     return self;
 }
 
-
-
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-
+    
     tasks_view = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
     message_view = [[MessageView alloc] initWithNibName:@"MessageView" bundle:[NSBundle bundleForClass:[self class]] TasksView:tasks_view];
     
@@ -71,7 +69,7 @@
         //自动登录
         [toobaritem_login setEnabled:NO];
         [toobaritem_login setLabel:@"正在登录"];
-
+        
         [toobaritem_login setLabel:@"注销"];
         
         [message_view showMessage:@"正在加载任务列表……"];
@@ -82,13 +80,16 @@
             [tasks_view thread_get_task_list:0];
             
             [message_view hideMessage];
+            
+            [self checkLink];
+            
         });
         
         
     }
-
     
 }
+
 
 //----------------------------------------
 //   标题栏 / 登录、注销
@@ -129,7 +130,7 @@
     [toobaritem_login setLabel:@"正在登录"];
     
     NSString *encodedPassword = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)password, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
-
+    
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         NSString *requestResult = [RequestSender sendRequest:[NSString stringWithFormat:@"http://127.0.0.1:9999/initial/%@/%@",username, encodedPassword]];
@@ -223,18 +224,26 @@
 }
 
 //----------------------------------------
-//   添加任务，确定
+//   添加任务，确定 --changed by dqaria dqaria@gmail.com
 //----------------------------------------
 -(IBAction)add_task_ok_button_click:(id)sender
 {
-    
     if ([[add_task_url stringValue] length]<5) {
         return;
     }
     [add_task_ok_button setEnabled:NO];
     [add_task_progress startAnimation:self];
+    [self add_task_fire_by_url:[add_task_url stringValue]];
     
-    NSString *taskStr = [[add_task_url stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+//----------------------------------------
+//   执行添加任务 --added by dqaria dqaria@gmail.com
+//----------------------------------------
+
+-(void)add_task_fire_by_url:(NSString *)url{
+    
+    NSString *taskStr = [url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSArray *taskUrls = [taskStr componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
@@ -291,9 +300,7 @@
 //----------------------------------------
 -(IBAction)toolbar_refresh:(id)sender
 {
-
-
-
+    
     if (!self.hash || self.hash.length != 32) {
         [[NSAlert alertWithMessageText:@"无法加载任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"请先登录您的迅雷VIP账户！"] runModal];
         return;
@@ -309,7 +316,28 @@
         });
     }
     
-    
+    [self checkLink];
+}
+
+//----------------------------------------
+//   检测clipboard是否有magnet链接  --added by dqaria dqaria@gmail.com
+//----------------------------------------
+-(void)checkLink{
+    NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+    NSArray *classes = [[NSArray alloc] initWithObjects:[NSString class], nil];
+    NSDictionary *options = [NSDictionary dictionary];
+    NSArray *copiedItems = [pasteboard readObjectsForClasses:classes options:options];
+    if (copiedItems != nil) {
+        NSError *error = NULL;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"magnet"
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:&error];
+        NSTextCheckingResult *match = [regex firstMatchInString:copiedItems[0] options:0 range:NSMakeRange(0, [copiedItems[0] length])];
+        if (match) {
+            [self add_task_fire_by_url:copiedItems[0]];
+        }
+        
+    }
 }
 
 //--------------------------------------------------------------

@@ -332,7 +332,10 @@
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"magnet"
                                                                                options:NSRegularExpressionCaseInsensitive
                                                                                  error:&error];
-        NSTextCheckingResult *match = [regex firstMatchInString:copiedItems[0] options:0 range:NSMakeRange(0, [copiedItems[0] length])];
+        // 注意：copiedItems 仍然可以为空数组，所以用 [copiedItem lastObject] 更安全
+        NSTextCheckingResult *match = [regex firstMatchInString:[copiedItems lastObject]
+                                                        options:0
+                                                          range:NSMakeRange(0, [[copiedItems lastObject] length])];
         if (match) {
             [self add_task_fire_by_url:copiedItems[0]];
         }

@@ -321,13 +321,14 @@
 
 //----------------------------------------
 //   检测clipboard是否有magnet链接  --added by dqaria dqaria@gmail.com
+//   fix bug by sigarron:当copiedItems为空时则crash  --added by dqaria dqaria@gmail.com
 //----------------------------------------
 -(void)checkLink{
     NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
     NSArray *classes = [[NSArray alloc] initWithObjects:[NSString class], nil];
     NSDictionary *options = [NSDictionary dictionary];
     NSArray *copiedItems = [pasteboard readObjectsForClasses:classes options:options];
-    if (copiedItems != nil) {
+    if (copiedItems.count) {
         NSError *error = NULL;
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"magnet"
                                                                                options:NSRegularExpressionCaseInsensitive

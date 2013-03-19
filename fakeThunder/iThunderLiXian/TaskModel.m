@@ -154,7 +154,7 @@
             if (![task isRunning]) {
                 break;
             }
-            if (NeedToStopNow) {
+            if (_NeedToStopNow) {
                 [task terminate];
                 self.ButtonEnabled = NO;
                 self.ButtonTitle = @"暂停中...";

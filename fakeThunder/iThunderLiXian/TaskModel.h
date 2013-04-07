@@ -11,32 +11,32 @@
 
 @class DownloadOperation;
 @interface TaskModel : NSObject {
-    NSString *TaskTitle;
-    NSString *FatherTitle;
-    NSString *TaskSizeDescription;
-    NSString *TaskLiXianProcess;
-    NSString *TaskID;
-    NSImage *TaskType;
-    NSUInteger TaskSize;
-    NSUInteger TaskDownloadedSize; //只有BT任务用来记录，其他时候忽略这个
-    NSString *Cookie;
-    BOOL Indeterminate;
-    NSInteger ProgressValue;    
-    NSString *LiXianURL;
+    NSString *_TaskTitle;
+    NSString *_FatherTitle;
+    NSString *_TaskSizeDescription;
+    NSString *_TaskLiXianProcess;
+    NSString *_TaskID;
+    NSImage *_TaskType;
+    NSUInteger _TaskSize;
+    NSUInteger _TaskDownloadedSize; //只有BT任务用来记录，其他时候忽略这个
+    NSString *_Cookie;
+    BOOL _Indeterminate;
+    NSInteger _ProgressValue;
+    NSString *_LiXianURL;
 
-    NSString *TaskTypeString;
-    NSString *CID;
-    NSString *ButtonTitle;
-    TaskModel *FatherTaskModel;
+    NSString *_TaskTypeString;
+    NSString *_CID;
+    NSString *_ButtonTitle;
+    TaskModel *_FatherTaskModel;
     
-    BOOL ButtonEnabled;
+    BOOL _ButtonEnabled;
     
-    DownloadOperation *download_operation;
-    BOOL StartAllDownloadNow;
+    DownloadOperation *_download_operation;
+    BOOL _StartAllDownloadNow;
     
-    NSString *TimeLeft;
+    NSString *_TimeLeft;
     @public
-    BOOL NeedToStopNow;
+    BOOL _NeedToStopNow;
 }
 
 @property (atomic) BOOL ButtonEnabled;

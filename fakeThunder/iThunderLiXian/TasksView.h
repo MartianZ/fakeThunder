@@ -30,8 +30,8 @@
     NSMutableArray *mutable_array;
     NSMutableDictionary *bt_file_list_mutable_dict;
     
-    NSString *hash;
-    NSString *cookie;
+    NSString *_hash;
+    NSString *_cookie;
     
     MessageView *message_view;
 }

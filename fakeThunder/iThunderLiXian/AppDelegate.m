@@ -12,18 +12,42 @@
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+
 {
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:@"/usr/bin/killall"];
-    [task setArguments:[NSArray arrayWithObject:@"python"]];
-    [task launch];
-    [task waitUntilExit];
     
+    //    don't kill my goagent again and again
+    NSString * rubyKill = @"kill_array = [];ps_array = `ps axww -o \"pid command\"|grep -v grep |grep api_mini`; ps_array.each {|line|  kill_array << $1 if line =~ /^(\\d+)\\s/}; puts kill_array.join \" \""  ;
+    NSTask *taskPs = [[NSTask alloc] init];
+    [taskPs setLaunchPath:@"/usr/bin/ruby"];
+    [taskPs setArguments:[NSArray arrayWithObjects:@"-e", rubyKill ,nil]];
+    
+    NSPipe *pipleOut = [NSPipe pipe];
+    //NSPipe *pipleErr = [NSPipe pipe];
+    [taskPs setStandardOutput:pipleOut];
+    //[taskPs setStandardError:pipleErr];
+    
+    [taskPs launch];
+    NSData *dataOut = [[pipleOut fileHandleForReading] readDataToEndOfFile];
+    //NSData *dataErr = [[pipleErr fileHandleForReading] readDataToEndOfFile];
+    [taskPs waitUntilExit];
+    NSString *killsString = [[NSString alloc] initWithData:dataOut encoding:NSUTF8StringEncoding];
+    //NSString *errString = [[NSString alloc] initWithData:dataErr encoding:NSUTF8StringEncoding];
+    //NSLog(@"==AppDelegate errString is %@", errString);
+    if (killsString && ([killsString length] > 0)){
+        NSCharacterSet *separator = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+        killsString = [killsString stringByTrimmingCharactersInSet:separator];
+        //NSLog(@"xxxxx%@==== %lu", killsString, (unsigned long)[killsString length]);
+        NSTask *task = [[NSTask alloc] init];
+        [task setLaunchPath:@"/bin/kill"];
+        [task setArguments:[NSArray arrayWithObjects:@"-9", killsString, nil]];
+        [task launch];
+        [task waitUntilExit];
+    }
     
     python_task = [[NSTask alloc] init];
     [python_task setLaunchPath:@"/usr/bin/python"];
     
-    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];    
+    NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
     [python_task setArguments:[NSArray arrayWithObject:[NSString stringWithFormat:@"%@/XunleiAPI/api_mini.py", resourcesPath]]];
     [python_task launch];
     NSDockTile *tile = [[NSApplication sharedApplication] dockTile];
@@ -32,7 +56,7 @@
     [tile setBadgeLabel:@""];
     
     [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
-
+    
     
     
     main_view = [[MainView alloc] initWithWindowNibName:@"MainView"];

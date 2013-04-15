@@ -20,7 +20,7 @@
     if (self) {
         // Initialization code here.
         
-        hash = [[NSString alloc] init];
+        _hash = [[NSString alloc] init];
         
         //--------------------------------------------------------------
         //      mutable_array：用来保存任务列表，查看BT任务文件内容后快速返回
@@ -257,7 +257,7 @@
         
         if ([task.TaskLiXianProcess hasSuffix:@"100.00%"])
         {
-            task->NeedToStopNow = NO;
+            task->_NeedToStopNow = NO;
             task.ButtonTitle = @"队列中...";
             DownloadOperation *download_operation = [[DownloadOperation alloc] initWithTaskModel:task];
             [operation_download_queue addOperation:download_operation];
@@ -358,7 +358,7 @@
             return;
         }
         
-        t->NeedToStopNow = NO;
+        t->_NeedToStopNow = NO;
         //[t start_download:button]; 采用线程池
         //operation_download_queue
         t.ButtonTitle = @"队列中...";
@@ -371,7 +371,7 @@
     }
     if ([t.ButtonTitle hasSuffix:@"Bs"]) {
         //暂停下载
-        t->NeedToStopNow = YES;
+        t->_NeedToStopNow = YES;
         return;
     }
     

@@ -12,8 +12,9 @@
 
 -(void)setupToolbar
 {
-    [self addView:generalPreferenceView label:@"常规"];
-    [self addView:advancedPreferenceView label:@"高级"];
+    [self addView:generalPreferenceView label:@"常规" image:[NSImage imageNamed:@"prefs_General"]];
+
+    [self addView:advancedPreferenceView label:@"高级" image:[NSImage imageNamed:@"prefs_More"]];
     
     [self setCrossFade:YES];
 	[self setShiftSlowsAnimation:YES];

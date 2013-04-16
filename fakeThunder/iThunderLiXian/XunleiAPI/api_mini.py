@@ -99,9 +99,28 @@ class GetTaskListHandler(tornado.web.RequestHandler):
 			
 		lixianAPI = lixianAPIs.get(hash)
 		
-		tasklist = lixianAPI.get_task_list(int(limit), int(st))
+		tasklist = lixianAPI.get_task_list(int(limit), 4)
 		tasklist_json = json.dumps(tasklist)
 		self.write(tasklist_json)
+
+class DeleteTask(tornado.web.RequestHandler):
+    def get(self, hash, task_id):
+
+        isLogin = check_login(hash)
+        if not isLogin:
+            self.write("Fail")
+            self.finish()
+            return
+
+        lixianAPI = lixianAPIs.get(hash)
+
+        result = lixianAPI.delete_task([task_id])
+        if (result):
+            self.write("Success")
+        else:
+            self.write("Fail")
+
+
 
 
 class AddTaskHandler(tornado.web.RequestHandler):
@@ -219,6 +238,7 @@ application = tornado.web.Application([
 	(r'/add_bt_task', AddBTTaskHandler),
 	(r'/([A-Za-z0-9]{32})/get_cookie',  GetCookieHandler),
 	(r'/vod_get_play_url', VodGetPlayUrl),
+    (r'/DeleteTask/(.*)/(.*)', DeleteTask),
 	(r'(.*)', ZeroHandler),  #API Zero
 
 ])

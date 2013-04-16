@@ -108,7 +108,6 @@
     
     for (unsigned long i = 0; (i <  20) && (i < [jsonArray count]); i++) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[jsonArray objectAtIndex:i]];
-        [dict setObject:@"1" forKey:@"AddToTop"];
         [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:dict waitUntilDone:YES];
     }
 }
@@ -130,6 +129,8 @@
     {
         return;
     }
+    
+    NSLog(@"%@", [requestResult dataUsingEncoding:NSUTF8StringEncoding]);
     
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
     
@@ -541,6 +542,8 @@
     }
 }
 
+
+
 //--------------------------------------------------------------
 //      菜单单击：云点播
 //--------------------------------------------------------------
@@ -563,19 +566,43 @@
     }
 }
 
+-(void)thread_delete_task:(TaskModel *)t
+{
+    NSString *request_url = [NSString stringWithFormat:@"http://127.0.0.1:9999/DeleteTask/%@/%@", self.hash, t.TaskID];
+     
+    NSString *requestResult = [RequestSender sendRequest:request_url];
+    
+    if ([requestResult isEqualToString:@"Success"]) {
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [array_controller removeObject:t];
+            [mutable_array removeObject:t];
+        });
+    } else {
+        dispatch_async( dispatch_get_main_queue(), ^{
+          [[NSAlert alertWithMessageText:@"抱歉，删除任务失败！" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"删除任务失败，请手动登录 http://lixian.xunlei.com 删除任务！"] runModal];  
+        });
+    }
+
+}
+
+
 //--------------------------------------------------------------
-//      菜单单击：分享
+//      菜单单击：删除任务
 //--------------------------------------------------------------
--(IBAction)menu_share:(id)sender
+-(IBAction)menu_delete:(id)sender
 {
     @autoreleasepool {
-        [[NSAlert alertWithMessageText:@"Under Development!" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"由于迅雷官方的调整，分享功能暂时不可用。后续版本会提供支持。"] runModal];
-        return;
+        /*[[NSAlert alertWithMessageText:@"Under Development!" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"由于迅雷官方的调整，分享功能暂时不可用。后续版本会提供支持。"] runModal];
+        return;*/
         
         NSMenuItem *menu_item = (NSMenuItem *)sender;
         
         for (TaskModel *t in [array_controller arrangedObjects]) {
             if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
+                
+                NSLog(@"%@ %@", t.TaskID, self.hash);
+                
+                [NSThread detachNewThreadSelector:@selector(thread_delete_task:) toTarget:self withObject:t];
                 break;
             }
         }

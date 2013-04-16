@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
+		<string key="IBDocument.SystemVersion">12E30</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">3084</string>
@@ -298,7 +298,7 @@ A</bytes>
 			</object>
 			<object class="NSCollectionViewItem" id="210360610"/>
 			<object class="NSView" id="413301639">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">274</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSBox" id="548530321">
@@ -322,6 +322,7 @@ A</bytes>
 										</set>
 										<string key="NSFrame">{{18, 24}, {37, 38}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="659463006"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="NSEnabled">YES</bool>
@@ -342,6 +343,7 @@ A</bytes>
 										<int key="NSvFlags">266</int>
 										<string key="NSFrame">{{60, 42}, {326, 17}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="150549121"/>
 										<string key="NSReuseIdentifierKey">_NS:1535</string>
 										<string key="NSHuggingPriority">{528, 633}</string>
@@ -373,6 +375,7 @@ A</bytes>
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{60, 26}, {83, 16}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="816109342"/>
 										<string key="NSReuseIdentifierKey">_NS:1535</string>
 										<bool key="NSEnabled">YES</bool>
@@ -400,6 +403,7 @@ A</bytes>
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{394, 32}, {136, 20}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="479259141"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<string key="NSHuggingPriority">{250, 250}</string>
@@ -411,6 +415,7 @@ A</bytes>
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{543, 29}, {111, 25}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="683223631"/>
 										<string key="NSReuseIdentifierKey">_NS:22</string>
 										<bool key="NSEnabled">YES</bool>
@@ -440,6 +445,7 @@ A</bytes>
 										<int key="NSvFlags">268</int>
 										<string key="NSFrame">{{135, 26}, {140, 16}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="939819774"/>
 										<string key="NSReuseIdentifierKey">_NS:1535</string>
 										<bool key="NSEnabled">YES</bool>
@@ -463,6 +469,8 @@ A</bytes>
 										<int key="NSvFlags">265</int>
 										<string key="NSFrame">{{656, 29}, {32, 25}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:22</string>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSButtonCell" key="NSCell" id="724526070">
@@ -494,6 +502,7 @@ A</bytes>
 										<int key="NSvFlags">270</int>
 										<string key="NSFrame">{{282, 26}, {107, 16}}</string>
 										<reference key="NSSuperview" ref="594286072"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="668372605"/>
 										<string key="NSReuseIdentifierKey">_NS:1535</string>
 										<bool key="NSEnabled">YES</bool>
@@ -515,12 +524,14 @@ A</bytes>
 								</array>
 								<string key="NSFrame">{{1, 1}, {706, 83}}</string>
 								<reference key="NSSuperview" ref="548530321"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="460208382"/>
 								<string key="NSReuseIdentifierKey">_NS:11</string>
 							</object>
 						</array>
 						<string key="NSFrame">{{6, -1}, {708, 99}}</string>
 						<reference key="NSSuperview" ref="413301639"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="594286072"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSOffsets">{0, 0}</string>
@@ -555,6 +566,8 @@ A</bytes>
 					</object>
 				</array>
 				<string key="NSFrameSize">{723, 105}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="548530321"/>
 			</object>
 			<object class="NSArrayController" id="157025089">
@@ -605,7 +618,7 @@ A</bytes>
 					</object>
 					<object class="NSMenuItem" id="746502270">
 						<reference key="NSMenu" ref="569219033"/>
-						<string key="NSTitle">分享</string>
+						<string key="NSTitle">删除任务</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="547576112"/>
@@ -738,11 +751,11 @@ A</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">menu_share:</string>
+						<string key="label">menu_delete:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="746502270"/>
 					</object>
-					<int key="connectionID">175</int>
+					<int key="connectionID">186</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1278,13 +1291,68 @@ A</bytes>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">185</int>
+			<int key="maxID">186</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
+					<string key="className">NSCollectionViewItem</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="imageView">NSImageView</string>
+						<string key="textField">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="imageView">
+							<string key="name">imageView</string>
+							<string key="candidateClassName">NSImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="textField">
+							<string key="name">textField</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSCollectionViewItem.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">TasksView</string>
 					<string key="superclassName">NSViewController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="button_back_to_file_list:">id</string>
+						<string key="button_start_download:">id</string>
+						<string key="menu_bt_show_file_list:">id</string>
+						<string key="menu_cloud_play:">id</string>
+						<string key="menu_delete:">id</string>
+						<string key="task_button_more_click:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="button_back_to_file_list:">
+							<string key="name">button_back_to_file_list:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="button_start_download:">
+							<string key="name">button_start_download:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menu_bt_show_file_list:">
+							<string key="name">menu_bt_show_file_list:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menu_cloud_play:">
+							<string key="name">menu_cloud_play:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="menu_delete:">
+							<string key="name">menu_delete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="task_button_more_click:">
+							<string key="name">task_button_more_click:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="array_controller">NSArrayController</string>
 						<string key="collection">NSCollectionView</string>

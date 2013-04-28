@@ -302,8 +302,8 @@
 			children = (
 				026979DD15AD50E600633881 /* DownloadOperation.h */,
 				026979DE15AD50E600633881 /* DownloadOperation.m */,
-				026001BE15AC5D0F001742EE /* TaskModel.m */,
 				0224496E15A71DA1002499B4 /* TaskModel.h */,
+				026001BE15AC5D0F001742EE /* TaskModel.m */,
 				02CDECA015BC131C0069C955 /* Constants.h */,
 			);
 			name = Model;

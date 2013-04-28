@@ -61,7 +61,7 @@
 -(BOOL)thread_add_task:(NSString *)task_url
 {
     
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
     NSString *request_url = @"http://127.0.0.1:9999/add_task";
     
@@ -459,7 +459,7 @@
 -(void)thread_cloud_play:(TaskModel *)t
 {
     
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
     NSString *request_url = @"http://127.0.0.1:9999/vod_get_play_url";
     
@@ -644,7 +644,7 @@
 //--------------------------------------------------------------
 -(NSDictionary*)thread_get_torrent_file_list:(NSString *)file_path
 {
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     NSString *request_url = @"http://127.0.0.1:9999/get_torrent_file_list";
     NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
     NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];

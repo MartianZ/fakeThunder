@@ -14,6 +14,11 @@
 
 @implementation TasksView
 
+- (NSCollectionView *)collection
+{
+    return collection;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,7 +55,6 @@
 //--------------------------------------------------------------
 -(void)set_max_tasks
 {
-    NSLog(@"CHANGE MAX TASKS");
     [operation_download_queue setMaxConcurrentOperationCount:[[NSUserDefaults standardUserDefaults] integerForKey:@UD_MAX_TASKS]];
     
 }
@@ -61,7 +65,7 @@
 -(BOOL)thread_add_task:(NSString *)task_url
 {
     
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)task_url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
     NSString *request_url = @"http://127.0.0.1:9999/add_task";
     
@@ -104,8 +108,6 @@
     
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
     
-    NSLog(@"%@",[jsonArray objectAtIndex:0]);
-    
     for (unsigned long i = 0; (i <  20) && (i < [jsonArray count]); i++) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[jsonArray objectAtIndex:i]];
         [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:dict waitUntilDone:YES];
@@ -130,11 +132,7 @@
         return;
     }
     
-    NSLog(@"%@", [requestResult dataUsingEncoding:NSUTF8StringEncoding]);
-    
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
-    
-    NSLog(@"%@",[jsonArray objectAtIndex:0]);
     
     for (unsigned long i = page_num * 20; (i < (page_num + 1) * 20) && (i < [jsonArray count]); i++) {
         [self performSelectorOnMainThread:@selector(mainthread_add_task_to_list:) withObject:[jsonArray objectAtIndex:i] waitUntilDone:YES];
@@ -459,16 +457,13 @@
 -(void)thread_cloud_play:(TaskModel *)t
 {
     
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)t.LiXianURL, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     
     NSString *request_url = @"http://127.0.0.1:9999/vod_get_play_url";
     
     NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
     
     NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
-    
-    
-    NSLog(@"%@",requestResult);
     
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
     
@@ -500,11 +495,9 @@
         NSString *play_url_2 = [play_url substringFromIndex:[play_url rangeOfString:@"&s"].location + 3];
         play_url_2 = [play_url_2 substringToIndex:[play_url_2 rangeOfString:@"&"].location];
         NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@&p=1",play_url,play_url_2];
-        NSLog(@"%@",play_url_3);
         
         NSString *user_id = [play_url_3 substringFromIndex:[play_url_3 rangeOfString:@"&ui="].location + 4];
         user_id = [user_id substringToIndex:[user_id rangeOfString:@"&"].location];
-        NSLog(@"%@",user_id);
         
         /*
          open -a "MPlayerX.app" --args '-ExtraOptions' '"-cookies -cookies-file /cookies.txt"' '-url' 'http://gdl.lixian.vip.xunlei.com/download?dt=16&g=A05AD1F697495D81B9D147D647B69351D2654C03&t=2&ui=32767&s=143722770&v_type=-1&scn=c8&n=0E485299C7896A0B00&p=1&xplaybackid=ecb339a0-cb6d-11e1-8b97-782bcb3dd24d&start=0&end=143722770'
@@ -600,8 +593,6 @@
         for (TaskModel *t in [array_controller arrangedObjects]) {
             if ([t.TaskID isEqualToString:[menu_item toolTip]]) {
                 
-                NSLog(@"%@ %@", t.TaskID, self.hash);
-                
                 [NSThread detachNewThreadSelector:@selector(thread_delete_task:) toTarget:self withObject:t];
                 break;
             }
@@ -644,7 +635,7 @@
 //--------------------------------------------------------------
 -(NSDictionary*)thread_get_torrent_file_list:(NSString *)file_path
 {
-    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    NSString *encodedValue = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)file_path, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
     NSString *request_url = @"http://127.0.0.1:9999/get_torrent_file_list";
     NSString *request_data = [NSString stringWithFormat:@"hash=%@&url=%@", self.hash, encodedValue];
     NSString *requestResult = [RequestSender postRequest:request_url withBody:request_data];
@@ -665,7 +656,6 @@
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:infoDict options:NSJSONWritingPrettyPrinted error:&error];
     if (! jsonData) {
-        NSLog(@"转换JSON错误: %@", error);
         return NO;
     } else {
         NSString* infoString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

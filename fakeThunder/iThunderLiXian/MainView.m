@@ -10,6 +10,11 @@
 
 @interface MainView ()
 
+@property (atomic, assign) BOOL isLoadingMore;
+
+- (void)loadMoreData;
+- (void)collectionViewDidScrollNotification:(NSNotification *)notification;
+
 @end
 
 @implementation MainView
@@ -88,8 +93,39 @@
         
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectionViewDidScrollNotification:) name:NSViewBoundsDidChangeNotification object:tasks_view.collection.superview];
 }
 
+#pragma mark - Data control
+
+- (void)loadMoreData
+{
+    if (!self.isLoadingMore) {
+        self.isLoadingMore = YES;
+        if (!self.hash || self.hash.length != 32) {
+            [[NSAlert alertWithMessageText:@"无法加载更多任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"请先登录您的迅雷VIP账户！"] runModal];
+            self.isLoadingMore = NO;
+        } else {
+            current_page += 1;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+                [tasks_view thread_get_task_list:current_page];
+                self.isLoadingMore = NO;
+            });
+        }
+    }
+}
+
+#pragma mark - NSViewBoundsDidChangeNotification
+
+- (void)collectionViewDidScrollNotification:(NSNotification *)notification
+{
+    if (notification.object == tasks_view.collection.superview) {
+        if (!self.isLoadingMore &&
+            tasks_view.collection.superview.bounds.origin.y + tasks_view.collection.superview.bounds.size.height > tasks_view.collection.bounds.size.height - 30.0f) {
+            [self loadMoreData];
+        }
+    }
+}
 
 //----------------------------------------
 //   标题栏 / 登录、注销
@@ -282,17 +318,7 @@
 //----------------------------------------
 -(IBAction)toolbar_loadmore:(id)sender
 {
-    if (!self.hash || self.hash.length != 32) {
-        [[NSAlert alertWithMessageText:@"无法加载更多任务" defaultButton:@"确定" alternateButton:nil otherButton:nil informativeTextWithFormat:@"请先登录您的迅雷VIP账户！"] runModal];
-        return;
-    }
-    
-    
-    current_page += 1;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-        [tasks_view thread_get_task_list:current_page];
-    });
-    
+    [self loadMoreData];
 }
 
 //----------------------------------------

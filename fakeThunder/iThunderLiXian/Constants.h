@@ -12,6 +12,7 @@
 #define UD_FIRST_STARTUP "UserDefaultFirstTime"
 #define UD_SAVE_PATH "UserDefaultSavePath"
 #define UD_SAVE_PATH_DISPLAY "UserDefaultSavePathDisplay"
+#define UD_SAVE_PATH_ADD_EXTENSION "UserDefaultsSavePathAddExtension"
 
 #define UD_USER_HASH "UserDefaultUserHash"
 #define UD_MAX_TASKS "UserDefaultMaxTasks"

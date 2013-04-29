@@ -39,6 +39,8 @@
 @property (atomic, retain) NSString *hash;
 @property (atomic, retain) NSString *cookie;
 
+@property (atomic, readonly) NSCollectionView *collection;
+
 - (void)thread_get_task_list:(NSInteger)page_num;
 - (BOOL)thread_add_task:(NSString *)task_url;
 - (BOOL)thread_add_BT_task:(NSDictionary *)infoDict filePath: (NSString*)url;;

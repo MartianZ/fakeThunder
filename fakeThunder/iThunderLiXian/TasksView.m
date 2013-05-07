@@ -104,7 +104,7 @@
     
     NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:[requestResult dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
     
-    NSLog(@"%@",[jsonArray objectAtIndex:0]);
+//    NSLog(@"%@",[jsonArray objectAtIndex:0]);
     
     for (unsigned long i = 0; (i <  20) && (i < [jsonArray count]); i++) {
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithDictionary:[jsonArray objectAtIndex:i]];

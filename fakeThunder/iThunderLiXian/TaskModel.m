@@ -31,9 +31,38 @@
     
     //[NSThread detachNewThreadSelector:@selector(thread_aria2c) toTarget:self withObject:nil];
     
+    if ([self fileAlreadyDownloaded]) {
+        self.ButtonEnabled = YES;
+        self.ButtonTitle = @"完成下载";
+        self.ProgressValue = 100;
+        
+        if (self.FatherTaskModel) {
+            TaskModel *father_task = self.FatherTaskModel;
+            father_task.Indeterminate = NO;
+            father_task.TaskDownloadedSize += self.TaskSize;
+            father_task.ProgressValue = father_task.TaskDownloadedSize * 100.0 / (float)father_task.TaskSize;
+        }
+        return;
+    }
     [self thread_aria2c];
     /* Since we are gonna set up an queue for the Download thread, it is not necessary to start a thread here*/
     
+}
+
+-(BOOL)fileAlreadyDownloaded{
+    NSString *save_path = [[NSUserDefaults standardUserDefaults] objectForKey:@UD_SAVE_PATH];
+    if (!save_path || [save_path length] == 0) {
+        save_path = @"~/Desktop";
+    }
+    save_path = [save_path stringByExpandingTildeInPath];
+        
+    if (!self.FatherTitle) {
+        save_path = [NSString stringWithFormat:@"%@/%@",save_path, self.TaskTitle];
+    }else{
+        save_path = [NSString stringWithFormat:@"%@/%@/%@",save_path, self.FatherTitle,self.TaskTitle];
+    }
+    
+    return [[NSFileManager defaultManager] fileExistsAtPath:save_path];
 }
 
 -(void)thread_aria2c
@@ -55,6 +84,7 @@
         if (!save_path || [save_path length] == 0) {
             save_path = @"~/Desktop";
         }
+        
         if (max_thread <= 0 || max_thread > 10) {
             max_thread = 10;
         }
@@ -65,13 +95,16 @@
         NSString *max_thread_str = [NSString stringWithFormat:@"%ld", max_thread];
         NSString *max_speed_str = [NSString stringWithFormat:@"%ldK", max_speed];
         
+        NSString* outputname;
         
         if (!self.FatherTitle) {
-            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",max_thread_str,@"-x",max_thread_str,@"-d",save_path,@"--out",[NSString stringWithFormat:@"%@.!", self.TaskTitle], @"--max-download-limit", max_speed_str,@"--header", self.Cookie, self.LiXianURL, nil];
-        } else {
-            args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s", max_thread_str,@"-x", max_thread_str, @"-d",save_path,@"--out",[NSString stringWithFormat:@"%@/%@.!",self.FatherTitle,self.TaskTitle], @"--max-download-limit", max_speed_str, @"--header", self.Cookie, self.LiXianURL, nil];
+            outputname = [NSString stringWithFormat:@"%@.!", self.TaskTitle];
+        }else{
+            outputname = [NSString stringWithFormat:@"%@/%@.!",self.FatherTitle,self.TaskTitle];
         }
         
+        args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",max_thread_str,@"-x",max_thread_str,@"-d",save_path,@"--out", outputname, @"--max-download-limit", max_speed_str, @"--header", self.Cookie, self.LiXianURL, nil];
+               
         
         [task setArguments:args];
         
@@ -145,9 +178,9 @@
                     father_task.Indeterminate = NO;
                     if (father_task.TaskDownloadedSize >= last_download_size)
                     father_task.TaskDownloadedSize -= last_download_size;
-                    last_download_size = self.ProgressValue / 100.00 * self.TaskSize;
+                    last_download_size = self.ProgressValue * self.TaskSize / 100.00 ;
                     father_task.TaskDownloadedSize += last_download_size;
-                    father_task.ProgressValue = father_task.TaskDownloadedSize / (float)father_task.TaskSize * 100;
+                    father_task.ProgressValue = father_task.TaskDownloadedSize * 100 / (float)father_task.TaskSize ;
                 
                 }
             }
@@ -300,7 +333,7 @@
                         father_task.TaskDownloadedSize -= last_download_size;
                     last_download_size = self.TaskSize;
                     father_task.TaskDownloadedSize += last_download_size;
-                    father_task.ProgressValue = father_task.TaskDownloadedSize / (float)father_task.TaskSize * 100;
+                    father_task.ProgressValue = father_task.TaskDownloadedSize * 100.0 / (float)father_task.TaskSize;
                     
                 }
                 

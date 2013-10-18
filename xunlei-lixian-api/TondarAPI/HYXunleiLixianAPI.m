@@ -68,14 +68,24 @@ typedef enum {
     [request setPostValue:@"720" forKey:@"login_hour"];
     [request post:[url absoluteString]];
     //把response中的Cookie添加到CookieStorage
+    NSLog(@"%@", [request responseCookies]);
+
     [self _addResponseCookietoCookieStorage:[request responseCookies]];
     
     //完善所需要的cookies，并收到302响应跳转
     NSString *timeStamp=[self _currentTimeString];
-    NSURL *redirectUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/login?cachetime=%@&cachetime=%@&from=0",timeStamp,timeStamp]];
+    NSURL *redirectUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://dynamic.lixian.vip.xunlei.com/login?cachetime=%@&cachetime=%@&from=0",timeStamp,timeStamp]];
     LCHTTPConnection* redirectURLrequest = [LCHTTPConnection new];
-    [redirectURLrequest get:[redirectUrl absoluteString]];
+    NSString *temp = [redirectURLrequest get:[redirectUrl absoluteString]];
+    
+    NSString *re=@"id=\"cok\" value=\"([^\"]+)\"";
+    NSString *s=[temp stringByMatching:re capture:1];
+    
+    [self setGdriveID:s];
+
     //把response中的Cookie添加到CookieStorage
+    NSLog(@"%@", [redirectURLrequest responseCookies]);
+    
     [self _addResponseCookietoCookieStorage:[redirectURLrequest responseCookies]];
     //验证是否登陆成功
     NSString *userid=[self userID];

@@ -24,6 +24,7 @@
         
         
         HYXunleiLixianAPI *TondarAPI = [[HYXunleiLixianAPI alloc] init];
+        [TondarAPI logOut];
         if ([TondarAPI loginWithUsername:@"xunlei@binux.me" Password:@"loliluloli"]) {
             NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
             
@@ -39,13 +40,12 @@
                 entity1.status = @"Status: Ready";
                 entity1.taskType = [NSString stringWithFormat:@"%@", task.isBT];
                 entity1.taskExt = [NSString stringWithFormat:@"%@", task.type];
+                entity1.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
+                entity1.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
+                NSLog(@"%@", [TondarAPI GDriveID]);
 
             }
         }
-        
-        
-        
-        
         
         //[_tableViewMain setDoubleAction:@selector(tblvwDoubleClick:)];
         [_tableViewMain setTarget:self];
@@ -79,9 +79,9 @@
     cellView.textField.stringValue = entity.title;
     cellView.subTitleTextField.stringValue = entity.subtitle;
     cellView.statusTextField.stringValue = entity.status;
+    [cellView.progessIndicator setDoubleValue:entity.progress];
+
     
-    
-    NSLog(@"%@", entity.taskType);
     if ([entity.taskType isEqualToString:@"0"]) {
         //BT
         [cellView.imageView setImage:[NSImage imageNamed:@"taskitem_bt"]];
@@ -107,6 +107,35 @@
     return 65;
 }
 
+- (void)downloadSelectedTask {
+    
+    if ([_tableViewMain selectedRow] >= 0) {
+        
+        TaskEntity *entity = [self _entityForRow:[_tableViewMain selectedRow]];
+        
+        entity.selectedRow = [_tableViewMain selectedRow];
+        [entity setDelegate:self];
+        [entity performDownloadWithThread];
+
+    }
+}
+
+
+
+- (void)taskRowNeedUpdate:(NSString *)taskID
+{
+    
+    for (int row = 0; row < [_tableViewMain numberOfRows]; row++ ) {
+        if ([[NSString stringWithFormat:@"%@", [self _entityForRow:row].taskID] isEqualToString:taskID])
+        {
+            TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:row makeIfNecessary:NO];
+            cellView.statusTextField.stringValue = [self _entityForRow:row].status;
+            [cellView.progessIndicator setDoubleValue:[self _entityForRow:row].progress];
+            break;
+        }
+    }
+    
+}
 
 
 @end

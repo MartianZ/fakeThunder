@@ -33,6 +33,7 @@
 		CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
+		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TondarAPI.xcodeproj; path = "../xunlei-lixian-api/TondarAPI.xcodeproj"; sourceTree = "<group>"; };
 		CAAD78E61811888F008168C2 /* taskitem_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskitem_bt.png; sourceTree = "<group>"; };
 		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
+		CAAD78EA181197E2008168C2 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = aria2c; path = fakeThunder/aria2c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		024C873815DBA755003EF1F3 = {
 			isa = PBXGroup;
 			children = (
+				CAAD78EA181197E2008168C2 /* aria2c */,
 				024C874D15DBA755003EF1F3 /* fakeThunder */,
 				024C874615DBA755003EF1F3 /* Frameworks */,
 				024C874415DBA755003EF1F3 /* Products */,
@@ -363,6 +366,7 @@
 				026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */,
 				CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */,
 				CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */,
+				CAAD78EB181197E3008168C2 /* aria2c in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

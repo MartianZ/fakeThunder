@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TaskDelegate;
+
 @interface TaskEntity : NSObject {
 @private
     NSString *_taskID;
@@ -19,12 +21,25 @@
 @property (retain) NSString *title;
 @property (retain) NSString *subtitle;
 @property (retain) NSString *status;
-@property NSInteger progress;
+@property double progress;
 @property (retain) NSString *taskID;
 @property (retain) NSString *taskType;
 @property (retain) NSString *taskExt;
+@property (retain) NSString *cookies;
+@property (retain) NSString *liXianURL;
+@property  NSInteger selectedRow;
 
 + (TaskEntity *)entityForID:(NSString *)taskID;
+- (void)performDownload;
+- (void)performDownloadWithThread;
 
+@property(assign) id <TaskDelegate> delegate;
+@end
+
+@protocol TaskDelegate <NSObject>
+
+@optional
+
+- (void)taskRowNeedUpdate:(NSString *)taskID;
 
 @end

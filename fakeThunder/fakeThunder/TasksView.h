@@ -8,9 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "TasksView.h"
+#import "TaskEntity.h"
 
 
-@interface TasksView : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
+@interface TasksView : NSViewController <NSTableViewDelegate, NSTableViewDataSource, TaskDelegate> {
 
     @private
     NSMutableArray *_tableContents;
@@ -20,5 +21,6 @@
     BOOL _useSmallRowHeight;
 }
 
+- (void)downloadSelectedTask;
 
 @end

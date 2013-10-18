@@ -10,17 +10,8 @@
 #import "TasksView.h"
 
 
-@class ChildEditController;
-@class SeparatorCell;
-
 @interface TasksView : NSViewController {
     IBOutlet NSOutlineView		*myOutlineView;
-    IBOutlet NSTreeController	*treeController;
-    NSMutableArray				*contents;
-    SeparatorCell				*separatorCell;	// the cell used to draw a separator line in the outline view
-    NSImage						*folderImage;
-	NSImage						*urlImage;
-    BOOL						buildingOutlineView;
 }
 
 

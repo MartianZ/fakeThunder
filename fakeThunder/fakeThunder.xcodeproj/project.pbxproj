@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		020E1F2515DC040B00FF99ED /* ImageAndTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2215DC03FF00FF99ED /* ImageAndTextCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		020E1F2615DC040C00FF99ED /* SeparatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2415DC03FF00FF99ED /* SeparatorCell.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		020E1F2C15DC042900FF99ED /* BaseNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2915DC042900FF99ED /* BaseNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		020E1F2D15DC042900FF99ED /* ChildNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2B15DC042900FF99ED /* ChildNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */; };
 		024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024C874715DBA755003EF1F3 /* Cocoa.framework */; };
 		024C875215DBA755003EF1F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C875015DBA755003EF1F3 /* InfoPlist.strings */; };
@@ -19,7 +15,6 @@
 		024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875A15DBA755003EF1F3 /* AppDelegate.m */; };
 		024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C875C15DBA756003EF1F3 /* MainMenu.xib */; };
 		024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* Thunder512.icns */; };
-		024C878615DBA800003EF1F3 /* XunleiAPI in Resources */ = {isa = PBXBuildFile; fileRef = 024C878515DBA800003EF1F3 /* XunleiAPI */; };
 		026272B915DBD71300139521 /* icon_taskbar_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B615DBD71300139521 /* icon_taskbar_remove.png */; };
 		026272BA15DBD71300139521 /* icon_taskbar_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B715DBD71300139521 /* icon_taskbar_start.png */; };
 		026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B815DBD71300139521 /* icon_taskbar_stop.png */; };
@@ -36,14 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		020E1F2115DC03FF00FF99ED /* ImageAndTextCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageAndTextCell.h; sourceTree = "<group>"; };
-		020E1F2215DC03FF00FF99ED /* ImageAndTextCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageAndTextCell.m; sourceTree = "<group>"; };
-		020E1F2315DC03FF00FF99ED /* SeparatorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SeparatorCell.h; sourceTree = "<group>"; };
-		020E1F2415DC03FF00FF99ED /* SeparatorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeparatorCell.m; sourceTree = "<group>"; };
-		020E1F2815DC042900FF99ED /* BaseNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNode.h; sourceTree = "<group>"; };
-		020E1F2915DC042900FF99ED /* BaseNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNode.m; sourceTree = "<group>"; };
-		020E1F2A15DC042900FF99ED /* ChildNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildNode.h; sourceTree = "<group>"; };
-		020E1F2B15DC042900FF99ED /* ChildNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildNode.m; sourceTree = "<group>"; };
 		020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_Extensions.h; sourceTree = "<group>"; };
 		020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray_Extensions.m; sourceTree = "<group>"; };
 		024C874315DBA755003EF1F3 /* fakeThunder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fakeThunder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +48,6 @@
 		024C875D15DBA756003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		024C876515DBA756003EF1F3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		024C878315DBA7A6003EF1F3 /* Thunder512.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Thunder512.icns; path = ../Thunder512.icns; sourceTree = "<group>"; };
-		024C878515DBA800003EF1F3 /* XunleiAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = XunleiAPI; sourceTree = "<group>"; };
 		026272B615DBD71300139521 /* icon_taskbar_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_remove.png; sourceTree = "<group>"; };
 		026272B715DBD71300139521 /* icon_taskbar_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_start.png; sourceTree = "<group>"; };
 		026272B815DBD71300139521 /* icon_taskbar_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_stop.png; sourceTree = "<group>"; };
@@ -96,32 +82,8 @@
 			children = (
 				020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */,
 				020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */,
-				020E1F2715DC041300FF99ED /* Tree Support */,
-				020E1F2015DC03D500FF99ED /* Cell Support */,
 			);
 			name = "Source List";
-			sourceTree = "<group>";
-		};
-		020E1F2015DC03D500FF99ED /* Cell Support */ = {
-			isa = PBXGroup;
-			children = (
-				020E1F2115DC03FF00FF99ED /* ImageAndTextCell.h */,
-				020E1F2215DC03FF00FF99ED /* ImageAndTextCell.m */,
-				020E1F2315DC03FF00FF99ED /* SeparatorCell.h */,
-				020E1F2415DC03FF00FF99ED /* SeparatorCell.m */,
-			);
-			name = "Cell Support";
-			sourceTree = "<group>";
-		};
-		020E1F2715DC041300FF99ED /* Tree Support */ = {
-			isa = PBXGroup;
-			children = (
-				020E1F2815DC042900FF99ED /* BaseNode.h */,
-				020E1F2915DC042900FF99ED /* BaseNode.m */,
-				020E1F2A15DC042900FF99ED /* ChildNode.h */,
-				020E1F2B15DC042900FF99ED /* ChildNode.m */,
-			);
-			name = "Tree Support";
 			sourceTree = "<group>";
 		};
 		020E1F3115DC046600FF99ED /* Utility */ = {
@@ -174,7 +136,6 @@
 			children = (
 				020E1F3115DC046600FF99ED /* Utility */,
 				0295F2B915DBAEA000529BA5 /* View */,
-				024C878515DBA800003EF1F3 /* XunleiAPI */,
 				024C875915DBA755003EF1F3 /* AppDelegate.h */,
 				024C875A15DBA755003EF1F3 /* AppDelegate.m */,
 				024C875C15DBA756003EF1F3 /* MainMenu.xib */,
@@ -224,14 +185,22 @@
 		0295F2B915DBAEA000529BA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CAAD78AF18114054008168C2 /* Resource */,
 				0295F2CE15DBB56400529BA5 /* MainView.h */,
 				0295F2CF15DBB56400529BA5 /* MainView.m */,
-				0295F2D015DBB56400529BA5 /* MainView.xib */,
 				0295F2D315DBB6AD00529BA5 /* TasksView.h */,
 				0295F2D415DBB6AD00529BA5 /* TasksView.m */,
-				0295F2D515DBB6AD00529BA5 /* TasksView.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		CAAD78AF18114054008168C2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0295F2D015DBB56400529BA5 /* MainView.xib */,
+				0295F2D515DBB6AD00529BA5 /* TasksView.xib */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +258,6 @@
 				024C875815DBA755003EF1F3 /* Credits.rtf in Resources */,
 				024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */,
 				024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */,
-				024C878615DBA800003EF1F3 /* XunleiAPI in Resources */,
 				0295F2AF15DBADE500529BA5 /* 1.png in Resources */,
 				0295F2B015DBADE500529BA5 /* 1@2x.png in Resources */,
 				0295F2B315DBADED00529BA5 /* 3.png in Resources */,
@@ -313,12 +281,8 @@
 			files = (
 				024C875415DBA755003EF1F3 /* main.m in Sources */,
 				024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */,
-				020E1F2615DC040C00FF99ED /* SeparatorCell.m in Sources */,
-				020E1F2515DC040B00FF99ED /* ImageAndTextCell.m in Sources */,
 				0295F2D115DBB56400529BA5 /* MainView.m in Sources */,
 				0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */,
-				020E1F2C15DC042900FF99ED /* BaseNode.m in Sources */,
-				020E1F2D15DC042900FF99ED /* ChildNode.m in Sources */,
 				020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

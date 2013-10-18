@@ -10,8 +10,14 @@
 #import "TasksView.h"
 
 
-@interface TasksView : NSViewController {
-    IBOutlet NSOutlineView		*myOutlineView;
+@interface TasksView : NSViewController <NSTableViewDelegate, NSTableViewDataSource> {
+
+    @private
+    NSMutableArray *_tableContents;
+    NSMutableArray *_observedVisibleItems;
+    IBOutlet NSTableView *_tableViewMain;
+    
+    BOOL _useSmallRowHeight;
 }
 
 

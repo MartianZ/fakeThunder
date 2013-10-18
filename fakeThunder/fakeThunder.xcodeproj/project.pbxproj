@@ -28,6 +28,8 @@
 		0295F2D215DBB56400529BA5 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D015DBB56400529BA5 /* MainView.xib */; };
 		0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2D415DBB6AD00529BA5 /* TasksView.m */; };
 		0295F2D715DBB6AD00529BA5 /* TasksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D515DBB6AD00529BA5 /* TasksView.xib */; };
+		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
+		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,10 @@
 		0295F2D315DBB6AD00529BA5 /* TasksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksView.h; sourceTree = "<group>"; };
 		0295F2D415DBB6AD00529BA5 /* TasksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksView.m; sourceTree = "<group>"; };
 		0295F2D515DBB6AD00529BA5 /* TasksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksView.xib; sourceTree = "<group>"; };
+		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
+		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
+		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
+		CAAD78B818116B1E008168C2 /* TableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,11 +140,11 @@
 		024C874D15DBA755003EF1F3 /* fakeThunder */ = {
 			isa = PBXGroup;
 			children = (
+				CAAD78B318115494008168C2 /* Model */,
 				020E1F3115DC046600FF99ED /* Utility */,
 				0295F2B915DBAEA000529BA5 /* View */,
 				024C875915DBA755003EF1F3 /* AppDelegate.h */,
 				024C875A15DBA755003EF1F3 /* AppDelegate.m */,
-				024C875C15DBA756003EF1F3 /* MainMenu.xib */,
 				024C874E15DBA755003EF1F3 /* Supporting Files */,
 				024C877F15DBA787003EF1F3 /* Resources */,
 			);
@@ -190,6 +196,8 @@
 				0295F2CF15DBB56400529BA5 /* MainView.m */,
 				0295F2D315DBB6AD00529BA5 /* TasksView.h */,
 				0295F2D415DBB6AD00529BA5 /* TasksView.m */,
+				CAAD78B718116B1E008168C2 /* TableCellView.h */,
+				CAAD78B818116B1E008168C2 /* TableCellView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -197,10 +205,20 @@
 		CAAD78AF18114054008168C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				024C875C15DBA756003EF1F3 /* MainMenu.xib */,
 				0295F2D015DBB56400529BA5 /* MainView.xib */,
 				0295F2D515DBB6AD00529BA5 /* TasksView.xib */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		CAAD78B318115494008168C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAAD78B4181154B1008168C2 /* TaskEntity.h */,
+				CAAD78B5181154B1008168C2 /* TaskEntity.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +302,8 @@
 				0295F2D115DBB56400529BA5 /* MainView.m in Sources */,
 				0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */,
 				020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */,
+				CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */,
+				CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +389,7 @@
 		024C877615DBA756003EF1F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
@@ -381,6 +402,7 @@
 		024C877715DBA756003EF1F3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";

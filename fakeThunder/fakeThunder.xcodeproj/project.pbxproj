@@ -30,7 +30,34 @@
 		0295F2D715DBB6AD00529BA5 /* TasksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D515DBB6AD00529BA5 /* TasksView.xib */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
+		CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
+		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
+		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAAD78DF1811714A008168C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02F155B815C547220054EF51;
+			remoteInfo = TondarAPI;
+		};
+		CAAD78E11811714A008168C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 02F155D015C547220054EF51;
+			remoteInfo = TondarAPITests;
+		};
+		CAAD78E31811714A008168C2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A83FEE8F15E3E5EF00FD8907;
+			remoteInfo = URLTesting;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_Extensions.h; sourceTree = "<group>"; };
@@ -69,6 +96,9 @@
 		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
 		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
 		CAAD78B818116B1E008168C2 /* TableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellView.m; sourceTree = "<group>"; };
+		CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TondarAPI.xcodeproj; path = "../xunlei-lixian-api/TondarAPI.xcodeproj"; sourceTree = "<group>"; };
+		CAAD78E61811888F008168C2 /* taskitem_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskitem_bt.png; sourceTree = "<group>"; };
+		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +137,7 @@
 				024C874D15DBA755003EF1F3 /* fakeThunder */,
 				024C874615DBA755003EF1F3 /* Frameworks */,
 				024C874415DBA755003EF1F3 /* Products */,
+				CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +207,8 @@
 		0295F2AB15DBADB400529BA5 /* SmallIcon */ = {
 			isa = PBXGroup;
 			children = (
+				CAAD78E61811888F008168C2 /* taskitem_bt.png */,
+				CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */,
 				0295F2AD15DBADE500529BA5 /* 1.png */,
 				0295F2AE15DBADE500529BA5 /* 1@2x.png */,
 				0295F2B115DBADED00529BA5 /* 3.png */,
@@ -221,6 +255,16 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		CAAD78DA1811714A008168C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAAD78E01811714A008168C2 /* TondarAPI.framework */,
+				CAAD78E21811714A008168C2 /* TondarAPITests.octest */,
+				CAAD78E41811714A008168C2 /* URLTesting.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,12 +304,42 @@
 			mainGroup = 024C873815DBA755003EF1F3;
 			productRefGroup = 024C874415DBA755003EF1F3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CAAD78DA1811714A008168C2 /* Products */;
+					ProjectRef = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				024C874215DBA755003EF1F3 /* fakeThunder */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CAAD78E01811714A008168C2 /* TondarAPI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TondarAPI.framework;
+			remoteRef = CAAD78DF1811714A008168C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAAD78E21811714A008168C2 /* TondarAPITests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TondarAPITests.octest;
+			remoteRef = CAAD78E11811714A008168C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAAD78E41811714A008168C2 /* URLTesting.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = URLTesting.octest;
+			remoteRef = CAAD78E31811714A008168C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		024C874115DBA755003EF1F3 /* Resources */ = {
@@ -287,6 +361,8 @@
 				026272B915DBD71300139521 /* icon_taskbar_remove.png in Resources */,
 				026272BA15DBD71300139521 /* icon_taskbar_start.png in Resources */,
 				026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */,
+				CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */,
+				CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +467,11 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop/TondarAPI 13-10-18 下午6.01/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
@@ -404,6 +485,11 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../../Desktop/TondarAPI 13-10-18 下午6.01/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";

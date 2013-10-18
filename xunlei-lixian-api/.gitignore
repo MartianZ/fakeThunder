@@ -1,0 +1,24 @@
+#xcode noise
+*.mode1v3
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.pyc
+*~.nib/
+build/*
+
+#new in Xcode 4
+xcuserdata
+
+# Textmate - if you build your xcode projects with it
+*.tm_build_errors
+
+# old skool
+.svn
+
+# osx noise
+.DS_Store
+profile
+#.xcode
+
+*.xcodeproj/project.xcworkspace/xcuserdata/liuchao.xcuserdatad/UserInterfaceState.xcuserstate

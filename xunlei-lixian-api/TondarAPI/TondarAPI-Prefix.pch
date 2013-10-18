@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'TondarAPI' target in the 'TondarAPI' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+
+
+
+#ifndef __OPTIMIZE__
+#    define NSLog(s, ...) NSLog( @"<%s : (%d)> %@",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+#else
+#    define NSLog(...) {} //Disable NSLog
+#endif

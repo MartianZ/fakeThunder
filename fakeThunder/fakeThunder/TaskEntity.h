@@ -21,7 +21,8 @@
 @property (retain) NSString *status;
 @property NSInteger progress;
 @property (retain) NSString *taskID;
-
+@property (retain) NSString *taskType;
+@property (retain) NSString *taskExt;
 
 + (TaskEntity *)entityForID:(NSString *)taskID;
 

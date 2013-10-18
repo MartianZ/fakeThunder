@@ -10,6 +10,9 @@
 #import "TasksView.h"
 #import "TaskEntity.h"
 #import "TableCellView.h"
+#import <TondarAPI/HYXunleiLixianAPI.h>
+#import <TondarAPI/XunleiItemInfo.h>
+
 @implementation TasksView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -20,19 +23,37 @@
         _tableContents = [NSMutableArray new];
         
         
+        HYXunleiLixianAPI *TondarAPI = [[HYXunleiLixianAPI alloc] init];
+        if ([TondarAPI loginWithUsername:@"xunlei@binux.me" Password:@"loliluloli"]) {
+            NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
+            
+            NSArray *temp = [TondarAPI readAllTasks1];
+            NSLog(@"%@", temp);
+            for (XunleiItemInfo *task in temp) {
+                NSLog(@"%@", task.taskid);
+                TaskEntity *entity1 = [TaskEntity entityForID:task.taskid];
+                [_tableContents addObject:entity1];
+                entity1.title = task.name;
+                entity1.subtitle = @"584MiB, Remote Server Progress: 100%";
+                entity1.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
+                entity1.status = @"Status: Ready";
+                entity1.taskType = [NSString stringWithFormat:@"%@", task.isBT];
+                entity1.taskExt = [NSString stringWithFormat:@"%@", task.type];
+
+            }
+        }
         
-        TaskEntity *entity1 = [TaskEntity entityForID:@"1"];
-        [_tableContents addObject:entity1];
-        entity1.title = @"半泽直树.Hanzawa.Naoki.Ep07.Chi'Jap.HDTVrip.1024X";
-        entity1.subtitle = @"584MiB, Remote Server Progress: 100%";
-        entity1.status = @"Status: Ready";
+        
+        
         
         
         //[_tableViewMain setDoubleAction:@selector(tblvwDoubleClick:)];
         [_tableViewMain setTarget:self];
-        [_tableViewMain reloadData];
         [_tableViewMain setUsesAlternatingRowBackgroundColors:YES];
         [_tableViewMain setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
+        [_tableViewMain reloadData];
+
+ 
     }
     
     return self;
@@ -58,6 +79,15 @@
     cellView.textField.stringValue = entity.title;
     cellView.subTitleTextField.stringValue = entity.subtitle;
     cellView.statusTextField.stringValue = entity.status;
+    
+    
+    NSLog(@"%@", entity.taskType);
+    if ([entity.taskType isEqualToString:@"0"]) {
+        //BT
+        [cellView.imageView setImage:[NSImage imageNamed:@"taskitem_bt"]];
+    } else {
+        [cellView.imageView setImage:[[NSWorkspace sharedWorkspace] iconForFileType: entity.taskExt]];
+    }
     
     // Use KVO to observe for changes of the thumbnail image
     if (_observedVisibleItems == nil) {

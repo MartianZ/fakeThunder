@@ -20,6 +20,7 @@
     if (self) {
         // Initialization code here.
         NSLog(@"MainView Init");
+        
     }
     
     return self;

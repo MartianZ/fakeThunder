@@ -1,0 +1,761 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		020E1F4B15DCF40B00FF99ED /* HYXunleiLixianAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F4915DCF40B00FF99ED /* HYXunleiLixianAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		020E1F4C15DCF40B00FF99ED /* HYXunleiLixianAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F4A15DCF40B00FF99ED /* HYXunleiLixianAPI.m */; };
+		020E1F5015DCF41500FF99ED /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F4E15DCF41400FF99ED /* md5.h */; };
+		020E1F5115DCF41500FF99ED /* md5.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F4F15DCF41500FF99ED /* md5.m */; };
+		020E1F5415DCF42300FF99ED /* ParseElements.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F5215DCF42100FF99ED /* ParseElements.h */; };
+		020E1F5515DCF42300FF99ED /* ParseElements.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F5315DCF42200FF99ED /* ParseElements.m */; };
+		020E1F5815DCF45F00FF99ED /* URlEncode.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F5615DCF45E00FF99ED /* URlEncode.h */; };
+		020E1F5915DCF45F00FF99ED /* URlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F5715DCF45F00FF99ED /* URlEncode.m */; };
+		020E1F5C15DCF46B00FF99ED /* XunleiItemInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F5A15DCF46A00FF99ED /* XunleiItemInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		020E1F5D15DCF46B00FF99ED /* XunleiItemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F5B15DCF46A00FF99ED /* XunleiItemInfo.m */; };
+		020E1F7115DCF5A900FF99ED /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 020E1F6F15DCF5A900FF99ED /* JSONKit.h */; };
+		020E1F7215DCF5A900FF99ED /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F7015DCF5A900FF99ED /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		02C066B115DCF700008AF890 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C066B015DCF700008AF890 /* SystemConfiguration.framework */; };
+		02C066B315DCF70E008AF890 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C066B215DCF70E008AF890 /* libz.dylib */; };
+		02C066B515DCF80B008AF890 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C066B415DCF80B008AF890 /* CFNetwork.framework */; };
+		02F155BC15C547220054EF51 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F155BB15C547220054EF51 /* Cocoa.framework */; };
+		02F155C615C547220054EF51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02F155C415C547220054EF51 /* InfoPlist.strings */; };
+		02F155D215C547220054EF51 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F155D115C547220054EF51 /* SenTestingKit.framework */; };
+		02F155D315C547220054EF51 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F155BB15C547220054EF51 /* Cocoa.framework */; };
+		02F155D615C547220054EF51 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F155B815C547220054EF51 /* TondarAPI.framework */; };
+		02F155DC15C547220054EF51 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02F155DA15C547220054EF51 /* InfoPlist.strings */; };
+		02F155DF15C547220054EF51 /* TondarAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F155DE15C547220054EF51 /* TondarAPITests.m */; };
+		A81275021622B2A2002A92F4 /* LCHTTPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = A81275001622B2A2002A92F4 /* LCHTTPConnection.h */; };
+		A81275031622B2A2002A92F4 /* LCHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275011622B2A2002A92F4 /* LCHTTPConnection.m */; };
+		A81275041622B2A2002A92F4 /* LCHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275011622B2A2002A92F4 /* LCHTTPConnection.m */; };
+		A81275051622B2A2002A92F4 /* LCHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275011622B2A2002A92F4 /* LCHTTPConnection.m */; };
+		A81275111622F0AF002A92F4 /* NSString+RE.h in Headers */ = {isa = PBXBuildFile; fileRef = A812750F1622F0AF002A92F4 /* NSString+RE.h */; };
+		A81275121622F0AF002A92F4 /* NSString+RE.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275101622F0AF002A92F4 /* NSString+RE.m */; };
+		A81275131622F0AF002A92F4 /* NSString+RE.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275101622F0AF002A92F4 /* NSString+RE.m */; };
+		A81275141622F0AF002A92F4 /* NSString+RE.m in Sources */ = {isa = PBXBuildFile; fileRef = A81275101622F0AF002A92F4 /* NSString+RE.m */; };
+		A83FEE7D15E3E23900FD8907 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A83FEE7915E3E23900FD8907 /* NSData+Base64.h */; };
+		A83FEE7E15E3E23900FD8907 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE7A15E3E23900FD8907 /* NSData+Base64.m */; };
+		A83FEE7F15E3E23900FD8907 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE7A15E3E23900FD8907 /* NSData+Base64.m */; };
+		A83FEE8015E3E23900FD8907 /* NSString+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = A83FEE7B15E3E23900FD8907 /* NSString+Base64.h */; };
+		A83FEE8115E3E23900FD8907 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE7C15E3E23900FD8907 /* NSString+Base64.m */; };
+		A83FEE8215E3E23900FD8907 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE7C15E3E23900FD8907 /* NSString+Base64.m */; };
+		A83FEE8715E3E2AA00FD8907 /* ConvertURL.h in Headers */ = {isa = PBXBuildFile; fileRef = A83FEE8515E3E2AA00FD8907 /* ConvertURL.h */; };
+		A83FEE8815E3E2AA00FD8907 /* ConvertURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE8615E3E2AA00FD8907 /* ConvertURL.m */; };
+		A83FEE8915E3E2AA00FD8907 /* ConvertURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE8615E3E2AA00FD8907 /* ConvertURL.m */; };
+		A83FEE9015E3E5EF00FD8907 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F155D115C547220054EF51 /* SenTestingKit.framework */; };
+		A83FEE9A15E3E5EF00FD8907 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A83FEE9815E3E5EF00FD8907 /* InfoPlist.strings */; };
+		A83FEE9D15E3E5EF00FD8907 /* URLTesting.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FEE9C15E3E5EF00FD8907 /* URLTesting.m */; };
+		A83FEEA315E3E7A100FD8907 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83FEEA215E3E7A100FD8907 /* Cocoa.framework */; };
+		A88FDA9C15E22E1800BCB116 /* Kuai.h in Headers */ = {isa = PBXBuildFile; fileRef = A88FDA9A15E22E1800BCB116 /* Kuai.h */; };
+		A88FDA9D15E22E1800BCB116 /* Kuai.m in Sources */ = {isa = PBXBuildFile; fileRef = A88FDA9B15E22E1800BCB116 /* Kuai.m */; };
+		A88FDA9E15E22E1800BCB116 /* Kuai.m in Sources */ = {isa = PBXBuildFile; fileRef = A88FDA9B15E22E1800BCB116 /* Kuai.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		02F155D415C547220054EF51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02F155AE15C547220054EF51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02F155B715C547220054EF51;
+			remoteInfo = TondarAPI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020E1F4915DCF40B00FF99ED /* HYXunleiLixianAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYXunleiLixianAPI.h; sourceTree = "<group>"; };
+		020E1F4A15DCF40B00FF99ED /* HYXunleiLixianAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYXunleiLixianAPI.m; sourceTree = "<group>"; };
+		020E1F4E15DCF41400FF99ED /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		020E1F4F15DCF41500FF99ED /* md5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = md5.m; sourceTree = "<group>"; };
+		020E1F5215DCF42100FF99ED /* ParseElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseElements.h; sourceTree = "<group>"; };
+		020E1F5315DCF42200FF99ED /* ParseElements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseElements.m; sourceTree = "<group>"; };
+		020E1F5615DCF45E00FF99ED /* URlEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URlEncode.h; sourceTree = "<group>"; };
+		020E1F5715DCF45F00FF99ED /* URlEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URlEncode.m; sourceTree = "<group>"; };
+		020E1F5A15DCF46A00FF99ED /* XunleiItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XunleiItemInfo.h; sourceTree = "<group>"; };
+		020E1F5B15DCF46A00FF99ED /* XunleiItemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XunleiItemInfo.m; sourceTree = "<group>"; };
+		020E1F6F15DCF5A900FF99ED /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = JSONKit/JSONKit.h; sourceTree = "<group>"; };
+		020E1F7015DCF5A900FF99ED /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = JSONKit/JSONKit.m; sourceTree = "<group>"; };
+		02C066B015DCF700008AF890 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		02C066B215DCF70E008AF890 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		02C066B415DCF80B008AF890 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		02F155B815C547220054EF51 /* TondarAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TondarAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F155BB15C547220054EF51 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		02F155BE15C547220054EF51 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		02F155BF15C547220054EF51 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		02F155C015C547220054EF51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		02F155C315C547220054EF51 /* TondarAPI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TondarAPI-Info.plist"; sourceTree = "<group>"; };
+		02F155C515C547220054EF51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		02F155C715C547220054EF51 /* TondarAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TondarAPI-Prefix.pch"; sourceTree = "<group>"; };
+		02F155D015C547220054EF51 /* TondarAPITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TondarAPITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02F155D115C547220054EF51 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		02F155D915C547220054EF51 /* TondarAPITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TondarAPITests-Info.plist"; sourceTree = "<group>"; };
+		02F155DB15C547220054EF51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		02F155DD15C547220054EF51 /* TondarAPITests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TondarAPITests.h; sourceTree = "<group>"; };
+		02F155DE15C547220054EF51 /* TondarAPITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TondarAPITests.m; sourceTree = "<group>"; };
+		A81275001622B2A2002A92F4 /* LCHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHTTPConnection.h; sourceTree = "<group>"; };
+		A81275011622B2A2002A92F4 /* LCHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHTTPConnection.m; sourceTree = "<group>"; };
+		A812750F1622F0AF002A92F4 /* NSString+RE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+RE.h"; sourceTree = "<group>"; };
+		A81275101622F0AF002A92F4 /* NSString+RE.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+RE.m"; sourceTree = "<group>"; };
+		A83FEE7915E3E23900FD8907 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		A83FEE7A15E3E23900FD8907 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		A83FEE7B15E3E23900FD8907 /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
+		A83FEE7C15E3E23900FD8907 /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
+		A83FEE8515E3E2AA00FD8907 /* ConvertURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConvertURL.h; sourceTree = "<group>"; };
+		A83FEE8615E3E2AA00FD8907 /* ConvertURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConvertURL.m; sourceTree = "<group>"; };
+		A83FEE8F15E3E5EF00FD8907 /* URLTesting.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLTesting.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83FEE9115E3E5EF00FD8907 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A83FEE9315E3E5EF00FD8907 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A83FEE9715E3E5EF00FD8907 /* URLTesting-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "URLTesting-Info.plist"; sourceTree = "<group>"; };
+		A83FEE9915E3E5EF00FD8907 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A83FEE9B15E3E5EF00FD8907 /* URLTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLTesting.h; sourceTree = "<group>"; };
+		A83FEE9C15E3E5EF00FD8907 /* URLTesting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = URLTesting.m; sourceTree = "<group>"; };
+		A83FEE9E15E3E5EF00FD8907 /* URLTesting-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "URLTesting-Prefix.pch"; sourceTree = "<group>"; };
+		A83FEEA215E3E7A100FD8907 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		A88FDA9A15E22E1800BCB116 /* Kuai.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kuai.h; sourceTree = "<group>"; };
+		A88FDA9B15E22E1800BCB116 /* Kuai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kuai.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02F155B415C547220054EF51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02C066B515DCF80B008AF890 /* CFNetwork.framework in Frameworks */,
+				02C066B315DCF70E008AF890 /* libz.dylib in Frameworks */,
+				02C066B115DCF700008AF890 /* SystemConfiguration.framework in Frameworks */,
+				02F155BC15C547220054EF51 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F155CC15C547220054EF51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F155D215C547220054EF51 /* SenTestingKit.framework in Frameworks */,
+				02F155D315C547220054EF51 /* Cocoa.framework in Frameworks */,
+				02F155D615C547220054EF51 /* TondarAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83FEE8B15E3E5EF00FD8907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83FEEA315E3E7A100FD8907 /* Cocoa.framework in Frameworks */,
+				A83FEE9015E3E5EF00FD8907 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020E1F7315DCF5AB00FF99ED /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				020E1F6F15DCF5A900FF99ED /* JSONKit.h */,
+				020E1F7015DCF5A900FF99ED /* JSONKit.m */,
+			);
+			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		026EB2D515C54C5F0005909F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A812750E1622F097002A92F4 /* LCRegexKit */,
+				A83FEE8415E3E23D00FD8907 /* Base64 */,
+				02C066BF15DCFB22008AF890 /* LCHTTPConnection */,
+				020E1F7315DCF5AB00FF99ED /* JSONKit */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		026EB2DA15C550E60005909F /* Tondar */ = {
+			isa = PBXGroup;
+			children = (
+				020E1F4915DCF40B00FF99ED /* HYXunleiLixianAPI.h */,
+				020E1F4A15DCF40B00FF99ED /* HYXunleiLixianAPI.m */,
+				020E1F4E15DCF41400FF99ED /* md5.h */,
+				020E1F4F15DCF41500FF99ED /* md5.m */,
+				020E1F5215DCF42100FF99ED /* ParseElements.h */,
+				020E1F5315DCF42200FF99ED /* ParseElements.m */,
+				020E1F5615DCF45E00FF99ED /* URlEncode.h */,
+				020E1F5715DCF45F00FF99ED /* URlEncode.m */,
+				020E1F5A15DCF46A00FF99ED /* XunleiItemInfo.h */,
+				020E1F5B15DCF46A00FF99ED /* XunleiItemInfo.m */,
+				A88FDA9A15E22E1800BCB116 /* Kuai.h */,
+				A88FDA9B15E22E1800BCB116 /* Kuai.m */,
+				A83FEE8515E3E2AA00FD8907 /* ConvertURL.h */,
+				A83FEE8615E3E2AA00FD8907 /* ConvertURL.m */,
+			);
+			name = Tondar;
+			sourceTree = "<group>";
+		};
+		02C066BF15DCFB22008AF890 /* LCHTTPConnection */ = {
+			isa = PBXGroup;
+			children = (
+				A81275001622B2A2002A92F4 /* LCHTTPConnection.h */,
+				A81275011622B2A2002A92F4 /* LCHTTPConnection.m */,
+			);
+			name = LCHTTPConnection;
+			sourceTree = "<group>";
+		};
+		02F155AC15C547220054EF51 = {
+			isa = PBXGroup;
+			children = (
+				02F155C115C547220054EF51 /* TondarAPI */,
+				02F155D715C547220054EF51 /* TondarAPITests */,
+				A83FEE9515E3E5EF00FD8907 /* URLTesting */,
+				02F155BA15C547220054EF51 /* Frameworks */,
+				02F155B915C547220054EF51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		02F155B915C547220054EF51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				02F155B815C547220054EF51 /* TondarAPI.framework */,
+				02F155D015C547220054EF51 /* TondarAPITests.octest */,
+				A83FEE8F15E3E5EF00FD8907 /* URLTesting.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		02F155BA15C547220054EF51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A83FEEA215E3E7A100FD8907 /* Cocoa.framework */,
+				02C066B215DCF70E008AF890 /* libz.dylib */,
+				02C066B415DCF80B008AF890 /* CFNetwork.framework */,
+				02C066B015DCF700008AF890 /* SystemConfiguration.framework */,
+				02F155BB15C547220054EF51 /* Cocoa.framework */,
+				02F155D115C547220054EF51 /* SenTestingKit.framework */,
+				A83FEE9115E3E5EF00FD8907 /* UIKit.framework */,
+				A83FEE9315E3E5EF00FD8907 /* Foundation.framework */,
+				02F155BD15C547220054EF51 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		02F155BD15C547220054EF51 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02F155BE15C547220054EF51 /* AppKit.framework */,
+				02F155BF15C547220054EF51 /* CoreData.framework */,
+				02F155C015C547220054EF51 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		02F155C115C547220054EF51 /* TondarAPI */ = {
+			isa = PBXGroup;
+			children = (
+				026EB2DA15C550E60005909F /* Tondar */,
+				026EB2D515C54C5F0005909F /* Utility */,
+				02F155C215C547220054EF51 /* Supporting Files */,
+			);
+			path = TondarAPI;
+			sourceTree = "<group>";
+		};
+		02F155C215C547220054EF51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02F155C315C547220054EF51 /* TondarAPI-Info.plist */,
+				02F155C415C547220054EF51 /* InfoPlist.strings */,
+				02F155C715C547220054EF51 /* TondarAPI-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02F155D715C547220054EF51 /* TondarAPITests */ = {
+			isa = PBXGroup;
+			children = (
+				02F155DD15C547220054EF51 /* TondarAPITests.h */,
+				02F155DE15C547220054EF51 /* TondarAPITests.m */,
+				02F155D815C547220054EF51 /* Supporting Files */,
+			);
+			path = TondarAPITests;
+			sourceTree = "<group>";
+		};
+		02F155D815C547220054EF51 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02F155D915C547220054EF51 /* TondarAPITests-Info.plist */,
+				02F155DA15C547220054EF51 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A812750E1622F097002A92F4 /* LCRegexKit */ = {
+			isa = PBXGroup;
+			children = (
+				A812750F1622F0AF002A92F4 /* NSString+RE.h */,
+				A81275101622F0AF002A92F4 /* NSString+RE.m */,
+			);
+			name = LCRegexKit;
+			sourceTree = "<group>";
+		};
+		A83FEE8415E3E23D00FD8907 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				A83FEE7915E3E23900FD8907 /* NSData+Base64.h */,
+				A83FEE7A15E3E23900FD8907 /* NSData+Base64.m */,
+				A83FEE7B15E3E23900FD8907 /* NSString+Base64.h */,
+				A83FEE7C15E3E23900FD8907 /* NSString+Base64.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
+		A83FEE9515E3E5EF00FD8907 /* URLTesting */ = {
+			isa = PBXGroup;
+			children = (
+				A83FEE9B15E3E5EF00FD8907 /* URLTesting.h */,
+				A83FEE9C15E3E5EF00FD8907 /* URLTesting.m */,
+				A83FEE9615E3E5EF00FD8907 /* Supporting Files */,
+			);
+			path = URLTesting;
+			sourceTree = "<group>";
+		};
+		A83FEE9615E3E5EF00FD8907 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A83FEE9715E3E5EF00FD8907 /* URLTesting-Info.plist */,
+				A83FEE9815E3E5EF00FD8907 /* InfoPlist.strings */,
+				A83FEE9E15E3E5EF00FD8907 /* URLTesting-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		02F155B515C547220054EF51 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020E1F4B15DCF40B00FF99ED /* HYXunleiLixianAPI.h in Headers */,
+				020E1F5C15DCF46B00FF99ED /* XunleiItemInfo.h in Headers */,
+				020E1F5015DCF41500FF99ED /* md5.h in Headers */,
+				020E1F5415DCF42300FF99ED /* ParseElements.h in Headers */,
+				020E1F5815DCF45F00FF99ED /* URlEncode.h in Headers */,
+				020E1F7115DCF5A900FF99ED /* JSONKit.h in Headers */,
+				A88FDA9C15E22E1800BCB116 /* Kuai.h in Headers */,
+				A83FEE7D15E3E23900FD8907 /* NSData+Base64.h in Headers */,
+				A83FEE8015E3E23900FD8907 /* NSString+Base64.h in Headers */,
+				A83FEE8715E3E2AA00FD8907 /* ConvertURL.h in Headers */,
+				A81275021622B2A2002A92F4 /* LCHTTPConnection.h in Headers */,
+				A81275111622F0AF002A92F4 /* NSString+RE.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		02F155B715C547220054EF51 /* TondarAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F155E215C547220054EF51 /* Build configuration list for PBXNativeTarget "TondarAPI" */;
+			buildPhases = (
+				02F155B315C547220054EF51 /* Sources */,
+				02F155B415C547220054EF51 /* Frameworks */,
+				02F155B515C547220054EF51 /* Headers */,
+				02F155B615C547220054EF51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TondarAPI;
+			productName = TondarAPI;
+			productReference = 02F155B815C547220054EF51 /* TondarAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		02F155CF15C547220054EF51 /* TondarAPITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02F155E515C547220054EF51 /* Build configuration list for PBXNativeTarget "TondarAPITests" */;
+			buildPhases = (
+				02F155CB15C547220054EF51 /* Sources */,
+				02F155CC15C547220054EF51 /* Frameworks */,
+				02F155CD15C547220054EF51 /* Resources */,
+				02F155CE15C547220054EF51 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02F155D515C547220054EF51 /* PBXTargetDependency */,
+			);
+			name = TondarAPITests;
+			productName = TondarAPITests;
+			productReference = 02F155D015C547220054EF51 /* TondarAPITests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		A83FEE8E15E3E5EF00FD8907 /* URLTesting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A83FEE9F15E3E5EF00FD8907 /* Build configuration list for PBXNativeTarget "URLTesting" */;
+			buildPhases = (
+				A83FEE8A15E3E5EF00FD8907 /* Sources */,
+				A83FEE8B15E3E5EF00FD8907 /* Frameworks */,
+				A83FEE8C15E3E5EF00FD8907 /* Resources */,
+				A83FEE8D15E3E5EF00FD8907 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URLTesting;
+			productName = URLTesting;
+			productReference = A83FEE8F15E3E5EF00FD8907 /* URLTesting.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		02F155AE15C547220054EF51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = MartianZ;
+			};
+			buildConfigurationList = 02F155B115C547220054EF51 /* Build configuration list for PBXProject "TondarAPI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 02F155AC15C547220054EF51;
+			productRefGroup = 02F155B915C547220054EF51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				02F155B715C547220054EF51 /* TondarAPI */,
+				02F155CF15C547220054EF51 /* TondarAPITests */,
+				A83FEE8E15E3E5EF00FD8907 /* URLTesting */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		02F155B615C547220054EF51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F155C615C547220054EF51 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F155CD15C547220054EF51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F155DC15C547220054EF51 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83FEE8C15E3E5EF00FD8907 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83FEE9A15E3E5EF00FD8907 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02F155CE15C547220054EF51 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		A83FEE8D15E3E5EF00FD8907 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02F155B315C547220054EF51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020E1F4C15DCF40B00FF99ED /* HYXunleiLixianAPI.m in Sources */,
+				020E1F5115DCF41500FF99ED /* md5.m in Sources */,
+				020E1F5515DCF42300FF99ED /* ParseElements.m in Sources */,
+				020E1F5915DCF45F00FF99ED /* URlEncode.m in Sources */,
+				020E1F5D15DCF46B00FF99ED /* XunleiItemInfo.m in Sources */,
+				020E1F7215DCF5A900FF99ED /* JSONKit.m in Sources */,
+				A88FDA9D15E22E1800BCB116 /* Kuai.m in Sources */,
+				A83FEE7E15E3E23900FD8907 /* NSData+Base64.m in Sources */,
+				A83FEE8115E3E23900FD8907 /* NSString+Base64.m in Sources */,
+				A83FEE8815E3E2AA00FD8907 /* ConvertURL.m in Sources */,
+				A81275031622B2A2002A92F4 /* LCHTTPConnection.m in Sources */,
+				A81275121622F0AF002A92F4 /* NSString+RE.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		02F155CB15C547220054EF51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02F155DF15C547220054EF51 /* TondarAPITests.m in Sources */,
+				A88FDA9E15E22E1800BCB116 /* Kuai.m in Sources */,
+				A83FEE7F15E3E23900FD8907 /* NSData+Base64.m in Sources */,
+				A83FEE8215E3E23900FD8907 /* NSString+Base64.m in Sources */,
+				A83FEE8915E3E2AA00FD8907 /* ConvertURL.m in Sources */,
+				A81275041622B2A2002A92F4 /* LCHTTPConnection.m in Sources */,
+				A81275131622F0AF002A92F4 /* NSString+RE.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A83FEE8A15E3E5EF00FD8907 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A83FEE9D15E3E5EF00FD8907 /* URLTesting.m in Sources */,
+				A81275051622B2A2002A92F4 /* LCHTTPConnection.m in Sources */,
+				A81275141622F0AF002A92F4 /* NSString+RE.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02F155D515C547220054EF51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02F155B715C547220054EF51 /* TondarAPI */;
+			targetProxy = 02F155D415C547220054EF51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		02F155C415C547220054EF51 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02F155C515C547220054EF51 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		02F155DA15C547220054EF51 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02F155DB15C547220054EF51 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A83FEE9815E3E5EF00FD8907 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A83FEE9915E3E5EF00FD8907 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		02F155E015C547220054EF51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.7;
+			};
+			name = Debug;
+		};
+		02F155E115C547220054EF51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx10.7;
+			};
+			name = Release;
+		};
+		02F155E315C547220054EF51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TondarAPI/TondarAPI-Prefix.pch";
+				INFOPLIST_FILE = "TondarAPI/TondarAPI-Info.plist";
+				OTHER_LDFLAGS = "-licucore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		02F155E415C547220054EF51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TondarAPI/TondarAPI-Prefix.pch";
+				INFOPLIST_FILE = "TondarAPI/TondarAPI-Info.plist";
+				OTHER_LDFLAGS = "-licucore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		02F155E615C547220054EF51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TondarAPI/TondarAPI-Prefix.pch";
+				INFOPLIST_FILE = "TondarAPITests/TondarAPITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		02F155E715C547220054EF51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TondarAPI/TondarAPI-Prefix.pch";
+				INFOPLIST_FILE = "TondarAPITests/TondarAPITests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		A83FEEA015E3E5EF00FD8907 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLTesting/URLTesting-Prefix.pch";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "URLTesting/URLTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A83FEEA115E3E5EF00FD8907 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "URLTesting/URLTesting-Prefix.pch";
+				GCC_VERSION = "";
+				INFOPLIST_FILE = "URLTesting/URLTesting-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		02F155B115C547220054EF51 /* Build configuration list for PBXProject "TondarAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F155E015C547220054EF51 /* Debug */,
+				02F155E115C547220054EF51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F155E215C547220054EF51 /* Build configuration list for PBXNativeTarget "TondarAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F155E315C547220054EF51 /* Debug */,
+				02F155E415C547220054EF51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		02F155E515C547220054EF51 /* Build configuration list for PBXNativeTarget "TondarAPITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02F155E615C547220054EF51 /* Debug */,
+				02F155E715C547220054EF51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A83FEE9F15E3E5EF00FD8907 /* Build configuration list for PBXNativeTarget "URLTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A83FEEA015E3E5EF00FD8907 /* Debug */,
+				A83FEEA115E3E5EF00FD8907 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 02F155AE15C547220054EF51 /* Project object */;
+}

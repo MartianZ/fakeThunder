@@ -95,6 +95,8 @@
 		0295F2D415DBB6AD00529BA5 /* TasksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksView.m; sourceTree = "<group>"; };
 		0295F2D515DBB6AD00529BA5 /* TasksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksView.xib; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
 		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
 		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
@@ -119,19 +121,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		020E1F1E15DC03C700FF99ED /* Source List */ = {
-			isa = PBXGroup;
-			children = (
-				020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */,
-				020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */,
-			);
-			name = "Source List";
-			sourceTree = "<group>";
-		};
 		020E1F3115DC046600FF99ED /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				020E1F1E15DC03C700FF99ED /* Source List */,
+				CA6B5A7F181265A700B14CD2 /* SSKeychain.h */,
+				CA6B5A80181265A700B14CD2 /* SSKeychain.m */,
+				020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */,
+				020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";

@@ -22,40 +22,40 @@
         _tableContents = [NSMutableArray new];
         
         
-        TondarAPI = [[HYXunleiLixianAPI alloc] init];
-        [TondarAPI logOut];
         
-        
-        
-        if ([TondarAPI loginWithUsername:@"1123400335@qq.com" Password:@"WangliuytrewqXL"]) {
-            NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
-            
-            NSArray *temp = [TondarAPI readAllTasks1];
-            NSLog(@"%@", temp);
-            for (XunleiItemInfo *task in temp) {
-                NSLog(@"%@", task.taskid);
-                TaskEntity *entity1 = [TaskEntity entityForID:task.taskid];
-                
-                
-                [_tableContents addObject:entity1];
-                entity1.title = task.name;
-                entity1.subtitle = @"584MiB, Remote Server Progress: 100%";
-                entity1.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
-                entity1.status = @"Status: Ready";
-                entity1.taskType = [NSString stringWithFormat:@"%@", task.isBT];
-                entity1.taskExt = [NSString stringWithFormat:@"%@", task.type];
-                entity1.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
-                entity1.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
-                entity1.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
-
-                NSLog(@"%@", [TondarAPI GDriveID]);
-
-            }
-        }
 
     }
     
     return self;
+}
+
+- (void)startLoadFirstTaskPagsWithTondarAPI:(HYXunleiLixianAPI*)api {
+    TondarAPI = api;
+    
+    NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
+        
+    NSArray *temp = [TondarAPI readAllTasks1];
+    NSLog(@"%@", temp);
+    
+    for (XunleiItemInfo *task in temp) {
+        TaskEntity *entity = [TaskEntity entityForID:task.taskid];
+        
+            
+        [_tableContents addObject:entity];
+        entity.title = task.name;
+        entity.subtitle = @"584MiB, Remote Server Progress: 100%";
+        entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
+        entity.status = @"Status: Ready";
+        entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
+        entity.taskExt = [NSString stringWithFormat:@"%@", task.type];
+        entity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
+        entity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
+        entity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
+                    
+    }
+    
+    
+    [_tableViewMain reloadData];
 }
 
 - (void)awakeFromNib {
@@ -64,8 +64,6 @@
     [_tableViewMain setUsesAlternatingRowBackgroundColors:YES];
     [_tableViewMain setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
     
-    
-    [_tableViewMain reloadData];
 }
 
 -(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView

@@ -8,9 +8,23 @@
 
 #import <Cocoa/Cocoa.h>
 #import "TasksView.h"
-
+#import <TondarAPI/HYXunleiLixianAPI.h>
+#import <TondarAPI/XunleiItemInfo.h>
+#import "SSKeychain.h"
 @interface MainView : NSWindowController {
+    
+    HYXunleiLixianAPI *TondarAPI;
+
     TasksView *tasksView;
+    IBOutlet NSWindow *loginWindow;
+
+    IBOutlet NSToolbarItem *toobarItemLogin;
+    
+    IBOutlet NSTextField *loginUsername;
+    IBOutlet NSTextField *loginPassword;
+    IBOutlet NSProgressIndicator *loginProgress;
+    IBOutlet NSButton *loginButtonOK;
+    IBOutlet NSButton *loginButtonCancel;
 
 }
 

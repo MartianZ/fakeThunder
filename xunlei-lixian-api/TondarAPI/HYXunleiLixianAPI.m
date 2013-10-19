@@ -80,11 +80,11 @@ typedef enum {
     
     NSString *re=@"id=\"cok\" value=\"([^\"]+)\"";
     NSString *s=[temp stringByMatching:re capture:1];
-    
+
     [self setGdriveID:s];
 
     //把response中的Cookie添加到CookieStorage
-    NSLog(@"%@", [redirectURLrequest responseCookies]);
+
     
     [self _addResponseCookietoCookieStorage:[redirectURLrequest responseCookies]];
     //验证是否登陆成功

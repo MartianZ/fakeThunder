@@ -9,7 +9,8 @@
 #import <Cocoa/Cocoa.h>
 #import "TasksView.h"
 #import "TaskEntity.h"
-
+#import <TondarAPI/HYXunleiLixianAPI.h>
+#import <TondarAPI/XunleiItemInfo.h>
 
 @interface TasksView : NSViewController <NSTableViewDelegate, NSTableViewDataSource, TaskDelegate> {
 
@@ -17,10 +18,12 @@
     NSMutableArray *_tableContents;
     NSMutableArray *_observedVisibleItems;
     IBOutlet NSTableView *_tableViewMain;
+    HYXunleiLixianAPI *TondarAPI;
     
     BOOL _useSmallRowHeight;
 }
 
 - (void)downloadSelectedTask;
+- (IBAction)tblvwDoubleClick:(id)sender;
 
 @end

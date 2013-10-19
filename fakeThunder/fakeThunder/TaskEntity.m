@@ -11,7 +11,6 @@
 @implementation TaskEntity
 
 @synthesize taskID = _taskID;
-@synthesize title;
 @synthesize delegate = _delegate;
 
 
@@ -48,7 +47,7 @@
 }
 
 - (void)performDownload {
-    NSLog(@"Download Start: %@ %@ %@", self.title, self.cookies, self.liXianURL);
+    NSLog(@"Download Start: %@ %@ %@", self.title, self.cookies, self.taskDcid);
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
     NSString *exePath = [NSString stringWithFormat:@"%@/aria2c",resourcesPath];
     
@@ -122,7 +121,7 @@
         self.progress = [[[NSString stringWithFormat:@"%s",percentage] stringByReplacingOccurrencesOfString:@"%" withString:@""] doubleValue];
         
         if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
-            [self.delegate taskRowNeedUpdate:self.taskID];
+            [self.delegate taskRowNeedUpdate:self.taskDcid];
         }
         
         if (![task isRunning]) {
@@ -149,7 +148,7 @@
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:un];
             
             if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
-                [self.delegate taskRowNeedUpdate:self.taskID];
+                [self.delegate taskRowNeedUpdate:self.taskDcid];
             }
         }
             break;
@@ -160,11 +159,22 @@
             self.status = @"Download paused..";
             
             if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
-                [self.delegate taskRowNeedUpdate:self.taskID];
+                [self.delegate taskRowNeedUpdate:self.taskDcid];
             }
+            
+            
         }
             break;
     }
 
 }
+@end
+
+@implementation TaskLoaderEntity
+
++ (TaskLoaderEntity *)entityNew
+{
+    return [[TaskLoaderEntity alloc] init];
+}
+
 @end

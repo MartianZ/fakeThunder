@@ -28,6 +28,7 @@
 @property (retain) NSString *cookies;
 @property (retain) NSString *liXianURL;
 @property  NSInteger selectedRow;
+@property (retain) NSString *taskDcid;
 
 + (TaskEntity *)entityForID:(NSString *)taskID;
 - (void)performDownload;
@@ -41,5 +42,14 @@
 @optional
 
 - (void)taskRowNeedUpdate:(NSString *)taskID;
+
+@end
+
+
+@interface TaskLoaderEntity : TaskEntity;
+
+@property(retain) NSString *loadingProgress;
+
++ (TaskLoaderEntity *)entityNew;
 
 @end

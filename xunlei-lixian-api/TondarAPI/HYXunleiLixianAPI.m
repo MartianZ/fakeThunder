@@ -448,7 +448,8 @@ typedef enum {
             
             
             
-            info.taskid=[tmp objectForKey:@"cid"];
+            info.taskid=[tmp objectForKey:@"id"];
+            info.dcid = [tmp objectForKey:@"cid"];
             info.name=[tmp objectForKey:@"taskname"];
             info.size=[tmp objectForKey:@"ysfilesize"];
             info.readableSize=[tmp objectForKey:@"filesize"];
@@ -514,7 +515,7 @@ typedef enum {
         
         for(NSDictionary *task in record){
             XunleiItemInfo *info=[XunleiItemInfo new];
-            
+
             info.taskid=taskid;
             info.name=[task objectForKey:@"title"];
             info.size=[task objectForKey:@"filesize"];
@@ -524,7 +525,7 @@ typedef enum {
             info.originalURL=[task objectForKey:@"url"];
             info.isBT=@"1";
             info.type=[task objectForKey:@"openformat"];
-            info.dcid=dcid;
+            info.dcid=[task objectForKey:@"cid"];
             info.ifvod=[task objectForKey:@"vod"];
             info.status=[[task objectForKey:@"download_status"] integerValue];
             info.readableSize=[task objectForKey:@"size"];

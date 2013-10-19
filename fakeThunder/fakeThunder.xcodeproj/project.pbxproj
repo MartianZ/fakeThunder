@@ -28,6 +28,7 @@
 		0295F2D215DBB56400529BA5 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D015DBB56400529BA5 /* MainView.xib */; };
 		0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2D415DBB6AD00529BA5 /* TasksView.m */; };
 		0295F2D715DBB6AD00529BA5 /* TasksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D515DBB6AD00529BA5 /* TasksView.xib */; };
+		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
 		CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
@@ -93,6 +94,7 @@
 		0295F2D315DBB6AD00529BA5 /* TasksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksView.h; sourceTree = "<group>"; };
 		0295F2D415DBB6AD00529BA5 /* TasksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksView.m; sourceTree = "<group>"; };
 		0295F2D515DBB6AD00529BA5 /* TasksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksView.xib; sourceTree = "<group>"; };
+		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
 		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
 		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */,
 				CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
 			);
@@ -155,6 +158,7 @@
 		024C874615DBA755003EF1F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA6B5A7A1812657600B14CD2 /* Security.framework */,
 				024C874715DBA755003EF1F3 /* Cocoa.framework */,
 				024C876515DBA756003EF1F3 /* SenTestingKit.framework */,
 				024C874915DBA755003EF1F3 /* Other Frameworks */,

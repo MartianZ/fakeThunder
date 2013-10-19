@@ -313,7 +313,6 @@ typedef enum {
     switch (listType) {
         case TLTAll:
             
-            
             url=[NSURL URLWithString:[NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/interface/showtask_unfresh?type_id=4&page=%lu&tasknum=30",(unsigned long)pg]];
 
             break;
@@ -344,7 +343,7 @@ typedef enum {
         mArray=[self _tasksWithStatus:listType andPage:pg retIfHasNextPage:&hasNP];
         [allTaskArray addObjectsFromArray:mArray];
         pg++;
-    } while (hasNP);
+    } while (pg < 3); // hasNP
     return allTaskArray;
 }
 //只适用于“已过期”，“已删除”任务
@@ -420,6 +419,7 @@ typedef enum {
         NSArray *allTaskArray=[tmpD1 arrayOfCaptureComponentsMatchedByRegex:re2];*/
         
         //原作者这里直接用正则分析html……可惜迅雷现在用ajax载入任务了……操……重新写吧…………FUCK XUNLEI!
+        
         
         
         siteData = [siteData stringByReplacingOccurrencesOfString:@"rebuild(" withString:@""];
@@ -550,6 +550,7 @@ typedef enum {
     BOOL hasNP=NO;
     NSMutableArray *allTaskArray=[NSMutableArray arrayWithCapacity:0];
     NSMutableArray *mArray=nil;
+    
     do {
         mArray=[self readYunTasksWithPage:pg retIfHasNextPage:&hasNP];
         [allTaskArray addObjectsFromArray:mArray];

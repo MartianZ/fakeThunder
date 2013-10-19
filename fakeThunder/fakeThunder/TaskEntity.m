@@ -49,6 +49,7 @@
 - (void)performDownload {
     NSLog(@"Download Start: %@ %@ %@", self.title, self.cookies, self.taskDcid);
     self.status = @"Status: Loading...";
+    self.needToStop = NO;
     if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
         [self.delegate taskRowNeedUpdate:self.taskDcid];
     }
@@ -133,8 +134,14 @@
         if (![task isRunning]) {
             break;
         }
+        
+        if (self.needToStop) {
+            [task terminate];
+            self.status = @"Pausing...";
+            break;
+        }
     }
-    
+
     while ([task isRunning]) {
         //DO NOTHING
         //等待程序彻底结束

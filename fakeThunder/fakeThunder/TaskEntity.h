@@ -30,6 +30,7 @@
 @property  NSInteger selectedRow;
 @property (retain) NSString *taskDcid;
 @property (retain) NSOperation *downloadOperaion;
+@property BOOL needToStop;
 
 + (TaskEntity *)entityForID:(NSString *)taskID;
 - (void)performDownload;

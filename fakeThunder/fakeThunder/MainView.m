@@ -55,6 +55,11 @@
 }
 
 
+- (IBAction)stopDownloadSelectedTask:(id)sender {
+    [tasksView stopDownloadSelectedTask];
+}
+
+
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 {
     [loginWindow close];

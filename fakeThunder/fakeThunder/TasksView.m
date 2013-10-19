@@ -147,6 +147,28 @@
     }
 }
 
+- (void)stopDownloadSelectedTask {
+    
+    if ([_tableViewMain selectedRow] >= 0) {
+        NSUInteger index;
+        for (index = [[_tableViewMain selectedRowIndexes] firstIndex];
+             index != NSNotFound; index = [[_tableViewMain selectedRowIndexes] indexGreaterThanIndex: index])  {
+            
+            TaskEntity *entity = [self _entityForRow:index];
+            entity.selectedRow = [_tableViewMain selectedRow];
+            [entity setDelegate:self];
+            if (![entity isKindOfClass:[TaskLoaderEntity class]] && ![entity.taskType isEqualToString:@"0"]) {
+                //not BT task
+                entity.needToStop = YES;
+            }
+            
+            
+        }
+        
+        
+    }
+}
+
 
 
 - (void)taskRowNeedUpdate:(NSString *)taskID

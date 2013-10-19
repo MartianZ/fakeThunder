@@ -29,6 +29,7 @@
 @property (retain) NSString *liXianURL;
 @property  NSInteger selectedRow;
 @property (retain) NSString *taskDcid;
+@property (retain) NSOperation *downloadOperaion;
 
 + (TaskEntity *)entityForID:(NSString *)taskID;
 - (void)performDownload;

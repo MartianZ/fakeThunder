@@ -21,7 +21,9 @@
         NSLog(@"TasksView Init");
         _tableContents = [NSMutableArray new];
         
-        
+        operationDownloadQueue = [[NSOperationQueue alloc] init];
+        [operationDownloadQueue setMaxConcurrentOperationCount:3];
+
         
 
     }
@@ -120,12 +122,27 @@
 - (void)downloadSelectedTask {
     
     if ([_tableViewMain selectedRow] >= 0) {
+        NSUInteger index;
+        for (index = [[_tableViewMain selectedRowIndexes] firstIndex];
+             index != NSNotFound; index = [[_tableViewMain selectedRowIndexes] indexGreaterThanIndex: index])  {
+            
+            TaskEntity *entity = [self _entityForRow:index];
+            entity.selectedRow = [_tableViewMain selectedRow];
+            [entity setDelegate:self];
+            if (![entity isKindOfClass:[TaskLoaderEntity class]] && ![entity.taskType isEqualToString:@"0"]) {
+                //not BT task
+                DownloadOperation *downloadOperation = [[DownloadOperation alloc] initWithTaskEntity:entity];
+                [operationDownloadQueue addOperation:downloadOperation];
+                entity.downloadOperaion = downloadOperation;
+                entity.status = @"Status: Queuing...";
+                TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:index makeIfNecessary:NO];
+                cellView.statusTextField.stringValue = entity.status;
+
+            }
+            
+            
+        }
         
-        TaskEntity *entity = [self _entityForRow:[_tableViewMain selectedRow]];
-        
-        entity.selectedRow = [_tableViewMain selectedRow];
-        [entity setDelegate:self];
-        [entity performDownloadWithThread];
 
     }
 }

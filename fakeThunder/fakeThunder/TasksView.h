@@ -11,7 +11,7 @@
 #import "TaskEntity.h"
 #import <TondarAPI/HYXunleiLixianAPI.h>
 #import <TondarAPI/XunleiItemInfo.h>
-
+#import "DownloadOperation.h"
 @interface TasksView : NSViewController <NSTableViewDelegate, NSTableViewDataSource, TaskDelegate> {
 
     @private
@@ -19,7 +19,8 @@
     NSMutableArray *_observedVisibleItems;
     IBOutlet NSTableView *_tableViewMain;
     HYXunleiLixianAPI *TondarAPI;
-    
+    NSOperationQueue *operationDownloadQueue;
+
     BOOL _useSmallRowHeight;
 }
 

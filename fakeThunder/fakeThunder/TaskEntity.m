@@ -48,6 +48,11 @@
 
 - (void)performDownload {
     NSLog(@"Download Start: %@ %@ %@", self.title, self.cookies, self.taskDcid);
+    self.status = @"Status: Loading...";
+    if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
+        [self.delegate taskRowNeedUpdate:self.taskDcid];
+    }
+    
     NSString *resourcesPath = [[NSBundle mainBundle] resourcePath];
     NSString *exePath = [NSString stringWithFormat:@"%@/aria2c",resourcesPath];
     
@@ -109,15 +114,16 @@
         
         
         
-        NSString *timeLeft = [NSString stringWithFormat:@"Time left: %s", lefttime];
+        NSString *timeLeft = [NSString stringWithFormat:@", Time left: %s", lefttime];
+
         if ([timeLeft hasSuffix:@"]"]) {
-            timeLeft = [timeLeft stringByReplacingOccurrencesOfString:@"]" withString:@""];
             timeLeft = [timeLeft stringByReplacingOccurrencesOfString:@"]" withString:@""];
         } else {
             timeLeft = @"";
         }
+        NSString *speedStr = [NSString stringWithFormat:@"%s", speed];
         
-        self.status = [NSString stringWithFormat:@"Speed: %s, %@", speed, timeLeft];
+        self.status = [NSString stringWithFormat:@"Speed: %@%@", [speedStr stringByReplacingOccurrencesOfString:@"]" withString:@""], timeLeft];
         self.progress = [[[NSString stringWithFormat:@"%s",percentage] stringByReplacingOccurrencesOfString:@"%" withString:@""] doubleValue];
         
         if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {

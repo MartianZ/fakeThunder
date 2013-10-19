@@ -71,6 +71,7 @@
 														<array class="NSMutableArray" key="NSSubviews"/>
 														<string key="NSFrameSize">{828, 429}</string>
 														<reference key="NSSuperview" ref="79564131"/>
+														<reference key="NSWindow"/>
 														<reference key="NSNextKeyView" ref="963322269"/>
 														<bool key="NSEnabled">YES</bool>
 														<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -167,6 +168,7 @@
 												</array>
 												<string key="NSFrame">{{1, 1}, {828, 429}}</string>
 												<reference key="NSSuperview" ref="269161614"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="661137376"/>
 												<reference key="NSDocView" ref="661137376"/>
 												<reference key="NSBGColor" ref="389780802"/>
@@ -177,6 +179,7 @@
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 												<reference key="NSSuperview" ref="269161614"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="777187426"/>
 												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 												<reference key="NSTarget" ref="269161614"/>
@@ -188,7 +191,7 @@
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{1, 621}, {300, 15}}</string>
 												<reference key="NSSuperview" ref="269161614"/>
-												<reference key="NSNextKeyView"/>
+												<reference key="NSWindow"/>
 												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 												<int key="NSsFlags">1</int>
 												<reference key="NSTarget" ref="269161614"/>
@@ -198,6 +201,7 @@
 										</array>
 										<string key="NSFrameSize">{830, 431}</string>
 										<reference key="NSSuperview" ref="494978689"/>
+										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="79564131"/>
 										<int key="NSsFlags">133682</int>
 										<reference key="NSVScroller" ref="756937954"/>
@@ -211,6 +215,7 @@
 								</array>
 								<string key="NSFrameSize">{830, 431}</string>
 								<reference key="NSSuperview" ref="574247807"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="269161614"/>
 								<string key="NSReuseIdentifierKey">_NS:13</string>
 								<string key="NSClassName">NSView</string>
@@ -218,6 +223,7 @@
 						</array>
 						<string key="NSFrameSize">{830, 431}</string>
 						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="494978689"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSIsVertical">YES</bool>
@@ -226,6 +232,7 @@
 				</array>
 				<string key="NSFrameSize">{830, 431}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="574247807"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -448,10 +455,9 @@
 										</object>
 										<reference key="NSControlView" ref="566752738"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<object class="NSColor" key="NSTextColor">
-											<int key="NSColorSpace">3</int>
-											<bytes key="NSWhite">MC41AA</bytes>
-											<reference key="NSCustomColorSpace" ref="709952640"/>
+										<object class="NSColor" key="NSTextColor" id="573807528">
+											<int key="NSColorSpace">1</int>
+											<bytes key="NSRGB">MCAwIDAAA</bytes>
 										</object>
 									</object>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -482,11 +488,7 @@
 										<reference key="NSSupport" ref="24"/>
 										<reference key="NSControlView" ref="652946571"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<object class="NSColor" key="NSTextColor">
-											<int key="NSColorSpace">3</int>
-											<bytes key="NSWhite">MC41AA</bytes>
-											<reference key="NSCustomColorSpace" ref="709952640"/>
-										</object>
+										<reference key="NSTextColor" ref="573807528"/>
 									</object>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>
@@ -947,7 +949,72 @@
 			<nil key="sourceID"/>
 			<int key="maxID">293</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">TableCellView</string>
+					<string key="superclassName">NSTableCellView</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="progessIndicator">NSProgressIndicator</string>
+						<string key="removeButton">NSButton</string>
+						<string key="statusTextField">NSTextField</string>
+						<string key="subTitleTextField">NSTextField</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="progessIndicator">
+							<string key="name">progessIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="removeButton">
+							<string key="name">removeButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="statusTextField">
+							<string key="name">statusTextField</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="subTitleTextField">
+							<string key="name">subTitleTextField</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/TableCellView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TasksView</string>
+					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">tblvwDoubleClick:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">tblvwDoubleClick:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">tblvwDoubleClick:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">_tableViewMain</string>
+						<string key="NS.object.0">NSTableView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">_tableViewMain</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">_tableViewMain</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/TasksView.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">

@@ -184,7 +184,6 @@
     for (int row = 0; row < [_tableViewMain numberOfRows]; row++ ) {
         if ([[NSString stringWithFormat:@"%@", [self _entityForRow:row].taskDcid] isEqualToString:taskID])
         {
-            NSLog(@"FOUND!");
             [_tableViewMain beginUpdates];
             TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:row makeIfNecessary:NO];
             cellView.statusTextField.stringValue = [self _entityForRow:row].status;
@@ -234,10 +233,6 @@
             [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:nil];
             [_tableContents removeObjectAtIndex:row+1];
             [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:nil];
-            
-            
-            
-            
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
                 

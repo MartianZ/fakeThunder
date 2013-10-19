@@ -56,8 +56,46 @@
                     
     }
     
-    
+    _currentPage = 1;
     [_tableViewMain reloadData];
+}
+
+- (void)startLoadTaskWithPage:(NSUInteger)page {
+    
+    TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
+    [_tableContents addObject:loderEntity];
+    [_tableViewMain reloadData];
+    
+    _isLoadingTask = YES;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSArray *temp = [TondarAPI readTasksWithPage:page];
+        [_tableContents removeObjectAtIndex:_tableContents.count - 1];
+        [_tableViewMain reloadData];
+        
+        
+        for (XunleiItemInfo *task in temp) {
+            TaskEntity *entity = [TaskEntity entityForID:task.taskid];
+            
+            [_tableContents addObject:entity];
+            entity.title = task.name;
+            entity.subtitle = @"584MiB, Remote Server Progress: 100%";
+            entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
+            entity.status = @"Status: Ready";
+            entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
+            entity.taskExt = [NSString stringWithFormat:@"%@", task.type];
+            entity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
+            entity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
+            entity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
+            
+        }
+        
+        _isLoadingTask = NO;
+
+        
+        [_tableViewMain reloadData];
+    });
+
+    
 }
 
 - (void)awakeFromNib {
@@ -80,6 +118,10 @@
 
 - (NSView*)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     TaskEntity *entity = [self _entityForRow:row];
+    
+    if (row == _tableContents.count - 1 && _isLoadingTask == NO) {
+        [self startLoadTaskWithPage:++_currentPage];
+    }
     
     if ([entity isKindOfClass:[TaskLoaderEntity class]])
     {

@@ -25,7 +25,8 @@
     IBOutlet NSProgressIndicator *loginProgress;
     IBOutlet NSButton *loginButtonOK;
     IBOutlet NSButton *loginButtonCancel;
-
+    
+    
 }
 
 

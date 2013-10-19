@@ -75,7 +75,7 @@ NSString * const TaskStatusArray[]={
     return TaskStatusArray[status];
 }
 -(TaskStatus) _stringToTaskStatus:(NSString*) taskStatusString{
-    int r;
+    int r = 0;
     for(int i=0;i<sizeof(TaskStatusArray)-1;i++){
         if([(NSString*)TaskStatusArray[i] isEqualToString:taskStatusString]){
             r=i;

@@ -59,6 +59,7 @@ typedef enum{
 #pragma mark - Task
 //获得不同下载状态的任务列表
 -(NSMutableArray*) readAllTasks1;
+-(NSMutableArray*) readTasksWithPage:(NSUInteger) pg;
 -(NSMutableArray*) readAllCompleteTasks;
 -(NSMutableArray*) readCompleteTasksWithPage:(NSUInteger) pg;
 

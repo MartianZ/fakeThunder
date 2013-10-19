@@ -455,7 +455,7 @@
 										</object>
 										<reference key="NSControlView" ref="566752738"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<object class="NSColor" key="NSTextColor" id="573807528">
+										<object class="NSColor" key="NSTextColor" id="1052340446">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MCAwIDAAA</bytes>
 										</object>
@@ -488,7 +488,7 @@
 										<reference key="NSSupport" ref="24"/>
 										<reference key="NSControlView" ref="652946571"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<reference key="NSTextColor" ref="573807528"/>
+										<reference key="NSTextColor" ref="1052340446"/>
 									</object>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>
@@ -559,7 +559,7 @@
 									<object class="NSTextFieldCell" key="NSCell" id="407432185">
 										<int key="NSCellFlags">67108928</int>
 										<int key="NSCellFlags2">138414336</int>
-										<string key="NSContents">Loading torrent task details...</string>
+										<string key="NSContents">Loading...</string>
 										<reference key="NSSupport" ref="730797998"/>
 										<reference key="NSControlView" ref="465901073"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
@@ -986,17 +986,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">TasksView</string>
 					<string key="superclassName">NSViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">tblvwDoubleClick:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">tblvwDoubleClick:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="btnRemoveRowClick:">id</string>
+						<string key="tblvwDoubleClick:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="btnRemoveRowClick:">
+							<string key="name">btnRemoveRowClick:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="tblvwDoubleClick:">
 							<string key="name">tblvwDoubleClick:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+					</dictionary>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">_tableViewMain</string>
 						<string key="NS.object.0">NSTableView</string>

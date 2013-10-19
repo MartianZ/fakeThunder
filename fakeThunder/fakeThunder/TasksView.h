@@ -22,7 +22,10 @@
     NSOperationQueue *operationDownloadQueue;
 
     BOOL _useSmallRowHeight;
+    BOOL _isLoadingTask;
+    NSUInteger _currentPage;
 }
+
 
 - (void)downloadSelectedTask;
 - (void)stopDownloadSelectedTask;

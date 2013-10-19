@@ -254,6 +254,9 @@ typedef enum {
 #pragma mark - Public Normal Task Methods
 //获取主任务页内容
 //公共方法
+-(NSMutableArray*) readTasksWithPage:(NSUInteger) pg{
+    return [self _tasksWithStatus:TLTAll andPage:pg retIfHasNextPage:NULL];
+}
 -(NSMutableArray*) readAllTasks1{
     return [self _readAllTasksWithStat:TLTAll];
 }
@@ -343,7 +346,7 @@ typedef enum {
         mArray=[self _tasksWithStatus:listType andPage:pg retIfHasNextPage:&hasNP];
         [allTaskArray addObjectsFromArray:mArray];
         pg++;
-    } while (mArray && mArray.count > 0); // hasNP
+    } while (0); // hasNP
     return allTaskArray;
 }
 //只适用于“已过期”，“已删除”任务
@@ -510,7 +513,7 @@ typedef enum {
         NSDictionary *dic=[s objectFromJSONString];
         NSDictionary *result=[dic objectForKey:@"Result"];
         //dcid Value
-        NSString *dcid=[result objectForKey:@"Infoid"];
+        //NSString *dcid=[result objectForKey:@"Infoid"];
         NSArray *record=[result objectForKey:@"Record"];
         
         for(NSDictionary *task in record){

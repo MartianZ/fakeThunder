@@ -270,7 +270,7 @@
 							<reference key="NSNextKeyView" ref="652711094"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="868595367">
-								<int key="NSCellFlags">67108864</int>
+								<int key="NSCellFlags">603979776</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents"/>
 								<object class="NSFont" key="NSSupport" id="753721305">
@@ -407,7 +407,7 @@
 									<reference key="NSNextKeyView" ref="652946571"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="959415110">
-										<int key="NSCellFlags">67108864</int>
+										<int key="NSCellFlags">603979776</int>
 										<int key="NSCellFlags2">134217728</int>
 										<string key="NSContents"/>
 										<reference key="NSSupport" ref="753721305"/>
@@ -455,7 +455,7 @@
 										</object>
 										<reference key="NSControlView" ref="566752738"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<object class="NSColor" key="NSTextColor" id="1052340446">
+										<object class="NSColor" key="NSTextColor" id="1000198696">
 											<int key="NSColorSpace">1</int>
 											<bytes key="NSRGB">MCAwIDAAA</bytes>
 										</object>
@@ -488,7 +488,7 @@
 										<reference key="NSSupport" ref="24"/>
 										<reference key="NSControlView" ref="652946571"/>
 										<reference key="NSBackgroundColor" ref="958504180"/>
-										<reference key="NSTextColor" ref="1052340446"/>
+										<reference key="NSTextColor" ref="1000198696"/>
 									</object>
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>

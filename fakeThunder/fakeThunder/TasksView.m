@@ -157,6 +157,8 @@
     if (row != -1) {
         [_tableContents removeObjectAtIndex:row];
         [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
+        
+        //TODO: remove task on remote server
     }
 }
 

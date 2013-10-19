@@ -343,7 +343,7 @@ typedef enum {
         mArray=[self _tasksWithStatus:listType andPage:pg retIfHasNextPage:&hasNP];
         [allTaskArray addObjectsFromArray:mArray];
         pg++;
-    } while (pg < 3); // hasNP
+    } while (mArray && mArray.count > 0); // hasNP
     return allTaskArray;
 }
 //只适用于“已过期”，“已删除”任务

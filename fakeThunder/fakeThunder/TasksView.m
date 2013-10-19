@@ -175,17 +175,28 @@
             
             TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
             
-            [_tableViewMain setEnabled:NO];
-            [_tableContents insertObject:loderEntity atIndex:row];
-            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:nil];
-            [_tableContents removeObjectAtIndex:row+1];
+            
+            //[_tableViewMain beginUpdates];
 
+            //[_tableViewMain setEnabled:NO];
+            
+            
+            //[_tableViewMain endUpdates];
+            
+            //[_tableViewMain beginUpdates];
+            [_tableContents insertObject:loderEntity atIndex:row];
+            [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:nil];
+            [_tableContents removeObjectAtIndex:row+1];
+            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:nil];
+            
+            
+            
+            
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
-                NSArray *taskList = [TondarAPI readAllBTTaskListWithTaskID:entity.taskID hashID:entity.taskDcid];
                 
+                NSArray *taskList = [TondarAPI readAllBTTaskListWithTaskID:entity.taskID hashID:entity.taskDcid];
                 for(XunleiItemInfo *task in taskList){
-                    
-                    
                     TaskEntity *newEntity = [TaskEntity entityForID:task.taskid];
                     
                     newEntity.title = task.name;
@@ -197,35 +208,16 @@
                     newEntity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
                     newEntity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
                     
-                    dispatch_async( dispatch_get_main_queue(), ^{
-                        [_tableContents insertObject:newEntity atIndex:row+1];
-                        [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:NSTableViewAnimationSlideLeft];
-                        [_tableViewMain endUpdates];
+                    [_tableContents insertObject:newEntity atIndex:row + 1];
 
-                    });
-                    usleep(300000);
                 }
-                
-                dispatch_async( dispatch_get_main_queue(), ^{
-                    [_tableContents removeObjectAtIndex:row];
-                    [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationSlideRight];
-                    [_tableViewMain setEnabled:YES];
-                    [_tableViewMain reloadData];
+                [_tableContents removeObjectAtIndex:row];
 
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableViewMain reloadData];
                 });
-                
 
             });
-            
-            
-            
-            
-            
-
-            
-
-            
-            
         }
     }
 }

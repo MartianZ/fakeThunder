@@ -29,6 +29,7 @@
 		0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2D415DBB6AD00529BA5 /* TasksView.m */; };
 		0295F2D715DBB6AD00529BA5 /* TasksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D515DBB6AD00529BA5 /* TasksView.xib */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
+		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
 		CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
@@ -380,6 +381,7 @@
 				024C875415DBA755003EF1F3 /* main.m in Sources */,
 				024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */,
 				0295F2D115DBB56400529BA5 /* MainView.m in Sources */,
+				CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */,
 				0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */,
 				020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */,
 				CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */,

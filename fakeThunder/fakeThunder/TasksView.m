@@ -159,7 +159,14 @@
             [entity setDelegate:self];
             if (![entity isKindOfClass:[TaskLoaderEntity class]] && ![entity.taskType isEqualToString:@"0"]) {
                 //not BT task
-                entity.needToStop = YES;
+                if ([entity.status hasSuffix:@"Queuing..."]) {
+                    [entity.downloadOperaion cancel];
+                    entity.status = @"Status: Ready";
+                    TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:index makeIfNecessary:NO];
+                    cellView.statusTextField.stringValue = entity.status;
+                } else {
+                    entity.needToStop = YES;
+                }
             }
             
             

@@ -63,6 +63,7 @@
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 {
     [loginWindow close];
+    [addTaskWindow close];
     //[logout_window close];
     //[add_task_window close];
 }
@@ -82,6 +83,18 @@
         
     } else {
         
+    }
+}
+
+
+- (IBAction)toolBarAddTask:(id)sender
+{
+    if ([[toobarItemLogin label] isEqualToString:@"Sign in"] && 0)
+    {
+        
+        
+    } else {
+        [NSApp beginSheet:addTaskWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
 }
 
@@ -140,4 +153,37 @@
     });
 }
 
+- (IBAction)addTaskNormalOK:(id)sender
+{
+    NSString *taskURL = [addTaskURL string];
+    if ([taskURL length] < 5) {
+        return;
+    }
+    [addTaskNormalButtonOK setEnabled:NO];
+    [addTaskNormalProgress startAnimation:nil];
+    NSArray *tasks = [taskURL componentsSeparatedByString:@"\n"];
+    for (NSString *task in tasks) {
+        if (!task || [task length] < 5) {
+            continue;
+        }
+        
+        if ([task hasPrefix:@"magnet"]) {
+            [TondarAPI addMegnetTask:task];
+        } else {
+            [TondarAPI addNormalTask:task];
+        }
+
+    }
+    
+    [tasksView startCheckNewTasks];
+    [addTaskNormalButtonOK setEnabled:YES];
+    [NSApp endSheet:addTaskWindow returnCode:NSOKButton];
+    [addTaskNormalProgress stopAnimation:nil];
+}
+
+
+- (IBAction)addTaskNormalCancel:(id)sender {
+    [NSApp endSheet:addTaskWindow returnCode:NSCancelButton];
+
+}
 @end

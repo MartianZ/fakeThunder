@@ -29,6 +29,7 @@
 
 - (void)downloadSelectedTask;
 - (void)stopDownloadSelectedTask;
+- (void)startCheckNewTasks;
 - (IBAction)tblvwDoubleClick:(id)sender;
 - (void)startLoadFirstTaskPagsWithTondarAPI:(HYXunleiLixianAPI*)api;
 @end

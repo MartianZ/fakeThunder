@@ -27,6 +27,15 @@
     IBOutlet NSButton *loginButtonCancel;
     
     
+    
+    //Add Task Window
+    IBOutlet NSWindow *addTaskWindow;
+    IBOutlet NSButton *addTaskNormalButtonOK;
+    IBOutlet NSButton *addTaskNormalButtonCancel;
+    IBOutlet NSTextView *addTaskURL;
+    IBOutlet NSProgressIndicator *addTaskNormalProgress;
+
+    
 }
 
 

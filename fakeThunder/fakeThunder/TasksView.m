@@ -60,6 +60,41 @@
     [_tableViewMain reloadData];
 }
 
+- (void)startCheckNewTasks {
+    NSArray *temp = [TondarAPI readAllTasks1];
+    for (XunleiItemInfo *task in temp) {
+        
+        BOOL hasSameTask = NO;
+        for (TaskEntity *oldEntity in _tableContents) {
+            if ([oldEntity.taskID isEqualToString:task.taskid]) {
+                hasSameTask = YES;
+                break;
+            }
+        }
+        
+        if (!hasSameTask) {
+            TaskEntity *entity = [TaskEntity entityForID:task.taskid];
+            
+            
+            [_tableContents insertObject:entity atIndex:0];
+            entity.title = task.name;
+            entity.subtitle = @"584MiB, Remote Server Progress: 100%";
+            entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
+            entity.status = @"Status: Ready";
+            entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
+            entity.taskExt = [NSString stringWithFormat:@"%@", task.type];
+            entity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
+            entity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
+            entity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
+            
+        }
+        
+    }
+    
+    [_tableViewMain reloadData];
+
+}
+
 - (void)startLoadTaskWithPage:(NSUInteger)page {
     
     TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];

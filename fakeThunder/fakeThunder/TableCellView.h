@@ -21,6 +21,7 @@
 @property(assign) NSTextField *subTitleTextField;
 @property(assign) NSTextField *statusTextField;
 @property(assign) NSProgressIndicator *progessIndicator;
+@property(assign) NSButton *removeButton;
 
 
 

@@ -148,6 +148,12 @@
         } else {
             [cellView.imageView setImage:[[NSWorkspace sharedWorkspace] iconForFileType: entity.taskExt]];
         }
+        
+        if (![entity.taskType isEqualToString:@"BTSubtask"]) {
+            [cellView.removeButton setEnabled:YES];
+        } else {
+            [cellView.removeButton setEnabled:NO];
+        }
     
     
         // Size/hide things based on the row size
@@ -242,10 +248,18 @@
 - (IBAction)btnRemoveRowClick:(id)sender {
     NSInteger row = [_tableViewMain rowForView:sender];
     if (row != -1) {
+        TaskEntity *entity = [self _entityForRow:row];
+        
+        [TondarAPI deleteSingleTaskByID:entity.taskID];
+        if (entity.downloadOperaion) {
+            entity.needToStop = YES;
+            [entity.downloadOperaion cancel];
+        }
+        
         [_tableContents removeObjectAtIndex:row];
         [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
         
-        //TODO: remove task on remote server
+        [entity release];
     }
 }
 
@@ -285,7 +299,7 @@
                     newEntity.title = task.name;
                     newEntity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
                     newEntity.status = @"Status: Ready";
-                    newEntity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
+                    newEntity.taskType = @"BTSubtask";
                     newEntity.taskExt = [NSString stringWithFormat:@"%@", [task.name substringFromIndex:[task.name rangeOfString:@"." options:NSBackwardsSearch].location + 1]];
                     newEntity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
                     newEntity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];

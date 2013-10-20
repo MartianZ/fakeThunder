@@ -14,6 +14,7 @@
 @synthesize subTitleTextField;
 @synthesize progessIndicator;
 @synthesize statusTextField;
+@synthesize removeButton;
 
 
 @end

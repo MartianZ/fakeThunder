@@ -30,8 +30,10 @@
 
     NSLog(@"TEST START");
     HYXunleiLixianAPI *TondarAPI = [[HYXunleiLixianAPI alloc] init];
-#define USERNAME @"lqik2004"
+    [TondarAPI logOut];
+#define USERNAME @"xunlei@binux.me"
 #define pwd @"pwd"
+    
     if ([TondarAPI loginWithUsername:USERNAME Password:pwd]) {
         NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
         /*
@@ -41,6 +43,12 @@
         }
 //         */
          NSLog(@"Gdriveid:%@", [TondarAPI GDriveID]);
+        
+        NSDictionary *temp = [TondarAPI fetchBTFileList:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent"];
+        
+        NSLog(@"%@", temp);
+        [TondarAPI addBTTask:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent" selection:[NSArray arrayWithObjects:@"0", @"1", nil] hasFetchedFileList:temp];
+        
         /*
         NSString* cookie=[NSString stringWithFormat:@"\"Cookie: gdriveid=%@;\"",[TondarAPI GDriveID]];
         NSString* url=@"http://gdl.lixian.vip.xunlei.com/download?fid=j+f2P6nsVNZFKQdfr8pNzrHKTt0NtvpjAAAAAI/7zLCWJ/cdtHAo4U/v2Z08aGFU&mid=666&threshold=150&tid=C68A4BB60AEF6B90BFE413A399AF5991&srcid=4&verno=1&g=8FFBCCB09627F71DB47028E14FEFD99D3C686154&scn=c11&i=2682E4FEEFFAF0BB898FE53880FD5433&t=4&ui=642109&ti=62449130369&s=1677374989&m=0&n=01B2DE3389C4BB2E48331CAC1B54562E412202CA6E303234585406D271783236344CF92F97CBD3B0CAB2E72288F72E6D6B1731E45F00000000&ff=0&co=0766E865B2CB672C15A99F114A99658B&cm=1";

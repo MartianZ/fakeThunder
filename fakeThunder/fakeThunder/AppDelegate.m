@@ -29,4 +29,12 @@
     [task waitUntilExit];
 }
 
+- (BOOL) applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag
+{
+    if (!flag)
+    {
+		[mainView.window makeKeyAndOrderFront:self];
+	}
+	return YES;
+}
 @end

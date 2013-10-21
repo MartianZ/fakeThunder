@@ -267,7 +267,11 @@
 {
     
     for (int row = 0; row < [_tableViewMain numberOfRows]; row++ ) {
-        if ([[NSString stringWithFormat:@"%@", [self _entityForRow:row].taskDcid] isEqualToString:taskID])
+        TaskEntity *entity = [self _entityForRow:row];
+        if (!entity || !entity.taskDcid) {
+            continue;
+        }
+        if ([[NSString stringWithFormat:@"%@", entity.taskDcid] isEqualToString:taskID])
         {
             [_tableViewMain beginUpdates];
             TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:row makeIfNecessary:NO];
@@ -343,16 +347,7 @@
             
             
             TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
-            
-            
-            //[_tableViewMain beginUpdates];
 
-            //[_tableViewMain setEnabled:NO];
-            
-            
-            //[_tableViewMain endUpdates];
-            
-            //[_tableViewMain beginUpdates];
             [_tableContents insertObject:loderEntity atIndex:row];
             [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:nil];
             [_tableContents removeObjectAtIndex:row+1];
@@ -383,6 +378,8 @@
                 });
 
             });
+        } else {
+            
         }
     }
 }

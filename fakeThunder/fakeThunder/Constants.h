@@ -10,7 +10,7 @@
 #define fakeThunder_Constants_h
 
 #define UD_FIRST_STARTUP @"UserDefaultFirstTimeStartup"
-#define UD_SAVE_PATH @"UserDefaultSavePath"
+#define UD_SAVE_PATH @"UserDefaultSavePathNEW"
 #define UD_SAVE_PATH_DISPLAY @"UserDefaultSavePathDisplay"
 
 #define UD_MAX_TASKS @"UserDefaultMaxTasks"

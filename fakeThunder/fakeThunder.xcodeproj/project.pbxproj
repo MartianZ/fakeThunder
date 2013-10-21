@@ -31,6 +31,8 @@
 		CA1892AC1814F14F00EA4352 /* DropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892A71814EE1800EA4352 /* DropZoneView.m */; };
 		CA1892B01814F5AE00EA4352 /* TorrentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892AE1814F5AE00EA4352 /* TorrentView.m */; };
 		CA1892B11814F5AE00EA4352 /* TorrentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1892AF1814F5AE00EA4352 /* TorrentView.xib */; };
+		CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1892C21815359600EA4352 /* Sparkle.framework */; };
+		CA1892C5181535E900EA4352 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CA1892C21815359600EA4352 /* Sparkle.framework */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
@@ -67,6 +69,19 @@
 			remoteInfo = URLTesting;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA1892C4181535C000EA4352 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CA1892C5181535E900EA4352 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		020E1F2E15DC046300FF99ED /* NSArray_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray_Extensions.h; sourceTree = "<group>"; };
@@ -107,6 +122,7 @@
 		CA1892AE1814F5AE00EA4352 /* TorrentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentView.m; sourceTree = "<group>"; };
 		CA1892AF1814F5AE00EA4352 /* TorrentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
 		CA1892B41815102B00EA4352 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CA1892C21815359600EA4352 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -132,6 +148,7 @@
 				CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */,
 				CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
+				CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +188,7 @@
 		024C874615DBA755003EF1F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA1892C21815359600EA4352 /* Sparkle.framework */,
 				CA6B5A7A1812657600B14CD2 /* Security.framework */,
 				024C874715DBA755003EF1F3 /* Cocoa.framework */,
 				024C876515DBA756003EF1F3 /* SenTestingKit.framework */,
@@ -305,6 +323,7 @@
 				024C873F15DBA755003EF1F3 /* Sources */,
 				024C874015DBA755003EF1F3 /* Frameworks */,
 				024C874115DBA755003EF1F3 /* Resources */,
+				CA1892C4181535C000EA4352 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -504,6 +523,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +534,7 @@
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -522,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,6 +554,7 @@
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

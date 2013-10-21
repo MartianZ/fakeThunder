@@ -151,8 +151,7 @@
 {
     [loginWindow close];
     [addTaskWindow close];
-    //[logout_window close];
-    //[add_task_window close];
+    [logoutWindow close];
 }
 
 - (IBAction)toolBarLogin:(id)sender
@@ -169,7 +168,8 @@
         }
         
     } else {
-        
+        [NSApp beginSheet:logoutWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
+
     }
 }
 
@@ -274,6 +274,33 @@
 
 - (IBAction)addTaskNormalCancel:(id)sender {
     [NSApp endSheet:addTaskWindow returnCode:NSCancelButton];
+
+}
+
+
+- (IBAction)logoutWindowOK:(id)sender {
+    /*
+     [SSKeychain setPassword:username forService:@"fakeThunder" account:@"username"];
+     [SSKeychain setPassword:password forService:@"fakeThunder" account:@"password"];
+     */
+    [SSKeychain deletePasswordForService:@"fakeThunder" account:@"username"];
+    [SSKeychain deletePasswordForService:@"fakeThunder" account:@"password"];
+    
+    NSString *launcherSource = [[NSBundle bundleForClass:[SUUpdater class]]  pathForResource:@"relaunch" ofType:@""];
+    NSString *launcherTarget = [NSTemporaryDirectory() stringByAppendingPathComponent:[launcherSource lastPathComponent]];
+    NSString *appPath = [[NSBundle mainBundle] bundlePath];
+    NSString *processID = [NSString stringWithFormat:@"%d", [[NSProcessInfo processInfo] processIdentifier]];
+    
+    [[NSFileManager defaultManager] removeItemAtPath:launcherTarget error:NULL];
+    [[NSFileManager defaultManager] copyItemAtPath:launcherSource toPath:launcherTarget error:NULL];
+	
+    [NSTask launchedTaskWithLaunchPath:launcherTarget arguments:[NSArray arrayWithObjects:appPath, processID, nil]];
+    exit(0);
+
+}
+
+- (IBAction)logoutWindowCancel:(id)sender {
+    [NSApp endSheet:logoutWindow returnCode:NSCancelButton];
 
 }
 @end

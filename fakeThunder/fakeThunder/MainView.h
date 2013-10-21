@@ -13,6 +13,7 @@
 #import "SSKeychain.h"
 #import "DropZoneView.h"
 #import "TorrentView.h"
+#import <Sparkle/SUUpdater.h>
 
 @interface MainView : NSWindowController<DropZoneDelegate, TorrentViewDelegate> {
     
@@ -22,6 +23,7 @@
     TorrentView *torrentView;
 
     IBOutlet NSWindow *loginWindow;
+    IBOutlet NSWindow *logoutWindow;
 
     IBOutlet NSToolbarItem *toobarItemLogin;
     

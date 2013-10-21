@@ -46,6 +46,8 @@
     [NSThread detachNewThreadSelector:@selector(performDownload) toTarget:self withObject:nil];
 }
 
+
+
 - (void)performDownload {
     NSLog(@"Download Start: %@ %@ %@", self.title, self.cookies, self.taskDcid);
     self.status = @"Status: Loading...";
@@ -67,10 +69,10 @@
     if (1 || !savePath || [savePath length] == 0) {
         savePath = @"~/Desktop";
     }
-    if (maxThread <= 0 || maxThread > 10) {
+    if (maxThread <= 0 || maxThread > 10 || 1) {
         maxThread = 10;
     }
-    if (maxSpeed <0) {
+    if (maxSpeed <0 || 1) {
         maxSpeed = 0;
     }
     
@@ -78,10 +80,36 @@
     NSString *maxThreadStr = [NSString stringWithFormat:@"%ld", maxThread];
     NSString *maxSpeedStr = [NSString stringWithFormat:@"%ldK", maxSpeed];
     
+    if ([self.taskType isEqualToString:@"BTSubtask"]) {
+        savePath = [NSString stringWithFormat:@"%@/%@",savePath, self.taskFatherTitle];
+    }
+    
+    
+    
     NSArray *args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",maxThreadStr,@"-x",maxThreadStr,@"-d",savePath,@"--out",[NSString stringWithFormat:@"%@.!", self.title], @"--max-download-limit", maxSpeedStr,@"--header", self.cookies, self.liXianURL, nil];
 
+        
+    if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", savePath, self.title]]) {
+        //Has same file
+        self.status = @"Download complete! :D";
+        self.progress = 100;
+        
+        NSUserNotification *un = [[NSUserNotification alloc] init];
+        [un setTitle:@"fakeThunder - Download complete"];
+        [un setInformativeText:self.title];
+        [un setHasActionButton:NO];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:un];
+        
+        if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
+            [self.delegate taskRowNeedUpdate:self.taskDcid];
+        }
+        
+        [task release];
+        return;
+
+    }
+
     [task setArguments:args];
-    
     NSPipe *pipe = [NSPipe pipe];
     [task setStandardOutput:pipe];
     [task setStandardInput:[NSPipe pipe]];
@@ -108,11 +136,10 @@
         errs = [errs stringByReplacingOccurrencesOfString:@"/" withString:@" "];
         errs = [errs stringByReplacingOccurrencesOfString:@"(" withString:@" "];
         errs = [errs stringByReplacingOccurrencesOfString:@")" withString:@""];
-        
+        NSLog(@"%@", errs);
         memset(temp, 0, 1024*sizeof(char));
         strcpy(temp, [errs cStringUsingEncoding:NSASCIIStringEncoding]);
         sscanf(temp, "%*s SIZE:%s %s %s %*s SPD:%s ETA:%s]", down, total, percentage, speed, lefttime);
-        
         
         
         NSString *timeLeft = [NSString stringWithFormat:@", Time left: %s", lefttime];
@@ -123,6 +150,9 @@
             timeLeft = @"";
         }
         NSString *speedStr = [NSString stringWithFormat:@"%s", speed];
+        if ([errs rangeOfString:@"%"].location == NSNotFound) {
+            speedStr = @"0Bs";
+        }
         
         self.status = [NSString stringWithFormat:@"Speed: %@%@", [speedStr stringByReplacingOccurrencesOfString:@"]" withString:@""], timeLeft];
         self.progress = [[[NSString stringWithFormat:@"%s",percentage] stringByReplacingOccurrencesOfString:@"%" withString:@""] doubleValue];
@@ -150,6 +180,8 @@
     switch ([task terminationStatus]) {
         case 0:
         {
+
+            
             //下载完成
             self.status = @"Download complete! :D";
             self.progress = 100;
@@ -159,6 +191,12 @@
             [un setInformativeText:self.title];
             [un setHasActionButton:NO];
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:un];
+            
+            if ([self.taskType isEqualToString:@"BTSubtask"]) {
+                [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@/%@.!",savePath, self.taskFatherTitle, self.title] toPath:[NSString stringWithFormat:@"%@/%@/%@",savePath, self.taskFatherTitle, self.title] error:nil];
+            } else {
+                [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@.!",savePath, self.title] toPath:[NSString stringWithFormat:@"%@/%@",savePath, self.title] error:nil];
+            }
             
             if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
                 [self.delegate taskRowNeedUpdate:self.taskDcid];

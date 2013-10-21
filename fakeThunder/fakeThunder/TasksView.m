@@ -341,7 +341,7 @@
                     newEntity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
                     newEntity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
                     newEntity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
-                    
+                    newEntity.taskFatherTitle = entity.title;
                     [_tableContents insertObject:newEntity atIndex:row + 1];
 
                 }

@@ -32,7 +32,7 @@
     HYXunleiLixianAPI *TondarAPI = [[HYXunleiLixianAPI alloc] init];
     [TondarAPI logOut];
 #define USERNAME @"xunlei@binux.me"
-#define pwd @"pwd"
+#define pwd @"loliluloli"
     
     if ([TondarAPI loginWithUsername:USERNAME Password:pwd]) {
         NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);

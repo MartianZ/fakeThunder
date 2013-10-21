@@ -903,14 +903,14 @@ typedef enum {
     NSString *commitString2 = [NSString stringWithFormat:@"http://dynamic.cloud.vip.xunlei.com/interface/task_commit?callback=ret_task&uid=%@&cid=%@&gcid=%@&size=%@&goldbean=%@&silverbean=%@&t=%@&url=%@&type=%@&o_page=history&o_taskid=0&class_id=0&database=undefined&interfrom=task&noCacheIE=%@",userid,dcid,gcid,size,goldbeen,silverbeen,newFilename,enUrl,taskType,timestamp];
 
     //NSLog(@"%@",commitString);
-    NSURL *commitURL1=[NSURL URLWithString:commitString1];
-    NSLog(@"%@",commitURL1);
+    //NSURL *commitURL1=[NSURL URLWithString:commitString1];
+    //NSLog(@"%@",commitURL1);
     LCHTTPConnection *commitRequest1=[LCHTTPConnection new];
     [commitRequest1 get:commitString1];
     
     //NSLog(@"%@",commitString);
-    NSURL *commitURL2=[NSURL URLWithString:commitString2];
-    NSLog(@"%@",commitURL2);
+    //NSURL *commitURL2=[NSURL URLWithString:commitString2];
+    //NSLog(@"%@",commitURL2);
     LCHTTPConnection *commitRequest2=[LCHTTPConnection new];
     [commitRequest2 get:commitString2];
     

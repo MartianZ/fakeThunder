@@ -28,8 +28,7 @@
     return self;
 }
 
-- (void)windowDidLoad
-{
+- (void)windowDidLoad {
     if ([SSKeychain passwordForService:@"fakeThunder" account:@"username"]
         && [[SSKeychain passwordForService:@"fakeThunder" account:@"username"] length] > 0) {
         [loginUsername setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"username"]];
@@ -45,10 +44,74 @@
 
     [super windowDidLoad];
     
+    
+    //left tab, torrent drag zone
+    NSView* leftTabView = [[torrentTabView tabViewItemAtIndex:0] view];
+    dropZoneView= [[DropZoneView alloc] init];
+    dropZoneView.delegate = self;
+    
+    [dropZoneView setFrameOrigin:NSMakePoint(0, 0)];
+    [dropZoneView setFrameSize:leftTabView.frame.size];
+    
+    [leftTabView addSubview:dropZoneView positioned:NSWindowBelow relativeTo:[leftTabView.subviews objectAtIndex:0]];
+    
+    //right tab, torrent file list
+    torrentView = [[TorrentView alloc] initWithNibName:@"TorrentView" bundle:[NSBundle bundleForClass:[self class]]];
+    torrentView.delegate = self;
+    
+    [[torrentTabView tabViewItemAtIndex:1] setView: torrentView.view];
+    
     [self.window.contentView addSubview:tasksView.view];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)didRecivedTorrentFile:(NSString *)filePath {
+    
+    [self uploadTorrentFile:filePath];
+
+}
+
+- (void)uploadTorrentFile: (NSString*)filePath
+{
+    [torrentProgress startAnimation:self];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+        NSDictionary* info = [TondarAPI fetchBTFileList:filePath];
+        if (info && info.count != 0) {
+            NSLog(@"%@", info);
+            torrentView.info = info;
+            torrentView.url = filePath;
+            [torrentTabView selectTabViewItemAtIndex:1];
+        } else {
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [[NSAlert alertWithMessageText:@"Failed" defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Failed to get torrent file list, please make sure there is no same task in your task list."] runModal];
+            });
+        }
+        [torrentProgress stopAnimation:self];
+
+    });
+}
+
+- (void)didFinishFileSelect:(BOOL)isOkay {
+    if (isOkay) {
+        NSArray* fileList = [torrentView.info objectForKey:@"filelist"];
+        NSMutableArray *fileToDownload = [[NSMutableArray alloc] init];
+        for (int i = 0; i < fileList.count; i++) {
+            NSDictionary* aFile = [fileList objectAtIndex:i];
+            if ([[aFile valueForKey:@"valid"] boolValue]) {
+                [fileToDownload addObject:[NSString stringWithFormat:@"%@", [aFile valueForKey:@"findex"]]];
+            } 
+        }
+        
+        NSLog(@"%@", fileToDownload);
+        [TondarAPI addBTTask:torrentView.url selection:fileToDownload hasFetchedFileList:torrentView.info];
+        [fileToDownload release];
+        [tasksView startCheckNewTasks];
+
     }
+    [NSApp endSheet:addTaskWindow returnCode:NSOKButton];
+
+}
 
 - (IBAction)startDownloadSelectedTask:(id)sender {
     [tasksView downloadSelectedTask];
@@ -94,6 +157,7 @@
         
         
     } else {
+        [torrentTabView selectFirstTabViewItem:nil];
         [NSApp beginSheet:addTaskWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
     }
 }
@@ -145,12 +209,14 @@
 
                 [loginProgress stopAnimation:self];
                 [toobarItemLogin setLabel:@"Sign in"];
-                [[NSAlert alertWithMessageText:@"Login failed" defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to sign in to Xunlei, please make sure your username & password is correct!"] runModal];
+                [[NSAlert alertWithMessageText:@"Login failed" defaultButton:@"OKay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to sign in to Xunlei, please make sure your username & password is correct!"] runModal];
                 [(NSButton *)sender setEnabled:YES];
                 
             });
         }
     });
+    [loginProgress startAnimation:self];
+
 }
 
 - (IBAction)addTaskNormalOK:(id)sender

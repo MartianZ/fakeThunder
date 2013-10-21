@@ -11,11 +11,16 @@
 #import <TondarAPI/HYXunleiLixianAPI.h>
 #import <TondarAPI/XunleiItemInfo.h>
 #import "SSKeychain.h"
-@interface MainView : NSWindowController {
+#import "DropZoneView.h"
+#import "TorrentView.h"
+
+@interface MainView : NSWindowController<DropZoneDelegate, TorrentViewDelegate> {
     
     HYXunleiLixianAPI *TondarAPI;
 
     TasksView *tasksView;
+    TorrentView *torrentView;
+
     IBOutlet NSWindow *loginWindow;
 
     IBOutlet NSToolbarItem *toobarItemLogin;
@@ -23,6 +28,8 @@
     IBOutlet NSTextField *loginUsername;
     IBOutlet NSTextField *loginPassword;
     IBOutlet NSProgressIndicator *loginProgress;
+    IBOutlet NSProgressIndicator *torrentProgress;
+
     IBOutlet NSButton *loginButtonOK;
     IBOutlet NSButton *loginButtonCancel;
     
@@ -34,6 +41,9 @@
     IBOutlet NSButton *addTaskNormalButtonCancel;
     IBOutlet NSTextView *addTaskURL;
     IBOutlet NSProgressIndicator *addTaskNormalProgress;
+    IBOutlet NSTabView *torrentTabView;
+    DropZoneView *dropZoneView;
+
 
     
 }

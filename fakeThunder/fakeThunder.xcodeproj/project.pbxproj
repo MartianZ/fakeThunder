@@ -28,6 +28,9 @@
 		0295F2D215DBB56400529BA5 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D015DBB56400529BA5 /* MainView.xib */; };
 		0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2D415DBB6AD00529BA5 /* TasksView.m */; };
 		0295F2D715DBB6AD00529BA5 /* TasksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2D515DBB6AD00529BA5 /* TasksView.xib */; };
+		CA1892AC1814F14F00EA4352 /* DropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892A71814EE1800EA4352 /* DropZoneView.m */; };
+		CA1892B01814F5AE00EA4352 /* TorrentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892AE1814F5AE00EA4352 /* TorrentView.m */; };
+		CA1892B11814F5AE00EA4352 /* TorrentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1892AF1814F5AE00EA4352 /* TorrentView.xib */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
@@ -98,6 +101,11 @@
 		0295F2D315DBB6AD00529BA5 /* TasksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksView.h; sourceTree = "<group>"; };
 		0295F2D415DBB6AD00529BA5 /* TasksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksView.m; sourceTree = "<group>"; };
 		0295F2D515DBB6AD00529BA5 /* TasksView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksView.xib; sourceTree = "<group>"; };
+		CA1892A61814EE1800EA4352 /* DropZoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropZoneView.h; sourceTree = "<group>"; };
+		CA1892A71814EE1800EA4352 /* DropZoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropZoneView.m; sourceTree = "<group>"; };
+		CA1892AD1814F5AE00EA4352 /* TorrentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentView.h; sourceTree = "<group>"; };
+		CA1892AE1814F5AE00EA4352 /* TorrentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentView.m; sourceTree = "<group>"; };
+		CA1892AF1814F5AE00EA4352 /* TorrentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -247,6 +255,10 @@
 				CAAD78B818116B1E008168C2 /* TableCellView.m */,
 				CA6B5A821812BEC400B14CD2 /* DownloadOperation.h */,
 				CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */,
+				CA1892A61814EE1800EA4352 /* DropZoneView.h */,
+				CA1892A71814EE1800EA4352 /* DropZoneView.m */,
+				CA1892AD1814F5AE00EA4352 /* TorrentView.h */,
+				CA1892AE1814F5AE00EA4352 /* TorrentView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -257,6 +269,7 @@
 				024C875C15DBA756003EF1F3 /* MainMenu.xib */,
 				0295F2D015DBB56400529BA5 /* MainView.xib */,
 				0295F2D515DBB6AD00529BA5 /* TasksView.xib */,
+				CA1892AF1814F5AE00EA4352 /* TorrentView.xib */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -381,6 +394,7 @@
 				CAAD78EB181197E3008168C2 /* aria2c in Resources */,
 				CA6B5A87181395BC00B14CD2 /* drag_icon@2x.png in Resources */,
 				CA6B5A88181395BC00B14CD2 /* drag_icon.png in Resources */,
+				CA1892B11814F5AE00EA4352 /* TorrentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,8 +412,10 @@
 				0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */,
 				020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */,
 				CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */,
+				CA1892AC1814F14F00EA4352 /* DropZoneView.m in Sources */,
 				CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */,
 				CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */,
+				CA1892B01814F5AE00EA4352 /* TorrentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

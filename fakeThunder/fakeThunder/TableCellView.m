@@ -15,6 +15,7 @@
 @synthesize progessIndicator;
 @synthesize statusTextField;
 @synthesize removeButton;
+@synthesize openButton;
 
 
 @end

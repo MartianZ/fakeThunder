@@ -288,6 +288,7 @@
     
 }
 
+
 - (IBAction)btnOpenRowClick:(id)sender {
     NSInteger row = [_tableViewMain rowForView:sender];
     if (row != -1) {
@@ -379,7 +380,26 @@
 
             });
         } else {
-            
+            if (![entity isKindOfClass:[TaskLoaderEntity class]] && entity.status && [entity.status hasPrefix:@"Download complete"]) {
+                NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:UD_SAVE_PATH];
+                if (!savePath || [savePath length] == 0) {
+                    savePath = @"~/Desktop";
+                }
+                savePath = [savePath stringByExpandingTildeInPath];
+                
+                if ([entity.taskType isEqualToString:@"BTSubtask"]) {
+                    savePath = [NSString stringWithFormat:@"%@/%@/%@",savePath, entity.taskFatherTitle, entity.title];
+                } else {
+                    savePath = [NSString stringWithFormat:@"%@/%@",savePath, entity.title];
+                    
+                }
+                
+                if ([[NSFileManager defaultManager] fileExistsAtPath:savePath]) {
+                    [[NSWorkspace sharedWorkspace] selectFile:savePath inFileViewerRootedAtPath:@""];
+                }
+                
+                [entity release];
+            }
         }
     }
 }

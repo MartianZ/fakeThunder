@@ -295,6 +295,15 @@
     [[NSFileManager defaultManager] copyItemAtPath:launcherSource toPath:launcherTarget error:NULL];
 	
     [NSTask launchedTaskWithLaunchPath:launcherTarget arguments:[NSArray arrayWithObjects:appPath, processID, nil]];
+    
+    
+    //KILLALL ARIA2C
+    NSTask *taskKiller = [[NSTask alloc] init];
+    [taskKiller setLaunchPath:@"/usr/bin/killall"];
+    [taskKiller setArguments:[NSArray arrayWithObject:@"aria2c"]];
+    [taskKiller launch];
+    [taskKiller waitUntilExit];
+    
     exit(0);
 
 }

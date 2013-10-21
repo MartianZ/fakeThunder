@@ -137,12 +137,17 @@
     }
 }
 
+
+#define CHECK_LOGIN if (![[toobarItemLogin label] isEqualToString:@"Sign out"]) { [[NSAlert alertWithMessageText:@"Login required!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please sign in to Xunlei first!"] runModal];return; }
+
 - (IBAction)startDownloadSelectedTask:(id)sender {
+    CHECK_LOGIN
     [tasksView downloadSelectedTask];
 }
 
 
 - (IBAction)stopDownloadSelectedTask:(id)sender {
+    CHECK_LOGIN
     [tasksView stopDownloadSelectedTask];
 }
 
@@ -176,22 +181,25 @@
 
 - (IBAction)toolBarAddTask:(id)sender
 {
-    if ([[toobarItemLogin label] isEqualToString:@"Sign in"] && 0)
-    {
-        
-        
-    } else {
-        [torrentTabView selectFirstTabViewItem:nil];
-        [NSApp beginSheet:addTaskWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
-    }
+    CHECK_LOGIN
+    [torrentTabView selectFirstTabViewItem:nil];
+    [NSApp beginSheet:addTaskWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
+  
 }
 
+- (IBAction)toolBarRefresh:(id)sender {
+    CHECK_LOGIN
+    [tasksView startCheckNewTasks];
+}
 //----------------------------------------
 //   登录窗口 - 取消
 //----------------------------------------
 - (IBAction)loginButtonCancel:(id)sender
 {
     [NSApp endSheet:loginWindow returnCode:NSCancelButton];
+    if (![loginButtonOK isEnabled]) { //If login is in progress, we just restart the app.
+        [self logoutWindowOK:sender];
+    }
 }
 
 

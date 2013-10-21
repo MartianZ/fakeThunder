@@ -63,10 +63,10 @@
     [task setLaunchPath:exePath];
     
     
-    NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserDefaultSavePath"];
+    NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:UD_SAVE_PATH];
     NSInteger maxThread = [[NSUserDefaults standardUserDefaults] integerForKey:@"TODO"];
     NSInteger maxSpeed = [[NSUserDefaults standardUserDefaults] integerForKey:@"TODO"];
-    if (1 || !savePath || [savePath length] == 0) {
+    if (!savePath || [savePath length] == 0) {
         savePath = @"~/Desktop";
     }
     if (maxThread <= 0 || maxThread > 10 || 1) {
@@ -192,11 +192,9 @@
             [un setHasActionButton:NO];
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:un];
             
-            if ([self.taskType isEqualToString:@"BTSubtask"]) {
-                [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@/%@.!",savePath, self.taskFatherTitle, self.title] toPath:[NSString stringWithFormat:@"%@/%@/%@",savePath, self.taskFatherTitle, self.title] error:nil];
-            } else {
-                [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@.!",savePath, self.title] toPath:[NSString stringWithFormat:@"%@/%@",savePath, self.title] error:nil];
-            }
+            
+            [[NSFileManager defaultManager] moveItemAtPath:[NSString stringWithFormat:@"%@/%@.!",savePath, self.title] toPath:[NSString stringWithFormat:@"%@/%@",savePath, self.title] error:nil];
+
             
             if ([self.delegate respondsToSelector:@selector(taskRowNeedUpdate:)]) {
                 [self.delegate taskRowNeedUpdate:self.taskDcid];

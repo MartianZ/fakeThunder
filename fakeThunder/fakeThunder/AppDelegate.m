@@ -39,6 +39,7 @@
     [task setArguments:[NSArray arrayWithObject:@"aria2c"]];
     [task launch];
     [task waitUntilExit];
+    [task release];
 }
 
 - (BOOL) applicationShouldHandleReopen:(NSApplication *)sender hasVisibleWindows:(BOOL)flag

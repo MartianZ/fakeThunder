@@ -179,6 +179,8 @@
         }
             break;
     }
+    
+    [task release];
 
 }
 @end

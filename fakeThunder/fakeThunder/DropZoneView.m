@@ -142,10 +142,10 @@
             NSMutableParagraphStyle* textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
             [textStyle setAlignment: NSCenterTextAlignment];
             
-            NSDictionary* textFontAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+            NSDictionary* textFontAttributes = [[NSDictionary dictionaryWithObjectsAndKeys:
                                                 [NSFont boldSystemFontOfSize: [NSFont systemFontSize]], NSFontAttributeName,
                                                 [NSColor redColor], NSForegroundColorAttributeName,
-                                                textStyle, NSParagraphStyleAttributeName, nil];
+                                                textStyle, NSParagraphStyleAttributeName, nil] autorelease];
             
             [textContent drawInRect: textRect withAttributes: textFontAttributes];
         }

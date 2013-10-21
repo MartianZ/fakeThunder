@@ -17,6 +17,18 @@
     mainView = [[MainView alloc] initWithWindowNibName:@"MainView"];
     [mainView showWindow:self];
     
+    
+    // shamelessly ask for donation (´・ω・｀)
+    NSUserDefaults *user_default = [NSUserDefaults standardUserDefaults];
+    NSInteger s = [user_default integerForKey:UD_FIRST_STARTUP];
+    if (s < 5) {
+        [user_default setInteger:s+1 forKey:UD_FIRST_STARTUP];
+    } else if (s == 5)
+    {
+        [user_default setInteger:6 forKey:UD_FIRST_STARTUP];
+        [[NSAlert alertWithMessageText:@"Make a donation" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"fakeThunder是一款开源、免费软件，仍有很大的开发空间。非常高兴能够看到fakeThunder能够帮助到您，如果您喜欢这款软件，请考虑捐赠作者以支持后续的开发和维护费用。具体捐赠方式可查看软件偏好设置 - 高级。\n\nfakeThunder is an open source, free software, there is still a lot of space for development. We are very pleased to see that our software can help you make your life better. If you like fakeThunder, consider donating us to support the future development! \n\n感谢您的支持，本对话框不会再次出现。\nThanks for your support, this dialog will not appear again."] runModal];
+    }
+    
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification

@@ -106,6 +106,7 @@
 		CA1892AD1814F5AE00EA4352 /* TorrentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentView.h; sourceTree = "<group>"; };
 		CA1892AE1814F5AE00EA4352 /* TorrentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentView.m; sourceTree = "<group>"; };
 		CA1892AF1814F5AE00EA4352 /* TorrentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
+		CA1892B41815102B00EA4352 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -210,6 +211,7 @@
 				024C875315DBA755003EF1F3 /* main.m */,
 				024C875515DBA755003EF1F3 /* fakeThunder-Prefix.pch */,
 				024C875615DBA755003EF1F3 /* Credits.rtf */,
+				CA1892B41815102B00EA4352 /* Constants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

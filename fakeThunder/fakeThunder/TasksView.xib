@@ -293,7 +293,40 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</object>
-					<int key="connectionID">265</int>
+					<int key="connectionID">296</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">btnOpenRowClick:</string>
+						<reference key="source" ref="1001"/>
+						<object class="NSButton" key="destination" id="193897891">
+							<reference key="NSNextResponder" ref="963322269"/>
+							<int key="NSvFlags">297</int>
+							<string key="NSFrame">{{804, 14}, {18, 19}}</string>
+							<reference key="NSSuperview" ref="963322269"/>
+							<reference key="NSNextKeyView" ref="652946571"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="959415110">
+								<int key="NSCellFlags">603979776</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents"/>
+								<reference key="NSSupport" ref="753721305"/>
+								<reference key="NSControlView" ref="193897891"/>
+								<int key="NSButtonFlags">-2033958912</int>
+								<int key="NSButtonFlags2">164</int>
+								<object class="NSCustomResource" key="NSNormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">NSRevealFreestandingTemplate</string>
+								</object>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+						</object>
+					</object>
+					<int key="connectionID">297</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -399,32 +432,7 @@
 									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 								</object>
 								<reference ref="973754701"/>
-								<object class="NSButton" id="193897891">
-									<reference key="NSNextResponder" ref="963322269"/>
-									<int key="NSvFlags">297</int>
-									<string key="NSFrame">{{804, 14}, {18, 19}}</string>
-									<reference key="NSSuperview" ref="963322269"/>
-									<reference key="NSNextKeyView" ref="652946571"/>
-									<bool key="NSEnabled">YES</bool>
-									<object class="NSButtonCell" key="NSCell" id="959415110">
-										<int key="NSCellFlags">603979776</int>
-										<int key="NSCellFlags2">134217728</int>
-										<string key="NSContents"/>
-										<reference key="NSSupport" ref="753721305"/>
-										<reference key="NSControlView" ref="193897891"/>
-										<int key="NSButtonFlags">-2033958912</int>
-										<int key="NSButtonFlags2">164</int>
-										<object class="NSCustomResource" key="NSNormalImage">
-											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">NSRevealFreestandingTemplate</string>
-										</object>
-										<string key="NSAlternateContents"/>
-										<string key="NSKeyEquivalent"/>
-										<int key="NSPeriodicDelay">200</int>
-										<int key="NSPeriodicInterval">25</int>
-									</object>
-									<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-								</object>
+								<reference ref="193897891"/>
 								<object class="NSProgressIndicator" id="468034289">
 									<reference key="NSNextResponder" ref="963322269"/>
 									<int key="NSvFlags">268</int>
@@ -540,6 +548,14 @@
 						<reference key="destination" ref="566752738"/>
 					</object>
 					<int key="connectionID">258</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">openButton</string>
+						<reference key="source" ref="963322269"/>
+						<reference key="destination" ref="193897891"/>
+					</object>
+					<int key="connectionID">298</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -947,7 +963,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">293</int>
+			<int key="maxID">298</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -955,12 +971,17 @@
 					<string key="className">TableCellView</string>
 					<string key="superclassName">NSTableCellView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="openButton">NSButton</string>
 						<string key="progessIndicator">NSProgressIndicator</string>
 						<string key="removeButton">NSButton</string>
 						<string key="statusTextField">NSTextField</string>
 						<string key="subTitleTextField">NSTextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="openButton">
+							<string key="name">openButton</string>
+							<string key="candidateClassName">NSButton</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="progessIndicator">
 							<string key="name">progessIndicator</string>
 							<string key="candidateClassName">NSProgressIndicator</string>
@@ -987,10 +1008,15 @@
 					<string key="className">TasksView</string>
 					<string key="superclassName">NSViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="btnOpenRowClick:">id</string>
 						<string key="btnRemoveRowClick:">id</string>
 						<string key="tblvwDoubleClick:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="btnOpenRowClick:">
+							<string key="name">btnOpenRowClick:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 						<object class="IBActionInfo" key="btnRemoveRowClick:">
 							<string key="name">btnRemoveRowClick:</string>
 							<string key="candidateClassName">id</string>

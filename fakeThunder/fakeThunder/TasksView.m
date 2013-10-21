@@ -272,6 +272,9 @@
             [_tableViewMain beginUpdates];
             TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:row makeIfNecessary:NO];
             cellView.statusTextField.stringValue = [self _entityForRow:row].status;
+            if ([cellView.statusTextField.stringValue hasPrefix:@"Download complete"]) {
+                [cellView.openButton setEnabled:YES];
+            }
             [cellView.progessIndicator setDoubleValue:[self _entityForRow:row].progress];
             [_tableViewMain endUpdates];
 
@@ -281,6 +284,34 @@
     
 }
 
+- (IBAction)btnOpenRowClick:(id)sender {
+    NSInteger row = [_tableViewMain rowForView:sender];
+    if (row != -1) {
+        TaskEntity *entity = [self _entityForRow:row];
+        
+        NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:UD_SAVE_PATH];
+
+        if (!savePath || [savePath length] == 0) {
+            savePath = @"~/Desktop";
+        }
+        
+        
+        savePath = [savePath stringByExpandingTildeInPath];
+
+        if ([entity.taskType isEqualToString:@"BTSubtask"]) {
+            savePath = [NSString stringWithFormat:@"%@/%@/%@",savePath, entity.taskFatherTitle, entity.title];
+        } else {
+            savePath = [NSString stringWithFormat:@"%@/%@",savePath, entity.title];
+
+        }
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:savePath]) {
+            [[NSWorkspace sharedWorkspace] selectFile:savePath inFileViewerRootedAtPath:@""];
+
+        }
+        [entity release];
+    }
+}
 
 - (IBAction)btnRemoveRowClick:(id)sender {
     NSInteger row = [_tableViewMain rowForView:sender];

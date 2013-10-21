@@ -14,6 +14,8 @@
     IBOutlet NSTextField *statusTextField;
     IBOutlet NSProgressIndicator *progessIndicator;
     IBOutlet NSButton *removeButton;
+    IBOutlet NSButton *openButton;
+
 }
 
 
@@ -22,6 +24,7 @@
 @property(assign) NSTextField *statusTextField;
 @property(assign) NSProgressIndicator *progessIndicator;
 @property(assign) NSButton *removeButton;
+@property(assign) NSButton *openButton;
 
 
 

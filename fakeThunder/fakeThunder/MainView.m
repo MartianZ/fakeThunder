@@ -113,6 +113,30 @@
 
 }
 
+
+- (IBAction)selectTorrentFileButton:(id)sender
+{
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+    
+    [openDlg setCanChooseFiles:YES];
+    [openDlg setAllowsMultipleSelection:NO];
+    [openDlg setCanChooseDirectories:NO];
+    [openDlg setAllowedFileTypes:[NSArray arrayWithObject:@"torrent"]];
+    
+    if ( [openDlg runModal] == NSOKButton )
+    {
+        NSArray* files = [openDlg URLs];
+        
+        
+        for(int i = 0; i < [files count]; i++ )
+        {
+            NSString* filePath = [[files objectAtIndex:i] path];
+            [self uploadTorrentFile:filePath];
+        }
+        
+    }
+}
+
 - (IBAction)startDownloadSelectedTask:(id)sender {
     [tasksView downloadSelectedTask];
 }

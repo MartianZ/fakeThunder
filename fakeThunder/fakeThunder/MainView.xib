@@ -969,7 +969,7 @@
 																	</object>
 																	<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 																</object>
-																<object class="NSProgressIndicator" id="10913498">
+																<object class="NSProgressIndicator" id="6426893">
 																	<reference key="NSNextResponder" ref="851884618"/>
 																	<int key="NSvFlags">268</int>
 																	<string key="NSFrame">{{222, 31}, {16, 16}}</string>
@@ -1228,9 +1228,17 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">torrentProgress</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="10913498"/>
+						<reference key="destination" ref="6426893"/>
 					</object>
 					<int key="connectionID">232</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">selectTorrentFileButton:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="963051350"/>
+					</object>
+					<int key="connectionID">233</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1655,7 +1663,7 @@
 						<reference key="object" ref="851884618"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="865733245"/>
-							<reference ref="10913498"/>
+							<reference ref="6426893"/>
 							<reference ref="963051350"/>
 						</array>
 						<reference key="parent" ref="930629341"/>
@@ -1713,7 +1721,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">231</int>
-						<reference key="object" ref="10913498"/>
+						<reference key="object" ref="6426893"/>
 						<reference key="parent" ref="851884618"/>
 					</object>
 				</array>
@@ -1804,13 +1812,62 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">232</int>
+			<int key="maxID">233</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">MainView</string>
 					<string key="superclassName">NSWindowController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="addTaskNormalCancel:">id</string>
+						<string key="addTaskNormalOK:">id</string>
+						<string key="loginButtonCancel:">id</string>
+						<string key="loginButtonOk:">id</string>
+						<string key="selectTorrentFileButton:">id</string>
+						<string key="startDownloadSelectedTask:">id</string>
+						<string key="stopDownloadSelectedTask:">id</string>
+						<string key="toolBarAddTask:">id</string>
+						<string key="toolBarLogin:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="addTaskNormalCancel:">
+							<string key="name">addTaskNormalCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="addTaskNormalOK:">
+							<string key="name">addTaskNormalOK:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="loginButtonCancel:">
+							<string key="name">loginButtonCancel:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="loginButtonOk:">
+							<string key="name">loginButtonOk:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="selectTorrentFileButton:">
+							<string key="name">selectTorrentFileButton:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="startDownloadSelectedTask:">
+							<string key="name">startDownloadSelectedTask:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="stopDownloadSelectedTask:">
+							<string key="name">stopDownloadSelectedTask:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toolBarAddTask:">
+							<string key="name">toolBarAddTask:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="toolBarLogin:">
+							<string key="name">toolBarLogin:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="addTaskNormalButtonCancel">NSButton</string>
 						<string key="addTaskNormalButtonOK">NSButton</string>

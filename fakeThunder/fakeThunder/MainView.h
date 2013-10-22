@@ -14,7 +14,7 @@
 #import "DropZoneView.h"
 #import "TorrentView.h"
 #import <Sparkle/SUUpdater.h>
-
+#import "AppPrefsWindowsController.h"
 @interface MainView : NSWindowController<DropZoneDelegate, TorrentViewDelegate> {
     
     HYXunleiLixianAPI *TondarAPI;

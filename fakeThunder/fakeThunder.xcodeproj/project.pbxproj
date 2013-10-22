@@ -33,6 +33,11 @@
 		CA1892B11814F5AE00EA4352 /* TorrentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1892AF1814F5AE00EA4352 /* TorrentView.xib */; };
 		CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA1892C21815359600EA4352 /* Sparkle.framework */; };
 		CA1892C5181535E900EA4352 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CA1892C21815359600EA4352 /* Sparkle.framework */; };
+		CA1892CD18163DAC00EA4352 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892CC18163DAC00EA4352 /* DBPrefsWindowController.m */; };
+		CA1892D118163DE000EA4352 /* AppPrefsWindowsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892CF18163DE000EA4352 /* AppPrefsWindowsController.m */; };
+		CA1892D218163DE000EA4352 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D018163DE000EA4352 /* Preferences.xib */; };
+		CA1892D518163FA100EA4352 /* Bandwidth.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D318163FA100EA4352 /* Bandwidth.png */; };
+		CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D418163FA100EA4352 /* Bandwidth@2x.png */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
@@ -123,6 +128,13 @@
 		CA1892AF1814F5AE00EA4352 /* TorrentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentView.xib; sourceTree = "<group>"; };
 		CA1892B41815102B00EA4352 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		CA1892C21815359600EA4352 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		CA1892CB18163DAC00EA4352 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
+		CA1892CC18163DAC00EA4352 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
+		CA1892CE18163DE000EA4352 /* AppPrefsWindowsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppPrefsWindowsController.h; sourceTree = "<group>"; };
+		CA1892CF18163DE000EA4352 /* AppPrefsWindowsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppPrefsWindowsController.m; sourceTree = "<group>"; };
+		CA1892D018163DE000EA4352 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		CA1892D318163FA100EA4352 /* Bandwidth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bandwidth.png; sourceTree = "<group>"; };
+		CA1892D418163FA100EA4352 /* Bandwidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bandwidth@2x.png"; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -237,6 +249,8 @@
 		024C877F15DBA787003EF1F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA1892D318163FA100EA4352 /* Bandwidth.png */,
+				CA1892D418163FA100EA4352 /* Bandwidth@2x.png */,
 				CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */,
 				CA6B5A86181395BC00B14CD2 /* drag_icon.png */,
 				0295F2AB15DBADB400529BA5 /* SmallIcon */,
@@ -266,6 +280,7 @@
 		0295F2B915DBAEA000529BA5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CA1892C718163D8B00EA4352 /* PrefsWindow */,
 				CAAD78AF18114054008168C2 /* Resource */,
 				0295F2CE15DBB56400529BA5 /* MainView.h */,
 				0295F2CF15DBB56400529BA5 /* MainView.m */,
@@ -281,6 +296,18 @@
 				CA1892AE1814F5AE00EA4352 /* TorrentView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		CA1892C718163D8B00EA4352 /* PrefsWindow */ = {
+			isa = PBXGroup;
+			children = (
+				CA1892CB18163DAC00EA4352 /* DBPrefsWindowController.h */,
+				CA1892CC18163DAC00EA4352 /* DBPrefsWindowController.m */,
+				CA1892CE18163DE000EA4352 /* AppPrefsWindowsController.h */,
+				CA1892CF18163DE000EA4352 /* AppPrefsWindowsController.m */,
+				CA1892D018163DE000EA4352 /* Preferences.xib */,
+			);
+			name = PrefsWindow;
 			sourceTree = "<group>";
 		};
 		CAAD78AF18114054008168C2 /* Resource */ = {
@@ -416,6 +443,9 @@
 				CA6B5A87181395BC00B14CD2 /* drag_icon@2x.png in Resources */,
 				CA6B5A88181395BC00B14CD2 /* drag_icon.png in Resources */,
 				CA1892B11814F5AE00EA4352 /* TorrentView.xib in Resources */,
+				CA1892D218163DE000EA4352 /* Preferences.xib in Resources */,
+				CA1892D518163FA100EA4352 /* Bandwidth.png in Resources */,
+				CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +467,8 @@
 				CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */,
 				CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */,
 				CA1892B01814F5AE00EA4352 /* TorrentView.m in Sources */,
+				CA1892CD18163DAC00EA4352 /* DBPrefsWindowController.m in Sources */,
+				CA1892D118163DE000EA4352 /* AppPrefsWindowsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

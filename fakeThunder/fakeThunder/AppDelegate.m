@@ -50,4 +50,9 @@
 	}
 	return YES;
 }
+
+-(IBAction)showPrefsWindow:(id)sender
+{
+    [[AppPrefsWindowsController sharedPrefsWindowController] showWindow:nil];
+}
 @end

@@ -51,6 +51,7 @@
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
 		CAC398681817C126008F326A /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
+		CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */ = {isa = PBXBuildFile; fileRef = CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		CAAD78E61811888F008168C2 /* taskitem_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskitem_bt.png; sourceTree = "<group>"; };
 		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
 		CAAD78EA181197E2008168C2 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = aria2c; path = fakeThunder/aria2c; sourceTree = "<group>"; };
+		CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamiclyrics2_dsa_pub_new.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 		024C877F15DBA787003EF1F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */,
 				CA1892D7181641B200EA4352 /* General.png */,
 				CA1892D8181641B200EA4352 /* General@2x.png */,
 				CA1892D318163FA100EA4352 /* Bandwidth.png */,
@@ -434,6 +437,7 @@
 				024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */,
 				0295F2AF15DBADE500529BA5 /* 1.png in Resources */,
 				0295F2B015DBADE500529BA5 /* 1@2x.png in Resources */,
+				CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */,
 				0295F2B315DBADED00529BA5 /* 3.png in Resources */,
 				0295F2B415DBADED00529BA5 /* 3@2x.png in Resources */,
 				0295F2B715DBAE3900529BA5 /* 10.png in Resources */,

@@ -30,5 +30,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>http://martianlaboratory.com/fakethunder/update.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dynamiclyrics2_dsa_pub_new.pem</string>
 </dict>
 </plist>

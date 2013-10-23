@@ -62,6 +62,24 @@
     _currentPage = 1;
     [_tableViewMain reloadData];
     [_tableViewMain endUpdates];
+    
+    id clipView = [[_tableViewMain enclosingScrollView] contentView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tableViewBoundsChangeNotificationHandler:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:clipView];
+}
+
+- (void)tableViewBoundsChangeNotificationHandler:(NSNotification *)aNotification
+{
+
+
+    if (CGRectGetMaxY([[aNotification object] visibleRect]) >= [_tableViewMain bounds].size.height && _isLoadingTask == NO)
+    {
+        NSLog(@"we're at the bottom!");
+        [self startLoadTaskWithPage:++_currentPage];
+
+    }
 }
 
 - (void)startCheckNewTasks {
@@ -101,11 +119,12 @@
 
 - (void)startLoadTaskWithPage:(NSUInteger)page {
     
+    _isLoadingTask = YES;
+
     TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
     [_tableContents addObject:loderEntity];
     [_tableViewMain reloadData];
     
-    _isLoadingTask = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         NSArray *temp = [TondarAPI readTasksWithPage:page];
         [_tableContents removeObjectAtIndex:_tableContents.count - 1];
@@ -131,7 +150,9 @@
         _isLoadingTask = NO;
 
         
-        [_tableViewMain reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableViewMain reloadData];
+        });
     });
 
     
@@ -155,10 +176,11 @@
     return (TaskEntity *)[_tableContents objectAtIndex:row];
 }
 
+
 - (NSView*)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     TaskEntity *entity = [self _entityForRow:row];
     
-    NSLog(@"%ld", row);
+    
     /*
     if (row == _tableContents.count - 1 && _isLoadingTask == NO) {
         [self startLoadTaskWithPage:++_currentPage];

@@ -14,13 +14,13 @@
 
 @implementation TasksView
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil parentWindow:(NSWindow *)window
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         NSLog(@"TasksView Init");
         _tableContents = [NSMutableArray new];
-        
+        _mainWindow = window;
         operationDownloadQueue = [[NSOperationQueue alloc] init];
         [operationDownloadQueue setMaxConcurrentOperationCount:3];
 
@@ -344,11 +344,14 @@
     }
 }
 
-- (IBAction)btnRemoveRowClick:(id)sender {
-    NSInteger row = [_tableViewMain rowForView:sender];
-    if (row != -1) {
-        TaskEntity *entity = [self _entityForRow:row];
+
+- (void)sheetClosed:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+{
+    if (returnCode != NSAlertDefaultReturn)
+    {
+        NSInteger row = [(NSString *)contextInfo integerValue];;
         
+        TaskEntity *entity = [self _entityForRow:row];
         [TondarAPI deleteSingleTaskByID:entity.taskID];
         if (entity.downloadOperaion) {
             entity.needToStop = YES;
@@ -357,8 +360,41 @@
         
         [_tableContents removeObjectAtIndex:row];
         [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
+    }
+    
+}
+
+- (IBAction)btnRemoveRowClick:(id)sender {
+    NSInteger row = [_tableViewMain rowForView:sender];
+    if (row != -1) {
+        TaskEntity *entity = [self _entityForRow:row];
         
-        [entity release];
+        
+        
+        if (entity && entity.downloadOperaion && entity.downloadOperaion.isFinished == NO && [[NSUserDefaults standardUserDefaults] boolForKey:UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK]) {
+            NSBeginAlertSheet(@"Remove task",
+                              @"No",
+                              @"Yes",
+                              nil,
+                              _mainWindow,
+                              self,
+                              @selector(sheetClosed:returnCode:contextInfo:),
+                              NULL,
+                              [NSString stringWithFormat:@"%ld", row],
+                              @"Are you sure to remove this task?",
+                              nil);
+            
+        } else {
+            [TondarAPI deleteSingleTaskByID:entity.taskID];
+            if (entity.downloadOperaion) {
+                entity.needToStop = YES;
+                [entity.downloadOperaion cancel];
+            }
+        
+            [_tableContents removeObjectAtIndex:row];
+            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
+        
+        }
     }
 }
 

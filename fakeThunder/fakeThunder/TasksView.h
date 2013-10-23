@@ -24,6 +24,7 @@
     BOOL _useSmallRowHeight;
     BOOL _isLoadingTask;
     NSUInteger _currentPage;
+    NSWindow *_mainWindow;
 }
 
 
@@ -32,4 +33,6 @@
 - (void)startCheckNewTasks;
 - (IBAction)tblvwDoubleClick:(id)sender;
 - (void)startLoadFirstTaskPagsWithTondarAPI:(HYXunleiLixianAPI*)api;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil parentWindow:(NSWindow *)window;
+
 @end

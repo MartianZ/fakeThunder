@@ -40,7 +40,7 @@
 
     }
     
-    tasksView = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]]];
+    tasksView = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]] parentWindow:self.window];
 
     [super windowDidLoad];
     

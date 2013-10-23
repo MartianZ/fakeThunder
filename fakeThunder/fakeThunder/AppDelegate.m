@@ -41,6 +41,33 @@
     
 }
 
+- (void)sheetClosed:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+{
+    return [(NSApplication *)contextInfo replyToApplicationShouldTerminate:returnCode == NSAlertDefaultReturn];
+}
+
+-(NSApplicationTerminateReply) applicationShouldTerminate:(NSApplication *)sender {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:UD_PROMPT_BEFORE_QUITTING]) {
+        NSBeginAlertSheet(@"Applicaion Quit",
+                          @"OK",
+                          @"Cancel",
+                          nil,
+                          mainView.window,
+                          self,
+                          @selector(sheetClosed:returnCode:contextInfo:),
+                          NULL,
+                          sender,
+                          @"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task.",
+                          nil);
+        return NSTerminateLater;
+    } else {
+        return NSTerminateNow;
+    }
+    
+   
+}
+
 -(void)applicationWillTerminate:(NSNotification *)notification
 {
     //KILLALL ARIA2C
@@ -65,4 +92,6 @@
 {
     [[AppPrefsWindowsController sharedPrefsWindowController] showWindow:nil];
 }
+
+
 @end

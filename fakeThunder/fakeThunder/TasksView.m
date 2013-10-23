@@ -41,6 +41,7 @@
     NSArray *temp = [TondarAPI readAllTasks1];
     NSLog(@"%@", temp);
     
+    [_tableViewMain beginUpdates];
     for (XunleiItemInfo *task in temp) {
         TaskEntity *entity = [TaskEntity entityForID:task.taskid];
         
@@ -60,6 +61,7 @@
     
     _currentPage = 1;
     [_tableViewMain reloadData];
+    [_tableViewMain endUpdates];
 }
 
 - (void)startCheckNewTasks {
@@ -156,9 +158,11 @@
 - (NSView*)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     TaskEntity *entity = [self _entityForRow:row];
     
+    NSLog(@"%ld", row);
+    /*
     if (row == _tableContents.count - 1 && _isLoadingTask == NO) {
         [self startLoadTaskWithPage:++_currentPage];
-    }
+    }*/
     
     if ([entity isKindOfClass:[TaskLoaderEntity class]])
     {
@@ -350,9 +354,9 @@
             TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
 
             [_tableContents insertObject:loderEntity atIndex:row];
-            [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:nil];
+            [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectNone];
             [_tableContents removeObjectAtIndex:row+1];
-            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:nil];
+            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:NSTableViewAnimationEffectNone];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
                 

@@ -14,7 +14,7 @@
 		024C875815DBA755003EF1F3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 024C875615DBA755003EF1F3 /* Credits.rtf */; };
 		024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875A15DBA755003EF1F3 /* AppDelegate.m */; };
 		024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C875C15DBA756003EF1F3 /* MainMenu.xib */; };
-		024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* Thunder512.icns */; };
+		024C878415DBA7A6003EF1F3 /* fakeThunder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* fakeThunder.icns */; };
 		026272B915DBD71300139521 /* icon_taskbar_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B615DBD71300139521 /* icon_taskbar_remove.png */; };
 		026272BA15DBD71300139521 /* icon_taskbar_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B715DBD71300139521 /* icon_taskbar_start.png */; };
 		026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B815DBD71300139521 /* icon_taskbar_stop.png */; };
@@ -46,38 +46,45 @@
 		CA6B5A87181395BC00B14CD2 /* drag_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */; };
 		CA6B5A88181395BC00B14CD2 /* drag_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6B5A86181395BC00B14CD2 /* drag_icon.png */; };
 		CAA439A718182F7C00CE8EB5 /* SFBCrashReporter.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAD00E951818125B006850A3 /* SFBCrashReporter.framework */; };
-		CAA439A818182F8300CE8EB5 /* TondarAPI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
+		CAA439BB1818351400CE8EB5 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAA439B4181834F300CE8EB5 /* TondarAPI.framework */; };
+		CAA439BD1818352800CE8EB5 /* TondarAPI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAA439B4181834F300CE8EB5 /* TondarAPI.framework */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
 		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
 		CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */ = {isa = PBXBuildFile; fileRef = CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */; };
-		CAD00EA718182B35006850A3 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 		CAD00EA818182B37006850A3 /* SFBCrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD00E951818125B006850A3 /* SFBCrashReporter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CAAD78DF1811714A008168C2 /* PBXContainerItemProxy */ = {
+		CAA439B3181834F300CE8EB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			containerPortal = CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 02F155B815C547220054EF51;
 			remoteInfo = TondarAPI;
 		};
-		CAAD78E11811714A008168C2 /* PBXContainerItemProxy */ = {
+		CAA439B5181834F300CE8EB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			containerPortal = CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 02F155D015C547220054EF51;
 			remoteInfo = TondarAPITests;
 		};
-		CAAD78E31811714A008168C2 /* PBXContainerItemProxy */ = {
+		CAA439B7181834F300CE8EB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			containerPortal = CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A83FEE8F15E3E5EF00FD8907;
 			remoteInfo = URLTesting;
+		};
+		CAA439B91818350E00CE8EB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 02F155B715C547220054EF51;
+			remoteInfo = TondarAPI;
 		};
 		CAD00E941818125B006850A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -93,13 +100,6 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = SFBCrashReporter;
 		};
-		CAD00EAB18182B3C006850A3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 02F155B715C547220054EF51;
-			remoteInfo = TondarAPI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,8 +109,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CAA439A818182F8300CE8EB5 /* TondarAPI.framework in CopyFiles */,
 				CAA439A718182F7C00CE8EB5 /* SFBCrashReporter.framework in CopyFiles */,
+				CAA439BD1818352800CE8EB5 /* TondarAPI.framework in CopyFiles */,
 				CA1892C5181535E900EA4352 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,7 +134,7 @@
 		024C875A15DBA755003EF1F3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		024C875D15DBA756003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		024C876515DBA756003EF1F3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		024C878315DBA7A6003EF1F3 /* Thunder512.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Thunder512.icns; path = ../Thunder512.icns; sourceTree = "<group>"; };
+		024C878315DBA7A6003EF1F3 /* fakeThunder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = fakeThunder.icns; path = ../fakeThunder.icns; sourceTree = "<group>"; };
 		026272B615DBD71300139521 /* icon_taskbar_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_remove.png; sourceTree = "<group>"; };
 		026272B715DBD71300139521 /* icon_taskbar_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_start.png; sourceTree = "<group>"; };
 		026272B815DBD71300139521 /* icon_taskbar_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_stop.png; sourceTree = "<group>"; };
@@ -173,11 +173,11 @@
 		CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 		CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drag_icon@2x.png"; sourceTree = "<group>"; };
 		CA6B5A86181395BC00B14CD2 /* drag_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag_icon.png; sourceTree = "<group>"; };
+		CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TondarAPI.xcodeproj; path = "xunlei-lixian-api/TondarAPI.xcodeproj"; sourceTree = "<group>"; };
 		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
 		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
 		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
 		CAAD78B818116B1E008168C2 /* TableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCellView.m; sourceTree = "<group>"; };
-		CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TondarAPI.xcodeproj; path = "../xunlei-lixian-api/TondarAPI.xcodeproj"; sourceTree = "<group>"; };
 		CAAD78E61811888F008168C2 /* taskitem_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskitem_bt.png; sourceTree = "<group>"; };
 		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
 		CAAD78EA181197E2008168C2 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = aria2c; path = fakeThunder/aria2c; sourceTree = "<group>"; };
@@ -190,9 +190,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA439BB1818351400CE8EB5 /* TondarAPI.framework in Frameworks */,
 				CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
-				CAD00EA718182B35006850A3 /* TondarAPI.framework in Frameworks */,
 				CAD00EA818182B37006850A3 /* SFBCrashReporter.framework in Frameworks */,
 				CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */,
 			);
@@ -220,7 +220,7 @@
 				024C874615DBA755003EF1F3 /* Frameworks */,
 				024C874415DBA755003EF1F3 /* Products */,
 				CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */,
-				CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */,
+				CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,7 +292,7 @@
 				CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */,
 				CA6B5A86181395BC00B14CD2 /* drag_icon.png */,
 				0295F2AB15DBADB400529BA5 /* SmallIcon */,
-				024C878315DBA7A6003EF1F3 /* Thunder512.icns */,
+				024C878315DBA7A6003EF1F3 /* fakeThunder.icns */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -348,6 +348,16 @@
 			name = PrefsWindow;
 			sourceTree = "<group>";
 		};
+		CAA439AE181834F300CE8EB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAA439B4181834F300CE8EB5 /* TondarAPI.framework */,
+				CAA439B6181834F300CE8EB5 /* TondarAPITests.octest */,
+				CAA439B8181834F300CE8EB5 /* URLTesting.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CAAD78AF18114054008168C2 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,16 +376,6 @@
 				CAAD78B5181154B1008168C2 /* TaskEntity.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		CAAD78DA1811714A008168C2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CAAD78E01811714A008168C2 /* TondarAPI.framework */,
-				CAAD78E21811714A008168C2 /* TondarAPITests.octest */,
-				CAAD78E41811714A008168C2 /* URLTesting.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CAD00E911818125B006850A3 /* Products */ = {
@@ -401,7 +401,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				CAD00EAC18182B3C006850A3 /* PBXTargetDependency */,
+				CAA439BA1818350E00CE8EB5 /* PBXTargetDependency */,
 				CAD00EAA18182B3A006850A3 /* PBXTargetDependency */,
 			);
 			name = fakeThunder;
@@ -434,8 +434,8 @@
 					ProjectRef = CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */;
 				},
 				{
-					ProductGroup = CAAD78DA1811714A008168C2 /* Products */;
-					ProjectRef = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+					ProductGroup = CAA439AE181834F300CE8EB5 /* Products */;
+					ProjectRef = CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -446,25 +446,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CAAD78E01811714A008168C2 /* TondarAPI.framework */ = {
+		CAA439B4181834F300CE8EB5 /* TondarAPI.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = TondarAPI.framework;
-			remoteRef = CAAD78DF1811714A008168C2 /* PBXContainerItemProxy */;
+			remoteRef = CAA439B3181834F300CE8EB5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAAD78E21811714A008168C2 /* TondarAPITests.octest */ = {
+		CAA439B6181834F300CE8EB5 /* TondarAPITests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = TondarAPITests.octest;
-			remoteRef = CAAD78E11811714A008168C2 /* PBXContainerItemProxy */;
+			remoteRef = CAA439B5181834F300CE8EB5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CAAD78E41811714A008168C2 /* URLTesting.octest */ = {
+		CAA439B8181834F300CE8EB5 /* URLTesting.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = URLTesting.octest;
-			remoteRef = CAAD78E31811714A008168C2 /* PBXContainerItemProxy */;
+			remoteRef = CAA439B7181834F300CE8EB5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		CAD00E951818125B006850A3 /* SFBCrashReporter.framework */ = {
@@ -484,7 +484,7 @@
 				024C875215DBA755003EF1F3 /* InfoPlist.strings in Resources */,
 				024C875815DBA755003EF1F3 /* Credits.rtf in Resources */,
 				024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */,
-				024C878415DBA7A6003EF1F3 /* Thunder512.icns in Resources */,
+				024C878415DBA7A6003EF1F3 /* fakeThunder.icns in Resources */,
 				0295F2AF15DBADE500529BA5 /* 1.png in Resources */,
 				0295F2B015DBADE500529BA5 /* 1@2x.png in Resources */,
 				CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */,
@@ -537,15 +537,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CAA439BA1818350E00CE8EB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TondarAPI;
+			targetProxy = CAA439B91818350E00CE8EB5 /* PBXContainerItemProxy */;
+		};
 		CAD00EAA18182B3A006850A3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SFBCrashReporter;
 			targetProxy = CAD00EA918182B3A006850A3 /* PBXContainerItemProxy */;
-		};
-		CAD00EAC18182B3C006850A3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TondarAPI;
-			targetProxy = CAD00EAB18182B3C006850A3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

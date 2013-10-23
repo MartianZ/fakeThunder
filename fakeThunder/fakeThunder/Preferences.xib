@@ -107,12 +107,21 @@
                     </connections>
                 </button>
                 <button id="82">
-                    <rect key="frame" x="185" y="31" width="355" height="18"/>
+                    <rect key="frame" x="185" y="31" width="352" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Automatically send crash report (always anonymous)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="83">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <binding destination="132" name="value" keyPath="values.UserDefaultCheckCrashReport" id="kIc-Xq-QL3">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <bool key="NSValidatesImmediately" value="YES"/>
+                                <integer key="NSNullPlaceholder" value="1"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </button>
                 <textField verticalHuggingPriority="750" id="116">
                     <rect key="frame" x="17" y="202" width="158" height="17"/>

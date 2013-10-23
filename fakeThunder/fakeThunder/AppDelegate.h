@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MainView.h"
+#import <SFBCrashReporter/SFBCrashReporter.h>
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     MainView *mainView;

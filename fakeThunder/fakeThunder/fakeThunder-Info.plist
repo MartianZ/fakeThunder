@@ -32,5 +32,7 @@
 	<string>http://martianlaboratory.com/fakethunder/update.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dynamiclyrics2_dsa_pub_new.pem</string>
+	<key>SFBCrashReporterCrashSubmissionURL</key>
+	<string>http://martianlaboratory.com/php/handle_crash_report.php</string>
 </dict>
 </plist>

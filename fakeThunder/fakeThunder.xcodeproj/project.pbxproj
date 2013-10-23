@@ -45,13 +45,16 @@
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
 		CA6B5A87181395BC00B14CD2 /* drag_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */; };
 		CA6B5A88181395BC00B14CD2 /* drag_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6B5A86181395BC00B14CD2 /* drag_icon.png */; };
+		CAA439A718182F7C00CE8EB5 /* SFBCrashReporter.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAD00E951818125B006850A3 /* SFBCrashReporter.framework */; };
+		CAA439A818182F8300CE8EB5 /* TondarAPI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
 		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
-		CAC398681817C126008F326A /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 		CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */ = {isa = PBXBuildFile; fileRef = CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */; };
+		CAD00EA718182B35006850A3 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
+		CAD00EA818182B37006850A3 /* SFBCrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD00E951818125B006850A3 /* SFBCrashReporter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,27 @@
 			remoteGlobalIDString = A83FEE8F15E3E5EF00FD8907;
 			remoteInfo = URLTesting;
 		};
+		CAD00E941818125B006850A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = SFBCrashReporter;
+		};
+		CAD00EA918182B3A006850A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = SFBCrashReporter;
+		};
+		CAD00EAB18182B3C006850A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 02F155B715C547220054EF51;
+			remoteInfo = TondarAPI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,6 +109,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CAA439A818182F8300CE8EB5 /* TondarAPI.framework in CopyFiles */,
+				CAA439A718182F7C00CE8EB5 /* SFBCrashReporter.framework in CopyFiles */,
 				CA1892C5181535E900EA4352 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +182,7 @@
 		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
 		CAAD78EA181197E2008168C2 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = aria2c; path = fakeThunder/aria2c; sourceTree = "<group>"; };
 		CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamiclyrics2_dsa_pub_new.pem; sourceTree = "<group>"; };
+		CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFBCrashReporter.xcodeproj; path = SFBCrashReporter/SFBCrashReporter.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,9 +190,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC398681817C126008F326A /* TondarAPI.framework in Frameworks */,
 				CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
+				CAD00EA718182B35006850A3 /* TondarAPI.framework in Frameworks */,
+				CAD00EA818182B37006850A3 /* SFBCrashReporter.framework in Frameworks */,
 				CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +219,7 @@
 				024C874D15DBA755003EF1F3 /* fakeThunder */,
 				024C874615DBA755003EF1F3 /* Frameworks */,
 				024C874415DBA755003EF1F3 /* Products */,
+				CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */,
 				CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -349,6 +378,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		CAD00E911818125B006850A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAD00E951818125B006850A3 /* SFBCrashReporter.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +401,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				CAD00EAC18182B3C006850A3 /* PBXTargetDependency */,
+				CAD00EAA18182B3A006850A3 /* PBXTargetDependency */,
 			);
 			name = fakeThunder;
 			productName = fakeThunder;
@@ -390,6 +429,10 @@
 			productRefGroup = 024C874415DBA755003EF1F3 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = CAD00E911818125B006850A3 /* Products */;
+					ProjectRef = CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */;
+				},
 				{
 					ProductGroup = CAAD78DA1811714A008168C2 /* Products */;
 					ProjectRef = CAAD78D91811714A008168C2 /* TondarAPI.xcodeproj */;
@@ -422,6 +465,13 @@
 			fileType = wrapper.cfbundle;
 			path = URLTesting.octest;
 			remoteRef = CAAD78E31811714A008168C2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CAD00E951818125B006850A3 /* SFBCrashReporter.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SFBCrashReporter.framework;
+			remoteRef = CAD00E941818125B006850A3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -486,6 +536,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CAD00EAA18182B3A006850A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SFBCrashReporter;
+			targetProxy = CAD00EA918182B3A006850A3 /* PBXContainerItemProxy */;
+		};
+		CAD00EAC18182B3C006850A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TondarAPI;
+			targetProxy = CAD00EAB18182B3C006850A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		024C875015DBA755003EF1F3 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -521,6 +584,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -537,6 +601,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CODE_SIGN_FLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -548,6 +613,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -557,6 +623,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_CODE_SIGN_FLAGS = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -565,7 +632,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,6 +640,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -585,7 +652,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Zhu Zheng (R5RMP6G3GQ)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,6 +660,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
+				OTHER_CODE_SIGN_FLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;

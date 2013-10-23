@@ -36,8 +36,13 @@
     if ([userDefault objectForKey:UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK] == nil) {
         [userDefault setBool:YES forKey:UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK];
     }
+    if ([userDefault objectForKey:UD_CHECK_CRASH_REPORT] == nil) {
+        [userDefault setBool:YES forKey:UD_CHECK_CRASH_REPORT];
+    }
     
-    
+    if ([userDefault boolForKey:UD_CHECK_CRASH_REPORT]) {
+        [SFBCrashReporter checkForNewCrashes];
+    }
     
 }
 

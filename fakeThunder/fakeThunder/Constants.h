@@ -23,5 +23,6 @@
 
 #define UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK @"UserDefaultPromptUserBeforeRemovingActiveTask"
 #define UD_PROMPT_BEFORE_QUITTING @"UserDefaultPromptUserBeforeQutting"
+#define UD_CHECK_CRASH_REPORT @"UserDefaultCheckCrashReport"
 
 #endif

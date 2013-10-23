@@ -188,6 +188,9 @@
 }
 
 - (IBAction)toolBarRefresh:(id)sender {
+    raise(SIGABRT);
+
+
     CHECK_LOGIN
     [tasksView startCheckNewTasks];
 }

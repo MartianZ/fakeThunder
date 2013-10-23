@@ -128,8 +128,9 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         NSArray *temp = [TondarAPI readTasksWithPage:page];
         [_tableContents removeObjectAtIndex:_tableContents.count - 1];
-        [_tableViewMain reloadData];
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableViewMain reloadData];
+        });
         
         for (XunleiItemInfo *task in temp) {
             TaskEntity *entity = [TaskEntity entityForID:task.taskid];

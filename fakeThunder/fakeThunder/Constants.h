@@ -18,8 +18,10 @@
 
 #define UD_TASK_SPEED_LIMIT @"UserDefaultTaskLimit"
 
-#define UD_VOD_PLAY_SHARPNESS @"UserDefaultVodSharpness"
+//#define UD_VOD_PLAY_SHARPNESS @"UserDefaultVodSharpness"
+//#define UD_NOTIFICATION @"UserDefaultSendNortification"
 
-#define UD_NOTIFICATION @"UserDefaultSendNortification"
+#define UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK @"UserDefaultPromptUserBeforeRemovingActiveTask"
+#define UD_PROMPT_BEFORE_QUITTING @"UserDefaultPromptUserBeforeQutting"
 
 #endif

@@ -38,6 +38,8 @@
 		CA1892D218163DE000EA4352 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D018163DE000EA4352 /* Preferences.xib */; };
 		CA1892D518163FA100EA4352 /* Bandwidth.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D318163FA100EA4352 /* Bandwidth.png */; };
 		CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D418163FA100EA4352 /* Bandwidth@2x.png */; };
+		CA1892D9181641B200EA4352 /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D7181641B200EA4352 /* General.png */; };
+		CA1892DA181641B200EA4352 /* General@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D8181641B200EA4352 /* General@2x.png */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
@@ -45,10 +47,10 @@
 		CA6B5A88181395BC00B14CD2 /* drag_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6B5A86181395BC00B14CD2 /* drag_icon.png */; };
 		CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B5181154B1008168C2 /* TaskEntity.m */; };
 		CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAAD78B818116B1E008168C2 /* TableCellView.m */; };
-		CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
+		CAC398681817C126008F326A /* TondarAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAAD78E01811714A008168C2 /* TondarAPI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		CA1892D018163DE000EA4352 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		CA1892D318163FA100EA4352 /* Bandwidth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bandwidth.png; sourceTree = "<group>"; };
 		CA1892D418163FA100EA4352 /* Bandwidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bandwidth@2x.png"; sourceTree = "<group>"; };
+		CA1892D7181641B200EA4352 /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
+		CA1892D8181641B200EA4352 /* General@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "General@2x.png"; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -157,8 +161,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC398681817C126008F326A /* TondarAPI.framework in Frameworks */,
 				CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */,
-				CAAD78E518117154008168C2 /* TondarAPI.framework in Frameworks */,
 				024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */,
 				CA1892C31815359600EA4352 /* Sparkle.framework in Frameworks */,
 			);
@@ -249,6 +253,8 @@
 		024C877F15DBA787003EF1F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA1892D7181641B200EA4352 /* General.png */,
+				CA1892D8181641B200EA4352 /* General@2x.png */,
 				CA1892D318163FA100EA4352 /* Bandwidth.png */,
 				CA1892D418163FA100EA4352 /* Bandwidth@2x.png */,
 				CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */,
@@ -367,7 +373,7 @@
 		024C873A15DBA755003EF1F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = MartianZ;
 			};
 			buildConfigurationList = 024C873D15DBA755003EF1F3 /* Build configuration list for PBXProject "fakeThunder" */;
@@ -446,6 +452,8 @@
 				CA1892D218163DE000EA4352 /* Preferences.xib in Resources */,
 				CA1892D518163FA100EA4352 /* Bandwidth.png in Resources */,
 				CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */,
+				CA1892D9181641B200EA4352 /* General.png in Resources */,
+				CA1892DA181641B200EA4352 /* General@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +514,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -526,7 +533,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -534,7 +541,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -547,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Release;
 		};
@@ -560,13 +566,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../Desktop/TondarAPI 13-10-18 下午6.01/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -580,13 +586,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../../../../Desktop/TondarAPI 13-10-18 下午6.01/Library/Frameworks\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fakeThunder/fakeThunder-Prefix.pch";
 				INFOPLIST_FILE = "fakeThunder/fakeThunder-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

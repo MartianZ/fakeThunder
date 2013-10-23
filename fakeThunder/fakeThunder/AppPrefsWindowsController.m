@@ -22,4 +22,32 @@
     [NSColor setIgnoresAlpha:NO];
 }
 
+-(IBAction)selectSavePath:(id)sender
+{
+    NSPopUpButton *popupButton = (NSPopUpButton *)sender;
+    if ([popupButton indexOfSelectedItem] == 2) {
+        NSOpenPanel *panel = [NSOpenPanel openPanel];
+        [panel setCanChooseFiles:NO];
+        [panel setCanChooseDirectories:YES];
+        [panel beginSheetModalForWindow:self.window completionHandler:^(NSInteger result) {
+            if (result == NSFileHandlingPanelOKButton) {
+                NSURL *url = panel.directoryURL;
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:[url path] forKey:UD_SAVE_PATH];
+                [[popupButton itemAtIndex:0] setTitle:[[url path] lastPathComponent]];
+                [[popupButton itemAtIndex:0] setImage:[[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(kGenericFolderIcon)]];
+                [defaults setObject:[[url path] lastPathComponent] forKey:UD_SAVE_PATH_DISPLAY];
+                
+                [defaults synchronize];
+            }
+        }];
+        
+        [popupButton selectItemAtIndex:0];
+    }
+}
+
+- (IBAction) openNotificationSystemPrefs: (id) sender
+{
+    [[NSWorkspace sharedWorkspace] openURL: [NSURL fileURLWithPath:@"/System/Library/PreferencePanes/Notifications.prefPane"]];
+}
 @end

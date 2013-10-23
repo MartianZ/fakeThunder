@@ -96,6 +96,15 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <binding destination="wch-Nz-cPc" name="value" keyPath="automaticallyChecksForUpdates" id="jKg-pm-Y5N">
+                            <dictionary key="options">
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <bool key="NSValidatesImmediately" value="YES"/>
+                                <integer key="NSNullPlaceholder" value="0"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
                 </button>
                 <button id="82">
                     <rect key="frame" x="185" y="31" width="355" height="18"/>
@@ -151,6 +160,7 @@
             <rect key="frame" x="0.0" y="0.0" width="391" height="206"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
         </customView>
+        <customObject id="wch-Nz-cPc" customClass="SUUpdater"/>
         <userDefaultsController representsSharedInstance="YES" id="132"/>
     </objects>
 </document>

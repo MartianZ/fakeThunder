@@ -48,7 +48,6 @@
             
         [_tableContents addObject:entity];
         entity.title = task.name;
-        entity.subtitle = @"584MiB, Remote Server Progress: 100%";
         entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
         entity.status = @"Status: Ready";
         entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
@@ -110,7 +109,6 @@
             
             [_tableContents insertObject:entity atIndex:0];
             entity.title = task.name;
-            entity.subtitle = @"584MiB, Remote Server Progress: 100%";
             entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
             entity.status = @"Status: Ready";
             entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
@@ -147,7 +145,6 @@
             
             [_tableContents addObject:entity];
             entity.title = task.name;
-            entity.subtitle = @"584MiB, Remote Server Progress: 100%";
             entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
             entity.status = @"Status: Ready";
             entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];

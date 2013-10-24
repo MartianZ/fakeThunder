@@ -307,14 +307,12 @@
         }
         if ([[NSString stringWithFormat:@"%@", entity.taskDcid] isEqualToString:taskID])
         {
-            [_tableViewMain beginUpdates];
             TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:row makeIfNecessary:NO];
             cellView.statusTextField.stringValue = [self _entityForRow:row].status;
             if ([cellView.statusTextField.stringValue hasPrefix:@"Download complete"]) {
                 [cellView.openButton setEnabled:YES];
             }
             [cellView.progessIndicator setDoubleValue:[self _entityForRow:row].progress];
-            [_tableViewMain endUpdates];
 
             break;
         }

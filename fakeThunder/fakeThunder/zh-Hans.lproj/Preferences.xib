@@ -18,9 +18,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" id="10">
-                    <rect key="frame" x="87" y="277" width="88" height="17"/>
+                    <rect key="frame" x="140" y="277" width="35" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Notifications:" id="11">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="通知:" id="11">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -29,7 +29,7 @@
                 <button verticalHuggingPriority="750" id="17">
                     <rect key="frame" x="181" y="267" width="244" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Configure in System Preferences" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="18">
+                    <buttonCell key="cell" type="push" title="在 系统偏好设置 中设置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="18">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -40,7 +40,7 @@
                 <textField verticalHuggingPriority="750" id="28">
                     <rect key="frame" x="84" y="232" width="91" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Prompt user:" id="29">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="通知用户确认：" id="29">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -49,7 +49,7 @@
                 <button id="51">
                     <rect key="frame" x="185" y="230" width="204" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Before removing active task" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="52">
+                    <buttonCell key="cell" type="check" title="移除正在下载的任务" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="52">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -66,7 +66,7 @@
                 <button id="56">
                     <rect key="frame" x="185" y="210" width="123" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Before quitting" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="57">
+                    <buttonCell key="cell" type="check" title="退出 fakeThunder 前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="57">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -83,7 +83,7 @@
                 <textField verticalHuggingPriority="750" id="61">
                     <rect key="frame" x="123" y="173" width="52" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Privacy:" id="62">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="隐私：" id="62">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -92,7 +92,7 @@
                 <button id="68">
                     <rect key="frame" x="185" y="171" width="236" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Automatically check for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="69">
+                    <buttonCell key="cell" type="check" title="自动检查更新" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="69">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -109,7 +109,7 @@
                 <button id="82">
                     <rect key="frame" x="185" y="151" width="352" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="check" title="Automatically send crash report (always anonymous)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="83">
+                    <buttonCell key="cell" type="check" title="自动检查崩溃报告并准备匿名发送" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="83">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -126,7 +126,7 @@
                 <textField verticalHuggingPriority="750" id="116">
                     <rect key="frame" x="17" y="322" width="158" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Put new downloads in:" id="117">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="新添加下载任务保存在：" id="117">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -145,11 +145,11 @@
                                     <connections>
                                         <binding destination="132" name="title" keyPath="values.UserDefaultSavePathDisplay" id="Ju7-fF-mvk">
                                             <dictionary key="options">
-                                                <string key="NSNullPlaceholder">Downloads</string>
+                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <string key="NSNotApplicablePlaceholder">Downloads</string>
                                                 <string key="NSNoSelectionPlaceholder">Downloads</string>
-                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                <string key="NSNullPlaceholder">Downloads</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -163,7 +163,7 @@
                         <action selector="selectSavePath:" target="-2" id="130"/>
                     </connections>
                 </popUpButton>
-                <box autoresizesSubviews="NO" title="Donation" borderType="line" id="Q51-2R-qvL">
+                <box autoresizesSubviews="NO" title="捐赠" borderType="line" id="Q51-2R-qvL">
                     <rect key="frame" x="23" y="16" width="521" height="114"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <view key="contentView">
@@ -171,18 +171,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="MTd-Bk-YQo">
-                                <rect key="frame" x="12" y="40" width="498" height="39"/>
+                                <rect key="frame" x="10" y="28" width="498" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="We are very pleased to see that our software can help you. If you like this App, consider donating to keep development going!" id="2qv-1j-bQp">
+                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="left" title="我们很高兴的看到fakeThunder可以帮助到您，fakeThunder是一款免费软件，但是仍然需要耗费金钱和时间去开发、维护，如果您喜欢我们的作品，可以考虑捐赠我们以支持我们后续的开发。" id="2qv-1j-bQp">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" id="f8Y-S2-E3o">
-                                <rect key="frame" x="169" y="15" width="180" height="17"/>
+                                <rect key="frame" x="169" y="13" width="180" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="inline" title="Make a donation" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="wdT-E6-UkV">
+                                <buttonCell key="cell" type="inline" title="捐赠!" bezelStyle="inline" alignment="center" controlSize="mini" borderStyle="border" inset="2" id="wdT-E6-UkV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystemBold"/>
                                 </buttonCell>
@@ -202,18 +202,18 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="IXh-RD-8ME">
-                    <rect key="frame" x="-2" y="83" width="106" height="17"/>
+                    <rect key="frame" x="-2" y="84" width="106" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Queues:" id="oKT-rt-rLd">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="队列：" id="oKT-rt-rLd">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="poC-0r-RBe">
-                    <rect key="frame" x="131" y="84" width="153" height="17"/>
+                    <rect key="frame" x="131" y="84" width="160" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Active downloads limits" id="88w-eG-ha8">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="最多允许同时下载的任务数" id="88w-eG-ha8">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -231,11 +231,11 @@
                         <binding destination="132" name="value" keyPath="values.UserDefaultMaxTasks" id="xDA-tS-SrU">
                             <dictionary key="options">
                                 <bool key="NSValidatesImmediately" value="YES"/>
-                                <string key="NSNullPlaceholder">3</string>
+                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <string key="NSNotApplicablePlaceholder">3</string>
                                 <string key="NSNoSelectionPlaceholder">3</string>
-                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <string key="NSNullPlaceholder">3</string>
                             </dictionary>
                         </binding>
                     </connections>
@@ -256,9 +256,9 @@
                     </connections>
                 </stepper>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="sHE-cN-3fi">
-                    <rect key="frame" x="-2" y="45" width="106" height="17"/>
+                    <rect key="frame" x="-2" y="46" width="106" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Downloads:" id="r31-2K-MMc">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="下载：" id="r31-2K-MMc">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -267,7 +267,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cB7-Mt-chM">
                     <rect key="frame" x="131" y="46" width="172" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Limit per task manually to:" id="Evh-K3-dsm">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="单任务限制最大下载速度" id="Evh-K3-dsm">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -285,7 +285,7 @@
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="CSZ-MB-iyI">
                     <rect key="frame" x="131" y="20" width="174" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="[0:unlimited,  restart required]" id="WZ2-Er-pp5">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="[0:不限制, 重启任务后生效]" id="WZ2-Er-pp5">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

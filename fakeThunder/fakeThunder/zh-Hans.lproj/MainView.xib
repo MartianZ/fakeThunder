@@ -40,7 +40,7 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="28"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="31"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSeparatorItem" id="33"/>
-                    <toolbarItem implicitItemIdentifier="84D9EB83-0539-4BFD-B787-A2995CBE9D4F" label="Add" paletteLabel="Add" image="1" id="42">
+                    <toolbarItem implicitItemIdentifier="84D9EB83-0539-4BFD-B787-A2995CBE9D4F" label="添加任务" paletteLabel="添加任务" image="1" id="42">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
@@ -56,7 +56,7 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="75FABBF2-3312-4F89-9AAC-07EB0233E076" label="Refresh" paletteLabel="Refresh" image="10" id="48">
+                    <toolbarItem implicitItemIdentifier="75FABBF2-3312-4F89-9AAC-07EB0233E076" label="刷新" paletteLabel="刷新" image="10" id="48">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
@@ -72,7 +72,7 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="57CC4C48-5D8D-4AA3-869F-7B68290E5621" label="Sign in" paletteLabel="Sign in" image="3" id="51">
+                    <toolbarItem implicitItemIdentifier="57CC4C48-5D8D-4AA3-869F-7B68290E5621" label="登录" paletteLabel="登录" image="3" id="51">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
@@ -88,7 +88,7 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D370C0A8-C246-4F8C-947C-3348FE619E6E" label="Start" paletteLabel="Start" image="icon_taskbar_start" id="52">
+                    <toolbarItem implicitItemIdentifier="D370C0A8-C246-4F8C-947C-3348FE619E6E" label="开始" paletteLabel="开始" image="icon_taskbar_start" id="52">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
@@ -104,7 +104,7 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="6295822C-65A3-4A6C-AFA3-8BC4C2E4ACEF" label="Stop" paletteLabel="Stop" image="icon_taskbar_stop" id="55">
+                    <toolbarItem implicitItemIdentifier="6295822C-65A3-4A6C-AFA3-8BC4C2E4ACEF" label="停止" paletteLabel="停止" image="icon_taskbar_stop" id="55">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
@@ -165,13 +165,16 @@
                                 <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
+                        <connections>
+                            <action selector="loginButtonOk:" target="-2" id="Xzz-hh-NPH"/>
+                        </connections>
                     </secureTextField>
                     <button verticalHuggingPriority="750" id="97">
                         <rect key="frame" x="212" y="3" width="78" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Sign in" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="108">
+                        <buttonCell key="cell" type="push" title="登录" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="108">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                         </buttonCell>
                         <connections>
                             <action selector="loginButtonOk:" target="-2" id="123"/>
@@ -180,9 +183,9 @@
                     <button verticalHuggingPriority="750" id="96">
                         <rect key="frame" x="134" y="3" width="78" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="109">
+                        <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="109">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -203,7 +206,7 @@ Gw
                     <textField verticalHuggingPriority="750" id="112">
                         <rect key="frame" x="128" y="124" width="111" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sign in to Xunlei" id="113">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="登录迅雷" id="113">
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -233,7 +236,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
-                            <tabViewItem label="Normal Task" identifier="1" id="173">
+                            <tabViewItem label="普通任务" identifier="1" id="173">
                                 <view key="view" id="174">
                                     <rect key="frame" x="10" y="33" width="475" height="243"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,12 +302,12 @@ Gw
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="BT Torrent" identifier="2" id="172">
+                            <tabViewItem label="BT种子任务" identifier="2" id="172">
                                 <view key="view" id="175">
                                     <rect key="frame" x="10" y="33" width="475" height="243"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tabView autoresizesSubviews="NO" drawsBackground="NO" type="noTabsNoBorder" initialItem="188" id="186">
+                                        <tabView drawsBackground="NO" type="noTabsNoBorder" initialItem="188" id="186">
                                             <rect key="frame" x="7" y="-3" width="461" height="243"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -312,7 +315,7 @@ Gw
                                                 <tabViewItem label="Tab" identifier="1" id="188">
                                                     <view key="view" id="189">
                                                         <rect key="frame" x="0.0" y="0.0" width="461" height="243"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <button id="190">
                                                                 <rect key="frame" x="166" y="81" width="128" height="128"/>
@@ -328,7 +331,7 @@ Gw
                                                             <textField verticalHuggingPriority="750" id="191">
                                                                 <rect key="frame" x="22" y="14" width="417" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Drag your torrent file onto here, or click on the icon to select a file" id="192">
+                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="将种子文件拖拽到这里，或者点击上面的图标手动选择文件" id="192">
                                                                     <font key="font" size="13" name="STHeitiSC-Light"/>
                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -369,8 +372,8 @@ Gw
                     <textField verticalHuggingPriority="750" id="238">
                         <rect key="frame" x="103" y="79" width="194" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Are you sure to sign out?" id="239">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="确定要退出吗？" id="239">
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -378,9 +381,9 @@ Gw
                     <button verticalHuggingPriority="750" id="237">
                         <rect key="frame" x="201" y="6" width="89" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="240">
+                        <buttonCell key="cell" type="push" title="确定" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="240">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
@@ -392,9 +395,9 @@ DQ
                     <button verticalHuggingPriority="750" id="236">
                         <rect key="frame" x="112" y="6" width="89" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="241">
+                        <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="241">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -406,8 +409,8 @@ Gw
                     <textField verticalHuggingPriority="750" id="242">
                         <rect key="frame" x="48" y="54" width="304" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="This will terminate all your downloading tasks." id="243">
-                            <font key="font" metaFont="system"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="这会停止所有正在下载的任务。" id="243">
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

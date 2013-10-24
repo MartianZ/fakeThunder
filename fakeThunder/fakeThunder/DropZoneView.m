@@ -132,10 +132,10 @@
             NSString* textContent;
             if (isNotSigle) {
                 //// Abstracted Attributes
-                textContent = @"Not support multi files.";
+                textContent = NSLocalizedString(@"Not support multi files.", nil) ;
             } else {
                 //// Abstracted Attributes
-                textContent = @"Not a torrent file.";
+                textContent = NSLocalizedString(@"Not a torrent file.", nil);
             }
             //// Text Drawing
             NSRect textRect = NSMakeRect(140, 60, 189, 30);

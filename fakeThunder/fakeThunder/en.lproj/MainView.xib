@@ -165,6 +165,9 @@
                                 <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
+                        <connections>
+                            <action selector="loginButtonOk:" target="-2" id="qlj-7u-0ps"/>
+                        </connections>
                     </secureTextField>
                     <button verticalHuggingPriority="750" id="97">
                         <rect key="frame" x="212" y="3" width="78" height="32"/>

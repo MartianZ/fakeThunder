@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		020E1F3015DC046300FF99ED /* NSArray_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 020E1F2F15DC046300FF99ED /* NSArray_Extensions.m */; };
 		024C874815DBA755003EF1F3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 024C874715DBA755003EF1F3 /* Cocoa.framework */; };
-		024C875215DBA755003EF1F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C875015DBA755003EF1F3 /* InfoPlist.strings */; };
+		024C875215DBA755003EF1F3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 024C875015DBA755003EF1F3 /* Localizable.strings */; };
 		024C875415DBA755003EF1F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875315DBA755003EF1F3 /* main.m */; };
 		024C875815DBA755003EF1F3 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 024C875615DBA755003EF1F3 /* Credits.rtf */; };
 		024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875A15DBA755003EF1F3 /* AppDelegate.m */; };
@@ -126,7 +126,7 @@
 		024C874B15DBA755003EF1F3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		024C874C15DBA755003EF1F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		024C874F15DBA755003EF1F3 /* fakeThunder-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "fakeThunder-Info.plist"; sourceTree = "<group>"; };
-		024C875115DBA755003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		024C875115DBA755003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		024C875315DBA755003EF1F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		024C875515DBA755003EF1F3 /* fakeThunder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fakeThunder-Prefix.pch"; sourceTree = "<group>"; };
 		024C875715DBA755003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -169,16 +169,17 @@
 		CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 		CA6B5A85181395BC00B14CD2 /* drag_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "drag_icon@2x.png"; sourceTree = "<group>"; };
 		CA6B5A86181395BC00B14CD2 /* drag_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag_icon.png; sourceTree = "<group>"; };
+		CA91FB0918193D93008B19F1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		CAA439AD181834F300CE8EB5 /* TondarAPI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TondarAPI.xcodeproj; path = "xunlei-lixian-api/TondarAPI.xcodeproj"; sourceTree = "<group>"; };
-		CAA439C818193AEC00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Preferences.xib; sourceTree = "<group>"; };
-		CAA439CA18193B5200CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/Preferences.xib"; sourceTree = "<group>"; };
+		CAA439C818193AEC00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Preferences.xib; sourceTree = "<group>"; };
+		CAA439CA18193B5200CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/Preferences.xib"; sourceTree = "<group>"; };
 		CAA439CB18193B5200CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
-		CAA439CD18193B5F00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/MainView.xib; sourceTree = "<group>"; };
-		CAA439CF18193B6100CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/MainView.xib"; sourceTree = "<group>"; };
-		CAA439D118193B6C00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/TasksView.xib; sourceTree = "<group>"; };
-		CAA439D318193B6E00CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/TasksView.xib"; sourceTree = "<group>"; };
-		CAA439D518193B7400CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/TorrentView.xib; sourceTree = "<group>"; };
-		CAA439D718193B7700CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zh-Hans"; path = "zh-Hans.lproj/TorrentView.xib"; sourceTree = "<group>"; };
+		CAA439CD18193B5F00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainView.xib; sourceTree = "<group>"; };
+		CAA439CF18193B6100CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainView.xib"; sourceTree = "<group>"; };
+		CAA439D118193B6C00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TasksView.xib; sourceTree = "<group>"; };
+		CAA439D318193B6E00CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/TasksView.xib"; sourceTree = "<group>"; };
+		CAA439D518193B7400CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TorrentView.xib; sourceTree = "<group>"; };
+		CAA439D718193B7700CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/TorrentView.xib"; sourceTree = "<group>"; };
 		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
 		CAAD78B5181154B1008168C2 /* TaskEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskEntity.m; sourceTree = "<group>"; };
 		CAAD78B718116B1E008168C2 /* TableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCellView.h; sourceTree = "<group>"; };
@@ -277,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				024C874F15DBA755003EF1F3 /* fakeThunder-Info.plist */,
-				024C875015DBA755003EF1F3 /* InfoPlist.strings */,
+				024C875015DBA755003EF1F3 /* Localizable.strings */,
 				024C875315DBA755003EF1F3 /* main.m */,
 				024C875515DBA755003EF1F3 /* fakeThunder-Prefix.pch */,
 				024C875615DBA755003EF1F3 /* Credits.rtf */,
@@ -487,7 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				024C875215DBA755003EF1F3 /* InfoPlist.strings in Resources */,
+				024C875215DBA755003EF1F3 /* Localizable.strings in Resources */,
 				024C875815DBA755003EF1F3 /* Credits.rtf in Resources */,
 				024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */,
 				024C878415DBA7A6003EF1F3 /* fakeThunder.icns in Resources */,
@@ -556,12 +557,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		024C875015DBA755003EF1F3 /* InfoPlist.strings */ = {
+		024C875015DBA755003EF1F3 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				024C875115DBA755003EF1F3 /* en */,
+				CA91FB0918193D93008B19F1 /* zh-Hans */,
 			);
-			name = InfoPlist.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		024C875615DBA755003EF1F3 /* Credits.rtf */ = {

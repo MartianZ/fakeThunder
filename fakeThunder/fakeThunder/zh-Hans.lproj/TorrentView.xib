@@ -18,10 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3">
+                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3">
                     <rect key="frame" x="0.0" y="34" width="480" height="238"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <clipView key="contentView" id="L1X-Lv-O46">
+                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="L1X-Lv-O46">
                         <rect key="frame" x="1" y="17" width="478" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -104,12 +104,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                    <rect key="frame" x="396" y="-1" width="82" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                    <rect key="frame" x="398" y="-1" width="82" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="70" id="44"/>
-                    </constraints>
                     <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="28">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -121,12 +118,12 @@ DQ
                         <action selector="buttonCancelAndOkayClick:" target="-2" id="63"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="31">
-                    <rect key="frame" x="314" y="-1" width="82" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="31">
+                    <rect key="frame" x="325" y="-1" width="82" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="32">
+                    <buttonCell key="cell" type="push" title="取消" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="32">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
                         <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -135,49 +132,33 @@ Gw
                         <action selector="buttonCancelAndOkayClick:" target="-2" id="62"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="49">
-                    <rect key="frame" x="2" y="-1" width="98" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="49">
+                    <rect key="frame" x="2" y="-1" width="66" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Select All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="50">
+                    <buttonCell key="cell" type="push" title="全选" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="50">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
                     <connections>
                         <action selector="buttonSelectAllClick:" target="-2" id="61"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="55">
-                    <rect key="frame" x="92" y="-1" width="136" height="32"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55">
+                    <rect key="frame" x="60" y="-1" width="66" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Invert selection" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="56">
+                    <buttonCell key="cell" type="push" title="反选" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="56">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
                     <connections>
                         <action selector="buttonInvertSelectAllClick:" target="-2" id="60"/>
                     </connections>
                 </button>
-                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="64">
-                    <rect key="frame" x="296" y="8" width="16" height="16"/>
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="64">
+                    <rect key="frame" x="312" y="8" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </progressIndicator>
             </subviews>
-            <constraints>
-                <constraint firstItem="3" firstAttribute="trailing" secondItem="1" secondAttribute="trailing" id="20"/>
-                <constraint firstItem="3" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="21"/>
-                <constraint firstItem="3" firstAttribute="top" secondItem="1" secondAttribute="top" id="22"/>
-                <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" constant="34" id="26"/>
-                <constraint firstAttribute="trailing" secondItem="27" secondAttribute="trailing" constant="8" id="42"/>
-                <constraint firstItem="27" firstAttribute="leading" secondItem="31" secondAttribute="trailing" constant="12" symbolic="YES" id="46"/>
-                <constraint firstItem="31" firstAttribute="baseline" secondItem="27" secondAttribute="baseline" id="47"/>
-                <constraint firstAttribute="bottom" secondItem="49" secondAttribute="bottom" constant="6" id="51"/>
-                <constraint firstItem="49" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="8" id="54"/>
-                <constraint firstItem="55" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="98" id="57"/>
-                <constraint firstItem="55" firstAttribute="baseline" secondItem="31" secondAttribute="baseline" id="58"/>
-                <constraint firstItem="55" firstAttribute="baseline" secondItem="49" secondAttribute="baseline" id="59"/>
-                <constraint firstItem="31" firstAttribute="leading" secondItem="64" secondAttribute="trailing" constant="8" symbolic="YES" id="65"/>
-                <constraint firstItem="64" firstAttribute="centerY" secondItem="31" secondAttribute="centerY" id="66"/>
-            </constraints>
         </customView>
     </objects>
 </document>

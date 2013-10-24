@@ -1,0 +1,12 @@
+
+"Sign in" = "登录";
+"Sign out" = "注销";
+"Login..." = "登录中..";
+"Failed" = "失败";
+"Failed to get torrent file list, please make sure there is no same task in your task list." = "获取种子文件列表失败，请确定您的离线任务列表中尚未添加该任务！";
+"Please sign in to Xunlei first!" = "请先登录fakeThunder！";
+"Login failed" = "登录失败！";
+"Unable to sign in to Xunlei, please make sure your username & password is correct!" = "无法登录迅雷离线，请确定您的用户名和密码正确！";
+"Not support multi files." = "不支持多个文件";
+"Not a torrent file." = "仅支持种子文件";
+"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "确定要退出fakeThunder吗？\n这会终止所有的正在下载任务。";

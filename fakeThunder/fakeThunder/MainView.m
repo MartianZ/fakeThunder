@@ -84,7 +84,7 @@
             [torrentTabView selectTabViewItemAtIndex:1];
         } else {
             dispatch_async( dispatch_get_main_queue(), ^{
-                [[NSAlert alertWithMessageText:@"Failed" defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Failed to get torrent file list, please make sure there is no same task in your task list."] runModal];
+                [[NSAlert alertWithMessageText:NSLocalizedString(@"Failed", nil) defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"Failed to get torrent file list, please make sure there is no same task in your task list.", nil)] runModal];
             });
         }
         [torrentProgress stopAnimation:self];
@@ -138,7 +138,7 @@
 }
 
 
-#define CHECK_LOGIN if (![[toobarItemLogin label] isEqualToString:@"Sign out"]) { [[NSAlert alertWithMessageText:@"Login required!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please sign in to Xunlei first!"] runModal];return; }
+#define CHECK_LOGIN if (![[toobarItemLogin label] isEqualToString:NSLocalizedString(@"Sign out", nil)]) { [[NSAlert alertWithMessageText:@"Login required!" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"Please sign in to Xunlei first!", nil)] runModal];return; }
 
 - (IBAction)startDownloadSelectedTask:(id)sender {
     CHECK_LOGIN
@@ -161,7 +161,7 @@
 
 - (IBAction)toolBarLogin:(id)sender
 {
-    if ([[toobarItemLogin label] isEqualToString:@"Sign in"])
+    if ([[toobarItemLogin label] isEqualToString:NSLocalizedString(@"Sign in", nil)])
     {
         
         [NSApp beginSheet:loginWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
@@ -213,10 +213,10 @@
     NSString *password = [loginPassword stringValue];
     if ([username length] < 3 || [password length] < 6) return;
     [loginProgress startAnimation:self];
-    [(NSButton *)sender setEnabled:NO];
+    [loginButtonOK setEnabled:NO];
     
     [toobarItemLogin setEnabled:NO];
-    [toobarItemLogin setLabel:@"Login..."];
+    [toobarItemLogin setLabel:NSLocalizedString(@"Login...", nil)];
     
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
@@ -231,7 +231,7 @@
                 
                 [loginProgress stopAnimation:self];
                 [NSApp endSheet:loginWindow returnCode:NSOKButton];
-                [toobarItemLogin setLabel:@"Sign out"];
+                [toobarItemLogin setLabel:NSLocalizedString(@"Sign out", nil)];
                 
             });
             
@@ -241,9 +241,9 @@
             dispatch_async( dispatch_get_main_queue(), ^{
 
                 [loginProgress stopAnimation:self];
-                [toobarItemLogin setLabel:@"Sign in"];
-                [[NSAlert alertWithMessageText:@"Login failed" defaultButton:@"OKay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to sign in to Xunlei, please make sure your username & password is correct!"] runModal];
-                [(NSButton *)sender setEnabled:YES];
+                [toobarItemLogin setLabel:NSLocalizedString(@"Sign in", nil)];
+                [[NSAlert alertWithMessageText:NSLocalizedString(@"Login failed", nil) defaultButton:@"OKay" alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"Unable to sign in to Xunlei, please make sure your username & password is correct!", nil)] runModal];
+                [loginButtonOK setEnabled:YES];
                 
             });
         }

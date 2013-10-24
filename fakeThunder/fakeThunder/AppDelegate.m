@@ -63,7 +63,7 @@
                           @selector(sheetClosed:returnCode:contextInfo:),
                           NULL,
                           sender,
-                          @"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task.",
+                          NSLocalizedString(@"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task.", nil),
                           nil);
         return NSTerminateLater;
     } else {

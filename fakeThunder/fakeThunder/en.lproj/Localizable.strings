@@ -1,0 +1,12 @@
+
+"Sign in" = "Sign in";
+"Sign out" = "Sign out";
+"Login..." = "Login...";
+"Failed" = "Failed";
+"Failed to get torrent file list, please make sure there is no same task in your task list." = "Failed to get torrent file list, please make sure there is no same task in your task list.";
+"Please sign in to Xunlei first!" = "Please sign in to Xunlei first!";
+"Login failed" = "Login failed";
+"Unable to sign in to Xunlei, please make sure your username & password is correct!" = "Unable to sign in to Xunlei, please make sure your username & password is correct!";
+"Not support multi files." = "Not support multi files.";
+"Not a torrent file." = "Not a torrent file.";
+"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "Are you sure to quit fakeThunder?\nThis will terminate are your downloading task.";

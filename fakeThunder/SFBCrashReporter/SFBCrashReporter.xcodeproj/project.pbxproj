@@ -190,6 +190,7 @@
 				Japanese,
 				French,
 				German,
+				"zh-Hans",
 			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* SFBCrashReporter */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;

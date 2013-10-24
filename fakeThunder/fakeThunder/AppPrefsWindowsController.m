@@ -55,4 +55,10 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:UD_MAX_TASKS object:self];
 }
+
+- (IBAction)donate:(id)sender
+{
+    NSURL *url = [NSURL URLWithString:@"http://donate.martianz.cn"];
+    [[NSWorkspace sharedWorkspace] openURL:url];
+}
 @end

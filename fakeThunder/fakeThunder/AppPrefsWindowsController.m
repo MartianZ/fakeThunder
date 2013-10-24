@@ -50,4 +50,9 @@
 {
     [[NSWorkspace sharedWorkspace] openURL: [NSURL fileURLWithPath:@"/System/Library/PreferencePanes/Notifications.prefPane"]];
 }
+
+-(IBAction)setMaxTasks:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:UD_MAX_TASKS object:self];
+}
 @end

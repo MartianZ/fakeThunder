@@ -64,29 +64,24 @@
     
     
     NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:UD_SAVE_PATH];
-    NSInteger maxThread = [[NSUserDefaults standardUserDefaults] integerForKey:@"TODO"];
-    NSInteger maxSpeed = [[NSUserDefaults standardUserDefaults] integerForKey:@"TODO"];
+    NSInteger maxSpeed = [[NSUserDefaults standardUserDefaults] integerForKey:UD_TASK_SPEED_LIMIT];
     if (!savePath || [savePath length] == 0) {
-        savePath = @"~/Desktop";
+        savePath = @"~/Downloads";
     }
-    if (maxThread <= 0 || maxThread > 10 || 1) {
-        maxThread = 10;
-    }
-    if (maxSpeed <0 || 1) {
+    
+    if (maxSpeed < 0) {
         maxSpeed = 0;
     }
     
     savePath = [savePath stringByExpandingTildeInPath];
-    NSString *maxThreadStr = [NSString stringWithFormat:@"%ld", maxThread];
     NSString *maxSpeedStr = [NSString stringWithFormat:@"%ldK", maxSpeed];
-    
     if ([self.taskType isEqualToString:@"BTSubtask"]) {
         savePath = [NSString stringWithFormat:@"%@/%@",savePath, self.taskFatherTitle];
     }
     
     
     
-    NSArray *args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",maxThreadStr,@"-x",maxThreadStr,@"-d",savePath,@"--out",[NSString stringWithFormat:@"%@.!", self.title], @"--max-download-limit", maxSpeedStr,@"--header", self.cookies, self.liXianURL, nil];
+    NSArray *args = [NSArray arrayWithObjects:@"--file-allocation=none",@"-c",@"-s",@"10",@"-x",@"10",@"-d",savePath,@"--out",[NSString stringWithFormat:@"%@.!", self.title], @"--max-download-limit", maxSpeedStr,@"--header", self.cookies, self.liXianURL, nil];
 
         
     if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/%@", savePath, self.title]]) {

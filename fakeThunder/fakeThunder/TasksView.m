@@ -68,8 +68,18 @@
                                              selector:@selector(tableViewBoundsChangeNotificationHandler:)
                                                  name:NSViewBoundsDidChangeNotification
                                                object:clipView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setMaxTasks) name:UD_MAX_TASKS object:nil];
+
 }
 
+
+-(void)setMaxTasks
+{
+    NSLog(@"CHANGE MAX TASKS");
+    [operationDownloadQueue setMaxConcurrentOperationCount:[[NSUserDefaults standardUserDefaults] integerForKey:UD_MAX_TASKS]];
+    
+}
 - (void)tableViewBoundsChangeNotificationHandler:(NSNotification *)aNotification
 {
 

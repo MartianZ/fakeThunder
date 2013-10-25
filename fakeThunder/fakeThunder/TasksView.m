@@ -257,6 +257,19 @@
                 TableCellView *cellView = [_tableViewMain viewAtColumn:0 row:index makeIfNecessary:NO];
                 cellView.statusTextField.stringValue = entity.status;
 
+            } else {
+                NSBeginAlertSheet(@"Tip",
+                                  @"OK",
+                                  nil,
+                                  nil,
+                                  _mainWindow,
+                                  self,
+                                  nil,
+                                  nil,
+                                  nil,
+                                  NSLocalizedString(@"Please double-click the BT task to load details.", nil),
+                                  nil);
+
             }
             
             

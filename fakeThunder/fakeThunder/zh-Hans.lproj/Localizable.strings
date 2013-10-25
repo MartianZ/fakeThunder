@@ -10,3 +10,4 @@
 "Not support multi files." = "不支持多个文件";
 "Not a torrent file." = "仅支持种子文件";
 "Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "确定要退出fakeThunder吗？\n这会终止所有的正在下载任务。";
+"Please double-click the BT task to load details." = "请先双击BT任务载入BT子任务。";

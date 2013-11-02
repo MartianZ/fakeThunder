@@ -212,6 +212,10 @@ typedef enum {
 
 //设置Cookies
 -(NSHTTPCookie *) setCookieWithKey:(NSString *) key Value:(NSString *) value{
+    
+    if (key == nil || value == nil) {
+        return nil;
+    }
     //创建一个cookie
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     [properties setObject:value forKey:NSHTTPCookieValue];

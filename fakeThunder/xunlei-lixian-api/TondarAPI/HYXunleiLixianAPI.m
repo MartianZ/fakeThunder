@@ -623,7 +623,12 @@ typedef enum {
     if (array.count > 0) {
         if (dataField == nil) {
             dataField = [self fetchBTFileList:filePath];
+            if (dataField == nil) {
+                return nil;
+            }
         }
+        
+        
         
         int ret_value = [dataField[@"ret_value"] intValue];
         
@@ -678,6 +683,10 @@ typedef enum {
     
     postResult = [postResult stringByReplacingOccurrencesOfString:@"<script>document.domain=\"xunlei.com\";var btResult =" withString:@""];
     postResult = [postResult stringByReplacingOccurrencesOfString:@";var btRtcode = 0</script>" withString:@""];
+    
+    if ([postResult dataUsingEncoding:NSUTF8StringEncoding] == nil) {
+        return nil;
+    }
     
     NSDictionary *dataField = [NSJSONSerialization JSONObjectWithData:[postResult dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error: nil];
     

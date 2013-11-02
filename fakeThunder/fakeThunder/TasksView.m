@@ -112,7 +112,7 @@
             entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
             entity.status = @"Status: Ready";
             entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
-            entity.taskExt = [NSString stringWithFormat:@"%@", task.type];
+            entity.taskExt = [[NSString stringWithFormat:@"%@", task.type] lowercaseString];
             entity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
             entity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
             entity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
@@ -148,7 +148,7 @@
             entity.subtitle = [NSString stringWithFormat:@"%@, Remote Server Progress: %@%%", task.readableSize, task.downloadPercent];
             entity.status = @"Status: Ready";
             entity.taskType = [NSString stringWithFormat:@"%@", task.isBT];
-            entity.taskExt = [NSString stringWithFormat:@"%@", task.type];
+            entity.taskExt = [[NSString stringWithFormat:@"%@", task.type] lowercaseString];
             entity.cookies = [NSString stringWithFormat:@"Cookie:gdriveid=%@;", [TondarAPI GDriveID]];
             entity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
             entity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];

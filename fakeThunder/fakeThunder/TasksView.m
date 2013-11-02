@@ -97,7 +97,7 @@
         
         BOOL hasSameTask = NO;
         for (TaskEntity *oldEntity in _tableContents) {
-            if ([oldEntity.taskID isEqualToString:task.taskid]) {
+            if (oldEntity.taskID && task.taskid && [oldEntity.taskID isEqualToString:task.taskid]) {
                 hasSameTask = YES;
                 break;
             }

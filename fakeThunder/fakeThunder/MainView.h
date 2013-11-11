@@ -10,7 +10,6 @@
 #import "TasksView.h"
 #import <TondarAPI/HYXunleiLixianAPI.h>
 #import <TondarAPI/XunleiItemInfo.h>
-#import "SSKeychain.h"
 #import "DropZoneView.h"
 #import "TorrentView.h"
 #import <Sparkle/SUUpdater.h>
@@ -46,6 +45,7 @@
     IBOutlet NSTabView *torrentTabView;
     DropZoneView *dropZoneView;
 
+    NSUserDefaults *userDefault;
 
     
 }

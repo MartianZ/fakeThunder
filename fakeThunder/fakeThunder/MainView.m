@@ -22,6 +22,7 @@
         NSLog(@"MainView Initing...");
         TondarAPI = [[HYXunleiLixianAPI alloc] init];
         [TondarAPI logOut];
+        userDefault = [NSUserDefaults standardUserDefaults];
         
     }
     
@@ -29,14 +30,19 @@
 }
 
 - (void)windowDidLoad {
-    if ([SSKeychain passwordForService:@"fakeThunder" account:@"username"]) {
-        [loginUsername setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"username"]];
-        [loginPassword setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"password"]];
+    
+    NSString *username = [userDefault stringForKey:@"username"];
+    NSString *password = [userDefault stringForKey:@"password"];
+
+    
+    if (username && [username length] > 0) {
+        [loginUsername setStringValue:username];
+        [loginPassword setStringValue:password];
         
         [NSApp beginSheet:loginWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
         
-        [self loginButtonOk:loginButtonOK];
-
+        [self loginButtonOk:nil];
+        
     }
     
     tasksView = [[TasksView alloc] initWithNibName:@"TasksView" bundle:[NSBundle bundleForClass:[self class]] parentWindow:self.window];
@@ -165,12 +171,6 @@
         
         [NSApp beginSheet:loginWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
         
-        if ([SSKeychain passwordForService:@"fakeThunder" account:@"username"]) {
-            [loginUsername setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"username"]];
-            [loginPassword setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"password"]];
-
-        }
-        
     } else {
         [NSApp beginSheet:logoutWindow modalForWindow:self.window modalDelegate:self didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:NULL];
 
@@ -221,13 +221,19 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
 
         if (![loginWindow isVisible]) { [toobarItemLogin setEnabled:YES]; return; }
-        if ([TondarAPI loginWithUsername:username Password:password]) {
+        if ([TondarAPI loginWithUsername:username Password:password isPasswordEncode:sender == nil]) {
+            //如果sender是nil代表是运行软件时获取加密后的密码自动登录，如果不为nil说明是用户按的按钮
             //LOGIN SUCCESS
 
             dispatch_async( dispatch_get_main_queue(), ^{
-                [SSKeychain setPassword:username forService:@"fakeThunder" account:@"username"];
-                [SSKeychain setPassword:password forService:@"fakeThunder" account:@"password"];
+                //[SSKeychain setPassword:username forService:@"fakeThunder" account:@"username"];
+                //[SSKeychain setPassword:password forService:@"fakeThunder" account:@"password"];
                 
+                if (sender) {
+                    [userDefault setObject:username forKey:@"username"];
+                    [userDefault setObject:[TondarAPI encodePasswordTwiceMD5:password] forKey:@"password"];
+                }
+
                 [loginProgress stopAnimation:self];
                 [NSApp endSheet:loginWindow returnCode:NSOKButton];
                 [toobarItemLogin setLabel:NSLocalizedString(@"Sign out", nil)];
@@ -291,9 +297,10 @@
      [SSKeychain setPassword:username forService:@"fakeThunder" account:@"username"];
      [SSKeychain setPassword:password forService:@"fakeThunder" account:@"password"];
      */
-    [SSKeychain deletePasswordForService:@"fakeThunder" account:@"username"];
-    [SSKeychain deletePasswordForService:@"fakeThunder" account:@"password"];
-    
+    //[SSKeychain deletePasswordForService:@"fakeThunder" account:@"username"];
+    //[SSKeychain deletePasswordForService:@"fakeThunder" account:@"password"];
+    [userDefault removeObjectForKey:@"username"];
+    [userDefault removeObjectForKey:@"password"];
     NSString *launcherSource = [[NSBundle bundleForClass:[SUUpdater class]]  pathForResource:@"relaunch" ofType:@""];
     NSString *launcherTarget = [NSTemporaryDirectory() stringByAppendingPathComponent:[launcherSource lastPathComponent]];
     NSString *appPath = [[NSBundle mainBundle] bundlePath];

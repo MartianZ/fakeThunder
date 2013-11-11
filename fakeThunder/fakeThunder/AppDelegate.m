@@ -25,6 +25,18 @@
 
 @implementation AppDelegate
 
++ (void)initialize {
+	if ( self == [AppDelegate class] ) {
+        //set default preference values
+        NSDictionary *defaultValues = @{UD_PROMPT_BEFORE_QUITTING: @(NO),
+                                        UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK: @(YES),
+                                        UD_CHECK_CRASH_REPORT: @(YES),
+                                        };
+        [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+        [[NSUserDefaultsController sharedUserDefaultsController] setInitialValues:defaultValues];
+    }
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
@@ -43,18 +55,7 @@
         [userDefault setInteger:6 forKey:UD_FIRST_STARTUP];
         [[NSAlert alertWithMessageText:@"Make a donation" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"fakeThunder是一款开源、免费软件，仍有很大的开发空间。非常高兴能够看到fakeThunder能够帮助到您，如果您喜欢这款软件，请考虑捐赠作者以支持后续的开发和维护费用。具体捐赠方式可查看软件偏好设置 - 高级。\n\nfakeThunder is an open source, free software, there is still a lot of space for development. We are very pleased to see that our software can help you make your life better. If you like fakeThunder, consider donating us to support the future development! \n\n感谢您的支持，本对话框不会再次出现。\nThanks for your support, this dialog will not appear again."] runModal];
     }
-    
-    //set default preference settings
-    if ([userDefault objectForKey:UD_PROMPT_BEFORE_QUITTING] == nil) {
-        [userDefault setBool:YES forKey:UD_PROMPT_BEFORE_QUITTING];
-    }
-    if ([userDefault objectForKey:UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK] == nil) {
-        [userDefault setBool:YES forKey:UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK];
-    }
-    if ([userDefault objectForKey:UD_CHECK_CRASH_REPORT] == nil) {
-        [userDefault setBool:YES forKey:UD_CHECK_CRASH_REPORT];
-    }
-    
+
     if ([userDefault boolForKey:UD_CHECK_CRASH_REPORT]) {
         [SFBCrashReporter checkForNewCrashes];
     }

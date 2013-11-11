@@ -44,6 +44,8 @@
         [SFBCrashReporter checkForNewCrashes];
     }
     
+    [NSThread detachNewThreadSelector:@selector(checkUpdate) toTarget:self withObject:nil];
+
 }
 
 - (NSString*)sendRequest:(NSString*)url
@@ -67,7 +69,7 @@
 
 -(void)checkUpdate
 {
-    NSString* serverResponse = [self sendRequest:@"http://martianlaboratory.com/analytics/dynamiclyrics/20131023"];
+    NSString* serverResponse = [self sendRequest:@"http://martianlaboratory.com/analytics/fakethunder/20131023"];
     
     if (serverResponse && [serverResponse isEqualToString:@"Update"])
     {

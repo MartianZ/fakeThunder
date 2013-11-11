@@ -301,6 +301,7 @@
     //[SSKeychain deletePasswordForService:@"fakeThunder" account:@"password"];
     [userDefault removeObjectForKey:@"username"];
     [userDefault removeObjectForKey:@"password"];
+    [userDefault synchronize];
     NSString *launcherSource = [[NSBundle bundleForClass:[SUUpdater class]]  pathForResource:@"relaunch" ofType:@""];
     NSString *launcherTarget = [NSTemporaryDirectory() stringByAppendingPathComponent:[launcherSource lastPathComponent]];
     NSString *appPath = [[NSBundle mainBundle] bundlePath];

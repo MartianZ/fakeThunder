@@ -145,11 +145,11 @@
                                     <connections>
                                         <binding destination="132" name="title" keyPath="values.UserDefaultSavePathDisplay" id="Ju7-fF-mvk">
                                             <dictionary key="options">
-                                                <string key="NSNullPlaceholder">Downloads</string>
+                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <string key="NSNotApplicablePlaceholder">Downloads</string>
                                                 <string key="NSNoSelectionPlaceholder">Downloads</string>
-                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                <string key="NSNullPlaceholder">Downloads</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -231,11 +231,11 @@
                         <binding destination="132" name="value" keyPath="values.UserDefaultMaxTasks" id="xDA-tS-SrU">
                             <dictionary key="options">
                                 <bool key="NSValidatesImmediately" value="YES"/>
-                                <string key="NSNullPlaceholder">3</string>
+                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <string key="NSNotApplicablePlaceholder">3</string>
                                 <string key="NSNoSelectionPlaceholder">3</string>
-                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <string key="NSNullPlaceholder">3</string>
                             </dictionary>
                         </binding>
                     </connections>
@@ -243,7 +243,7 @@
                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="tSi-NN-7Mq">
                     <rect key="frame" x="376" y="78" width="19" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="10" doubleValue="3" id="Fdp-9V-o1Y"/>
+                    <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="30" doubleValue="3" id="Fdp-9V-o1Y"/>
                     <connections>
                         <action selector="setMaxTasks:" target="-2" id="P0a-AR-nHy"/>
                         <binding destination="132" name="value" keyPath="values.UserDefaultMaxTasks" id="HXR-JW-dSL">

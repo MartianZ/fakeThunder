@@ -64,7 +64,7 @@
                     </connections>
                 </button>
                 <button id="56">
-                    <rect key="frame" x="185" y="210" width="135" height="18"/>
+                    <rect key="frame" x="185" y="210" width="157" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="退出 fakeThunder 前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="57">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

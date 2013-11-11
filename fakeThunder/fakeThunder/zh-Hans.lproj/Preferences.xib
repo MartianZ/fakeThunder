@@ -64,7 +64,7 @@
                     </connections>
                 </button>
                 <button id="56">
-                    <rect key="frame" x="185" y="210" width="123" height="18"/>
+                    <rect key="frame" x="185" y="210" width="135" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="退出 fakeThunder 前" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="57">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -145,11 +145,11 @@
                                     <connections>
                                         <binding destination="132" name="title" keyPath="values.UserDefaultSavePathDisplay" id="Ju7-fF-mvk">
                                             <dictionary key="options">
-                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
+                                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 <string key="NSNotApplicablePlaceholder">Downloads</string>
                                                 <string key="NSNoSelectionPlaceholder">Downloads</string>
-                                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                                 <string key="NSNullPlaceholder">Downloads</string>
+                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -231,11 +231,11 @@
                         <binding destination="132" name="value" keyPath="values.UserDefaultMaxTasks" id="xDA-tS-SrU">
                             <dictionary key="options">
                                 <bool key="NSValidatesImmediately" value="YES"/>
-                                <string key="NSMultipleValuesPlaceholder">3</string>
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 <string key="NSNotApplicablePlaceholder">3</string>
                                 <string key="NSNoSelectionPlaceholder">3</string>
-                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 <string key="NSNullPlaceholder">3</string>
+                                <string key="NSMultipleValuesPlaceholder">3</string>
                             </dictionary>
                         </binding>
                     </connections>

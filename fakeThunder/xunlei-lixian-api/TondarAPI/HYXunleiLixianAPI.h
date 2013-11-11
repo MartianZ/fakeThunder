@@ -38,7 +38,8 @@ typedef enum{
 -(BOOL) hasCookie:(NSString*) aKey;
 #pragma mark - Login/LogOut Methods
 //Login
--(BOOL) loginWithUsername:(NSString *) aName Password:(NSString *) aPassword;
+-(BOOL) loginWithUsername:(NSString *) aName Password:(NSString *) aPassword isPasswordEncode:(BOOL)passwordEncode;
+-(NSString *)encodePasswordTwiceMD5:(NSString *)aPassword;
 -(BOOL) isLogin;
 -(void) logOut;
 #pragma mark - UserID,UserNmae

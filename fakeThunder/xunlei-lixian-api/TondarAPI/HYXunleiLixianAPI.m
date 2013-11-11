@@ -51,12 +51,13 @@ typedef enum {
 /**
  *  登陆方法
  */
--(BOOL) loginWithUsername:(NSString *) aName Password:(NSString *) aPassword{
+-(BOOL) loginWithUsername:(NSString *) aName Password:(NSString *) aPassword isPasswordEncode:(BOOL)passwordEncode{
     NSString *vCode=[self _verifyCode:aName];
     if ([vCode compare:@"0"]==NSOrderedSame) {
         return NO;
     }
-    NSString *enPassword=[self _encodePassword:aPassword withVerifyCode:vCode];
+    
+    NSString *enPassword=passwordEncode ? [md5 md5HexDigestwithString:[NSString stringWithFormat:@"%@%@",aPassword,[vCode uppercaseString]]] : [self _encodePassword:aPassword withVerifyCode:vCode];
     
     //第一步登陆，验证用户名密码
     NSURL *url = [NSURL URLWithString:LoginURL];
@@ -94,6 +95,10 @@ typedef enum {
     }else {
         return NO;
     }
+}
+
+-(NSString *)encodePasswordTwiceMD5:(NSString *)aPassword {
+    return [md5 md5HexDigestwithString:([md5 md5HexDigestwithString:aPassword])];
 }
 
 //加密密码

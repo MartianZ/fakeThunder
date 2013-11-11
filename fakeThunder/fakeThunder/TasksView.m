@@ -354,10 +354,14 @@
     if (row != -1) {
         TaskEntity *entity = [self _entityForRow:row];
         
+        if (!entity) {
+            return;
+        }
+        
         NSString *savePath = [[NSUserDefaults standardUserDefaults] objectForKey:UD_SAVE_PATH];
 
         if (!savePath || [savePath length] == 0) {
-            savePath = @"~/Desktop";
+            savePath = @"~/Downloads";
         }
         
         

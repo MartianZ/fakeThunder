@@ -11,3 +11,5 @@
 "Not a torrent file." = "仅支持种子文件";
 "Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "确定要退出fakeThunder吗？\n这会终止所有的正在下载任务。";
 "Please double-click the BT task to load details." = "请先双击BT任务载入BT子任务。";
+"SoftwareUpdateTitle" = "软件更新提示";
+"SoftwareUpdate" = "软件检测到已经您当前的版本已经过期，新版本已经发布，请在软件中运行“检查更新”下载新版本！";

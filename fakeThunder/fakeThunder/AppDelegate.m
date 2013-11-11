@@ -46,6 +46,35 @@
     
 }
 
+- (NSString*)sendRequest:(NSString*)url
+{
+	NSString *urlString = url;
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	[request setURL:[NSURL URLWithString:urlString]];
+	[request setHTTPMethod:@"GET"];
+    NSString *contentType = [NSString stringWithFormat:@"text/xml"];
+	[request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+	
+	NSHTTPURLResponse* urlResponse = nil;
+	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:NULL];
+	NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding] autorelease];
+    //0x80000632 gb2312
+	[request release];
+    if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] < 300)
+		return result;
+    return NULL;
+}
+
+-(void)checkUpdate
+{
+    NSString* serverResponse = [self sendRequest:@"http://martianlaboratory.com/analytics/dynamiclyrics/20131023"];
+    
+    if (serverResponse && [serverResponse isEqualToString:@"Update"])
+    {
+        NSRunAlertPanel(NSLocalizedString(@"SoftwareUpdateTitle", nil), NSLocalizedString(@"SoftwareUpdate", nil), @"OK", nil, nil);
+    }
+}
+
 - (void)sheetClosed:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
     return [(NSApplication *)contextInfo replyToApplicationShouldTerminate:returnCode == NSAlertDefaultReturn];

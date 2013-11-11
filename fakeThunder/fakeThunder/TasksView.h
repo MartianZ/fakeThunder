@@ -40,6 +40,9 @@
     BOOL _isLoadingTask;
     NSUInteger _currentPage;
     NSWindow *_mainWindow;
+    
+    NSMutableSet *deleteWorkingSet;
+
 }
 
 

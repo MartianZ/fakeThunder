@@ -39,7 +39,8 @@
         operationDownloadQueue = [[NSOperationQueue alloc] init];
         [operationDownloadQueue setMaxConcurrentOperationCount:3];
 
-        
+        deleteWorkingSet = [[NSMutableSet alloc] init];
+
 
     }
     
@@ -405,6 +406,11 @@
 - (IBAction)btnRemoveRowClick:(id)sender {
     NSInteger row = [_tableViewMain rowForView:sender];
     if (row != -1) {
+        
+        if (deleteWorkingSet == nil) {
+            deleteWorkingSet = [[NSMutableSet alloc] init];
+        }
+        
         TaskEntity *entity = [self _entityForRow:row];
         
         
@@ -423,14 +429,21 @@
                               nil);
             
         } else {
-            [TondarAPI deleteSingleTaskByID:entity.taskID];
-            if (entity.downloadOperaion) {
-                entity.needToStop = YES;
-                [entity.downloadOperaion cancel];
-            }
-        
-            [_tableContents removeObjectAtIndex:row];
-            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
+            if ([deleteWorkingSet containsObject:entity.taskID]) return;
+            [deleteWorkingSet addObject:entity.taskID];
+
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+                [TondarAPI deleteSingleTaskByID:entity.taskID];
+                if (entity.downloadOperaion) {
+                    entity.needToStop = YES;
+                    [entity.downloadOperaion cancel];
+                }
+                dispatch_async( dispatch_get_main_queue(), ^{
+                    [deleteWorkingSet removeObject:entity.taskID];
+                    [_tableContents removeObjectAtIndex:row];
+                    [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectFade];
+                });
+            });
         
         }
     }

@@ -15,15 +15,6 @@
 		024C875B15DBA755003EF1F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 024C875A15DBA755003EF1F3 /* AppDelegate.m */; };
 		024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 024C875C15DBA756003EF1F3 /* MainMenu.xib */; };
 		024C878415DBA7A6003EF1F3 /* fakeThunder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 024C878315DBA7A6003EF1F3 /* fakeThunder.icns */; };
-		026272B915DBD71300139521 /* icon_taskbar_remove.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B615DBD71300139521 /* icon_taskbar_remove.png */; };
-		026272BA15DBD71300139521 /* icon_taskbar_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B715DBD71300139521 /* icon_taskbar_start.png */; };
-		026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 026272B815DBD71300139521 /* icon_taskbar_stop.png */; };
-		0295F2AF15DBADE500529BA5 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2AD15DBADE500529BA5 /* 1.png */; };
-		0295F2B015DBADE500529BA5 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2AE15DBADE500529BA5 /* 1@2x.png */; };
-		0295F2B315DBADED00529BA5 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2B115DBADED00529BA5 /* 3.png */; };
-		0295F2B415DBADED00529BA5 /* 3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2B215DBADED00529BA5 /* 3@2x.png */; };
-		0295F2B715DBAE3900529BA5 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2B515DBAE3900529BA5 /* 10.png */; };
-		0295F2B815DBAE3900529BA5 /* 10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0295F2B615DBAE3900529BA5 /* 10@2x.png */; };
 		0295F2D115DBB56400529BA5 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2CF15DBB56400529BA5 /* MainView.m */; };
 		0295F2D615DBB6AD00529BA5 /* TasksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0295F2D415DBB6AD00529BA5 /* TasksView.m */; };
 		CA1892AC1814F14F00EA4352 /* DropZoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1892A71814EE1800EA4352 /* DropZoneView.m */; };
@@ -36,6 +27,11 @@
 		CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D418163FA100EA4352 /* Bandwidth@2x.png */; };
 		CA1892D9181641B200EA4352 /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D7181641B200EA4352 /* General.png */; };
 		CA1892DA181641B200EA4352 /* General@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1892D8181641B200EA4352 /* General@2x.png */; };
+		CA424CD7183132990071AB0F /* addTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CA424CD2183132990071AB0F /* addTemplate.png */; };
+		CA424CD8183132990071AB0F /* addTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA424CD3183132990071AB0F /* addTemplate@2x.png */; };
+		CA424CD9183132990071AB0F /* startTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CA424CD4183132990071AB0F /* startTemplate.png */; };
+		CA424CDA183132990071AB0F /* startTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA424CD5183132990071AB0F /* startTemplate@2x.png */; };
+		CA424CDB183132990071AB0F /* stopTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CA424CD6183132990071AB0F /* stopTemplate.png */; };
 		CA6B5A7B1812657600B14CD2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6B5A7A1812657600B14CD2 /* Security.framework */; };
 		CA6B5A81181265C900B14CD2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A80181265A700B14CD2 /* SSKeychain.m */; };
 		CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B5A831812BEC400B14CD2 /* DownloadOperation.m */; };
@@ -135,15 +131,6 @@
 		024C875D15DBA756003EF1F3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		024C876515DBA756003EF1F3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		024C878315DBA7A6003EF1F3 /* fakeThunder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = fakeThunder.icns; path = ../fakeThunder.icns; sourceTree = "<group>"; };
-		026272B615DBD71300139521 /* icon_taskbar_remove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_remove.png; sourceTree = "<group>"; };
-		026272B715DBD71300139521 /* icon_taskbar_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_start.png; sourceTree = "<group>"; };
-		026272B815DBD71300139521 /* icon_taskbar_stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_taskbar_stop.png; sourceTree = "<group>"; };
-		0295F2AD15DBADE500529BA5 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		0295F2AE15DBADE500529BA5 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
-		0295F2B115DBADED00529BA5 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		0295F2B215DBADED00529BA5 /* 3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3@2x.png"; sourceTree = "<group>"; };
-		0295F2B515DBAE3900529BA5 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
-		0295F2B615DBAE3900529BA5 /* 10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10@2x.png"; sourceTree = "<group>"; };
 		0295F2CE15DBB56400529BA5 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		0295F2CF15DBB56400529BA5 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		0295F2D315DBB6AD00529BA5 /* TasksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksView.h; sourceTree = "<group>"; };
@@ -162,6 +149,11 @@
 		CA1892D418163FA100EA4352 /* Bandwidth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bandwidth@2x.png"; sourceTree = "<group>"; };
 		CA1892D7181641B200EA4352 /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
 		CA1892D8181641B200EA4352 /* General@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "General@2x.png"; sourceTree = "<group>"; };
+		CA424CD2183132990071AB0F /* addTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addTemplate.png; sourceTree = "<group>"; };
+		CA424CD3183132990071AB0F /* addTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addTemplate@2x.png"; sourceTree = "<group>"; };
+		CA424CD4183132990071AB0F /* startTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startTemplate.png; sourceTree = "<group>"; };
+		CA424CD5183132990071AB0F /* startTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startTemplate@2x.png"; sourceTree = "<group>"; };
+		CA424CD6183132990071AB0F /* stopTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopTemplate.png; sourceTree = "<group>"; };
 		CA6B5A7A1812657600B14CD2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CA6B5A7F181265A700B14CD2 /* SSKeychain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		CA6B5A80181265A700B14CD2 /* SSKeychain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
@@ -290,6 +282,7 @@
 		024C877F15DBA787003EF1F3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CA424CD1183132930071AB0F /* images */,
 				CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */,
 				CA1892D7181641B200EA4352 /* General.png */,
 				CA1892D8181641B200EA4352 /* General@2x.png */,
@@ -308,15 +301,6 @@
 			children = (
 				CAAD78E61811888F008168C2 /* taskitem_bt.png */,
 				CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */,
-				0295F2AD15DBADE500529BA5 /* 1.png */,
-				0295F2AE15DBADE500529BA5 /* 1@2x.png */,
-				0295F2B115DBADED00529BA5 /* 3.png */,
-				0295F2B215DBADED00529BA5 /* 3@2x.png */,
-				0295F2B515DBAE3900529BA5 /* 10.png */,
-				0295F2B615DBAE3900529BA5 /* 10@2x.png */,
-				026272B615DBD71300139521 /* icon_taskbar_remove.png */,
-				026272B715DBD71300139521 /* icon_taskbar_start.png */,
-				026272B815DBD71300139521 /* icon_taskbar_stop.png */,
 			);
 			name = SmallIcon;
 			sourceTree = "<group>";
@@ -352,6 +336,18 @@
 				CAA439C918193AEC00CE8EB5 /* Preferences.xib */,
 			);
 			name = PrefsWindow;
+			sourceTree = "<group>";
+		};
+		CA424CD1183132930071AB0F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CA424CD2183132990071AB0F /* addTemplate.png */,
+				CA424CD3183132990071AB0F /* addTemplate@2x.png */,
+				CA424CD4183132990071AB0F /* startTemplate.png */,
+				CA424CD5183132990071AB0F /* startTemplate@2x.png */,
+				CA424CD6183132990071AB0F /* stopTemplate.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		CAA439AE181834F300CE8EB5 /* Products */ = {
@@ -491,19 +487,13 @@
 				024C875215DBA755003EF1F3 /* Localizable.strings in Resources */,
 				024C875815DBA755003EF1F3 /* Credits.rtf in Resources */,
 				024C875E15DBA756003EF1F3 /* MainMenu.xib in Resources */,
+				CA424CDA183132990071AB0F /* startTemplate@2x.png in Resources */,
 				024C878415DBA7A6003EF1F3 /* fakeThunder.icns in Resources */,
-				0295F2AF15DBADE500529BA5 /* 1.png in Resources */,
-				0295F2B015DBADE500529BA5 /* 1@2x.png in Resources */,
+				CA424CD7183132990071AB0F /* addTemplate.png in Resources */,
 				CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */,
-				0295F2B315DBADED00529BA5 /* 3.png in Resources */,
-				0295F2B415DBADED00529BA5 /* 3@2x.png in Resources */,
-				0295F2B715DBAE3900529BA5 /* 10.png in Resources */,
-				0295F2B815DBAE3900529BA5 /* 10@2x.png in Resources */,
 				CAA439CC18193B5F00CE8EB5 /* MainView.xib in Resources */,
 				CAA439D018193B6C00CE8EB5 /* TasksView.xib in Resources */,
-				026272B915DBD71300139521 /* icon_taskbar_remove.png in Resources */,
-				026272BA15DBD71300139521 /* icon_taskbar_start.png in Resources */,
-				026272BB15DBD71300139521 /* icon_taskbar_stop.png in Resources */,
+				CA424CD8183132990071AB0F /* addTemplate@2x.png in Resources */,
 				CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */,
 				CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */,
 				CAAD78EB181197E3008168C2 /* aria2c in Resources */,
@@ -513,7 +503,9 @@
 				CAA439C718193AEC00CE8EB5 /* Preferences.xib in Resources */,
 				CA1892D518163FA100EA4352 /* Bandwidth.png in Resources */,
 				CA1892D618163FA100EA4352 /* Bandwidth@2x.png in Resources */,
+				CA424CD9183132990071AB0F /* startTemplate.png in Resources */,
 				CA1892D9181641B200EA4352 /* General.png in Resources */,
+				CA424CDB183132990071AB0F /* stopTemplate.png in Resources */,
 				CA1892DA181641B200EA4352 /* General@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

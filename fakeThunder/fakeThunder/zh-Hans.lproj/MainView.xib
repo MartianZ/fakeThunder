@@ -40,14 +40,14 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="28"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="31"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSeparatorItem" id="33"/>
-                    <toolbarItem implicitItemIdentifier="84D9EB83-0539-4BFD-B787-A2995CBE9D4F" label="添加任务" paletteLabel="添加任务" image="1" id="42">
+                    <toolbarItem implicitItemIdentifier="84D9EB83-0539-4BFD-B787-A2995CBE9D4F" label="添加任务" paletteLabel="添加任务" image="addTemplate" id="42">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="40">
                             <rect key="frame" x="0.0" y="14" width="60" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="1" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="41">
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="addTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="41">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -56,14 +56,14 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="75FABBF2-3312-4F89-9AAC-07EB0233E076" label="刷新" paletteLabel="刷新" image="10" id="48">
+                    <toolbarItem implicitItemIdentifier="75FABBF2-3312-4F89-9AAC-07EB0233E076" label="刷新" paletteLabel="刷新" image="NSRefreshTemplate" id="48">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="46">
                             <rect key="frame" x="0.0" y="14" width="60" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="10" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="47">
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="47">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -72,14 +72,14 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="57CC4C48-5D8D-4AA3-869F-7B68290E5621" label="登录" paletteLabel="登录" image="3" id="51">
+                    <toolbarItem implicitItemIdentifier="57CC4C48-5D8D-4AA3-869F-7B68290E5621" label="登录" paletteLabel="登录" image="NSUser" id="51">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="49">
                             <rect key="frame" x="0.0" y="14" width="60" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="3" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="50">
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSUser" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="50">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -88,14 +88,14 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D370C0A8-C246-4F8C-947C-3348FE619E6E" label="开始" paletteLabel="开始" image="icon_taskbar_start" id="52">
+                    <toolbarItem implicitItemIdentifier="D370C0A8-C246-4F8C-947C-3348FE619E6E" label="开始" paletteLabel="开始" image="startTemplate" id="52">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="53">
                             <rect key="frame" x="0.0" y="14" width="60" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="icon_taskbar_start" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="54">
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="startTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="54">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -104,14 +104,14 @@
                             </connections>
                         </button>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="6295822C-65A3-4A6C-AFA3-8BC4C2E4ACEF" label="停止" paletteLabel="停止" image="icon_taskbar_stop" id="55">
+                    <toolbarItem implicitItemIdentifier="6295822C-65A3-4A6C-AFA3-8BC4C2E4ACEF" label="停止" paletteLabel="停止" image="stopTemplate" id="55">
                         <nil key="toolTip"/>
                         <size key="minSize" width="60" height="25"/>
                         <size key="maxSize" width="60" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="56">
                             <rect key="frame" x="0.0" y="14" width="60" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="icon_taskbar_stop" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="57">
+                            <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="stopTemplate" imagePosition="only" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="57">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -420,12 +420,12 @@ Gw
         </window>
     </objects>
     <resources>
-        <image name="1" width="32" height="32"/>
-        <image name="10" width="32" height="32"/>
-        <image name="3" width="32" height="32"/>
+        <image name="NSRefreshTemplate" width="10" height="12"/>
+        <image name="NSUser" width="32" height="32"/>
+        <image name="addTemplate" width="10" height="13"/>
         <image name="drag_icon" width="64" height="64"/>
         <image name="fakeThunder" width="512" height="512"/>
-        <image name="icon_taskbar_start" width="16" height="16"/>
-        <image name="icon_taskbar_stop" width="16" height="16"/>
+        <image name="startTemplate" width="11" height="12"/>
+        <image name="stopTemplate" width="11" height="11"/>
     </resources>
 </document>

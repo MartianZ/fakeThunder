@@ -430,10 +430,13 @@
             
             TaskLoaderEntity *loderEntity = [TaskLoaderEntity entityNew];
 
-            [_tableContents insertObject:loderEntity atIndex:row];
-            [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectNone];
-            [_tableContents removeObjectAtIndex:row+1];
-            [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:NSTableViewAnimationEffectNone];
+            @synchronized(_tableContents) {
+                [_tableContents insertObject:loderEntity atIndex:row];
+                [_tableViewMain insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:row] withAnimation:NSTableViewAnimationEffectNone];
+                [_tableContents removeObjectAtIndex:row+1];
+                [_tableViewMain removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:row+1] withAnimation:NSTableViewAnimationEffectNone];
+                
+            }
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
                 
@@ -450,10 +453,16 @@
                     newEntity.liXianURL = [NSString stringWithFormat:@"%@", task.downloadURL];
                     newEntity.taskDcid = [NSString stringWithFormat:@"%@", task.dcid];
                     newEntity.taskFatherTitle = entity.title;
-                    [_tableContents insertObject:newEntity atIndex:row + 1];
+                    @synchronized(_tableContents) {
+                        [_tableContents insertObject:newEntity atIndex:row + 1];
+
+                    }
 
                 }
-                [_tableContents removeObjectAtIndex:row];
+                @synchronized(_tableContents) {
+                    [_tableContents removeObjectAtIndex:row];
+
+                }
 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableViewMain reloadData];

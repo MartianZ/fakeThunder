@@ -19,7 +19,7 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-        NSLog(@"MainView Init");
+        NSLog(@"MainView Initing...");
         TondarAPI = [[HYXunleiLixianAPI alloc] init];
         [TondarAPI logOut];
         
@@ -29,8 +29,7 @@
 }
 
 - (void)windowDidLoad {
-    if ([SSKeychain passwordForService:@"fakeThunder" account:@"username"]
-        && [[SSKeychain passwordForService:@"fakeThunder" account:@"username"] length] > 0) {
+    if ([SSKeychain passwordForService:@"fakeThunder" account:@"username"]) {
         [loginUsername setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"username"]];
         [loginPassword setStringValue:[SSKeychain passwordForService:@"fakeThunder" account:@"password"]];
         

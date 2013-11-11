@@ -692,7 +692,8 @@ typedef enum {
     
     postResult = [postResult stringByReplacingOccurrencesOfString:@"<script>document.domain=\"xunlei.com\";var btResult =" withString:@""];
     postResult = [postResult stringByReplacingOccurrencesOfString:@";var btRtcode = 0</script>" withString:@""];
-    
+    postResult = [postResult stringByReplacingOccurrencesOfString:@";</script>" withString:@""];
+
     if ([postResult dataUsingEncoding:NSUTF8StringEncoding] == nil) {
         return nil;
     }

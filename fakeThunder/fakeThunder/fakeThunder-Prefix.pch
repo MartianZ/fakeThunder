@@ -8,8 +8,8 @@
 
 #import "Constants.h"
 
-#ifndef __OPTIMIZE__
-#    define NSLog(s, ...) NSLog( @"<%s : (%d)> %@",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
-#else
-#    define NSLog(...) {} //Disable NSLog
-#endif
+//#ifndef __OPTIMIZE__
+//#    define NSLog(s, ...) NSLog( @"<%s : (%d)> %@",__FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
+//#else
+//#    define NSLog(...) {} //Disable NSLog
+//#endif

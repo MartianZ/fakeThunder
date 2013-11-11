@@ -1,7 +1,9 @@
-Aria2c[改]
+aria2c[改]
 ===========
 
-偶尔需要调整一下aria2c的部分设定，满足需求。
+偶尔需要调整一下aria2c的部分设定，满足需求
+
+fakeThunder 1.0版本采用aria2c 1.51.1版本，fakeThunder 2.0采用aria2c 1.18版本
 
 ###目前修改的内容：
 

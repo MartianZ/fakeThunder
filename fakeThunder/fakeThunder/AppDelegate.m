@@ -85,7 +85,7 @@
 
 -(void)checkUpdate
 {
-    NSString* serverResponse = [self sendRequest:@"http://martianlaboratory.com/analytics/fakethunder/20131111"];
+    NSString* serverResponse = [self sendRequest:@"http://martianlaboratory.com/analytics/fakethunder/20131112"];
     
     if (serverResponse && [serverResponse isEqualToString:@"Update"])
     {

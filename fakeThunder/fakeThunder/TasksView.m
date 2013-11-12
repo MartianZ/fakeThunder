@@ -368,7 +368,7 @@
         
         savePath = [savePath stringByExpandingTildeInPath];
 
-        if ([entity.taskType isEqualToString:@"BTSubtask"]) {
+        if (entity && entity.taskType && [entity.taskType isEqualToString:@"BTSubtask"]) {
             savePath = [NSString stringWithFormat:@"%@/%@/%@",savePath, entity.taskFatherTitle, entity.title];
         } else {
             savePath = [NSString stringWithFormat:@"%@/%@",savePath, entity.title];

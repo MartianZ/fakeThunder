@@ -1,15 +1,14 @@
-
 "Sign in" = "Sign in";
 "Sign out" = "Sign out";
 "Login..." = "Login...";
 "Failed" = "Failed";
-"Failed to get torrent file list, please make sure there is no same task in your task list." = "Failed to get torrent file list, please make sure there is no same task in your task list.";
+"Failed to get torrent file list, please make sure there is no same task in your task list." = "Failed to get torrent file list, please make sure that no duplicated task exists in your task list.";
 "Please sign in to Xunlei first!" = "Please sign in to Xunlei first!";
 "Login failed" = "Login failed";
-"Unable to sign in to Xunlei, please make sure your username & password is correct!" = "Unable to sign in to Xunlei, please make sure your username & password is correct!";
+"Unable to sign in to Xunlei, please make sure your username & password is correct!" = "Unable to sign in to Xunlei. Please make sure your username & password is correct!";
 "Not support multi files." = "Not support multi files.";
 "Not a torrent file." = "Not a torrent file.";
-"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "Are you sure to quit fakeThunder?\nThis will terminate are your downloading task.";
+"Are you sure to quit fakeThunder?\nThis will terminate are your downloading task." = "Are you sure you want to quit fakeThunder?\nThis will terminate your active downloading tasks.";
 "Please double-click the BT task to load details." = "Please double-click the BT task to load details.";
 "SoftwareUpdateTitle" = "Software Update";
-"SoftwareUpdate" = "A new version of fakeThunder is available! Please click \"Check for Updates\" menu to update your software automatically.";
+"SoftwareUpdate" = "A new version of fakeThunder is available! Please click \"Check for Updates\" from FakeThunder menu to update.";

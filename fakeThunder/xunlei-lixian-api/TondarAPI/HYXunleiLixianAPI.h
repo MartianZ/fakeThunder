@@ -118,4 +118,6 @@ typedef enum{
 - (NSString *)addBTTask:(NSString *)filePath selection:(NSArray *)array hasFetchedFileList:(NSDictionary *)dataField;
 - (NSDictionary *)fetchBTFileList:(NSString *)filePath;
 - (NSString *)fileSize:(float)size; //一个根据length返回文件大小的方法
+
+-(NSString *)getCloudPlayData:(NSString *)url;
 @end

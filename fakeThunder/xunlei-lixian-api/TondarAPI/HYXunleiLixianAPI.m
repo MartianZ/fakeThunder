@@ -225,7 +225,7 @@ typedef enum {
     NSMutableDictionary *properties = [NSMutableDictionary dictionary];
     [properties setObject:value forKey:NSHTTPCookieValue];
     [properties setObject:key forKey:NSHTTPCookieName];
-    [properties setObject:@".vip.xunlei.com" forKey:NSHTTPCookieDomain];
+    [properties setObject:@".xunlei.com" forKey:NSHTTPCookieDomain];
     [properties setObject:@"/" forKey:NSHTTPCookiePath];
     [properties setObject:[[NSDate date] dateByAddingTimeInterval:2629743] forKey:NSHTTPCookieExpires];
     //这里是关键，不要写成@"FALSE",而是应该直接写成TRUE 或者 FALSE，否则会默认为TRUE
@@ -234,6 +234,8 @@ typedef enum {
     NSHTTPCookieStorage *cookieStorage=[NSHTTPCookieStorage sharedHTTPCookieStorage];
     [cookieStorage setCookieAcceptPolicy:NSHTTPCookieAcceptPolicyAlways];
     [cookieStorage setCookie:cookie];
+    
+    
     
     return cookie;
 }
@@ -1044,6 +1046,24 @@ typedef enum {
     return returnResult;
 }
 #pragma mark - Yun ZhuanMa Methods
+
+-(NSString *)getCloudPlayData:(NSString *)url {
+    
+    NSString *encodedValue = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(nil,(CFStringRef)url, nil,(CFStringRef)@"!*'();:@&=+$,/?%#[]", kCFStringEncodingUTF8);
+    
+    NSString *urlString=[NSString stringWithFormat:@"http://i.vod.xunlei.com/req_get_method_vod?url=%@&platform=1&jsonp=jsonp1234567890&userid=%@&sessionid=%@",encodedValue, [self userID], [self cookieValueWithName:@"sessionid"]];
+    NSLog(@"%@", urlString);
+    
+    //获取BT task页面内容
+    LCHTTPConnection *request=[LCHTTPConnection new];
+    
+    NSString* siteData=[[[request get:urlString] stringByReplacingOccurrencesOfString:@"jsonp1234567890(" withString:@""] stringByReplacingOccurrencesOfString:@"})" withString:@"}"];
+    
+    NSLog(@"%@", [siteData objectFromJSONString]);
+    
+    return siteData;
+}
+
 //Yun Zhuan Ma
 -(BOOL) addYunTaskWithFileSize:(NSString*) size downloadURL:(NSString*) url dcid:(NSString*) cid fileName:(NSString*) aName Quality:(YUNZHUANMAQuality) q{
     NSString *gcid=[ParseElements GCID:url];

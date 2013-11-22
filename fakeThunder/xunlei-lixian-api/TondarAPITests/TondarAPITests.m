@@ -9,7 +9,7 @@
 #import "TondarAPITests.h"
 #import <TondarAPI/HYXunleiLixianAPI.h>
 #import <TondarAPI/XunleiItemInfo.h>
-
+#import "LCHTTPConnection.h"
 @implementation TondarAPITests
 
 - (void)setUp
@@ -34,20 +34,24 @@
 #define USERNAME @"xunlei@binux.me"
 #define pwd @"loliluloli"
     
-    if ([TondarAPI loginWithUsername:USERNAME Password:pwd]) {
+    if ([TondarAPI loginWithUsername:USERNAME Password:pwd isPasswordEncode:NO]) {
         NSLog(@"LOGIN SUCCESS: %@", [TondarAPI userID]);
-        /*
+        
         //获取全部已经完成任务
-        for (XunleiItemInfo *task in [TondarAPI readAllOutofDateTasks]) {
-            NSLog(@"%@", task.readableSize);
-        }
-//         */
+        
+        XunleiItemInfo *task = [[TondarAPI readAllTasks1] objectAtIndex:0];
+        NSLog(@"%@", task.downloadURL);
+        
+        NSLog(@"%@", [TondarAPI getCloudPlayData:task.downloadURL]);
+        
+
+//
          NSLog(@"Gdriveid:%@", [TondarAPI GDriveID]);
         
-        NSDictionary *temp = [TondarAPI fetchBTFileList:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent"];
+        //NSDictionary *temp = [TondarAPI fetchBTFileList:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent"];
         
-        NSLog(@"%@", temp);
-        [TondarAPI addBTTask:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent" selection:[NSArray arrayWithObjects:@"0", @"1", nil] hasFetchedFileList:temp];
+        //NSLog(@"%@", temp);
+        //[TondarAPI addBTTask:@"/Users/MartianZ/Downloads/ec003910b17c2548.torrent" selection:[NSArray arrayWithObjects:@"0", @"1", nil] hasFetchedFileList:temp];
         
         /*
         NSString* cookie=[NSString stringWithFormat:@"\"Cookie: gdriveid=%@;\"",[TondarAPI GDriveID]];

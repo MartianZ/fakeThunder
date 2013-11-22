@@ -31,6 +31,7 @@
 @synthesize statusTextField;
 @synthesize removeButton;
 @synthesize openButton;
+@synthesize playButton;
 
 
 @end

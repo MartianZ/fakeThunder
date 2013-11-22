@@ -30,7 +30,7 @@
     IBOutlet NSProgressIndicator *progessIndicator;
     IBOutlet NSButton *removeButton;
     IBOutlet NSButton *openButton;
-
+    IBOutlet NSButton *playButton;
 }
 
 
@@ -40,6 +40,7 @@
 @property(assign) NSProgressIndicator *progessIndicator;
 @property(assign) NSButton *removeButton;
 @property(assign) NSButton *openButton;
+@property(assign) NSButton *playButton;
 
 
 

@@ -25,14 +25,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="830" height="431"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
-                                <scrollView autohidesScrollers="YES" horizontalLineScroll="67" horizontalPageScroll="10" verticalLineScroll="67" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="219">
+                                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="219">
                                     <rect key="frame" x="0.0" y="0.0" width="830" height="431"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="SJk-aj-XkO">
                                         <rect key="frame" x="1" y="1" width="828" height="429"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowHeight="65" rowSizeStyle="automatic" viewBased="YES" id="222">
+                                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="222">
                                                 <rect key="frame" x="0.0" y="0.0" width="828" height="429"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -132,13 +132,14 @@
                                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                         <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSGoRightTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jPK-bk-DTq">
                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                            <font key="font" metaFont="controlContent"/>
+                                                                            <font key="font" metaFont="cellTitle"/>
                                                                         </buttonCell>
                                                                     </button>
                                                                 </subviews>
                                                                 <connections>
                                                                     <outlet property="imageView" destination="229" id="242"/>
                                                                     <outlet property="openButton" destination="231" id="298"/>
+                                                                    <outlet property="playButton" destination="L87-Rg-DFb" id="sUS-cl-7FD"/>
                                                                     <outlet property="progessIndicator" destination="252" id="255"/>
                                                                     <outlet property="removeButton" destination="232" id="256"/>
                                                                     <outlet property="statusTextField" destination="253" id="257"/>

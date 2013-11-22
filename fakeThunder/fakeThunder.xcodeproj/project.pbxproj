@@ -169,7 +169,6 @@
 		CAA439CD18193B5F00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainView.xib; sourceTree = "<group>"; };
 		CAA439CF18193B6100CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainView.xib"; sourceTree = "<group>"; };
 		CAA439D118193B6C00CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TasksView.xib; sourceTree = "<group>"; };
-		CAA439D318193B6E00CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/TasksView.xib"; sourceTree = "<group>"; };
 		CAA439D518193B7400CE8EB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TorrentView.xib; sourceTree = "<group>"; };
 		CAA439D718193B7700CE8EB5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/TorrentView.xib"; sourceTree = "<group>"; };
 		CAAD78B4181154B1008168C2 /* TaskEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskEntity.h; sourceTree = "<group>"; };
@@ -597,7 +596,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				CAA439D118193B6C00CE8EB5 /* en */,
-				CAA439D318193B6E00CE8EB5 /* zh-Hans */,
 			);
 			name = TasksView.xib;
 			sourceTree = "<group>";

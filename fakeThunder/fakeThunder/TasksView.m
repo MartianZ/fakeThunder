@@ -217,37 +217,46 @@
         [cellView.progessIndicator startAnimation:nil];
         [cellView.progessIndicator setHidden:NO];
         return cellView;
-        
+            
     } else {
-    
-    
+            
+            
         TableCellView *cellView = [tableView makeViewWithIdentifier:@"MainCell" owner:self];
-    
+            
         cellView.textField.stringValue = entity.title;
         cellView.subTitleTextField.stringValue = entity.subtitle;
         cellView.statusTextField.stringValue = entity.status;
-        [cellView.progessIndicator setDoubleValue:entity.progress];
-
-    
+        cellView.progessIndicator.doubleValue = entity.progress;
+            
         if ([entity.taskType isEqualToString:@"0"]) {
             //BT
             [cellView.imageView setImage:[NSImage imageNamed:@"taskitem_bt"]];
+            [cellView.playButton setEnabled:NO];
+
         } else {
             [cellView.imageView setImage:[[NSWorkspace sharedWorkspace] iconForFileType: entity.taskExt]];
+            if ([[NSSet setWithObjects:@"wmv", @"rm", @"rmvb", @"mpg", @"mpeg", @"3gp", @"mov", @"avi", @"mkv", @"mp4", @"m4v", @"flv", nil] containsObject:entity.taskExt]) {
+                [cellView.playButton setEnabled:YES];
+            } else {
+                [cellView.playButton setEnabled:NO];
+            }
         }
-        
+            
         if (![entity.taskType isEqualToString:@"BTSubtask"]) {
             [cellView.removeButton setEnabled:YES];
         } else {
             [cellView.removeButton setEnabled:NO];
         }
-    
-    
-        // Size/hide things based on the row size
-        //[cellView layoutViewsForSmallSize:_useSmallRowHeight animated:NO];
-    
+        
         return cellView;
-    }
+
+            // Size/hide things based on the row size
+            //[cellView layoutViewsForSmallSize:_useSmallRowHeight animated:NO];
+        }
+        
+
+    
+    
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
@@ -326,8 +335,7 @@
 
 
 
-- (void)taskRowNeedUpdate:(NSString *)taskID
-{
+- (void)taskRowNeedUpdate:(NSString *)taskID {
     
     for (int row = 0; row < [_tableViewMain numberOfRows]; row++ ) {
         TaskEntity *entity = [self _entityForRow:row];
@@ -445,6 +453,78 @@
                 });
             });
         
+        }
+    }
+}
+
+- (IBAction)btnPlayRowClick:(id)sender {
+    NSInteger row = [_tableViewMain rowForView:sender];
+    if (row != -1) {
+        TaskEntity *entity = [self _entityForRow:row];
+        if (entity && entity.liXianURL) {
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
+                NSString *jsonData = [TondarAPI getCloudPlayData:entity.liXianURL];
+                NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[jsonData dataUsingEncoding:NSUTF8StringEncoding] options:    NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+
+                NSArray *jsonArray = [[jsonDict objectForKey:@"resp"] objectForKey:@"vodinfo_list"];
+                if ((jsonArray && [jsonArray count] >= 1)) {
+                    
+                    NSString *play_url = [[jsonArray objectAtIndex:[jsonArray count] -1] objectForKey:@"vod_url"]; //高清
+                    
+                    play_url = [play_url stringByReplacingOccurrencesOfString:@"&p=" withString:@"&"];
+                    NSString *play_url_2 = [play_url substringFromIndex:[play_url rangeOfString:@"&s"].location + 3];
+                    play_url_2 = [play_url_2 substringToIndex:[play_url_2 rangeOfString:@"&"].location];
+                    NSString *play_url_3 = [NSString stringWithFormat:@"%@&start=0&end=%@&p=1",play_url,play_url_2];
+                    NSLog(@"%@",play_url_3);
+                    
+                    NSString *user_id = [play_url_3 substringFromIndex:[play_url_3 rangeOfString:@"&ui="].location + 4];
+                    user_id = [user_id substringToIndex:[user_id rangeOfString:@"&"].location];
+                    NSLog(@"%@",user_id);
+                    
+                    NSString *cookie_path = [@"~/Desktop/.xunlei_cookie.txt" stringByExpandingTildeInPath];
+                    NSString *cookie_content = [NSString stringWithFormat:@".xunlei.com	TRUE	/	FALSE	16572792388	userid	%@", user_id];
+                    [cookie_content writeToFile:cookie_path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+                    
+                    dispatch_async( dispatch_get_main_queue(), ^{
+
+                        
+                        NSTask *task_kill = [[NSTask alloc] init];
+                        [task_kill setLaunchPath:@"/usr/bin/killall"];
+                        NSArray *args_kill = [NSArray arrayWithObjects:@"MPlayerX", nil];
+                        [task_kill setArguments:args_kill];
+                        [task_kill launch];
+                        [task_kill waitUntilExit];
+                        [task_kill release];
+                        
+                        
+                        NSTask *task = [[NSTask alloc] init];
+                        [task setLaunchPath:@"/usr/bin/open"];
+                        [task setArguments:[NSArray arrayWithObjects:@"-a",@"MPlayerX.app",@"--args",@"-ExtraOptions",[NSString stringWithFormat:@"\"-cookies -cookies-file %@\"", cookie_path],@"-url",play_url_3,nil]];
+                        [task launch];
+                        [task waitUntilExit];
+                        [task release];
+
+                    });
+                    
+                } else {
+                    dispatch_async( dispatch_get_main_queue(), ^{
+
+                    NSBeginAlertSheet(@"Cloud Play",
+                                      @"OK",
+                                      nil,
+                                      nil,
+                                      _mainWindow,
+                                      self,
+                                      @selector(sheetClosed:returnCode:contextInfo:),
+                                      NULL,
+                                      nil,
+                                      @"Unable to fetch cloud play url.",
+                                      nil);
+                    });
+                }
+
+            });
         }
     }
 }

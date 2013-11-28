@@ -134,6 +134,9 @@
                                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                             <font key="font" metaFont="cellTitle"/>
                                                                         </buttonCell>
+                                                                        <connections>
+                                                                            <action selector="btnPlayRowClick:" target="-2" id="fGX-cD-GHV"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <connections>

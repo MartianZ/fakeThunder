@@ -49,6 +49,7 @@
 		CAAD78E81811888F008168C2 /* taskitem_bt.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E61811888F008168C2 /* taskitem_bt.png */; };
 		CAAD78E91811888F008168C2 /* taskitem_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */; };
 		CAAD78EB181197E3008168C2 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = CAAD78EA181197E2008168C2 /* aria2c */; };
+		CABA670E1847078F004C3DE2 /* TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CABA670D1847078F004C3DE2 /* TextView.m */; };
 		CAD00E8618180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem in Resources */ = {isa = PBXBuildFile; fileRef = CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */; };
 		CAD00EA818182B37006850A3 /* SFBCrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD00E951818125B006850A3 /* SFBCrashReporter.framework */; };
 /* End PBXBuildFile section */
@@ -178,6 +179,8 @@
 		CAAD78E61811888F008168C2 /* taskitem_bt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taskitem_bt.png; sourceTree = "<group>"; };
 		CAAD78E71811888F008168C2 /* taskitem_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taskitem_bt@2x.png"; sourceTree = "<group>"; };
 		CAAD78EA181197E2008168C2 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = aria2c; path = fakeThunder/aria2c; sourceTree = "<group>"; };
+		CABA670C1847078F004C3DE2 /* TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextView.h; sourceTree = "<group>"; };
+		CABA670D1847078F004C3DE2 /* TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextView.m; sourceTree = "<group>"; };
 		CAD00E8518180323006850A3 /* dynamiclyrics2_dsa_pub_new.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dynamiclyrics2_dsa_pub_new.pem; sourceTree = "<group>"; };
 		CAD00E901818125B006850A3 /* SFBCrashReporter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SFBCrashReporter.xcodeproj; path = SFBCrashReporter/SFBCrashReporter.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -321,6 +324,8 @@
 				CA1892A71814EE1800EA4352 /* DropZoneView.m */,
 				CA1892AD1814F5AE00EA4352 /* TorrentView.h */,
 				CA1892AE1814F5AE00EA4352 /* TorrentView.m */,
+				CABA670C1847078F004C3DE2 /* TextView.h */,
+				CABA670D1847078F004C3DE2 /* TextView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				CAAD78B6181154B1008168C2 /* TaskEntity.m in Sources */,
 				CA1892AC1814F14F00EA4352 /* DropZoneView.m in Sources */,
 				CAAD78B918116B1E008168C2 /* TableCellView.m in Sources */,
+				CABA670E1847078F004C3DE2 /* TextView.m in Sources */,
 				CA6B5A841812BEC500B14CD2 /* DownloadOperation.m in Sources */,
 				CA1892B01814F5AE00EA4352 /* TorrentView.m in Sources */,
 				CA1892CD18163DAC00EA4352 /* DBPrefsWindowController.m in Sources */,

@@ -136,11 +136,11 @@
                                     <connections>
                                         <binding destination="132" name="title" keyPath="values.UserDefaultSavePathDisplay" id="Ju7-fF-mvk">
                                             <dictionary key="options">
-                                                <string key="NSNullPlaceholder">Downloads</string>
+                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <string key="NSNotApplicablePlaceholder">Downloads</string>
                                                 <string key="NSNoSelectionPlaceholder">Downloads</string>
-                                                <string key="NSMultipleValuesPlaceholder">Downloads</string>
                                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                <string key="NSNullPlaceholder">Downloads</string>
                                             </dictionary>
                                         </binding>
                                     </connections>
@@ -187,7 +187,7 @@
                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </box>
                 <textField verticalHuggingPriority="750" id="rZR-DS-kX0">
-                    <rect key="frame" x="297" y="138" width="43" height="22"/>
+                    <rect key="frame" x="297" y="134" width="43" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" baseWritingDirection="rightToLeft" placeholderString="0" drawsBackground="YES" id="64U-kF-Foe">
                         <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#,##0.###" negativeFormat="#,##0.###" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" minimumFractionDigits="0" maximumFractionDigits="3" id="x7p-ym-LrM">
@@ -210,7 +210,7 @@
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="DJY-Ek-9hu">
-                    <rect key="frame" x="346" y="142" width="75" height="17"/>
+                    <rect key="frame" x="346" y="137" width="75" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="KiB的文件" id="avv-YO-BUo">
                         <font key="font" metaFont="system"/>
@@ -219,19 +219,19 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="UOM-T2-XU4">
-                    <rect key="frame" x="185" y="142" width="122" height="17"/>
+                    <rect key="frame" x="185" y="137" width="122" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="过滤文件尺寸小于" id="clF-uG-kGY">
-                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField verticalHuggingPriority="750" id="oWw-BZ-CEk">
-                    <rect key="frame" x="123" y="142" width="52" height="17"/>
+                    <rect key="frame" x="123" y="137" width="52" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="任务：" id="CeX-Jz-Uac">
-                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                        <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -281,11 +281,11 @@
                         <binding destination="132" name="value" keyPath="values.UserDefaultMaxTasks" id="xDA-tS-SrU">
                             <dictionary key="options">
                                 <bool key="NSValidatesImmediately" value="YES"/>
-                                <string key="NSNullPlaceholder">3</string>
+                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <string key="NSNotApplicablePlaceholder">3</string>
                                 <string key="NSNoSelectionPlaceholder">3</string>
-                                <string key="NSMultipleValuesPlaceholder">3</string>
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                <string key="NSNullPlaceholder">3</string>
                             </dictionary>
                         </binding>
                     </connections>

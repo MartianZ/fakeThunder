@@ -376,19 +376,20 @@
         
         savePath = [savePath stringByExpandingTildeInPath];
 
-        if (entity && entity.taskType && [entity.taskType isEqualToString:@"BTSubtask"]) {
-            savePath = [NSString stringWithFormat:@"%@/%@/%@",savePath, entity.taskFatherTitle, entity.title];
-        } else {
-            savePath = [NSString stringWithFormat:@"%@/%@",savePath, entity.title];
-
+        if (entity && ![entity isKindOfClass:[TaskLoaderEntity class]]) {
+            if (entity.taskType && [entity.taskType isEqualToString:@"BTSubtask"]) {
+                savePath = [NSString stringWithFormat:@"%@/%@/%@",savePath, entity.taskFatherTitle, entity.title];
+            } else {
+                savePath = [NSString stringWithFormat:@"%@/%@",savePath, entity.title];
+            }
+            
+            if ([[NSFileManager defaultManager] fileExistsAtPath:savePath]) {
+                [[NSWorkspace sharedWorkspace] selectFile:savePath inFileViewerRootedAtPath:@""];
+                
+            }
         }
         
-        if ([[NSFileManager defaultManager] fileExistsAtPath:savePath]) {
-            [[NSWorkspace sharedWorkspace] selectFile:savePath inFileViewerRootedAtPath:@""];
-
         }
-        [entity release];
-    }
 }
 
 
@@ -535,6 +536,10 @@
     if (row != -1) {
         TaskEntity *entity = [self _entityForRow:row];
         
+        if (!entity) {
+            return;
+        }
+        
         if (![entity isKindOfClass:[TaskLoaderEntity class]] && [entity.taskType isEqualToString:@"0"]) {
             NSLog(@"%@", entity.taskID); //BT Task
             
@@ -600,7 +605,6 @@
                     [[NSWorkspace sharedWorkspace] selectFile:savePath inFileViewerRootedAtPath:@""];
                 }
                 
-                [entity release];
             }
         }
     }

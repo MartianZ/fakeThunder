@@ -47,6 +47,10 @@
     return self;
 }
 
+- (BOOL)shouldSkipAddTask:(XunleiItemInfo*)task
+{
+    return ([task.size integerValue] < [[NSUserDefaults standardUserDefaults] integerForKey:UD_HIDE_FILES_SMALLER_THAN] * 1024);
+}
 
 
 - (void)startLoadFirstTaskPagsWithTondarAPI:(HYXunleiLixianAPI*)api {
@@ -60,7 +64,9 @@
     [_tableViewMain beginUpdates];
     for (XunleiItemInfo *task in temp) {
         TaskEntity *entity = [TaskEntity entityForID:task.taskid];
-        
+        if ([self shouldSkipAddTask:task]) {
+            continue;
+        }
             
         [_tableContents addObject:entity];
         entity.title = task.name;
@@ -111,6 +117,10 @@
     NSArray *temp = [TondarAPI readAllTasks1];
     for (XunleiItemInfo *task in temp) {
         
+        if ([self shouldSkipAddTask:task]) {
+            continue;
+        }
+        
         BOOL hasSameTask = NO;
         for (TaskEntity *oldEntity in _tableContents) {
             if (oldEntity.taskID && task.taskid && [oldEntity.taskID isEqualToString:task.taskid]) {
@@ -157,6 +167,11 @@
         });
         
         for (XunleiItemInfo *task in temp) {
+            
+            if ([self shouldSkipAddTask:task]) {
+                continue;
+            }
+            
             TaskEntity *entity = [TaskEntity entityForID:task.taskid];
             
             [_tableContents addObject:entity];
@@ -559,6 +574,11 @@
                 
                 NSArray *taskList = [TondarAPI readAllBTTaskListWithTaskID:entity.taskID hashID:entity.taskDcid];
                 for(XunleiItemInfo *task in taskList){
+                    
+                    if ([self shouldSkipAddTask:task]) {
+                        continue;
+                    }
+                    
                     TaskEntity *newEntity = [TaskEntity entityForID:task.taskid];
                     
                     newEntity.title = task.name;

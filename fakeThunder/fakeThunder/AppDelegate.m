@@ -31,6 +31,7 @@
         NSDictionary *defaultValues = @{UD_PROMPT_BEFORE_QUITTING: @(NO),
                                         UD_PROMPT_BEFORE_REMOVING_ACTIVE_TASK: @(YES),
                                         UD_CHECK_CRASH_REPORT: @(YES),
+                                        UD_HIDE_FILES_SMALLER_THAN: @(0),
                                         };
         [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
         [[NSUserDefaultsController sharedUserDefaultsController] setInitialValues:defaultValues];

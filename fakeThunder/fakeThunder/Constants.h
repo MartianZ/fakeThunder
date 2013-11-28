@@ -40,4 +40,7 @@
 #define UD_PROMPT_BEFORE_QUITTING @"UserDefaultPromptUserBeforeQutting"
 #define UD_CHECK_CRASH_REPORT @"UserDefaultCheckCrashReport"
 
+#define UD_HIDE_FILES_SMALLER_THAN @"UserDefaultHideFilesSmallerThan"
+
+
 #endif

@@ -35,6 +35,7 @@
     [_urlRequest addValue:@"text/xml" forHTTPHeaderField: @"Content-Type"];
     [_urlRequest setURL:[NSURL URLWithString:urlString]];
     [_urlRequest setHTTPMethod:@"GET"];
+    [_urlRequest setCachePolicy:NSURLRequestReloadIgnoringCacheData];
     
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSMutableString *cookie_str = [[NSMutableString alloc] init];
@@ -104,7 +105,8 @@
     NSString *boundary = [[[[[NSProcessInfo processInfo] globallyUniqueString] componentsSeparatedByString:@"-"] componentsJoinedByString:@""] lowercaseString];
     NSString *boundaryString = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     [_urlRequest addValue:boundaryString forHTTPHeaderField:@"Content-Type"];
-    
+    [_urlRequest setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+
     // define boundary separator...
     NSString *boundarySeparator = [NSString stringWithFormat:@"--%@\r\n", boundary];
     //adding the body...
@@ -180,7 +182,8 @@
     NSString *boundary = [[NSProcessInfo processInfo] globallyUniqueString];
     NSString *boundaryString = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     [_urlRequest addValue:boundaryString forHTTPHeaderField:@"Content-Type"];
-    
+    [_urlRequest setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+
     // define boundary separator...
     NSString *boundarySeparator = [NSString stringWithFormat:@"--%@\r\n", boundary];
     //adding the body...
@@ -230,6 +233,8 @@
     [_urlRequest setURL:[NSURL URLWithString:urlString]];
     [_urlRequest setHTTPMethod:@"POST"];
     [_urlRequest addValue:@"application/x-www-form-urlencoded;charset=utf-8" forHTTPHeaderField: @"Content-Type"];
+    [_urlRequest setCachePolicy:NSURLRequestReloadIgnoringCacheData];
+
     NSMutableString *postValueStr=[NSMutableString new];
     for(NSDictionary *kv in [self postData]){
         [postValueStr setString:[postValueStr stringByAppendingFormat:@"%@=%@&",[kv objectForKey:@"key"],[kv objectForKey:@"value"] ]];

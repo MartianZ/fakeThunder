@@ -5,11 +5,11 @@ aria2c[改]
 
 fakeThunder 1.0版本采用aria2c 1.51.1版本，fakeThunder 2.0采用aria2c 1.18版本
 
-###目前修改的内容：
+### 目前修改的内容：
 
 1. 文件下载过程中，每次输出后添加flush，解决管道因为缓存读取不到内容的问题
 
-###编译Configure参数：
+### 编译Configure参数：
 
 ./configure --disable-bittorrent --disable-nls --without-sqlite3
 

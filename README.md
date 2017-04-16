@@ -1,9 +1,9 @@
 fakeThunder
 ===========
 
-####fakeThunder is an unofficial Thunder(aka Xunlei) client for OS X.
+#### fakeThunder is an unofficial Thunder(aka Xunlei) client for OS X.
 
-###Features
+### Features
 
 1. Task synchronized with the server <http://lixian.xunlei.com>.
 2. Higher downloading speed than official Thunder client.
@@ -13,13 +13,13 @@ fakeThunder
 ![fakeThunder](http://martianz.cn/fakethunder/1.png)
 ![fakeThunder](http://martianz.cn/fakethunder/2.png)
 
-###Feedback
+### Feedback
 
 If you have any question, please mention me on [Google+](https://plus.google.com/+MartianZ/).
 
 Technical issues are also welcomed to be submitted on [GitHub](https://github.com/MartianZ/fakeThunder/issues/new).
 
 
-###License
+### License
 
 Code in the fakeThunder project is licensed under the [GNU General Public License](http://www.gnu.org/licenses/gpl.html).
